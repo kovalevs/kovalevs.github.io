@@ -677,9 +677,12 @@ h6:hover:before, h6:focus:before, h6:active:before {
   right: 0;
 }
 #triple_line{
-  margin-left: 49%;
   margin-bottom: 10px;
   width: 40px;
+}
+.flex_line{
+  display:flex;
+  justify-content:center;
 }
 .grid_selectons{
   display: grid;
