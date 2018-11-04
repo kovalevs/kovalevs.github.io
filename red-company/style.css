@@ -765,6 +765,7 @@ h3:hover{
   padding-bottom: 12%;
   display: grid;
   grid-template-columns: 200px 200px 200px 200px;
+  grid-row-gap: 15px;
 }
 .grid_4{
   display: grid;
