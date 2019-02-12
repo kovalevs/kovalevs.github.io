@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll@14.0.0/dist/smooth-scroll.polyfills.min.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1 user-scalable=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>АСС-Лицензирование</title>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+  </head>
+  <body>
+    <script>
+    	var scroll = new SmoothScroll('a[href*="#"]');
+    </script>
+    <div class="start-section">
+      <div class="top-navigation">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <nav class="navbar navbar-light bg-light">
+            <img class="main-logo" src="images/main_logo.png" width="32" height="32"/>
+            <a class="navbar-brand" href="#">
+              АСС-Лицензирование
+            </a>
+          </nav>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item">
+                <a data-scroll class="nav-link" href="#first-card">СРО по Строительству <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a data-scroll class="nav-link" href="#middle-card">СРО по Проектированию </a>
+              </li>
+              <li class="nav-item">
+                <a data-scroll class="nav-link" href="#last-card">СРО по Изысканию</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Почему Мы?</a>
+              </li>
+            </ul>
+            <p class="phone-text">+7(812)389-35-37</p>
+          </div>
+        </nav>
+      <button type="button" class="count-button">Обратный звонок</button>
+      </div>
+      <div class="large-sign">
+        <p>Получите допуск СРО за 1 день без специалистов в НРС с гарантией по договору.</p>
+        <button type="button" class="join-button">Вступить!</button>
+        <button type="button" class="price-button" id="unhidden">Рассчитать стоимость</button>
+        <button type="button" class="price-button" id="hidden">Рассчитать</button>
+      </div>
+    </div>
+    <div class="partners-section">
+      <div class="large-black-sign">
+        <p>Мы работаем только с надежными, проверенными СРО:</p>
+        <h6>Тщательно проверили СРО по критериям РосТехНадзор, НОСТРОЙ и НОПРИЗ. Отобрали 35 надежных СРО строителей по России.</h6>
+        <hr/>
+      </div>
+      <div class="partners-grid">
+        <img src="images/logo.png" width="215" height="130">
+        <img src="images/logo1.png" width="215" height="130">
+        <img src="images/logo2.png" width="215" height="130">
+        <img src="images/logo3.png" width="215" height="130">
+        <img src="images/logo4.png" width="215" height="130">
+        <img src="images/logo5.png" width="215" height="130">
+      </div>
+    </div>
+    <div class="join-section">
+      <div class="large-center-sign">
+        <p>Вступить в СРО:</p>
+        <hr class="underline-hr"/>
+      </div>
+      <div class="join-grid">
+        <div class="price-card" id="first-card">
+          <div class="card-top-info">
+            <p>СРО по Строительству</p>
+            <hr/>
+            <div class="price-card-header-text">
+              <h6>115 000 рублей из них:</h6>
+            </div>
+            <div class="price-card-text">
+              <h6>100 000 -	взнос в компенсационный фонд</h6>
+              <h6>5 000 -	страховой взнос</h6>
+              <h6>5 000 -	членский взнос</h6>
+              <h6>5 000 -	вступительный взнос</h6>
+              <h6>0 -	подготовка вступительных документов</h6>
+            </div>
+          </div>
+          <div class="card-bottom-info">
+            <h6>Допуск СРО по строительству в Москве.</h6>
+            <h6>Дает право заключать контракты на сумму до 60 000 000 рублей.</h6>
+            <button type="button" class="more-info-button">Подробнее</button>
+          </div>
+        </div>
+        <div class="price-card" id="middle-card">
+          <div class="card-top-info">
+            <p>СРО по Проектированию</p>
+            <hr/>
+            <div class="price-card-header-text">
+              <h6>64 100 рублей из них:</h6>
+            </div>
+            <div class="price-card-text">
+              <h6>50 000 - взнос в компенсационный фонд</h6>
+              <h6>5 000 -	страховой взнос</h6>
+              <h6>4 000 -	членский взнос</h6>
+              <h6>5 000 -	вступительный взнос</h6>
+              <h6>0 -	подготовка вступительных документов</h6>
+            </div>
+          </div>
+          <div class="card-bottom-info">
+            <h6>Допуск СРО по строительству в Москве.</h6>
+            <h6>Дает право заключать контракты на сумму до 25 000 000 рублей.</h6>
+            <button type="button" class="more-info-button">Подробнее</button>
+          </div>
+        </div>
+        <div class="price-card" id="last-card">
+          <div class="card-top-info">
+            <p>СРО по Изысканию</p>
+            <hr/>
+            <div class="price-card-header-text">
+              <h6>60 000 рублей из них:</h6>
+            </div>
+            <div class="price-card-text">
+              <h6>50 000 - взнос в компенсационный фонд</h6>
+              <h6>5 000 -	страховой взнос</h6>
+              <h6>5 000 -	членский взнос</h6>
+              <h6>0 -	вступительный взнос</h6>
+              <h6>0 -	подготовка вступительных документов</h6>
+            </div>
+          </div>
+          <div class="card-bottom-info">
+            <h6>Допуск СРО по строительству в Москве.</h6>
+            <h6>Дает право заключать контракты на сумму до 25 000 000 рублей.</h6>
+            <button type="button" class="more-info-button">Подробнее</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="calculator-section">
+      <div class="large-center-white-sign">
+        <p>Рассчитать стоимость:</p>
+        <hr class="underline-hr-white"/>
+      </div>
+      <div class="questions-grid">
+        <div class="question">
+          <div class="question-title">
+            <h3>1. Выбирите тип СРО:</h3>
+          </div>
+        </div>
+        <div class="answer">
+          <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <label class="btn btn-secondary active" id="first-choose">
+              <input type="radio" name="sro_type" autocomplete="off" checked>Строительство
+            </label>
+            <label class="btn btn-secondary" id="second-choose">
+              <input type="radio" name="sro_type" autocomplete="off">Проектирование
+            </label>
+            <label class="btn btn-secondary" id="third-choose">
+              <input type="radio" name="sro_type" autocomplete="off">Изыскание
+            </label>
+          </div>
+        </div>
+        <div class="question">
+          <div class="question-title">
+            <h3>2. Нужен ли генподряд?</h3>
+          </div>
+        </div>
+        <div class="answer">
+          <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <label class="btn btn-secondary active" id="first-choose">
+              <input type="radio" name="genpodryad" autocomplete="off" checked>Да
+            </label>
+            <label class="btn btn-secondary" id="second-choose">
+              <input type="radio" name="genpodryad" autocomplete="off">Нет
+            </label>
+          </div>
+        </div>
+        <div class="question">
+          <div class="question-title">
+            <h3>3. Есть ли специалисты в НРС?</h3>
+          </div>
+        </div>
+        <div class="answer">
+          <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <label class="btn btn-secondary active" id="first-choose">
+              <input type="radio" name="specials" autocomplete="off" checked>Да
+            </label>
+            <label class="btn btn-secondary" id="second-choose">
+              <input type="radio" name="specials" autocomplete="off">Нет
+            </label>
+          </div>
+        </div>
+        <div class="question">
+          <div class="question-title">
+            <h3>4. Нужна ли страховка?</h3>
+          </div>
+        </div>
+        <div class="answer">
+          <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <label class="btn btn-secondary active" id="first-choose">
+              <input type="radio" name="strahovka" autocomplete="off" checked>Да
+            </label>
+            <label class="btn btn-secondary" id="second-choose">
+              <input type="radio" name="strahovka" autocomplete="off">Нет
+            </label>
+          </div>
+        </div>
+        <div class="question">
+          <div class="question-title">
+            <h3>5. Какая сумма контракта?</h3>
+          </div>
+        </div>
+        <div class="answer">
+          <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <label class="btn btn-secondary active" id="first-choose">
+              <input type="radio" name="contract_sum" autocomplete="off" checked>до 60 млн
+            </label>
+            <label class="btn btn-secondary" id="second-choose">
+              <input type="radio" name="contract_sum" autocomplete="off">до 500 млн
+            </label>
+            <label class="btn btn-secondary" id="third-choose">
+              <input type="radio" name="contract_sum" autocomplete="off">до 3 млрд
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>
