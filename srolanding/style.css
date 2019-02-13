@@ -21,6 +21,29 @@ input:active:focus {
 .call-top-grid{
   display: grid;
 }
+#navbarSupportedContent > ul > li > a{
+  text-decoration: none;
+  position: relative;
+}
+#navbarSupportedContent > ul > li > a:after {
+  background: none repeat scroll 0 0 transparent;
+  bottom: 0;
+  content: "";
+  display: block;
+  height: 2px;
+  left: 50%;
+  position: absolute;
+  background: #fff;
+  -webkit-transition: 0.2s ease-out;
+  -o-transition: 0.2s ease-out;
+  -moz-transition: 0.2s ease-out;
+  transition: 0.2s ease-out;
+  width: 0;
+}
+#navbarSupportedContent > ul > li > a:hover:after {
+  width: 100%;
+  left: 0;
+}
 .main-logo{
   margin-right: 10px;
 }
@@ -261,7 +284,7 @@ button:focus,button:active {
   display: grid;
   justify-content: center;
   grid-template-columns: 500px 500px;
-  padding-bottom: 5%;
+  padding-bottom: 2%;
 }
 .question-title{
   color: rgb(148, 148, 161);
@@ -328,6 +351,7 @@ button:focus,button:active {
 }
 .price-card p{
   color: rgb(88, 88, 88);
+  /* color: white; */
   font-weight: 600;
   font-size: 23px;
   text-align: center;
@@ -349,6 +373,9 @@ button:focus,button:active {
   margin-top: 20px;
 }
 .card-top-info{
+  /* color: white; */
+  /* background: rgb(39, 41, 66); */
+  color: black;
   background: white;
   border-top-left-radius: 16px;
   border-top-right-radius: 16px;
@@ -373,12 +400,104 @@ a{
   padding-left: 30px;
   padding-right: 30px;
 }
-
+.form-control{
+  color: white;
+  box-shadow: none !important;
+  border: 2.5px solid rgb(109, 117, 125);
+  border-radius: 10px;
+  background-color: rgb(109, 117, 125);
+}
+.form-control:focus{
+  color: white;
+  background-color: rgb(109, 117, 125);
+  border: 2.5px solid rgb(2, 127, 212);
+}
+.form-control::-webkit-input-placeholder {
+   color: rgb(168, 172, 176);
+ }
 .navbar-light .navbar-toggler {
   border: none;
 }
+#submit-calculator{
+  color: white;
+  background-color: rgb(47, 48, 72);
+  background-repeat: no-repeat;
+  border: 2.5px solid rgb(2, 127, 212);
+  border-radius: 30px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-right: 20px;
+  padding-left: 20px;
+  cursor:pointer;
+  overflow: hidden;
+  outline: none;
+  font-size: 15px;
+  margin-bottom: 20%;
+  margin-top: 20px;
+
+  -webkit-transition: 0.4s ease-out;
+  -o-transition: 0.4s ease-out;
+  -moz-transition: 0.4s ease-out;
+  transition: 0.4s ease-out;
+}
+#submit-calculator:hover{
+  border: 2.5px solid rgb(47, 48, 72);
+  color: rgb(2, 127, 212);;
+  background-color: white;
+  transform: scale(1.05);
+  -webkit-box-shadow: 0px 0px 52px -7px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 52px -7px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 52px -7px rgba(0,0,0,0.75);
+}
+.submit-section{
+  display: grid;
+  grid-template-columns: 1000px;
+  justify-content: center;
+}
 
 
+@media (min-width: 1900px) and (max-width: 5000px) {
+  .start-section{
+    padding-left: 13%;
+    padding-right: 13%;
+  }
+  .partners-section{
+    padding-left: 13%;
+    padding-right: 13%;
+  }
+}
+@media (min-width: 520px) and (max-width: 1020px) {
+  .questions-grid{
+    grid-template-columns: none;
+  }
+  .submit-section{
+    grid-template-columns: 500px;
+  }
+}
+@media (min-width: 200px) and (max-width: 519px) {
+  .questions-grid{
+    grid-template-columns: none;
+  }
+  .submit-section{
+    grid-template-columns: 265px;
+  }
+  .question-title > h3{
+    font-size: 17px;
+  }
+  .answer{
+    padding: 5px;
+    display: grid;
+  }
+  .btn-group{
+    display: inline-grid;
+  }
+  #first-choose{
+    margin-right: 0;
+  }
+  #second-choose{
+    margin-right: 0;
+  }
+}
 @media (min-width: 800px) and (max-width: 1199px) {
   #last-card{
     margin-left: 100%;
@@ -391,7 +510,7 @@ a{
 }
 @media (min-width: 368px) and (max-width: 447px) {
   .start-section{
-    height: 690px !important;
+    height: 715px !important;
   }
 }
 @media (min-width: 150px) and (max-width: 351px) {

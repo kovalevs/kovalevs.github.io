@@ -9,6 +9,60 @@
     <link rel="stylesheet" type="text/css" href="style.css"/>
   </head>
   <body>
+    <!-- <?php
+      if (isset($_POST['submit_button'])){
+        $type_sro = '';
+        $gen_podryad = '';
+        $specials = '';
+        $strahovka = '';
+        $contract_sum = '';
+        $name = $_POST['name_input'];
+        $phone = $_POST['phone_input'];
+
+        if (isset($_POST['sro_type2'])) {
+          $type_sro = 'Тип СРО: Проектирование';
+        }
+        else if (isset($_POST['sro_type3'])) {
+          $type_sro = 'Тип СРО: Изыскание';
+        }
+        else {
+          $type_sro = 'Тип СРО: Строительство';
+        }
+
+        if (isset($_POST['genpodryad2'])){
+          $gen_podryad = 'Нужен ли генподряд?: Генподряд не нужен';
+        }
+        else {
+          $gen_podryad = 'Нужен ли генподряд?: Генподряд нужен';
+        }
+
+        if (isset($_POST['specials2'])){
+          $specials = 'Есть ли специалисты в НРС?: Специлистов в НРС нет';
+        }
+        else {
+          $specials = 'Есть ли специалисты в НРС?: Специлисты в НРС есть';
+        }
+
+        if (isset($_POST['strahovka2'])){
+          $strahovka = 'Нужна ли страховка?: Страховка не нужна';
+        }
+        else {
+          $strahovka = 'Нужна ли страховка?: Страховка нужна';
+        }
+
+        if (isset($_POST['contract_sum2'])) {
+          $contract_sum = 'Какая сумма контракта?: До 500 млн.';
+        }
+        else if (isset($_POST['contract_sum3'])) {
+          $contract_sum = 'Какая сумма контракта?: До 3 млрд.';
+        }
+        else {
+          $contract_sum = 'Какая сумма контракта?: До 60 млн.';
+        }
+
+        mail('qqqqssss0w@gmail.com','Расчет стоимости СРО:', 'Был произведен расчет стоимости СРО. '."\n".'Имя: '.$name."\n".'Телефон: '.$phone."\n".$type_sro."\n".$gen_podryad."\n".$specials."\n".$strahovka."\n".$contract_sum);
+      }
+    ?> -->
     <script>
     	var scroll = new SmoothScroll('a[href*="#"]');
     </script>
@@ -47,8 +101,8 @@
       <div class="large-sign">
         <p>Получите допуск СРО за 1 день без специалистов в НРС с гарантией по договору.</p>
         <button type="button" class="join-button">Вступить!</button>
-        <button type="button" class="price-button" id="unhidden">Рассчитать стоимость</button>
-        <button type="button" class="price-button" id="hidden">Рассчитать</button>
+        <a data-scroll href="#calculator"><button type="button" class="price-button" id="unhidden">Рассчитать стоимость</button></a>
+        <a data-scroll href="#calculator"><button type="button" class="price-button" id="hidden">Рассчитать</button></a>
       </div>
     </div>
     <div class="partners-section">
@@ -138,93 +192,114 @@
       </div>
     </div>
     <div class="calculator-section">
-      <div class="large-center-white-sign">
-        <p>Рассчитать стоимость:</p>
-        <hr class="underline-hr-white"/>
-      </div>
-      <div class="questions-grid">
-        <div class="question">
-          <div class="question-title">
-            <h3>1. Выбирите тип СРО:</h3>
+      <form method="post">
+        <div class="large-center-white-sign" id="calculator">
+          <p>Рассчитать стоимость:</p>
+          <hr class="underline-hr-white"/>
+        </div>
+        <div class="questions-grid">
+          <div class="question">
+            <div class="question-title">
+              <h3>1. Выбирите тип СРО:</h3>
+            </div>
+          </div>
+          <div class="answer">
+            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+              <label class="btn btn-secondary active" id="first-choose">
+                <input type="radio" name="sro_type1" autocomplete="off" checked>Строительство
+              </label>
+              <label class="btn btn-secondary" id="second-choose">
+                <input type="radio" name="sro_type2" autocomplete="off">Проектирование
+              </label>
+              <label class="btn btn-secondary" id="third-choose">
+                <input type="radio" name="sro_type3" autocomplete="off">Изыскание
+              </label>
+            </div>
+          </div>
+          <div class="question">
+            <div class="question-title">
+              <h3>2. Нужен ли генподряд?</h3>
+            </div>
+          </div>
+          <div class="answer">
+            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+              <label class="btn btn-secondary active" id="first-choose">
+                <input type="radio" name="genpodryad1" autocomplete="off" checked>Да
+              </label>
+              <label class="btn btn-secondary" id="second-choose">
+                <input type="radio" name="genpodryad2" autocomplete="off">Нет
+              </label>
+            </div>
+          </div>
+          <div class="question">
+            <div class="question-title">
+              <h3>3. Есть ли специалисты в НРС?</h3>
+            </div>
+          </div>
+          <div class="answer">
+            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+              <label class="btn btn-secondary active" id="first-choose">
+                <input type="radio" name="specials1" autocomplete="off" checked>Да
+              </label>
+              <label class="btn btn-secondary" id="second-choose">
+                <input type="radio" name="specials2" autocomplete="off">Нет
+              </label>
+            </div>
+          </div>
+          <div class="question">
+            <div class="question-title">
+              <h3>4. Нужна ли страховка?</h3>
+            </div>
+          </div>
+          <div class="answer">
+            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+              <label class="btn btn-secondary active" id="first-choose">
+                <input type="radio" name="strahovka1" autocomplete="off" checked>Да
+              </label>
+              <label class="btn btn-secondary" id="second-choose">
+                <input type="radio" name="strahovka2" autocomplete="off">Нет
+              </label>
+            </div>
+          </div>
+          <div class="question">
+            <div class="question-title">
+              <h3>5. Какая сумма контракта?</h3>
+            </div>
+          </div>
+          <div class="answer">
+            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+              <label class="btn btn-secondary active" id="first-choose">
+                <input type="radio" name="contract_sum1" autocomplete="off" checked>до 60 млн
+              </label>
+              <label class="btn btn-secondary" id="second-choose">
+                <input type="radio" name="contract_sum2" autocomplete="off">до 500 млн
+              </label>
+              <label class="btn btn-secondary" id="third-choose">
+                <input type="radio" name="contract_sum3" autocomplete="off">до 3 млрд
+              </label>
+            </div>
+          </div>
+          <div class="question">
+            <div class="question-title">
+              <h3>6. Ваше имя:</h3>
+            </div>
+          </div>
+          <div class="answer">
+            <input class="form-control" placeholder="Имя" name="name_input">
+          </div>
+          <div class="question">
+            <div class="question-title">
+              <h3>7. Номер телефона:</h3>
+            </div>
+          </div>
+          <div class="answer">
+            <input class="form-control" placeholder="Телефон" name="phone_input">
           </div>
         </div>
-        <div class="answer">
-          <div class="btn-group btn-group-toggle" data-toggle="buttons">
-            <label class="btn btn-secondary active" id="first-choose">
-              <input type="radio" name="sro_type" autocomplete="off" checked>Строительство
-            </label>
-            <label class="btn btn-secondary" id="second-choose">
-              <input type="radio" name="sro_type" autocomplete="off">Проектирование
-            </label>
-            <label class="btn btn-secondary" id="third-choose">
-              <input type="radio" name="sro_type" autocomplete="off">Изыскание
-            </label>
-          </div>
+        <div class="submit-section">
+          <input type="submit" value="Рассчитать" id="submit-calculator" name="submit_button">
         </div>
-        <div class="question">
-          <div class="question-title">
-            <h3>2. Нужен ли генподряд?</h3>
-          </div>
-        </div>
-        <div class="answer">
-          <div class="btn-group btn-group-toggle" data-toggle="buttons">
-            <label class="btn btn-secondary active" id="first-choose">
-              <input type="radio" name="genpodryad" autocomplete="off" checked>Да
-            </label>
-            <label class="btn btn-secondary" id="second-choose">
-              <input type="radio" name="genpodryad" autocomplete="off">Нет
-            </label>
-          </div>
-        </div>
-        <div class="question">
-          <div class="question-title">
-            <h3>3. Есть ли специалисты в НРС?</h3>
-          </div>
-        </div>
-        <div class="answer">
-          <div class="btn-group btn-group-toggle" data-toggle="buttons">
-            <label class="btn btn-secondary active" id="first-choose">
-              <input type="radio" name="specials" autocomplete="off" checked>Да
-            </label>
-            <label class="btn btn-secondary" id="second-choose">
-              <input type="radio" name="specials" autocomplete="off">Нет
-            </label>
-          </div>
-        </div>
-        <div class="question">
-          <div class="question-title">
-            <h3>4. Нужна ли страховка?</h3>
-          </div>
-        </div>
-        <div class="answer">
-          <div class="btn-group btn-group-toggle" data-toggle="buttons">
-            <label class="btn btn-secondary active" id="first-choose">
-              <input type="radio" name="strahovka" autocomplete="off" checked>Да
-            </label>
-            <label class="btn btn-secondary" id="second-choose">
-              <input type="radio" name="strahovka" autocomplete="off">Нет
-            </label>
-          </div>
-        </div>
-        <div class="question">
-          <div class="question-title">
-            <h3>5. Какая сумма контракта?</h3>
-          </div>
-        </div>
-        <div class="answer">
-          <div class="btn-group btn-group-toggle" data-toggle="buttons">
-            <label class="btn btn-secondary active" id="first-choose">
-              <input type="radio" name="contract_sum" autocomplete="off" checked>до 60 млн
-            </label>
-            <label class="btn btn-secondary" id="second-choose">
-              <input type="radio" name="contract_sum" autocomplete="off">до 500 млн
-            </label>
-            <label class="btn btn-secondary" id="third-choose">
-              <input type="radio" name="contract_sum" autocomplete="off">до 3 млрд
-            </label>
-          </div>
-        </div>
-      </div>
+      </form>
     </div>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
