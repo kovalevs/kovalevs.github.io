@@ -9,6 +9,60 @@
     <link rel="stylesheet" type="text/css" href="style.css"/>
   </head>
   <body>
+    <!-- <?php
+      if (isset($_POST['submit_button'])){
+        $type_sro = '';
+        $gen_podryad = '';
+        $specials = '';
+        $strahovka = '';
+        $contract_sum = '';
+        $name = $_POST['name_input'];
+        $phone = $_POST['phone_input'];
+
+        if (isset($_POST['sro_type2'])) {
+          $type_sro = 'Тип СРО: Проектирование';
+        }
+        else if (isset($_POST['sro_type3'])) {
+          $type_sro = 'Тип СРО: Изыскание';
+        }
+        else {
+          $type_sro = 'Тип СРО: Строительство';
+        }
+
+        if (isset($_POST['genpodryad2'])){
+          $gen_podryad = 'Нужен ли генподряд?: Генподряд не нужен';
+        }
+        else {
+          $gen_podryad = 'Нужен ли генподряд?: Генподряд нужен';
+        }
+
+        if (isset($_POST['specials2'])){
+          $specials = 'Есть ли специалисты в НРС?: Специлистов в НРС нет';
+        }
+        else {
+          $specials = 'Есть ли специалисты в НРС?: Специлисты в НРС есть';
+        }
+
+        if (isset($_POST['strahovka2'])){
+          $strahovka = 'Нужна ли страховка?: Страховка не нужна';
+        }
+        else {
+          $strahovka = 'Нужна ли страховка?: Страховка нужна';
+        }
+
+        if (isset($_POST['contract_sum2'])) {
+          $contract_sum = 'Какая сумма контракта?: До 500 млн.';
+        }
+        else if (isset($_POST['contract_sum3'])) {
+          $contract_sum = 'Какая сумма контракта?: До 3 млрд.';
+        }
+        else {
+          $contract_sum = 'Какая сумма контракта?: До 60 млн.';
+        }
+
+        mail('qqqqssss0w@gmail.com','Расчет стоимости СРО:', 'Был произведен расчет стоимости СРО. '."\n".'Имя: '.$name."\n".'Телефон: '.$phone."\n".$type_sro."\n".$gen_podryad."\n".$specials."\n".$strahovka."\n".$contract_sum);
+      }
+    ?> -->
     <script>
     	var scroll = new SmoothScroll('a[href*="#"]');
     </script>
@@ -246,6 +300,124 @@
           <input type="submit" value="Рассчитать" id="submit-calculator" name="submit_button">
         </div>
       </form>
+    </div>
+    <div class="compare-section">
+      <div class="large-center-compare-sign">
+        <p id="compare-first-string">Стоит ли оформлять СРО самостоятельно или это пустая трата времени?</p>
+        <p>Вы можете оформить СРО:</p>
+        <hr class="underline-hr-compare"/>
+      </div>
+      <div class="compare-grid-title">
+        <h4>Самостоятельно</h4>
+        <h4>C помощью АСС-Лицензирование</h4>
+      </div>
+      <hr id="compare-bottom-hr"/>
+    <div class="compare-grid">
+      <div class="self-selector">
+        <div class="self-block">
+          <div class="self-block-grid" id="first-compare">
+              <img src="images/cross.png" class="compare-ico" width="25" height="25"/>
+              <div class="self-block-text-section">
+                <h5>Оформление в течение недели</h5>
+                <h6>(Официально СРО рассматривает документы раз в неделю)</h6>
+              </div>
+            </div>
+          </div>
+        <div class="self-block" id="custom-background">
+          <div class="self-block-grid" id="second-compare">
+              <img src="images/cross.png" class="compare-ico" width="25" height="25"/>
+              <div class="self-block-text-section">
+                <h5>Самостоятельная проверка через сайт Ростехнадзора</h5>
+              </div>
+            </div>
+          </div>
+        <div class="self-block">
+          <div class="self-block-grid" id="third-compare">
+              <img src="images/cross.png" class="compare-ico" width="25" height="25"/>
+              <div class="self-block-text-section">
+                <h5>Необходимо самостоятельно делать запросы в местные СРО для сравнения условий</h5>
+              </div>
+            </div>
+          </div>
+        <div class="self-block" id="custom-background">
+          <div class="self-block-grid" id="four-compare">
+              <img src="images/check.png" class="compare-ico" width="25" height="25"/>
+              <div class="self-block-text-section">
+                <h5>Вы платите напрямую СРО минуя посредников</h5>
+              </div>
+            </div>
+          </div>
+        <div class="self-block">
+          <div class="self-block-grid" id="five-compare">
+              <img src="images/cross.png" class="compare-ico" width="25" height="25"/>
+              <div class="self-block-text-section">
+                <h5>Оформление специалистов в НРС от 3-4 недель</h5>
+              </div>
+            </div>
+          </div>
+        <div class="self-block" id="custom-background">
+          <div class="self-block-grid" id="six-compare">
+              <img src="images/cross.png" class="compare-ico" width="25" height="25"/>
+              <div class="self-block-text-section">
+                <h5>Неизвестен точный срок вступления в СРО</h5>
+              </div>
+            </div>
+          </div>
+        </div>
+      <div class="services-selector">
+        <div class="self-block">
+          <div class="self-block-grid" id="first-compare">
+              <img src="images/check.png" class="compare-ico" width="25" height="25"/>
+              <div class="self-block-text-section">
+                <h5>Получите СРО через 48 часов</h5>
+                <h6>(внеочередное рассмотрение документов)</h6>
+              </div>
+            </div>
+          </div>
+        <div class="self-block" id="custom-background">
+          <div class="self-block-grid" id="second-compare">
+              <img src="images/check.png" class="compare-ico" width="25" height="25"/>
+              <div class="self-block-text-section">
+                <h5>Оформление по закону в проверенных СРО</h5>
+                <h6>официально аккредитованы в 23 СРО</h6>
+              </div>
+            </div>
+          </div>
+        <div class="self-block">
+          <div class="self-block-grid" id="third-compare">
+              <img src="images/check.png" class="compare-ico" width="25" height="25"/>
+              <div class="self-block-text-section">
+                <h5>Подготовим список СРО с выгодными условиями в Вашем регионе</h5>
+              </div>
+            </div>
+          </div>
+        <div class="self-block" id="custom-background">
+          <div class="self-block-grid" id="four-compare">
+              <img src="images/check.png" class="compare-ico" width="25" height="25"/>
+              <div class="self-block-text-section">
+                <h5>Вы платите напрямую СРО минуя посредников</h5>
+              </div>
+            </div>
+          </div>
+        <div class="self-block">
+          <div class="self-block-grid" id="five-compare">
+              <img src="images/check.png" class="compare-ico" width="25" height="25"/>
+              <div class="self-block-text-section">
+                <h5>Оформление специалистов в НРС от 5 дней</h5>
+              </div>
+            </div>
+          </div>
+        <div class="self-block" id="custom-background">
+          <div class="self-block-grid" id="six-compare">
+              <img src="images/check.png" class="compare-ico" width="25" height="25"/>
+              <div class="self-block-text-section">
+                <h5>Быстро решаем вопрос со специалистами, которые соответствуют требованиям НАЦ реестра</h5>
+                <h5>Гарантия сроков и прохождения проверки</h5>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
