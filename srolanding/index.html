@@ -9,6 +9,60 @@
     <link rel="stylesheet" type="text/css" href="style.css"/>
   </head>
   <body>
+    <!-- <?php
+      if (isset($_POST['submit_button'])){
+        $type_sro = '';
+        $gen_podryad = '';
+        $specials = '';
+        $strahovka = '';
+        $contract_sum = '';
+        $name = $_POST['name_input'];
+        $phone = $_POST['phone_input'];
+
+        if (isset($_POST['sro_type2'])) {
+          $type_sro = 'Тип СРО: Проектирование';
+        }
+        else if (isset($_POST['sro_type3'])) {
+          $type_sro = 'Тип СРО: Изыскание';
+        }
+        else {
+          $type_sro = 'Тип СРО: Строительство';
+        }
+
+        if (isset($_POST['genpodryad2'])){
+          $gen_podryad = 'Нужен ли генподряд?: Генподряд не нужен';
+        }
+        else {
+          $gen_podryad = 'Нужен ли генподряд?: Генподряд нужен';
+        }
+
+        if (isset($_POST['specials2'])){
+          $specials = 'Есть ли специалисты в НРС?: Специлистов в НРС нет';
+        }
+        else {
+          $specials = 'Есть ли специалисты в НРС?: Специлисты в НРС есть';
+        }
+
+        if (isset($_POST['strahovka2'])){
+          $strahovka = 'Нужна ли страховка?: Страховка не нужна';
+        }
+        else {
+          $strahovka = 'Нужна ли страховка?: Страховка нужна';
+        }
+
+        if (isset($_POST['contract_sum2'])) {
+          $contract_sum = 'Какая сумма контракта?: До 500 млн.';
+        }
+        else if (isset($_POST['contract_sum3'])) {
+          $contract_sum = 'Какая сумма контракта?: До 3 млрд.';
+        }
+        else {
+          $contract_sum = 'Какая сумма контракта?: До 60 млн.';
+        }
+
+        mail('qqqqssss0w@gmail.com','Расчет стоимости СРО:', 'Был произведен расчет стоимости СРО. '."\n".'Имя: '.$name."\n".'Телефон: '.$phone."\n".$type_sro."\n".$gen_podryad."\n".$specials."\n".$strahovka."\n".$contract_sum);
+      }
+    ?> -->
     <script>
     	var scroll = new SmoothScroll('a[href*="#"]');
     </script>
@@ -103,7 +157,7 @@
             <div class="price-card-text">
               <h6>50 000 - взнос в компенсационный фонд</h6>
               <h6>5 000 -	страховой взнос</h6>
-              <h6>4 000 -	членский взнос</h6>
+              <h6>5 000 -	членский взнос</h6>
               <h6>5 000 -	вступительный взнос</h6>
               <h6>0 -	подготовка вступительных документов</h6>
             </div>
@@ -249,7 +303,7 @@
     </div>
     <div class="compare-section">
       <div class="large-center-compare-sign">
-        <p id="compare-first-string">Стоит ли оформлять СРО самостоятельно или это пустая трата времени?</p>
+        <p id="compare-first-string">Стоит ли оформлять СРО самостоятельно или с нашей помощью?</p>
         <p>Вы можете оформить СРО:</p>
         <hr class="underline-hr-compare"/>
       </div>
@@ -315,7 +369,7 @@
           <div class="self-block-grid" id="first-compare">
               <img src="images/check.png" class="compare-ico" width="25" height="25"/>
               <div class="self-block-text-section">
-                <h5>Получите СРО через 48 часов</h5>
+                <h5>Получите допуск к СРО через 24 часа</h5>
                 <h6>(внеочередное рассмотрение документов)</h6>
               </div>
             </div>
@@ -333,7 +387,7 @@
           <div class="self-block-grid" id="third-compare">
               <img src="images/check.png" class="compare-ico" width="25" height="25"/>
               <div class="self-block-text-section">
-                <h5>Подготовим список СРО с выгодными условиями в Вашем регионе</h5>
+                <h5>Поможем вступить в надежные, проверенные СРО</h5>
               </div>
             </div>
           </div>
@@ -357,8 +411,7 @@
           <div class="self-block-grid" id="six-compare">
               <img src="images/check.png" class="compare-ico" width="25" height="25"/>
               <div class="self-block-text-section">
-                <h5>Быстро решаем вопрос со специалистами, которые соответствуют требованиям НАЦ реестра</h5>
-                <h5>Гарантия сроков и прохождения проверки</h5>
+                <h5>Допуск к СРО за 1 день с гарантией по договору</h5>
               </div>
             </div>
           </div>
