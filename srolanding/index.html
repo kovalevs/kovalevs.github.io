@@ -9,6 +9,60 @@
     <link rel="stylesheet" type="text/css" href="style.css"/>
   </head>
   <body>
+    <!-- <?php
+      if (isset($_POST['submit_button'])){
+        $type_sro = '';
+        $gen_podryad = '';
+        $specials = '';
+        $strahovka = '';
+        $contract_sum = '';
+        $name = $_POST['name_input'];
+        $phone = $_POST['phone_input'];
+
+        if (isset($_POST['sro_type2'])) {
+          $type_sro = 'Тип СРО: Проектирование';
+        }
+        else if (isset($_POST['sro_type3'])) {
+          $type_sro = 'Тип СРО: Изыскание';
+        }
+        else {
+          $type_sro = 'Тип СРО: Строительство';
+        }
+
+        if (isset($_POST['genpodryad2'])){
+          $gen_podryad = 'Нужен ли генподряд?: Генподряд не нужен';
+        }
+        else {
+          $gen_podryad = 'Нужен ли генподряд?: Генподряд нужен';
+        }
+
+        if (isset($_POST['specials2'])){
+          $specials = 'Есть ли специалисты в НРС?: Специлистов в НРС нет';
+        }
+        else {
+          $specials = 'Есть ли специалисты в НРС?: Специлисты в НРС есть';
+        }
+
+        if (isset($_POST['strahovka2'])){
+          $strahovka = 'Нужна ли страховка?: Страховка не нужна';
+        }
+        else {
+          $strahovka = 'Нужна ли страховка?: Страховка нужна';
+        }
+
+        if (isset($_POST['contract_sum2'])) {
+          $contract_sum = 'Какая сумма контракта?: До 500 млн.';
+        }
+        else if (isset($_POST['contract_sum3'])) {
+          $contract_sum = 'Какая сумма контракта?: До 3 млрд.';
+        }
+        else {
+          $contract_sum = 'Какая сумма контракта?: До 60 млн.';
+        }
+
+        mail('qqqqssss0w@gmail.com','Расчет стоимости СРО:', 'Был произведен расчет стоимости СРО. '."\n".'Имя: '.$name."\n".'Телефон: '.$phone."\n".$type_sro."\n".$gen_podryad."\n".$specials."\n".$strahovka."\n".$contract_sum);
+      }
+    ?> -->
     <script>
     	var scroll = new SmoothScroll('a[href*="#"]');
     </script>
@@ -44,11 +98,37 @@
         </nav>
       <button type="button" class="count-button">Обратный звонок</button>
       </div>
-      <div class="large-sign">
-        <p>Получите допуск СРО за 1 день без специалистов в НРС с гарантией по договору.</p>
-        <button type="button" class="join-button">Вступить!</button>
-        <a data-scroll href="#calculator"><button type="button" class="price-button" id="unhidden">Рассчитать стоимость</button></a>
-        <a data-scroll href="#calculator"><button type="button" class="price-button" id="hidden">Рассчитать</button></a>
+      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="4000">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="large-sign-wrapper">
+              <div class="large-sign">
+                <p>Получите допуск СРО за 1 день без специалистов в НРС с гарантией по договору.</p>
+                <button type="button" class="join-button">Вступить!</button>
+                <a data-scroll href="#calculator"><button type="button" class="price-button" id="unhidden">Рассчитать стоимость</button></a>
+                <a data-scroll href="#calculator"><button type="button" class="price-button" id="hidden">Рассчитать</button></a>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="large-sign-wrapper">
+              <div class="large-sign" id="custom-sign">
+                <h1>Сертификат ISO в России</h1>
+                <hr class="underline-custom-hr"/>
+                <p>Сертификат ИСО - это документ, подтверждающий соответствие каких-либо услуг или продукции мировым стандартам качества.</p>
+                <button type="button" class="join-button">Отправить заявку</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
       </div>
     </div>
     <div class="partners-section">
@@ -98,7 +178,7 @@
             <p>СРО по Проектированию</p>
             <hr/>
             <div class="price-card-header-text">
-              <h6>64 100 рублей из них:</h6>
+              <h6>65 000 рублей из них:</h6>
             </div>
             <div class="price-card-text">
               <h6>50 000 - взнос в компенсационный фонд</h6>
@@ -404,6 +484,15 @@
               <h3>Опыт работы 4 года</h3>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <div class="footer-grid">
+        <div class="phone">
+          <!-- <h4>Контакты:</h4>
+          <h5>+7(812)389-35-37</h5>
+          <h5>denis.4507@mail.ru</h5> -->
         </div>
       </div>
     </div>

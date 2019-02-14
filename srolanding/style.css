@@ -239,7 +239,7 @@ button:focus,button:active {
   font-family: freeset;
   color: white;
   font-size: 40px;
-  margin-left: 11%;
+  margin-left: 15%;
   margin-right: 5%;
   margin-top: 9%;
   margin-bottom: 9%;
@@ -331,6 +331,11 @@ button:focus,button:active {
   border-radius: 10px;
   height: 2px;
   background-image: linear-gradient(-90deg, rgb(2, 127, 213), rgb(2, 196, 214));
+}
+.underline-custom-hr{
+  border-radius: 10px;
+  height: 1px;
+  background: white;
 }
 #compare-bottom-hr{
   border-radius: 10px;
@@ -548,6 +553,12 @@ a{
 #six-compare{
   height: 112px;
 }
+#custom-sign > p{
+  font-size: 20px !important;
+}
+#carouselExampleIndicators{
+  height: 591px;
+}
 .hidden-title{
   display: none;
 }
@@ -555,7 +566,7 @@ a{
   display: none;
 }
 #gradient-digit{
-  font-size: 92px;
+  font-size: 72px;
   background: -webkit-linear-gradient(rgb(2, 127, 213), rgb(2, 196, 214));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -574,6 +585,9 @@ a{
   display: flex;
   align-items: baseline;
 }
+.item-content-grid > h3{
+  text-decoration: underline rgb(2, 127, 213);
+}
 .item{
   width: 610px;
   padding: 15px;
@@ -581,6 +595,25 @@ a{
 .item-grid-wrapper{
   display: grid;
   justify-content: center;
+}
+.whywe-section{
+  margin-bottom: 5%;
+}
+.footer{
+  background-color: rgb(39, 41, 66);
+}
+.footer-grid{
+  display: grid;
+  padding: 100px;
+  grid-template-columns: 310px 310px;
+  justify-content: center;
+}
+.phone > h5{
+  color: rgb(174, 174, 174);
+}
+.phone > h4{
+  padding-bottom: 20px;
+  color: white;
 }
 @media (min-width: 600px) and (max-width: 1240px) {
   .item-grid{
@@ -599,7 +632,7 @@ a{
     display: block !important;
   }
   #gradient-digit {
-    font-size: 72px !important;
+    font-size: 52px !important;
   }
 }
 @media (min-width: 150px) and (max-width: 479px) {
@@ -717,13 +750,17 @@ a{
 }
 @media (min-width: 448px) and (max-width: 991px) {
   .start-section{
-    height: 670px !important;
+    height: 770px !important;
   }
 }
 @media (min-width: 368px) and (max-width: 447px) {
   .start-section{
-    height: 715px !important;
+    height: 780px !important;
   }
+  #custom-sign{
+    margin-top: 70px !important;
+  }
+
 }
 @media (min-width: 150px) and (max-width: 351px) {
   .price-card{
@@ -736,7 +773,10 @@ a{
 }
 @media (min-width: 150px) and (max-width: 367px) {
   .start-section{
-    height: 690px !important;
+    height: 780px !important;
+  }
+  #custom-sign{
+    margin-top: 70px !important;
   }
   .phone-text{
     padding-top: 20px;
@@ -745,7 +785,7 @@ a{
     font-family: freeset;
     color: white;
     font-size: 27px !important;
-    margin: 9%;
+    margin: 15%;
     margin-top: 100px !important;
   }
   .large-sign p{
@@ -797,12 +837,12 @@ a{
 }
 @media (min-width: 100px) and (max-width: 383px) {
   .price-button {
-    padding-left: 20px !important;
-    padding-right: 20px !important;
+    padding-left: 17px !important;
+    padding-right: 17px !important;
   }
   .join-button {
-    padding-left: 20px !important;
-    padding-right: 20px !important;
+    padding-left: 15px !important;
+    padding-right: 15px !important;
   }
   .join-grid{
     margin-top: 15% !important;
@@ -841,7 +881,7 @@ a{
     font-family: freeset;
     color: white;
     font-size: 27px !important;
-    margin: 9%;
+    margin: 15%;
     margin-top: 140px !important;
   }
   .large-sign p{
