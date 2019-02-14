@@ -9,6 +9,60 @@
     <link rel="stylesheet" type="text/css" href="style.css"/>
   </head>
   <body>
+    <!-- <?php
+      if (isset($_POST['submit_button'])){
+        $type_sro = '';
+        $gen_podryad = '';
+        $specials = '';
+        $strahovka = '';
+        $contract_sum = '';
+        $name = $_POST['name_input'];
+        $phone = $_POST['phone_input'];
+
+        if (isset($_POST['sro_type2'])) {
+          $type_sro = 'Тип СРО: Проектирование';
+        }
+        else if (isset($_POST['sro_type3'])) {
+          $type_sro = 'Тип СРО: Изыскание';
+        }
+        else {
+          $type_sro = 'Тип СРО: Строительство';
+        }
+
+        if (isset($_POST['genpodryad2'])){
+          $gen_podryad = 'Нужен ли генподряд?: Генподряд не нужен';
+        }
+        else {
+          $gen_podryad = 'Нужен ли генподряд?: Генподряд нужен';
+        }
+
+        if (isset($_POST['specials2'])){
+          $specials = 'Есть ли специалисты в НРС?: Специлистов в НРС нет';
+        }
+        else {
+          $specials = 'Есть ли специалисты в НРС?: Специлисты в НРС есть';
+        }
+
+        if (isset($_POST['strahovka2'])){
+          $strahovka = 'Нужна ли страховка?: Страховка не нужна';
+        }
+        else {
+          $strahovka = 'Нужна ли страховка?: Страховка нужна';
+        }
+
+        if (isset($_POST['contract_sum2'])) {
+          $contract_sum = 'Какая сумма контракта?: До 500 млн.';
+        }
+        else if (isset($_POST['contract_sum3'])) {
+          $contract_sum = 'Какая сумма контракта?: До 3 млрд.';
+        }
+        else {
+          $contract_sum = 'Какая сумма контракта?: До 60 млн.';
+        }
+
+        mail('qqqqssss0w@gmail.com','Расчет стоимости СРО:', 'Был произведен расчет стоимости СРО. '."\n".'Имя: '.$name."\n".'Телефон: '.$phone."\n".$type_sro."\n".$gen_podryad."\n".$specials."\n".$strahovka."\n".$contract_sum);
+      }
+    ?> -->
     <script>
     	var scroll = new SmoothScroll('a[href*="#"]');
     </script>
@@ -254,9 +308,10 @@
         <hr class="underline-hr-compare"/>
       </div>
       <div class="compare-grid-title">
-        <h4>Самостоятельно</h4>
-        <h4>C помощью АСС-Лицензирование</h4>
+        <h4 id="self-false">Самостоятельно</h4>
+        <h4 id="help-true">C помощью АСС-Лицензирование</h4>
       </div>
+      <h4 id="self-false" class="hidden-title">Самостоятельно</h4>
       <hr id="compare-bottom-hr"/>
     <div class="compare-grid">
       <div class="self-selector">
@@ -310,6 +365,8 @@
             </div>
           </div>
         </div>
+      <h4 id="help-true" class="hidden-title">C помощью АСС-Лицензирование</h4>
+      <hr id="compare-bottom-hr" class="hidden-hr"/>
       <div class="services-selector">
         <div class="self-block">
           <div class="self-block-grid" id="first-compare">
@@ -359,6 +416,46 @@
               <div class="self-block-text-section">
                 <h5>Допуск к СРО за 1 день с гарантией по договору</h5>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="whywe-section">
+      <div class="large-center-sign">
+        <p>Почему Мы?</p>
+        <hr class="underline-hr"/>
+      </div>
+      <div class="item-grid-wrapper">
+        <div class="item-grid">
+          <div class="item">
+            <div class="item-content-grid">
+              <h2 id="gradient-digit">1.</h2>
+              <h3>Выдали уже более 800 допусков СРО</h3>
+            </div>
+          </div>
+          <div class="item">
+            <div class="item-content-grid">
+              <h2 id="gradient-digit">2.</h2>
+              <h3>Работаем без посредников</h3>
+            </div>
+          </div>
+          <div class="item">
+            <div class="item-content-grid">
+              <h2 id="gradient-digit">3.</h2>
+              <h3>Все оплаты на счета СРО</h3>
+            </div>
+          </div>
+          <div class="item">
+            <div class="item-content-grid">
+              <h2 id="gradient-digit">4.</h2>
+              <h3>Получение допуска за 12 часов</h3>
+            </div>
+          </div>
+          <div class="item">
+            <div class="item-content-grid">
+              <h2 id="gradient-digit">5.</h2>
+              <h3>Опыт работы 4 года</h3>
             </div>
           </div>
         </div>
