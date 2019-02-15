@@ -2,12 +2,54 @@ html, body{
   margin: 0;
   padding: 0;
 }
+textarea {
+  resize: none;
+}
 input:active:focus {
   outline: none !important;
 }
 .start-section{
   background-image: linear-gradient(-90deg, rgb(2, 127, 213), rgb(2, 196, 214));
   height: 600px;
+}
+.message-item{
+  position: fixed;
+  bottom: -3px;
+  right: 10px;
+  z-index: 50;
+  background-color : #31B0D5;
+  color: white;
+  padding: 5px 15px;
+  border-radius: 4px;
+  border-color: #46b8da;
+}
+.message-grid{
+  display: inline-flex;
+}
+.modal-body > .form-control{
+  margin-bottom: 7px;
+}
+.modal-body > .form-control{
+  font-weight: 100;
+}
+#message-ico{
+  margin-right: 10px;
+  margin-top: 6px;
+}
+.btn:focus,.btn:active {
+   outline: none !important;
+   box-shadow: none;
+}
+.message-item > h5{
+  color: white;
+}
+#text-href{
+  font-weight: 100;
+}
+#message-button{
+  background: Transparent;
+  border: 0px;
+
 }
 .calculator-section{
   background-color: rgb(40, 41, 66);
@@ -90,6 +132,8 @@ input:active:focus {
     outline: none;
     font-size: 15px;
     margin-right: 15px;
+    position: relative;
+    z-index: 2;
 
     -webkit-transition: 0.4s ease-out;
     -o-transition: 0.4s ease-out;
@@ -121,6 +165,28 @@ input:active:focus {
   to {
     width: 120%;
     background-color: rgba(255,255,255,0);
+  }
+}
+@keyframes moves-left {
+  0% {
+    margin-right: 0px;
+  }
+  50% {
+    margin-right: 20px;
+  }
+  100%{
+    margin-right: 0px;
+  }
+}
+@keyframes moves-right {
+  0% {
+    margin-left: 0px;
+  }
+  50% {
+    margin-left: 20px;
+  }
+  100%{
+    margin-left: 0px;
   }
 }
 .join-button{
@@ -216,13 +282,39 @@ input:active:focus {
     -moz-transition: 0.4s ease-out;
     transition: 0.4s ease-out;
 }
-.more-info-button:hover{
-  color: rgb(2, 127, 213);
-  background-color: white;
+.count-info-button{
+    color: white;
+    background-image: linear-gradient(-90deg, rgb(2, 127, 213), rgb(2, 196, 214));
+    background-repeat: no-repeat;
+    border: 1px solid white;
+    border-radius: 40px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-right: 35px;
+    padding-left: 35px;
+    cursor:pointer;
+    overflow: hidden;
+    outline: none;
+    border: none;
+    font-size: 17px;
+    margin-bottom: 30px;
+
+    -webkit-transition: 0.4s ease-out;
+    -o-transition: 0.4s ease-out;
+    -moz-transition: 0.4s ease-out;
+    transition: 0.4s ease-out;
+}
+.count-info-button:hover{
+  color: black;
+  background: white;
   transform: scale(1.05);
   -webkit-box-shadow: 0px 0px 52px -7px rgba(0,0,0,0.75);
   -moz-box-shadow: 0px 0px 52px -7px rgba(0,0,0,0.75);
   box-shadow: 0px 0px 52px -7px rgba(0,0,0,0.75);
+}
+.pre-footer-button-section{
+  display: flex;
+  justify-content: center;
 }
 #hidden{
   display: none;
@@ -241,7 +333,7 @@ button:focus,button:active {
   font-size: 40px;
   margin-left: 15%;
   margin-right: 5%;
-  margin-top: 9%;
+  margin-top: 7%;
   margin-bottom: 9%;
   max-width: 591px;
 }
@@ -300,6 +392,8 @@ button:focus,button:active {
   color: rgb(148, 148, 161);
 }
 .top-navigation{
+  position: relative;
+  z-index: 4;
   text-align: center;
 }
 .partners-section{
@@ -332,15 +426,16 @@ button:focus,button:active {
   height: 2px;
   background-image: linear-gradient(-90deg, rgb(2, 127, 213), rgb(2, 196, 214));
 }
+.underline-footer-hr{
+  margin-top: -55px;
+  border-radius: 10px;
+  height: 1px;
+  background-image: linear-gradient(-90deg, rgb(2, 127, 213), rgb(2, 196, 214));
+}
 .underline-custom-hr{
   border-radius: 10px;
   height: 1px;
   background: white;
-}
-#compare-bottom-hr{
-  border-radius: 10px;
-  height: 1px;
-  background-color: rgb(216, 216, 216);
 }
 .underline-hr-white{
   margin-top: -10px;
@@ -370,7 +465,7 @@ button:focus,button:active {
   margin-bottom: 10%;
 }
 .price-card{
-  height: 635px;
+  height: 650px;
   width: 350px;
   border: 5px solid rgb(2, 127, 213);
   border-radius: 20px;
@@ -378,7 +473,6 @@ button:focus,button:active {
 }
 .price-card p{
   color: rgb(88, 88, 88);
-  /* color: white; */
   font-weight: 600;
   font-size: 22px;
   text-align: center;
@@ -400,8 +494,6 @@ button:focus,button:active {
   margin-top: 20px;
 }
 .card-top-info{
-  /* color: white; */
-  /* background: rgb(39, 41, 66); */
   color: black;
   background: white;
   border-top-left-radius: 16px;
@@ -427,19 +519,19 @@ a{
   padding-left: 30px;
   padding-right: 30px;
 }
-.form-control{
+.answer > .form-control{
   color: white;
   box-shadow: none !important;
   border: 2.5px solid rgb(109, 117, 125);
   border-radius: 10px;
   background-color: rgb(109, 117, 125);
 }
-.form-control:focus{
+.answer > .form-control:focus{
   color: white;
   background-color: rgb(109, 117, 125);
   border: 2.5px solid rgb(2, 127, 212);
 }
-.form-control::-webkit-input-placeholder {
+.answer > .form-control::-webkit-input-placeholder {
    color: rgb(168, 172, 176);
  }
 .navbar-light .navbar-toggler {
@@ -600,6 +692,7 @@ a{
   margin-bottom: 5%;
 }
 .footer{
+  margin-top: 50px;
   background-color: rgb(39, 41, 66);
 }
 .footer-grid{
@@ -615,12 +708,69 @@ a{
   padding-bottom: 20px;
   color: white;
 }
+.adress > h5{
+  color: rgb(174, 174, 174);
+}
+.adress > h4{
+  padding-bottom: 20px;
+  color: white;
+}
+.bottom-footer{
+  padding-top: 1%;
+  padding-bottom: 1%;
+  text-align: center;
+  background: rgb(22, 29, 39);
+}
+#hidden-bottom-footer-text{
+  display: none;
+}
+.bottom-footer > h5{
+  font-size: 15px;
+  color: rgb(84, 91, 102);
+}
+#white-footer-hr{
+  display: inline-flex;
+  height: 1px;
+  margin-bottom: 40px;
+  background-color: white;
+  width: 250px;
+}
+#hidden-count-info-button{
+  display: none;
+}
+#carouselExampleIndicators{
+  margin-top: -80px !important;
+}
+.carousel-control-prev-icon{
+  animation: moves-left  2s infinite ease-out;
+  transition: all 2s ease-in-out;
+  -webkit-transition: all 2s ease-in-out;
+  -moz-transition: all 2s ease-in-out;
+  -o-transition: all 2s ease-in-out;
+}
+.carousel-control-next-icon{
+  animation: moves-right  2s infinite ease-out;
+  transition: all 2s ease-in-out;
+  -webkit-transition: all 2s ease-in-out;
+  -moz-transition: all 2s ease-in-out;
+  -o-transition: all 2s ease-in-out;
+}
 @media (min-width: 600px) and (max-width: 1240px) {
   .item-grid{
     grid-template-columns: none !important;
   }
+  .bottom-footer{
+    padding-top: 2% !important;
+    padding-bottom: 2% !important;
+  }
 }
 @media (min-width: 150px) and (max-width: 599px) {
+  #hidden-bottom-footer-text{
+    display: block !important;
+  }
+  #visible-bottom-footer-text{
+    display: none !important;
+  }
   .item-grid{
     grid-template-columns: none !important;
   }
@@ -633,6 +783,9 @@ a{
   }
   #gradient-digit {
     font-size: 52px !important;
+  }
+  .bottom-footer{
+    display: none !important;
   }
 }
 @media (min-width: 150px) and (max-width: 479px) {
@@ -675,6 +828,12 @@ a{
   }
   #five-compare{
     height: 95px !important;
+  }
+  #hidden-count-info-button{
+    display: block !important;
+  }
+  #visible-count-info-button{
+    display: none !important;
   }
 }
 @media (min-width: 480px) and (max-width: 1020px) {
@@ -758,7 +917,7 @@ a{
     height: 780px !important;
   }
   #custom-sign{
-    margin-top: 70px !important;
+    margin-top: 150px !important;
   }
 
 }
@@ -776,7 +935,7 @@ a{
     height: 780px !important;
   }
   #custom-sign{
-    margin-top: 70px !important;
+    margin-top: 150px !important;
   }
   .phone-text{
     padding-top: 20px;
@@ -786,7 +945,7 @@ a{
     color: white;
     font-size: 27px !important;
     margin: 15%;
-    margin-top: 100px !important;
+    margin-top: 180px !important;
   }
   .large-sign p{
     margin-bottom: 35px;
@@ -873,6 +1032,26 @@ a{
     grid-template-columns: 300px !important;
   }
 }
+@media (min-width: 150px) and (max-width: 725px) {
+  .footer-grid{
+    grid-template-columns: none !important;
+  }
+  .phone{
+    margin-bottom: 50px;
+  }
+  .phone > h4{
+    padding-bottom: 0 !important;
+  }
+  .adress > h4{
+    padding-bottom: 0 !important;
+  }
+  .phone > h5{
+    font-size: 16px !important;
+  }
+  .adress > h5{
+    font-size: 16px !important;
+  }
+}
 @media (min-width: 368px) and (max-width: 725px) {
   .phone-text{
     padding-top: 20px;
@@ -882,7 +1061,7 @@ a{
     color: white;
     font-size: 27px !important;
     margin: 15%;
-    margin-top: 140px !important;
+    margin-top: 225px !important;
   }
   .large-sign p{
     margin-bottom: 35px;
