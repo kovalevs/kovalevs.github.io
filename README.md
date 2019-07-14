@@ -1,2 +1,2 @@
 # Kovalevs
-There is nothing here yet...
+This repository will contain my portfolio, personal projects as well as real work.
