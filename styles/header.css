@@ -110,11 +110,6 @@
   transform-origin: 35px 2px;
 }
 
-.header-burger-open:active .header-burger-inner{
-  -webkit-transform: scale(1.1) rotate(135deg);
-  -ms-transform: scale(1.1) rotate(135deg);
-  transform: scale(1.1) rotate(135deg);
-}
 
 .header-burger-svg-main {
   position: absolute;
@@ -432,4 +427,16 @@
   font-family: Circular;
   font-size: 40px;
   letter-spacing: 1px;
+}
+.info-wrapper{
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  justify-content: center;
+}
+.info-block{
+  width: 78%;
+  height: 500px;
+  margin-top: 130px;
+  border: 10px solid rgb(240, 240, 240);
 }
