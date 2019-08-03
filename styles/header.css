@@ -446,11 +446,10 @@
   border: 10px solid rgb(240, 240, 240);
 }
 .info-title {
-  font-size: 4vw;
+  font-size: 3.3vw;
 }
 .info-title span{
-
-  line-height: 1.5;
+  line-height: 1.4;
   font-family: Draft;
   float: left;
   -webkit-clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 80%);
@@ -463,7 +462,7 @@
   font-weight: 100;
 }
 .info-title span span{
-  padding: 0% 1vw;
+  padding: 0% 0.9vw;
 }
 
 .info-title span {
@@ -484,9 +483,9 @@
 }
 @keyframes infoTitleAnimation {
   0% {
-    -webkit-transform: translateY(3vw);
-    -ms-transform: translateY(3vw);
-    transform: translateY(3vw);
+    -webkit-transform: translateY(3vw) rotateZ(6deg);
+    -ms-transform: translateY(3vw) rotateZ(6deg);
+    transform: translateY(3vw) rotateZ(6deg);
     opacity: 1;
     -webkit-clip-path: polygon(0 0, 100% 0%, 0 0, 0% 100%);
     clip-path: polygon(0 0, 100% 0%, 0 0, 0% 100%);
@@ -505,11 +504,19 @@
   .info-title {
     font-size: 8vw;
   }
+  .info-title span span {
+    padding: 0% 1vw;
+  }
 }
 @media (min-width: 376px) and (max-width: 425px) {
-
+  .info-title {
+    font-size: 7vw;
+  }
 }
 @media (min-width: 426px) and (max-width: 768px) {
+  .info-title {
+    font-size: 5vw;
+  }
 
 }
 @media (min-width: 769px) and (max-width: 1024px) {

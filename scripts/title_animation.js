@@ -1,21 +1,21 @@
-var containers = document.querySelectorAll('#infoTitle');
+let containers = document.querySelectorAll('#infoTitle');
 
-for (var container of containers) {
-  var words = container.innerHTML.split(/\s+/)
+for (let container of containers) {
+  let words = container.innerHTML.split(/\s+/)
   										 .filter(word => word)
   										 .map(word => '<span>' + word + ' </span>');
 
-  var fakeContainer = document.createElement('p');
+  let fakeContainer = document.createElement('p');
   fakeContainer.style.width = "auto";
   fakeContainer.style['max-width'] = "none";
   fakeContainer.style['min-width'] = "none";
   fakeContainer.style.visibility = "hidden";
   document.body.appendChild(fakeContainer);
 
-  var subContainers = [];
+  let subContainers = [];
 
-  var buffer = "";
-  for (var span of words) {
+  let buffer = "";
+  for (let span of words) {
     fakeContainer.innerHTML = buffer + span;
 
     if (fakeContainer.offsetWidth >= container.offsetWidth) {
@@ -31,14 +31,16 @@ for (var container of containers) {
   }
 
   container.innerHTML = "";
-  for (var subContainer of subContainers) {
+  for (let subContainer of subContainers) {
   	container.innerHTML += '<span>' + subContainer + '</span>';
   }
 };
 
 let titleText = document.getElementById('infoTitle');
+
 let delayCount = 0.5;
 for (let i=0; i<titleText.childElementCount; i++){
 	titleText.children[i].style.animationDelay = delayCount + "s";
-	delayCount += 0.07;
+	titleText.children[i].style.WebkitAnimationDelay = delayCount + "s";
+	delayCount += 0.1;
 }
