@@ -443,7 +443,7 @@
   width: 78%;
   height: 75vh;
   margin-top: 130px;
-  border: 10px solid rgb(240, 240, 240);
+  border: 10px solid rgba(240, 240, 240, 0.6);
 }
 .info-title {
   font-size: 3.3vw;
@@ -499,6 +499,18 @@
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
   }
 }
+canvas {
+  background:
+    linear-gradient(
+      hsl(00, 5%, 80%) 0%,
+      hsl(200, 30%, 95%) 75%)
+  ;
+  display: block;
+  position: absolute;
+  top: 0;
+  z-index: -1;
+}
+
 
 @media (min-width: 320px) and (max-width: 375px) {
   .info-title {
