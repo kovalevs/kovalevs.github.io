@@ -151,33 +151,10 @@ sketch.draw = function() {
 };
 
 let isFirstMove = true;
+let mousePosY = 0;
 window.onmousemove = function(e) {
-    if(isFirstMove){
-      let dynamic_diff = Math.round(e.pageY - sketch.mouse.y);
-      console.log(dynamic_diff);
-      isFirstMove = false;
-      sketch.mouse.x = e.pageX;
+    sketch.mouse.x = e.pageX;
 
-
-
-      function sleep(ms) {
-           return new Promise(resolve => setTimeout(resolve, ms));
-         }
-
-         async function demo() {
-           for (let j = 0; j < Math.abs(dynamic_diff); j++) {
-               await sleep(200);
-               return sketch.mouse.y = e.pageY;
-           }
-         }
-
-         demo();
-
-
-    } else {
-      sketch.mouse.x = e.pageX;
-      return sketch.mouse.y = e.pageY;
-    }
 
 
 
