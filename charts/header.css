@@ -154,5 +154,7 @@ label:focus,
 #showPrev_1_chart,
 #showNext_1_chart{
   font-size: 20px;
+  margin: 0px;
+  padding: 0px;
 }
 }
