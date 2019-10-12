@@ -1,0 +1,70 @@
+.home-charts{
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-gap: 2%;
+  width: 100%;
+  background: rgb(0, 0, 0);
+  padding: 2.5%;
+  padding-top: 2%;
+  justify-content: center;
+}
+.home-chart{
+  background: linear-gradient(to right, rgb(38, 38, 38), rgb(86, 86, 86), rgb(38, 38, 38));
+  width: 100%;
+  height: calc(50vh - 50px) !important;
+}
+#showPrev_1_chart,
+#showNext_1_chart{
+  background: rgba(0,0,0,0);
+  border: none;
+  font-size: 25px;
+}
+.home-chart-panel-navigation{
+  display: flex;
+}
+.home-chart-panel{
+  background: rgb(38, 38, 38);
+  height: 35px;
+}
+.home-chart-panel-title,
+.home-chart-panel-options{
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  -ms-align-items: center;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  vertical-align: middle;
+  height: 100%;
+}
+.home-chart-panel-options{
+  margin-top: 10px;
+}
+.home-chart-panel h5{
+  color: rgb(127, 127, 127);
+  text-align: center;
+  font-size: 16px;
+  margin: 0;
+}
+.canvas_wrapper{
+  height: 87%;
+  padding-top: 50px;
+  padding-left: 10px;
+}
+.home-chart-panel-options-buttons button{
+  background: rgb(38, 38, 38);
+  border: none;
+  color: rgb(89, 89, 89);
+  margin-right: 10px;
+  width: 65px;
+}
+.home-chart-panel-options-buttons .home-chart-panel-options-buttons-active{
+  color: white;
+}
+.home-chart-panel-options{
+  display: flex;
+  justify-content: space-between;
+  margin-left: 10px;
+  margin-right: 10px;
+}
