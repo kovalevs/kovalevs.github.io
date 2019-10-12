@@ -67,7 +67,7 @@
 }
 .home-chart-panel-options{
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   margin-left: 10px;
   margin-right: 10px;
 }
