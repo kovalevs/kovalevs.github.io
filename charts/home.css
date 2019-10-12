@@ -23,6 +23,7 @@
   display: flex;
   background: white;
   max-width: 78px;
+  justify-content: left;
 }
 .home-chart-panel{
   background: rgb(38, 38, 38);
