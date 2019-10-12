@@ -21,7 +21,7 @@
 }
 .home-chart-panel-navigation{
   display: flex;
-  width: 74px;
+  background: white;
 }
 .home-chart-panel{
   background: rgb(38, 38, 38);
