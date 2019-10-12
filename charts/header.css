@@ -159,4 +159,7 @@ label:focus,
     margin: 2px;
     padding: 0px;
   }
+	.home-chart{
+	  height: calc(75vh - 50px) !important;
+	}
 }
