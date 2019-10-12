@@ -147,6 +147,8 @@ label:focus,
   }
   .home-chart-panel-options-buttons button{
     width: 55px;
+    padding: 0px;
+    text-align: center;
   }
   .home-chart-panel-options-title h5{
     display: none;
