@@ -1071,3 +1071,18 @@ body{
     display: flex;
   }
 }
+
+#mainCaptcha{
+  font-size: 17px;
+  width: 110px;
+}
+.captcha-wrapper{
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  justify-content: center;
+  -ms-align-items: center;
+  align-items: center;
+  text-align: center;
+  background: red;
+}
