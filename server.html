@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="styles/server.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+  <script type="text/javascript" src="languages/main.js"></script>
+</head>
+<body>
+  <div class="logmodal-wrapper" id="logModal">
+    <div class="logmodal">
+      <div class="logmodal-window-wrapper">
+        <div class="logmodal-window">
+          <div class="logmodal-title"><script>document.write(en.login);</script></div>
+          <div class="logmodal-form-wrapper">
+            <div class="logmodal-form">
+              <div class="logmodal-inputs">
+                <input id="logFormUsername" type="text" placeholder="Username or email">
+                <input id="logFormPassword" type="password" placeholder="Password">
+              </div>
+              <div class="logmodal-labels">
+                <div class="logmodal-labels-checkbox">
+                  <input id="logLabelsCheckbox" type="checkbox" name="logLabelsCheckbox" value="logLabelsCheckbox_value"  >
+                  <label id="logLabelsLabel" for="logLabelsCheckbox"></label>
+                  <h6>Remember me</h6>
+                </div>
+                <div class="logmodal-labels-reset">
+                  <!-- LINK -->
+                  <a id="logModalReset"><h6>Forgot password</h6></a>
+                </div>
+              </div>
+              <div class="logmodal-captcha">
+                <input id="logCaptchaInput" type="text">
+                <img src="captcha.png" alt="">
+                <button><i class="fas fa-sync text-white" aria-hidden="true"></i></button>
+              </div>
+              <div class="logmodal-submit-wrapper">
+                  <input type="submit" id="logFormSubmit" value="Sign in">
+              </div>
+            </div>
+          </div>
+          <!-- LINK -->
+          <div class="logmodal-subtext">
+            <a href="https://www.ekonhome.com.cn/legal"><h6>Terms and conditions</h6></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="resetmodal-wrapper" id="resetModal">
+    <div class="resetmodal">
+      <div class="resetmodal-window-wrapper">
+        <div class="resetmodal-window">
+          <div class="resetmodal-title">Forget Passoword</div>
+          <div class="resemodal-text">
+            <!-- From server -->
+            <h4>We will send you a new password to email <span name="resetmodal-email">ab***yz@gmail.com.<span></h4>
+            <h4>You can then change your password</h4>
+            <div class="resetmodal-buttons">
+              <button id="resetModalCancel" class="reset-modal-buttons-button">Cancel</button>
+              <button id="resetModalConfirm" class="reset-modal-buttons-button">OK</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="resetmodal-wrapper" id="mediaModal">
+    <div class="resetmodal">
+      <div class="resetmodal-window-wrapper">
+        <div class="resetmodal-window">
+          <div class="resemodal-text">
+            <h4>Please setup the system from your computer’s browser</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="dashboardmodal-wrapper" id="dashboardDeleteModal">
+    <div class="resetmodal">
+      <div class="resetmodal-window-wrapper">
+        <div class="resetmodal-window">
+          <div class="resemodal-text">
+            <h4>Are you sure you want to delete this account?</h4>
+            <div class="resetmodal-buttons">
+              <button id="dashboardDeleteAccountCancel" class="reset-modal-buttons-button_darkgrey">No</button>
+              <button id="dashboardDeleteAccountConfirm" class="reset-modal-buttons-button_darkgrey">Yes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="dashboardmodal-wrapper" id="dashboardActiveModal">
+    <div class="resetmodal">
+      <div class="resetmodal-window-wrapper">
+        <div class="resetmodal-window">
+          <div class="resemodal-text">
+            <h4>Please type new Password</h4>
+            <div class="dashboard-modal-password-wrapper">
+              <input type="password" class="dashboard-modal-password">
+            </div>
+            <div class="resetmodal-buttons">
+              <button id="dashboardActiveAccountCancel" class="reset-modal-buttons-button_darkgrey">Cancel</button>
+              <button id="dashboardActiveAccountConfirm" class="reset-modal-buttons-button_darkgrey">Save</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="dashboard-popup-wrapper" id="dashboardPopup">
+    <div class="dashboard-popup">
+      <div class="dashboard-popup-contact">
+        <h4>Contact Info</h4>
+        <div class="dashboard-popup-contact-table">
+          <div class="dashboard-popup-contact-table-items">
+            <div class="dashboard-popup-contact-table-item">
+              <h6>Username</h6>
+            </div>
+            <input type="text" placeholder="email">
+          </div>
+          <div class="dashboard-popup-contact-table-items">
+            <div class="dashboard-popup-contact-table-item">
+              <h6>Password</h6>
+            </div>
+            <input type="text" placeholder="Password admin">
+          </div>
+          <div class="dashboard-popup-contact-table-items">
+            <div class="dashboard-popup-contact-table-item">
+              <h6>Company</h6>
+            </div>
+            <input type="text" placeholder="Company">
+          </div>
+          <div class="dashboard-popup-contact-table-items">
+            <div class="dashboard-popup-contact-table-item">
+              <h6>Contact</h6>
+            </div>
+            <input type="text" placeholder="Contact name">
+          </div>
+          <div class="dashboard-popup-contact-table-items">
+            <div class="dashboard-popup-contact-table-item">
+              <h6>Phone</h6>
+            </div>
+            <input type="text" placeholder="Phone">
+          </div>
+          <div class="dashboard-popup-contact-table-items">
+            <div class="dashboard-popup-contact-table-item">
+              <h6>Address</h6>
+            </div>
+            <input type="text" placeholder="Adress">
+          </div>
+        </div>
+        <div class="dashboard-popup-contact-sub">
+          <!-- Save image to server -->
+          <h5>Add logo from file (appear in top left<br> corner):<img onclick="popupUploadImage()" src="add_image.png" alt="Add Image"></h5>
+          <input id="popupTrueUpload" class="dashboard-popup-contact-sub-input" type='file' />
+        </div>
+        <div class="dashboard-popup-contact-buttons">
+          <button id="dashboard-popup-contact-cancel">Cancel</button>
+          <button id="dashboard-popup-contact-save">Save</button>
+        </div>
+      </div>
+      <div class="dashboard-popup-setting">
+        <div class="dashboard-popup-setting-title">
+          <div class="dashboard-labels-checkbox">
+            <input onclick="dashboardDisableRight()" id="dashboardPopupCheckbox" type="checkbox" name="dashboardPopupCheckbox" value="dashboardPopupCheckbox_value" checked>
+            <label id="dashboardPopupLabel" for="dashboardPopupCheckbox"></label>
+            <h4>Monthly Payment</h4>
+          </div>
+          <div class="dashboard-popup-setting-title-right">
+            <div class="input-group md-form form-sm form-1 pl-0">
+              <div class="input-group-prepend">
+                <span class="input-group-text purple lighten-3 header-desktop-search-button"><i class="fas fa-search text-white" aria-hidden="true"></i></span>
+              </div>
+              <input class="form-control my-0 py-1 header-desktop-search-input" type="text" placeholder="Search" aria-label="Search">
+            </div>
+            <span id="dashboard-popup-close"><i class="fas fa-times text-white" aria-hidden="true"></i></span>
+          </div>
+        </div>
+        <div class="dashboard-popup-setting-mid">
+          <div class="dashboard-popup-setting-mid-table">
+            <div class="dashboard-popup-setting-mid-items">
+              <div class="dashboard-popup-setting-mid-item">
+                <h6>$ / dev / month</h6>
+              </div>
+              <div class="dashboard-popup-setting-mid-item">
+                <h6>% Tax</h6>
+              </div>
+              <div class="dashboard-popup-setting-mid-item">
+                <h6>Currency</h6>
+              </div>
+            </div>
+            <div class="dashboard-popup-setting-mid-items">
+              <div class="dashboard-popup-setting-mid-item">
+                <input type="text" value="$1.0">
+              </div>
+              <div class="dashboard-popup-setting-mid-item">
+                <input type="text" value="Tax">
+              </div>
+              <div class="dashboard-popup-setting-mid-item">
+                <div class="dashboard-popup-setting-dropdown">
+                  <button class="btn btn-default dropdown-toggle" type="button" id="dashboardPopupSettingDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    $
+                    <span class="dashboard-popup-setting-dropdown-caret"></span>
+                  </button>
+                  <ul class="dropdown-menu" id="dashboard-popup-setting-dropdown-menu" aria-labelledby="dashboardPopupSettingDropdown">
+                    <li><a class="dropdown-item" href="#">$</a></li>
+                    <li><a class="dropdown-item" href="#">¥</a></li>
+                    <li><a class="dropdown-item" href="#">€</a></li>
+                    <li><a class="dropdown-item" href="#">฿</a></li>
+                    <li><a class="dropdown-item" href="#">£</a></li>
+                    <li><a class="dropdown-item" href="#">Rp</a></li>
+                  </ul>
+               </div>
+            </div>
+          </div>
+        </div>
+          <div class="dashboard-popup-setting-mid-table">
+            <div class="dashboard-popup-setting-mid-items">
+              <div class="dashboard-popup-setting-mid-item">
+                <h6>Total $</h6>
+              </div>
+              <div class="dashboard-popup-setting-mid-item">
+                <h6>Total Paid</h6>
+              </div>
+              <div class="dashboard-popup-setting-mid-item">
+                <h6>Total No Pay</h6>
+              </div>
+            </div>
+            <div class="dashboard-popup-setting-mid-items">
+              <div class="dashboard-popup-setting-mid-item">
+                <input class="dashboardPopupRightItem" type="text" value="300">
+              </div>
+              <div class="dashboard-popup-setting-mid-item">
+                <input class="dashboardPopupRightItem" type="text" value="250">
+              </div>
+              <div class="dashboard-popup-setting-mid-item">
+                <input class="dashboardPopupRightItem" type="text" value="50">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="dashboard-popup-setting-button">
+        <button id="dashboardPopupSettingButton">Update All fee</button>
+      </div>
+      <div class="dashboard-popup-setting-navigation">
+          <h4>History payment</h4>
+          <div class="dashboard-navigation-tabs">
+            <button id="dashboard_popup_showAll" onclick="dashboardPopupSortSelect(this)" class="dashboard-navigation-active dashboard-popup-sort-select">All</button>
+            <button id="dashboard_popup_showPaid" onclick="dashboardPopupSortSelect(this)" class="dashboard-popup-sort-select">Paid</button>
+            <button id="dashboard_popup_showDisconnected" onclick="dashboardPopupSortSelect(this)" class="dashboard-popup-sort-select">Disconnected</button>
+          </div>
+          <div class="dashboard-popup-month-dropdowns">
+            <div class="dashboard-popup-month-dropdown">
+              <button class="btn btn-default dropdown-toggle" type="button" id="dashboardPopupMonthDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                01
+                <span class="dashboard-popup-month-dropdown-caret"></span>
+              </button>
+              <ul class="dropdown-menu" id="dashboard-popup-month-dropdown-menu" aria-labelledby="dashboardPopupMonthDropdown">
+                <li class="dropdown-month-item"><a class="dropdown-item" href="#">01</a></li>
+              </ul>
+           </div>
+            <div class="dashboard-popup-year-dropdown">
+              <button class="btn btn-default dropdown-toggle" type="button" id="dashboardPopupYearDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                2019
+                <span class="dashboard-popup-year-dropdown-caret"></span>
+              </button>
+              <ul class="dropdown-menu" id="dashboard-popup-year-dropdown-menu" aria-labelledby="dashboardPopupYearDropdown">
+                <li class="dropdown-year-item"><a class="dropdown-item" href="#">2019</a></li>
+              </ul>
+           </div>
+          </div>
+      </div>
+      <div class="dashboard-popup-setting-table">
+        <div class="dashboard-table">
+          <table id="dashboard-popup-table">
+            <tr>
+              <th class="dashboard-table-sort">Level 1</th>
+              <th class="dashboard-table-sort">Level 2</th>
+              <th class="dashboard-table-sort">Level 3</th>
+              <th class="dashboard-table-sort"># units</th>
+              <th class="dashboard-table-sort">$ / unit</th>
+              <th class="dashboard-table-sort">$ total</th>
+              <th class="dashboard-table-sort">Join Date
+                <div>
+                  <i onclick="dashboardPopupArrowSortSelect(this)" class="fas fa-caret-down text-white dashboard-popup-arrow-sort-select" aria-hidden="true"></i>
+                  <i onclick="dashboardPopupArrowSortSelect(this)" class="fas fa-caret-up text-white dashboard-popup-arrow-sort-select" aria-hidden="true"></i>
+                </div>
+              </th>
+              <th class="dashboard-table-sort">Last action
+                <div>
+                  <i onclick="dashboardPopupArrowSortSelect(this)" class="fas fa-caret-down text-white dashboard-popup-arrow-sort-select" aria-hidden="true"></i>
+                  <i onclick="dashboardPopupArrowSortSelect(this)" class="fas fa-caret-up text-white dashboard-popup-arrow-sort-select" aria-hidden="true"></i>
+                </div>
+              </th>
+              <th>De/active admin</th>
+            </tr>
+
+            <!-- Line color from server -->
+            <tr class="dashboard-table-popup-data">
+              <!-- Database from server -->
+              <td class="dashboard-popup-table-level_1">Shanghai</td>
+              <td>Pudong</td>
+              <td class="dashboard-popup-table-level_2"></td>
+              <td class="dashboard-popup-table-level_3">40</td>
+              <td class="dashboard-popup-table-units">1</td>
+              <td class="dashboard-popup-table-unit">80</td>
+              <td class="dashboard-popup-table-date">10/04/19</td>
+              <td class="dashboard-popup-table-last_action">10/04/19</td>
+              <td>
+                <div class="dashboard-table-checkbox">
+                  <input class="dashboardPopupTableCheckbox" id="dashboardPopupTableCheckbox" type="checkbox" name="dashboardPopupTableCheckbox" value="dashboardPopupTableCheckbox_value">
+                  <label class="dashboardPopupTableLabel" id="dashboardPopupTableLabel" for="dashboardPopupTableCheckbox"></label>
+                </div>
+              </td>
+              <!-- End of Database -->
+            </tr>
+          </table>
+          <!-- LINK -->
+          <div><i class="fas fa-save text-white dashboardTableSave" aria-hidden="true"></i></div>
+        </div>
+        <div class="dashboard-table-subinfo">
+          <h6>Paid, <span>&shy;</span></h6><h6>delayed, <span>&shy;</span></h6><h6>disconnected, <span>&shy;</span></h6><h6>waiting</h6>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="dashboard-default-popup-wrapper" id="dashboardDefaultPopup">
+    <div class="dashboard-default-popup">
+      <div class="dashboard-popup-contact">
+        <h4>Contact Info</h4>
+        <div class="dashboard-popup-contact-sub">
+          <!-- Save image to server -->
+          <h5>Add logo from file (appear in top left<br> corner):<img onclick="popupUploadImage()" src="add_image.png" alt="Add Image"></h5>
+          <input id="popupDefaultTrueUpload" class="dashboard-popup-contact-sub-input" type='file' />
+        </div>
+        <div class="dashboard-popup-contact-buttons">
+          <button id="dashboard-popup-default-contact-cancel">Cancel</button>
+          <button id="dashboard-popup-default-contact-save">Save</button>
+        </div>
+      </div>
+      <div class="dashboard-popup-setting">
+        <div class="dashboard-popup-setting-title">
+          <h4>Airconet Monthly Payment</h4>
+          <div class="dashboard-popup-setting-title-right">
+            <div class="input-group md-form form-sm form-1 pl-0">
+              <div class="input-group-prepend">
+                <span class="input-group-text purple lighten-3 header-desktop-search-button"><i class="fas fa-search text-white" aria-hidden="true"></i></span>
+              </div>
+              <input class="form-control my-0 py-1 header-desktop-search-input" type="text" placeholder="Search" aria-label="Search">
+            </div>
+            <span id="dashboard-popup-default-close"><i class="fas fa-times text-white" aria-hidden="true"></i></span>
+          </div>
+        </div>
+        <div class="dashboard-popup-setting-mid">
+          <div class="dashboard-popup-setting-mid-table">
+            <div class="dashboard-popup-setting-mid-items">
+              <div class="dashboard-popup-setting-mid-item">
+                <h6>$ / dev / month</h6>
+              </div>
+              <div class="dashboard-popup-setting-mid-item">
+                <h6>% Tax</h6>
+              </div>
+              <div class="dashboard-popup-setting-mid-item">
+                <h6>Currency</h6>
+              </div>
+            </div>
+            <div class="dashboard-popup-setting-mid-items">
+              <div class="dashboard-popup-setting-mid-item">
+                <input type="text" value="$1.0" disabled>
+              </div>
+              <div class="dashboard-popup-setting-mid-item">
+                <input type="text" value="Tax" disabled>
+              </div>
+              <div class="dashboard-popup-setting-mid-item">
+                <div class="dashboard-popup-default-setting-dropdown">
+                  <button disabled class="btn btn-default dropdown-toggle" type="button" id="dashboardPopupDefaultSettingDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    $
+                    <span class="dashboard-popup-default-setting-dropdown-caret"></span>
+                  </button>
+                  <ul class="dropdown-menu" id="dashboard-popup-default-setting-dropdown-menu" aria-labelledby="dashboardPopupDefaultSettingDropdown">
+                    <li><a class="dropdown-item" href="#">$</a></li>
+                    <li><a class="dropdown-item" href="#">¥</a></li>
+                    <li><a class="dropdown-item" href="#">€</a></li>
+                    <li><a class="dropdown-item" href="#">฿</a></li>
+                    <li><a class="dropdown-item" href="#">£</a></li>
+                    <li><a class="dropdown-item" href="#">Rp</a></li>
+                  </ul>
+               </div>
+            </div>
+          </div>
+        </div>
+          <div class="dashboard-popup-setting-mid-table">
+            <div class="dashboard-popup-setting-mid-items">
+              <div class="dashboard-popup-setting-mid-item">
+                <h6>Total $</h6>
+              </div>
+              <div class="dashboard-popup-setting-mid-item">
+                <h6>Total Paid</h6>
+              </div>
+              <div class="dashboard-popup-setting-mid-item">
+                <h6>Total No Pay</h6>
+              </div>
+            </div>
+            <div class="dashboard-popup-setting-mid-items">
+              <div class="dashboard-popup-setting-mid-item">
+                <input disabled type="text" value="300">
+              </div>
+              <div class="dashboard-popup-setting-mid-item">
+                <input disabled type="text" value="250">
+              </div>
+              <div class="dashboard-popup-setting-mid-item">
+                <input disabled type="text" value="50">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="dashboard-popup-setting-button">
+        <button id="dashboardPopupDefaultSettingButton">Update All fee</button>
+      </div>
+      <div class="dashboard-popup-setting-navigation">
+          <h4>History payment</h4>
+          <div class="dashboard-navigation-tabs">
+            <button id="dashboard_popup_default_showAll" onclick="dashboardPopupDefaultSortSelect(this)" class="dashboard-navigation-active dashboard-popup-default-sort-select">All</button>
+            <button id="dashboard_popup_default_showPaid" onclick="dashboardPopupDefaultSortSelect(this)" class="dashboard-popup-default-sort-select">Paid</button>
+            <button id="dashboard_popup_default_showDisconnected" onclick="dashboardPopupDefaultSortSelect(this)" class="dashboard-popup-default-sort-select">Disconnected</button>
+          </div>
+          <div class="dashboard-popup-month-dropdowns">
+            <div class="dashboard-popup-month-default-dropdown">
+              <button class="btn btn-default dropdown-toggle" type="button" id="dashboardPopupDefaultMonthDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                01
+                <span class="dashboard-popup-month-default-dropdown-caret"></span>
+              </button>
+              <ul class="dropdown-menu" id="dashboard-popup-month-default-dropdown-menu" aria-labelledby="dashboardPopupDefaultMonthDropdown">
+                <li class="dropdown-month-default-item"><a class="dropdown-item" href="#">01</a></li>
+              </ul>
+           </div>
+            <div class="dashboard-popup-default-year-dropdown">
+              <button class="btn btn-default dropdown-toggle" type="button" id="dashboardPopupDefaultYearDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                2019
+                <span class="dashboard-popup-default-year-dropdown-caret"></span>
+              </button>
+              <ul class="dropdown-menu" id="dashboard-popup-default-year-dropdown-menu" aria-labelledby="dashboardPopupDefaultYearDropdown">
+                <li class="dropdown-year-default-item"><a class="dropdown-item" href="#">2019</a></li>
+              </ul>
+           </div>
+          </div>
+      </div>
+      <div class="dashboard-popup-setting-table">
+        <div class="dashboard-table">
+          <table id="dashboard-popup-default-table">
+            <tr>
+              <th class="dashboard-table-sort">Join Date
+                <div>
+                  <i onclick="dashboardPopupDefaultArrowSortSelect(this)" class="fas fa-caret-down text-white dashboard-popup-default-arrow-sort-select" aria-hidden="true"></i>
+                  <i onclick="dashboardPopupDefaultArrowSortSelect(this)" class="fas fa-caret-up text-white dashboard-popup-default-arrow-sort-select" aria-hidden="true"></i>
+                </div>
+              </th>
+              <th class="dashboard-table-sort">App Account username</th>
+              <th class="dashboard-table-sort"># units</th>
+              <th class="dashboard-table-sort">$ / unit</th>
+              <th class="dashboard-table-sort">$ total</th>
+              <th class="dashboard-table-sort">Join Date
+                <div>
+                  <i onclick="dashboardPopupDefaultArrowSortSelect(this)" class="fas fa-caret-down text-white dashboard-popup-default-arrow-sort-select" aria-hidden="true"></i>
+                  <i onclick="dashboardPopupDefaultArrowSortSelect(this)" class="fas fa-caret-up text-white dashboard-popup-default-arrow-sort-select" aria-hidden="true"></i>
+                </div>
+              </th>
+              <th class="dashboard-table-sort">Last action
+                <div>
+                  <i onclick="dashboardPopupDefaultArrowSortSelect(this)" class="fas fa-caret-down text-white dashboard-popup-default-arrow-sort-select" aria-hidden="true"></i>
+                  <i onclick="dashboardPopupDefaultArrowSortSelect(this)" class="fas fa-caret-up text-white dashboard-popup-default-arrow-sort-select" aria-hidden="true"></i>
+                </div>
+              </th>
+              <th>De/active admin</th>
+            </tr>
+
+            <!-- Line color from server -->
+            <tr class="dashboard-table-popup-default-data">
+              <!-- Database from server -->
+              <td class="dashboard-popup-table-date">21/5/19, 12:00</td>
+              <td class="dashboard-popup-table-email">Abc@gmail.com</td>
+              <td class="dashboard-popup-table-units">40</td>
+              <td class="dashboard-popup-table-unit">3</td>
+              <td class="dashboard-popup-table-total">80</td>
+              <td class="dashboard-popup-table-date_2">10/04/19</td>
+              <td class="dashboard-popup-table-last_action">10/04/19</td>
+              <td>
+                <div class="dashboard-table-checkbox">
+                  <input class="dashboardPopupDefaultTableCheckbox" id="dashboardPopupDefaultTableCheckbox" type="checkbox" name="dashboardPopupDefaultTableCheckbox" value="dashboardPopupDefaultTableCheckbox_value">
+                  <label class="dashboardPopupDefaultTableLabel" id="dashboardPopupDefaultTableLabel" for="dashboardPopupDefaultTableCheckbox"></label>
+                </div>
+              </td>
+              <!-- End of Database -->
+            </tr>
+          </table>
+          <!-- LINK -->
+          <div><i class="fas fa-save text-white dashboardTableSave" aria-hidden="true"></i></div>
+        </div>
+        <div class="dashboard-table-subinfo">
+          <h6>Paid, <span>&shy;</span></h6><h6>delayed, <span>&shy;</span></h6><h6>disconnected, <span>&shy;</span></h6><h6>waiting</h6>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="header-desktop">
+    <ul>
+      <!-- LINK -->
+      <li onclick="dashboardHeaderSelect(this)" class="headerDesktopSelect headerDesktopSelected" id="dashboardMainTab">Database App</li>
+      <li onclick="dashboardHeaderSelect(this)" class="headerDesktopSelect" id="dashboardAdminTab">Admin</li>
+      <li onclick="dashboardHeaderSelect(this)" class="headerDesktopSelect" id="dashboardAlertsTab">Alerts</li>
+      <li onclick="dashboardHeaderSelect(this)" class="headerDesktopSelect" id="dashboardStatisticsTab">Statistics</li>
+      <li><a href="#" onclick="dashboardHeaderSelect(this)" class="headerDesktopSelect"><i class="fas fa-sign-out-alt text-white" id="header-desktop-signout" aria-hidden="true"></i></a></li>
+    </ul>
+  </div>
+  <!-- Database App tab -->
+  <div class="dashboard-wrapper">
+    <div class="dashboard" id="dashboardMain">
+      <div class="dashboard-navigation">
+        <div>
+          <div class="input-group md-form form-sm form-1 pl-0">
+            <div class="input-group-prepend">
+              <span class="input-group-text purple lighten-3 header-desktop-search-button"><i class="fas fa-search text-white" aria-hidden="true"></i></span>
+            </div>
+            <input class="form-control my-0 py-1 header-desktop-search-input" type="text" placeholder="Search" aria-label="Search">
+          </div>
+        </div>
+        <div class="dashboard-navigation-tabs">
+          <button id="dashboard_main_showAll" class="dashboard-navigation-active"><script>document.write(en.all)</script></button>
+          <button id="dashboard_main_showSingle"><script>document.write(en.single)</script></button>
+          <button id="dashboard_main_showAdmin"><script>document.write(en.admin)</script></button>
+          <button id="dashboard_main_showAirconet"><script>document.write(en.airconet)</script></button>
+        </div>
+        <div class="dashboard-labels-checkbox">
+          <input id="dashboardLabelsCheckbox" type="checkbox" name="dashboardLabelsCheckbox" value="dashboardLabelsCheckbox_value">
+          <label id="dashboardLabelsLabel" for="dashboardLabelsCheckbox"></label>
+          <h6>Hide accounts without devices</h6>
+        </div>
+      </div>
+      <div class="dashboard-table">
+        <table id="dashboard-table">
+          <tr>
+            <th class="dashboard-table-sort">Join Date
+            <div>
+              <i onclick="dashboardSortSelect(this)" class="fas fa-caret-down dashboard-table-sort-active dashboard-table-sort-select" aria-hidden="true"></i>
+              <i onclick="dashboardSortSelect(this)" class="fas fa-caret-up text-white dashboard-table-sort-select" aria-hidden="true"></i>
+            </div>
+           </th>
+            <th>App Account username</th>
+            <th>Account name</th>
+            <th>Admin name</th>
+            <th class="dashboard-table-sort">Level 1
+              <div>
+                <i onclick="dashboardSortSelect(this)" class="fas fa-caret-down text-white dashboard-table-sort-select" aria-hidden="true"></i>
+                <i onclick="dashboardSortSelect(this)" class="fas fa-caret-up text-white dashboard-table-sort-select" aria-hidden="true"></i>
+              </div>
+            </th>
+            <th class="dashboard-table-sort">Level 2
+              <div>
+                <i onclick="dashboardSortSelect(this)" class="fas fa-caret-down text-white dashboard-table-sort-select" aria-hidden="true"></i>
+                <i onclick="dashboardSortSelect(this)" class="fas fa-caret-up text-white dashboard-table-sort-select" aria-hidden="true"></i>
+              </div>
+            </th>
+            <th class="dashboard-table-sort"># AC
+              <div>
+                <i onclick="dashboardSortSelect(this)" class="fas fa-caret-down text-white dashboard-table-sort-select" aria-hidden="true"></i>
+                <i onclick="dashboardSortSelect(this)" class="fas fa-caret-up text-white dashboard-table-sort-select" aria-hidden="true"></i>
+              </div>
+            </th>
+            <th class="dashboard-table-sort"># SW
+              <div>
+                <i onclick="dashboardSortSelect(this)" class="fas fa-caret-down text-white dashboard-table-sort-select" aria-hidden="true"></i>
+                <i onclick="dashboardSortSelect(this)" class="fas fa-caret-up text-white dashboard-table-sort-select" aria-hidden="true"></i>
+              </div>
+            </th>
+            <th class="dashboard-table-sort"># PM
+              <div>
+                <i onclick="dashboardSortSelect(this)" class="fas fa-caret-down text-white dashboard-table-sort-select" aria-hidden="true"></i>
+                <i onclick="dashboardSortSelect(this)" class="fas fa-caret-up text-white dashboard-table-sort-select" aria-hidden="true"></i>
+              </div>
+            </th>
+            <th>Password</th>
+            <th>De/active account</th>
+            <th>Delete account</th>
+          </tr>
+          <tr class="dashboard-table-data">
+            <!-- Database from server -->
+            <td class="dashboard-table-date">21/05/19 12:00</td>
+            <!-- LINK -->
+            <td><a href="#" class="dashboard-table-email">Abc@gmail.com</a></td>
+            <td class="dashboard-table-accountname">Mr.Xyz</td>
+            <td class="dashboard-table-adminname">ABC Inc.</td>
+            <td class="dashboard-table-level_1">Shanghai</td>
+            <td class="dashboard-table-level_2">Pudong</td>
+            <td class="dashboard-table-ac">5</td>
+            <td class="dashboard-table-sw">2</td>
+            <td class="dashboard-table-pm">3</td>
+            <td><a href="#" class="dashboardTableActive">*******</a></td>
+            <td>
+              <div class="dashboard-table-checkbox">
+                <input class="dashboardTableCheckbox" type="checkbox" name="dashboardTableCheckbox" value="dashboardTableCheckbox_value">
+                <label class="dashboardTableLabel" for="dashboardTableCheckbox"></label>
+              </div>
+            </td>
+            <td class="dashboardTableDelete"><div><i class="fas fa-times text-white" aria-hidden="true"></i></div></td>
+            <!-- End of Database -->
+          </tr>
+        </table>
+        <!-- LINK -->
+        <div><i class="fas fa-save text-white dashboardTableSave" aria-hidden="true"></i></div>
+      </div>
+      <div class="dashboard-table-subinfo">
+        <!-- From server -->
+        <h4>Total <span name="dashboard-total-amount">###</span> account</h4>
+        <div class="dashboard-table-pages">
+          <i class="fas fa-arrow-left text-white" id="dashboardPagesPrev" aria-hidden="true"></i>
+          <!-- From server -->
+          <h4 id="dashboardPagesCounter">Page <span id="dashboardPagesCurrent">1</span>/<span id="dashboardPagesMax">3</span></h4>
+          <i class="fas fa-arrow-right text-white" id="dashboardPagesNext" aria-hidden="true"></i>
+          <input type="number" id="dashboardPagesInput">
+          <h4 id="dashboardPagesGo">Go</h4>
+        </div>
+      </div>
+    </div>
+    <div class="dashboard" id="dashboardAdmin">
+      <div class="dashboard-navigation">
+        <div>
+          <div class="input-group md-form form-sm form-1 pl-0">
+            <div class="input-group-prepend">
+              <span class="input-group-text purple lighten-3 header-desktop-search-button"><i class="fas fa-search text-white" aria-hidden="true"></i></span>
+            </div>
+            <input class="form-control my-0 py-1 header-desktop-search-input" type="text" placeholder="Search" aria-label="Search">
+          </div>
+        </div>
+        <div class="dashboard-navigation-tabs">
+          <button id="dashboard_admin_showAll" class="dashboard-navigation-active">All</button>
+          <button id="dashboard_admin_showPaid">Paid</button>
+          <button id="dashboard_admin_showDisconnected">Disconnected</button>
+        </div>
+        <div class="dashboard-labels-payment">
+          <!-- FROM SERVER -->
+          <h4>Default payment/device/month <span name="dashboardLabelsPayment">$1.0</span> </h4>
+        </div>
+        <div class="dashboard-labels-button">
+          <span id="dashboard-labels-button-showModal">Add+</span>
+        </div>
+      </div>
+      <div class="dashboard-table">
+        <table id="dashboard-admin-table">
+          <tr>
+            <th class="dashboard-table-sort">Join Date
+            <div>
+              <i onclick="dashboardAdminSortSelect(this)" class="fas fa-caret-down dashboard-table-sort-active dashboard-admin-table-sort-select" aria-hidden="true"></i>
+              <i onclick="dashboardAdminSortSelect(this)" class="fas fa-caret-up text-white dashboard-admin-table-sort-select" aria-hidden="true"></i>
+            </div>
+           </th>
+            <th>Admin Username</th>
+            <th>Company</th>
+            <th class="dashboard-table-sort"># account
+              <div>
+                <i onclick="dashboardAdminSortSelect(this)" class="fas fa-caret-down text-white dashboard-admin-table-sort-select" aria-hidden="true"></i>
+                <i onclick="dashboardAdminSortSelect(this)" class="fas fa-caret-up text-white dashboard-admin-table-sort-select" aria-hidden="true"></i>
+              </div>
+            </th>
+            <th class="dashboard-table-sort"># devices
+              <div>
+                <i onclick="dashboardAdminSortSelect(this)" class="fas fa-caret-down text-white dashboard-admin-table-sort-select" aria-hidden="true"></i>
+                <i onclick="dashboardAdminSortSelect(this)" class="fas fa-caret-up text-white dashboard-admin-table-sort-select" aria-hidden="true"></i>
+              </div>
+            </th>
+            <th class="dashboard-table-sort">$ / dev / month</th>
+            <th class="dashboard-table-sort">$ total</th>
+            <th class="dashboard-table-sort"># error alerts</th>
+            <th>De/active account</th>
+            <th>Delete account</th>
+          </tr>
+          <tr class="dashboard-table-admin-data-default" id="dashboardTableAdminDataDefault">
+            <!-- From server -->
+            <td class="dashboard-admin-table-date">Default</td>
+            <!-- LINK -->
+            <td><div class="dashboard-table-email" id="dashboardTableDefaultEmail">app@airconet.net</div></td>
+            <td class="dashboard-admin-table-company">Airconet</td>
+            <td class="dashboard-admin-table-account">5</td>
+            <td class="dashboard-admin-table-devices">25</td>
+            <td class="dashboard-admin-table-payinfo">5.0</td>
+            <td class="dashboard-admin-table-total">300.0</td>
+            <td class="dashboard-admin-table-errors">23</td>
+            <td>
+              Default
+            </td>
+            <td class="dashboardTableDeleteDefault">Default</td>
+            <!-- End data from server -->
+          </tr>
+
+          <tr class="dashboard-table-admin-data">
+            <!-- Database from server -->
+            <td class="dashboard-admin-table-date">21/5/19, 12:00</td>
+            <!-- LINK -->
+            <td><a href="#" class="dashboard-table-email">Abc@gmail.com</a></td>
+            <td class="dashboard-admin-table-company">Xyz Inc.</td>
+            <td class="dashboard-admin-table-account">5</td>
+            <td class="dashboard-admin-table-devices">25</td>
+            <td class="dashboard-admin-table-payinfo">2.0</td>
+            <!-- Total amount color from server -->
+            <td class="dashboard-admin-table-total">50.0</td>
+            <td class="dashboard-admin-table-errors">23</td>
+            <td>
+              <div class="dashboard-table-checkbox">
+                <input class="dashboardAdminTableCheckbox" type="checkbox" name="dashboardAdminTableCheckbox" value="dashboardAdminTableCheckbox_value">
+                <label class="dashboardAdminTableLabel" for="dashboardAdminTableCheckbox"></label>
+              </div>
+            </td>
+            <td class="dashboardAdminTableDelete"><div><i class="fas fa-times text-white" aria-hidden="true"></i></div></td>
+            <!-- End of Database -->
+          </tr>
+
+        </table>
+        <!-- LINK -->
+        <div><i class="fas fa-save text-white dashboardTableSave" aria-hidden="true"></i></div>
+      </div>
+      <div class="dashboard-table-subinfo">
+        <h6>Paid, <span>&shy;</span></h6><h6>delayed, <span>&shy;</span></h6><h6>disconnected, <span>&shy;</span></h6><h6>waiting</h6>
+      </div>
+    </div>
+    <div class="dashboard" id="dashboardAlerts">
+      <div class="dashboard-navigation">
+        <div>
+          <div class="input-group md-form form-sm form-1 pl-0">
+            <div class="input-group-prepend">
+              <span class="input-group-text purple lighten-3 header-desktop-search-button"><i class="fas fa-search text-white" aria-hidden="true"></i></span>
+            </div>
+            <input class="form-control my-0 py-1 header-desktop-search-input" type="text" placeholder="Search" aria-label="Search">
+          </div>
+        </div>
+        <div class="dashboard-navigation-tabs">
+          <button id="dashboard_alerts_showAll"  onclick="dashboardAlertsSelect(this)" class="dashboardAlertsSelectTab dashboard-navigation-active">All</button>
+          <button id="dashboard_alerts_showSingle" onclick="dashboardAlertsSelect(this)" class="dashboardAlertsSelectTab">Single</button>
+          <button id="dashboard_alerts_showAdmin" onclick="dashboardAlertsSelect(this)" class="dashboardAlertsSelectTab">Admin</button>
+          <button id="dashboard_alerts_showAirconet" onclick="dashboardAlertsSelect(this)" class="dashboardAlertsSelectTab">Airconet</button>
+        </div>
+      </div>
+      <div class="dashboard-table">
+        <table id="dashboard-alerts-table">
+          <tr>
+            <th class="dashboard-table-sort">Alert Date
+            <div>
+              <i onclick="dashboardAlertsSortSelect(this)" class="fas fa-caret-down dashboard-table-sort-active dashboard-alerts-table-sort-select" aria-hidden="true"></i>
+              <i onclick="dashboardAlertsSortSelect(this)" class="fas fa-caret-up text-white dashboard-alerts-table-sort-select" aria-hidden="true"></i>
+            </div>
+           </th>
+            <th>App Account username</th>
+            <th>Error #</th>
+            <th>Error name</th>
+            <th class="dashboard-table-sort">AC name</th>
+            <th class="dashboard-table-sort">Admin name</th>
+            <th class="dashboard-table-sort">Level 1
+              <div>
+                <i onclick="dashboardAlertsSortSelect(this)" class="fas fa-caret-down text-white dashboard-alerts-table-sort-select" aria-hidden="true"></i>
+                <i onclick="dashboardAlertsSortSelect(this)" class="fas fa-caret-up text-white dashboard-alerts-table-sort-select" aria-hidden="true"></i>
+              </div>
+            </th>
+            <th class="dashboard-table-sort">Level 2
+              <div>
+                <i onclick="dashboardAlertsSortSelect(this)" class="fas fa-caret-down text-white dashboard-alerts-table-sort-select" aria-hidden="true"></i>
+                <i onclick="dashboardAlertsSortSelect(this)" class="fas fa-caret-up text-white dashboard-alerts-table-sort-select" aria-hidden="true"></i>
+              </div>
+            </th>
+            <th class="dashboard-table-sort"></th>
+          </tr>
+          <tr class="dashboard-alerts-table-data">
+            <!-- Database from server -->
+            <td class="dashboard-table-date">21/05/19 12:00</td>
+            <!-- LINK -->
+            <td><a href="#" class="dashboard-table-email">Abc@gmail.com</a></td>
+            <td class="dashboard-alerts-table-errorid">0</td>
+            <td class="dashboard-table-errorname">Too high pressure</td>
+            <td class="dashboard-table-ac_name">Air con 1</td>
+            <td class="dashboard-table-adminname">ABC Inc.</td>
+            <td class="dashboard-table-level_1">Shanghai</td>
+            <td class="dashboard-table-level_2">Pudong</td>
+            <td class="dashboard-table-rate">
+              <i onclick="dashboardAlertsRate(this)" class="fas fa-smile dashboard-alerts-rate-smile" aria-hidden="true"></i>
+              <i onclick="dashboardAlertsRate(this)" class="fas fa-frown dashboard-alerts-rate-sad" aria-hidden="true"></i>
+            </td>
+
+            <!-- End of Database -->
+          </tr>
+        </table>
+        <!-- LINK -->
+        <div><i class="fas fa-save text-white dashboardTableSave" aria-hidden="true"></i></div>
+      </div>
+      <div class="dashboard-table-subinfo">
+        <!-- From server -->
+        <h4>Total <span name="dashboard-total-amount">123</span> account</h4>
+        <div class="dashboard-table-pages">
+          <i class="fas fa-arrow-left text-white" id="dashboardAlertsPagesPrev" aria-hidden="true"></i>
+          <!-- From server -->
+          <h4 id="dashboardAlertsPagesCounter">Page <span id="dashboardAlertsPagesCurrent">1</span>/<span id="dashboardAlertsPagesMax">3</span></h4>
+          <i class="fas fa-arrow-right text-white" id="dashboardAlertsPagesNext" aria-hidden="true"></i>
+          <input type="number" id="dashboardAlertsPagesInput">
+          <h4 id="dashboardAlertsPagesGo">Go</h4>
+        </div>
+      </div>
+    </div>
+    <div class="dashboard" id="dashboardStatistics">
+      <div class="dashboard-navigation">
+        <div class="dashboard-navigation-tabs">
+          <button id="dashboard_statistics_showAll" onclick="dashboardStatisticsSelect(this)" class="dashboard-navigation-active dashboardStatisticsSelectTab">All</button>
+          <button id="dashboard_statistics_showSingle"onclick="dashboardStatisticsSelect(this)" class="dashboardStatisticsSelectTab">Single</button>
+          <button id="dashboard_statistics_showAdmin"onclick="dashboardStatisticsSelect(this)" class="dashboardStatisticsSelectTab">Admin</button>
+          <button id="dashboard_statistics_showAirconet"onclick="dashboardStatisticsSelect(this)" class="dashboardStatisticsSelectTab">Airconet</button>
+        </div>
+        <div class="dashboard-labels-checkbox">
+          <input id="dashboardStatisticsLabelsCheckbox" type="checkbox" name="dashboardStatisticsLabelsCheckbox" value="dashboardStatisticsLabelsCheckbox_value">
+          <label id="dashboardStatisticsLabelsLabel" for="dashboardStatisticsLabelsCheckbox"></label>
+          <h6>exclude accounts without devices</h6>
+        </div>
+      </div>
+      <div class="dashboard-table">
+        <table id="dashboard-statistics-table">
+          <tr>
+            <th class="dashboard-table-sort">Date
+              <div>
+                <i onclick="dashboardStatisticsSortSelect(this)" class="fas fa-caret-down text-white dashboard-statistics-table-sort-select" aria-hidden="true"></i>
+                <i onclick="dashboardStatisticsSortSelect(this)" class="fas fa-caret-up text-white dashboard-statistics-table-sort-select" aria-hidden="true"></i>
+              </div>
+            </th>
+            <th class="dashboard-table-sort">New # Accounts
+              <div>
+                <i onclick="dashboardStatisticsSortSelect(this)" class="fas fa-caret-down text-white dashboard-statistics-table-sort-select" aria-hidden="true"></i>
+                <i onclick="dashboardStatisticsSortSelect(this)" class="fas fa-caret-up text-white dashboard-statistics-table-sort-select" aria-hidden="true"></i>
+              </div>
+            </th>
+            <th class="dashboard-table-sort">New # AC
+              <div>
+                <i onclick="dashboardStatisticsSortSelect(this)" class="fas fa-caret-down text-white dashboard-statistics-table-sort-select" aria-hidden="true"></i>
+                <i onclick="dashboardStatisticsSortSelect(this)" class="fas fa-caret-up text-white dashboard-statistics-table-sort-select" aria-hidden="true"></i>
+              </div>
+            </th>
+            <th class="dashboard-table-sort">New #SW
+              <div>
+                <i onclick="dashboardStatisticsSortSelect(this)" class="fas fa-caret-down text-white dashboard-statistics-table-sort-select" aria-hidden="true"></i>
+                <i onclick="dashboardStatisticsSortSelect(this)" class="fas fa-caret-up text-white dashboard-statistics-table-sort-select" aria-hidden="true"></i>
+              </div>
+            </th>
+            <th class="dashboard-table-sort">New #SW
+              <div>
+                <i onclick="dashboardStatisticsSortSelect(this)" class="fas fa-caret-down text-white dashboard-statistics-table-sort-select" aria-hidden="true"></i>
+                <i onclick="dashboardStatisticsSortSelect(this)" class="fas fa-caret-up text-white dashboard-statistics-table-sort-select" aria-hidden="true"></i>
+              </div>
+            </th>
+            <th class="dashboard-table-sort">Total AC+SW+PM
+              <div>
+                <i onclick="dashboardStatisticsSortSelect(this)" class="fas fa-caret-down text-white dashboard-statistics-table-sort-select" aria-hidden="true"></i>
+                <i onclick="dashboardStatisticsSortSelect(this)" class="fas fa-caret-up text-white dashboard-statistics-table-sort-select" aria-hidden="true"></i>
+              </div>
+            </th>
+            <th class="dashboard-table-sort">New # admin
+              <div>
+                <i onclick="dashboardStatisticsSortSelect(this)" class="fas fa-caret-down text-white dashboard-statistics-table-sort-select" aria-hidden="true"></i>
+                <i onclick="dashboardStatisticsSortSelect(this)" class="fas fa-caret-up text-white dashboard-statistics-table-sort-select" aria-hidden="true"></i>
+              </div>
+            </th>
+            <th class="dashboard-table-sort">Total $ paid</th>
+            <th class="dashboard-table-sort"># error alerts</th>
+          </tr>
+          <tr class="dashboard-statistics-table-data">
+            <!-- Database from server -->
+            <td class="dashboard-statistics-table-date">09 2019</td>
+            <td class="dashboard-statistics-table-accounts">2</td>
+            <td class="dashboard-statistics-table-ac">5</td>
+            <td class="dashboard-statistics-table-sw">2</td>
+            <td class="dashboard-statistics-table-sw_2">1</td>
+            <td class="dashboard-statistics-table-total-total">8</td>
+            <td class="dashboard-statistics-table-new_admin">2</td>
+            <td class="dashboard-statistics-table-total_paid">100</td>
+            <td class="dashboard-statistics-table-errors">34</td>
+            <!-- End of Database -->
+          </tr>
+        </table>
+        <!-- LINK -->
+        <div><i class="fas fa-save text-white dashboardTableSave" aria-hidden="true"></i></div>
+        <table class="dashboard-statistics-table-fake">
+          <tr class="dashboard-statistics-table-total-fake">
+            <td id="dashboard-statistics-total-date">Total<br>(all month)</td>
+            <td id="dashboard-statistics-total-accounts">0</td>
+            <td id="dashboard-statistics-total-ac">0</td>
+            <td id="dashboard-statistics-total-sw">0</td>
+            <td id="dashboard-statistics-total-sw_2">0</td>
+            <td id="dashboard-statistics-total-total">0</td>
+            <td id="dashboard-statistics-total-new_admin">0</td>
+            <td id="dashboard-statistics-total-total_paid">0</td>
+            <td id="dashboard-statistics-total-errors">0</td>
+          </tr>
+        </table>
+      </div>
+      <h5 class="dashboard-table-subinfo-text">Data is total per month only (not include previous month). Update once a day</h5>
+      <div class="dashboard-table-subinfo">
+        <!-- From server -->
+        <h4>Total <span name="dashboard-total-amount">123</span> account</h4>
+        <div class="dashboard-table-pages">
+          <i class="fas fa-arrow-left text-white" id="dashboardStatisticsPagesPrev" aria-hidden="true"></i>
+          <!-- From server -->
+          <h4 id="dashboardStatisticsPagesCounter">Page <span id="dashboardStatisticsPagesCurrent">1</span>/<span id="dashboardStatisticsPagesMax">3</span></h4>
+          <i class="fas fa-arrow-right text-white" id="dashboardStatisticsPagesNext" aria-hidden="true"></i>
+          <input type="number" id="dashboardStatisticsPagesInput">
+          <h4 id="dashboardStatisticsPagesGo">Go</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="server.js"></script>
+</body>
+</html>
