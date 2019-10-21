@@ -596,7 +596,6 @@ input:focus,button:focus {outline:0 !important;}
   display: -webkit-flex;
   display: -ms-flex;
   display: flex;
-  /* border: inherit !important; */
   -ms-align-items: center;
   align-items: center;
 }
@@ -614,4 +613,23 @@ input:focus,button:focus {outline:0 !important;}
 }
 .level-checkbox-row{
   width: 20px !important;
+}
+
+#mediaModal{
+  display: none;
+  background-color: #000;
+}
+#mediaModal h4{
+  font-size: 5vh;
+}
+#mediaModal .setupmodal-window-wrapper{
+  width: 100%;
+  height: 100%;
+}
+@media (min-width: 320px) and (max-width: 1439px){
+  #mediaModal{
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+  }
 }
