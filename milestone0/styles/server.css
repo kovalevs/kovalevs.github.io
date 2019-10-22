@@ -330,7 +330,7 @@ body{
   text-decoration: underline;
   font-size: 15px;
   text-align: right;
-  font-weight: 300;
+  font-weight: 500;
   padding-right: 3%;
   padding-bottom: 10px;
 }
@@ -492,15 +492,15 @@ body{
   background: rgb(166, 166, 166);
   text-align: left;
   padding: 5px 10px;
-  font-weight: 300;
+  font-weight: 500;
   border: 2px solid black;
 }
 .dashboard-table table td{
   color: rgb(128, 128, 128);
   background: rgb(38, 38, 38);
-  text-align: left;
+  text-align: center;
   padding: 5px 10px;
-  font-weight: 300;
+  font-weight: 500;
   border: 2px solid black;
 }
 .dashboardTableSave{
@@ -526,7 +526,7 @@ body{
 }
 .dashboard-table-subinfo h4{
   color: white;
-  font-weight: 300;
+  font-weight: 500;
   font-size: 18px;
   margin: 0;
 }
@@ -592,19 +592,25 @@ body{
   width: 115px;
 }
 .dashboard-labels-button span,
-.dashboard-labels-payment span{
+.dashboard-labels-payment span,
+.dashboard-labels-payment input
+{
   color: white;
   background: rgb(89, 89, 89);
   padding: 5px 7px;
   cursor: pointer;
   font-size: 18px;
 }
-.dashboard-labels-payment span{
+.dashboard-labels-payment span,
+.dashboard-labels-payment input
+{
   margin: 0px 40px 0px 10px;
+  border: 0px;
+  width: 50px;
 }
 .dashboard-labels-payment h4{
   color: rgb(127, 127, 127);
-  font-weight: 300;
+  font-weight: 500;
   font-size: 21px;
   letter-spacing: 0.5px;
 }
@@ -668,7 +674,7 @@ body{
 .dashboard-popup-contact h4{
   color: #808080;
   letter-spacing: 0.5px;
-  font-weight: 300;
+  font-weight: 500;
   font-size: 22px;
 }
 .dashboard-popup-contact-table-items{
@@ -678,7 +684,7 @@ body{
 }
 .dashboard-popup-contact-table-items h6{
   color: #000;
-  font-weight: 300;
+  font-weight: 500;
   font-size: 16px;
   text-align: center;
   margin: 0;
@@ -698,7 +704,7 @@ body{
 }
 .dashboard-popup-contact-table-items input{
   text-align: center;
-  font-weight: 300;
+  font-weight: 500;
   font-size: 16px;
   border: 1px solid black;
   height: 35px;
@@ -707,7 +713,7 @@ body{
 .dashboard-popup-contact-table-items input::placeholder{
   text-align: center;
   color: #aeaeae;
-  font-weight: 300;
+  font-weight: 500;
   font-size: 16px;
 }
 .dashboard-popup-contact-table{
@@ -717,7 +723,7 @@ body{
 .dashboard-popup-contact h5{
   color: #808080;
   letter-spacing: 0.3px;
-  font-weight: 300;
+  font-weight: 500;
   font-size: 19px;
   line-height: 25px;
 }
@@ -752,7 +758,7 @@ body{
 .dashboard-popup-setting-title h4{
   color: #808080;
   letter-spacing: 0.5px;
-  font-weight: 300;
+  font-weight: 500;
   font-size: 22px;
 }
 .dashboard-popup-setting-title .dashboard-labels-checkbox h4{
@@ -780,7 +786,7 @@ body{
 }
 .dashboard-popup-contact-table-items h6{
   color: #000;
-  font-weight: 300;
+  font-weight: 500;
   font-size: 16px;
   text-align: center;
   margin: 0;
@@ -800,7 +806,7 @@ body{
 }
 .dashboard-popup-contact-table-items input{
   text-align: center;
-  font-weight: 300;
+  font-weight: 500;
   font-size: 16px;
   border: 1px solid black;
   height: 35px;
@@ -809,7 +815,7 @@ body{
 .dashboard-popup-contact-table-items input::placeholder{
   text-align: center;
   color: #aeaeae;
-  font-weight: 300;
+  font-weight: 500;
   font-size: 16px;
 }
 .dashboard-popup-setting-mid-items{
@@ -822,7 +828,7 @@ body{
 }
 .dashboard-popup-setting-mid-items h6{
   color: #000;
-  font-weight: 300;
+  font-weight: 500;
   font-size: 16px;
   text-align: center;
   margin: 0;
@@ -844,7 +850,7 @@ body{
 .dashboard-popup-setting-mid-item .dashboard-popup-setting-dropdown,
 .dashboard-popup-default-setting-dropdown{
   text-align: center;
-  font-weight: 300;
+  font-weight: 500;
   font-size: 16px;
   border: none;
   height: 35px;
@@ -857,7 +863,7 @@ body{
 .dashboard-popup-setting-mid-items input::placeholder{
   text-align: center;
   color: #aeaeae;
-  font-weight: 300;
+  font-weight: 500;
   font-size: 16px;
 }
 .dashboard-popup-setting-mid{
@@ -873,7 +879,7 @@ body{
   color: white;
   border: 2px solid #4572C4;
   letter-spacing: 0.5px;
-  font-weight: 300;
+  font-weight: 500;
   font-size: 18px;
   width: 150px;
   background: #262626;
@@ -901,7 +907,7 @@ body{
 .dashboard-popup-setting-navigation h4{
   color: #808080;
   letter-spacing: 0.5px;
-  font-weight: 300;
+  font-weight: 500;
   font-size: 22px;
 }
 .dashboard-popup-setting-navigation button{
@@ -1042,7 +1048,7 @@ body{
 .dashboard-table-subinfo-text{
   color: #7F7F7F;
   letter-spacing: 0.5px;
-  font-weight: 300;
+  font-weight: 500;
   font-size: 17px;
   text-align: left;
   margin-top: 7px;
@@ -1064,13 +1070,13 @@ body{
   width: 100%;
   height: 100%;
 }
-@media (min-width: 320px) and (max-width: 1439px){
+/* @media (min-width: 320px) and (max-width: 1439px){
   #mediaModal{
     display: -webkit-flex;
     display: -ms-flex;
     display: flex;
   }
-}
+} */
 
 #mainCaptcha{
   font-size: 17px;
@@ -1085,4 +1091,20 @@ body{
   align-items: center;
   text-align: center;
   background: red;
+}
+.centerWrapper{
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  justify-content: center;
+  -ms-align-items: center;
+  align-items: center;
+}
+.dashboard-popup-table-last_action a{
+  color: inherit;
+  text-decoration: underline;
+}
+.dashboard-alerts-rate-smile,
+.dashboard-alerts-rate-sad{
+  color: white;
 }

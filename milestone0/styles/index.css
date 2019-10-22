@@ -497,6 +497,10 @@ input:focus,button:focus {outline:0 !important;}
 .level_3_meter{
   height: 35px !important;
   border-right: 0px !important;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  justify-content: center;
 }
 .level_3_mid{
   display: -webkit-flex;
@@ -529,6 +533,7 @@ input:focus,button:focus {outline:0 !important;}
 }
 .fromServerDisabled{
   color: rgb(191, 191, 191) !important;
+  background: white !important;
 }
 #level_3_table input{
   width: 100px;
@@ -566,7 +571,8 @@ input:focus,button:focus {outline:0 !important;}
   padding: 10px;
 }
 .levelRadio{
-  margin-left: 25px !important;
+  margin-left: 0px;
+  width: auto !important;
 }
 #level_30_table .dropdown-menu a{
   color: black;
@@ -632,4 +638,41 @@ input:focus,button:focus {outline:0 !important;}
     display: -ms-flex;
     display: flex;
   }
+}
+#level_3 .fromServerActiveTd{
+  width: 130px;
+  justify-content: unset;
+}
+#level_3 .fromServerActive{
+  width: 80px;
+}
+.centerWrapper{
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  justify-content: center;
+  -ms-align-items: center;
+  align-items: center;
+}
+.custom-radio{
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+}
+.level_3_table-line:last-child .mergeBorder{
+  border-right-color: white;
+}
+.pMargin{
+  margin-left: 20px;
+}
+.topMargin{
+  margin-top: 10px;
+}
+.brHeight{
+  content: "";
+  margin: 2em;
+  display: block;
+  font-size: 24%;
 }
