@@ -3,7 +3,7 @@ for (let i = 0; i < 20; i++) {
   let copy_data = document.getElementsByClassName('admin-table-line')[0].cloneNode(true);
   document.getElementById("adminTableData").appendChild(copy_data);
 }
-for (let i = 0; i < 3; i++) {
+for (let i = 0; i < 2; i++) {
   let copy_data = document.getElementById('level_31_tableLine').cloneNode(true);
   document.getElementById("level_3_1_TableData").appendChild(copy_data);
 }
@@ -14,7 +14,7 @@ for (let i = 0; i < 20; i++) {
 for (let i = 0; i < 20; i++) {
   document.getElementsByClassName('level_1_table-level')[i].innerText = "Level " + i;
 
-  document.getElementsByClassName('level_2_table-level')[i].innerText = "Level " + i;
+  document.getElementsByClassName('level_3_table-level')[i].innerText = "Level " + i;
 }
 
 for (let i = 0; i < 20; i++) {
@@ -28,7 +28,9 @@ for (let i = 0; i < 20; i++) {
   document.getElementsByClassName('level-table-username')[i].value = "City " + i + 2;
 
   document.getElementsByClassName('level_2_table-level')[i].innerText = "Level " + i;
-  document.getElementsByClassName('level_2_table-level')[i].value = "City " + i;
+  document.getElementsByClassName('level_2_table-level')[i].innerText = "Level " + i;
+  document.getElementsByClassName('level_3_table-level')[i].innerText = "Level " + i;
+  document.getElementsByClassName('level_3_table-level')[i].innerText = "Level " + i;
 
 }
 
@@ -151,30 +153,37 @@ let levelOneTab = document.getElementById('levelLevelOneTab');
 let levelTwoTab = document.getElementById('levelLevelTwoTab');
 let levelThreeTab = document.getElementById('levelLevelThreeTab');
 
+let addTab = document.getElementById('admin-add').style.display;
+
 let levelSubextCustom = document.getElementById('level-subtext-custom').style.display;
 
 function showLevelAdmin(element){
   levelAdmin.style.display = "table";
   levelOne.style.display = "none";
   levelTwo.style.display = "none";
+  levelThree.style.display = "none";
 
   levelOneTab.style.display = "none";
   levelTwoTab.style.display = "none";
   levelAdminTab.style.display = "flex";
+  levelThreeTab.style.display = "none";
 
   document.getElementById('level-subtext-custom').style.display = "none";
   document.getElementById('level-subtext-common').style.display = "block";
 
+  document.getElementById('admin-add').style.display = "block";
   levelSubextCustom = "none";
 }
 function showLevelOne(element){
   levelOne.style.display = "table";
   levelAdmin.style.display = "none";
   levelTwo.style.display = "none";
+  levelThree.style.display = "none";
 
   levelOneTab.style.display = "flex";
   levelTwoTab.style.display = "none";
   levelAdminTab.style.display = "none";
+  levelThreeTab.style.display = "none";
 
   if(element.classList.contains('level_1_table-level')){
     for (let i = 0; i < document.getElementsByClassName('level_1_table-level').length; i++) {
@@ -183,6 +192,8 @@ function showLevelOne(element){
       }
     }
   }
+  document.getElementById('admin-add').style.display = "block";
+
   document.getElementById('level-subtext-custom').style.display = "none";
   document.getElementById('level-subtext-common').style.display = "block";
 
@@ -192,10 +203,12 @@ function showLevelTwo(element){
   levelOne.style.display = "none";
   levelTwo.style.display = "table";
   levelAdmin.style.display = "none";
+  levelThree.style.display = "none";
 
   levelOneTab.style.display = "none";
   levelTwoTab.style.display = "flex";
   levelAdminTab.style.display = "none";
+  levelThreeTab.style.display = "none";
 
   for (let i = 0; i < document.getElementsByClassName('level_2_table-level').length; i++) {
     if(document.getElementsByClassName('level_2_table-level')[i] == element){
@@ -203,9 +216,11 @@ function showLevelTwo(element){
     }
   }
   document.getElementById('levelTwoRef').innerText = document.getElementById('levelLevelOneTabValue').innerText;
+  document.getElementById('levelTwoRef_0').innerText = document.getElementById('levelLevelOneTabValue').innerText;
   document.getElementById('level-subtext-custom').style.display = "block";
   document.getElementById('level-subtext-common').style.display = "none";
 
+  document.getElementById('admin-add').style.display = "block";
   levelSubextCustom = "block";
 }
 
@@ -213,17 +228,25 @@ function showLevelThree(element){
   levelOne.style.display = "none";
   levelTwo.style.display = "none";
   levelAdmin.style.display = "none";
-
   levelThree.style.display = "table";
 
   levelOneTab.style.display = "none";
-  levelTwoTab.style.display = "flex";
+  levelTwoTab.style.display = "none";
+  levelThreeTab.style.display = "flex";
   levelAdminTab.style.display = "none";
 
+  for (let i = 0; i < document.getElementsByClassName('level-table-sitename').length; i++) {
+    if(document.getElementsByClassName('level_3_table-level')[i] == element){
+      document.getElementById('levelLevelThreeTabValue').innerText = document.getElementsByClassName('level-table-sitename')[i].value;
+    }
+  }
+
+  document.getElementById('levelThreeRef').innerText = document.getElementById('levelLevelTwoTabValue').innerText;
 
   document.getElementById('level-subtext-custom').style.display = "none";
   document.getElementById('level-subtext-common').style.display = "block";
 
+  document.getElementById('admin-add').style.display = "none";
   levelSubextCustom = "block";
 }
 
@@ -254,12 +277,12 @@ $(function(){
     $('.fromTime').combodate({
         firstItem: 'none',
         value:  '09:00',
-        minuteStep: 30
+        minuteStep: 15
     });
     $('.toTime').combodate({
         firstItem: 'none',
         value:  '17:00',
-        minuteStep: 30
+        minuteStep: 15
     });
 });
 
@@ -348,3 +371,10 @@ for (let i = 17; i < 33; i++) {
   copy_data.setAttribute('value', i);
   document.getElementById("sf-size-max").appendChild(copy_data);
 }
+
+function setOrange(elem){
+  elem.style.color = "rgb(237, 125, 50)";
+}
+
+document.getElementsByClassName('noContent')[document.getElementsByClassName('noContent').length-1].value = "";
+document.getElementsByClassName('noContent')[document.getElementsByClassName('noContent').length-2].value = "";

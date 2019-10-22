@@ -14,7 +14,7 @@
     <div class="logmodal">
       <div class="logmodal-window-wrapper">
         <div class="logmodal-window">
-          <div class="logmodal-title"><script>document.write(en.login);</script></div>
+          <div class="logmodal-title"><script>document.write(en.login)</script></div>
           <div class="logmodal-form-wrapper">
             <div class="logmodal-form">
               <div class="logmodal-inputs">
@@ -34,8 +34,12 @@
               </div>
               <div class="logmodal-captcha">
                 <input id="logCaptchaInput" type="text">
-                <img src="captcha.png" alt="">
-                <button><i class="fas fa-sync text-white" aria-hidden="true"></i></button>
+                <!-- Secure with server -->
+                <div class="captcha-wrapper">
+                  <h2 type="text" id="mainCaptcha"></h2>
+                </div>
+                <!-- Secure with server -->
+                <button id="refresh" onclick="Captcha();"><i class="fas fa-sync text-white" aria-hidden="true"></i></button>
               </div>
               <div class="logmodal-submit-wrapper">
                   <input type="submit" id="logFormSubmit" value="Sign in">
@@ -198,10 +202,10 @@
             </div>
             <div class="dashboard-popup-setting-mid-items">
               <div class="dashboard-popup-setting-mid-item">
-                <input type="text" value="$1.0">
+                <input type="text" value="1.0">
               </div>
               <div class="dashboard-popup-setting-mid-item">
-                <input type="text" value="Tax">
+                <input type="text" placeholder="Tax">
               </div>
               <div class="dashboard-popup-setting-mid-item">
                 <div class="dashboard-popup-setting-dropdown">
@@ -289,7 +293,7 @@
               <th class="dashboard-table-sort">$ total</th>
               <th class="dashboard-table-sort">Join Date
                 <div>
-                  <i onclick="dashboardPopupArrowSortSelect(this)" class="fas fa-caret-down text-white dashboard-popup-arrow-sort-select" aria-hidden="true"></i>
+                  <i onclick="dashboardPopupArrowSortSelect(this)" class="fas fa-caret-down dashboard-table-sort-active dashboard-popup-arrow-sort-select" aria-hidden="true"></i>
                   <i onclick="dashboardPopupArrowSortSelect(this)" class="fas fa-caret-up text-white dashboard-popup-arrow-sort-select" aria-hidden="true"></i>
                 </div>
               </th>
@@ -312,11 +316,14 @@
               <td class="dashboard-popup-table-units">1</td>
               <td class="dashboard-popup-table-unit">80</td>
               <td class="dashboard-popup-table-date">10/04/19</td>
-              <td class="dashboard-popup-table-last_action">10/04/19</td>
+              <!-- LINK -->
+              <td class="dashboard-popup-table-last_action"><a href="#">10/04/19</a></td>
               <td>
-                <div class="dashboard-table-checkbox">
-                  <input class="dashboardPopupTableCheckbox" id="dashboardPopupTableCheckbox" type="checkbox" name="dashboardPopupTableCheckbox" value="dashboardPopupTableCheckbox_value">
-                  <label class="dashboardPopupTableLabel" id="dashboardPopupTableLabel" for="dashboardPopupTableCheckbox"></label>
+                <div class="centerWrapper">
+                  <div class="dashboard-table-checkbox">
+                    <input class="dashboardPopupTableCheckbox" id="dashboardPopupTableCheckbox" type="checkbox" name="dashboardPopupTableCheckbox" value="dashboardPopupTableCheckbox_value">
+                    <label class="dashboardPopupTableLabel" id="dashboardPopupTableLabel" for="dashboardPopupTableCheckbox"></label>
+                  </div>
                 </div>
               </td>
               <!-- End of Database -->
@@ -374,7 +381,7 @@
             </div>
             <div class="dashboard-popup-setting-mid-items">
               <div class="dashboard-popup-setting-mid-item">
-                <input type="text" value="$1.0" disabled>
+                <input type="text" value="1.0" disabled>
               </div>
               <div class="dashboard-popup-setting-mid-item">
                 <input type="text" value="Tax" disabled>
@@ -459,7 +466,7 @@
             <tr>
               <th class="dashboard-table-sort">Join Date
                 <div>
-                  <i onclick="dashboardPopupDefaultArrowSortSelect(this)" class="fas fa-caret-down text-white dashboard-popup-default-arrow-sort-select" aria-hidden="true"></i>
+                  <i onclick="dashboardPopupDefaultArrowSortSelect(this)" class="fas fa-caret-down dashboard-popup-default-arrow-sort-select" aria-hidden="true"></i>
                   <i onclick="dashboardPopupDefaultArrowSortSelect(this)" class="fas fa-caret-up text-white dashboard-popup-default-arrow-sort-select" aria-hidden="true"></i>
                 </div>
               </th>
@@ -491,11 +498,14 @@
               <td class="dashboard-popup-table-unit">3</td>
               <td class="dashboard-popup-table-total">80</td>
               <td class="dashboard-popup-table-date_2">10/04/19</td>
-              <td class="dashboard-popup-table-last_action">10/04/19</td>
+              <!-- LINK -->
+              <td class="dashboard-popup-table-last_action"><a href="#">10/04/19</a></td>
               <td>
-                <div class="dashboard-table-checkbox">
-                  <input class="dashboardPopupDefaultTableCheckbox" id="dashboardPopupDefaultTableCheckbox" type="checkbox" name="dashboardPopupDefaultTableCheckbox" value="dashboardPopupDefaultTableCheckbox_value">
-                  <label class="dashboardPopupDefaultTableLabel" id="dashboardPopupDefaultTableLabel" for="dashboardPopupDefaultTableCheckbox"></label>
+                <div class="centerWrapper">
+                  <div class="dashboard-table-checkbox">
+                    <input class="dashboardPopupDefaultTableCheckbox" id="dashboardPopupDefaultTableCheckbox" type="checkbox" name="dashboardPopupDefaultTableCheckbox" value="dashboardPopupDefaultTableCheckbox_value">
+                    <label class="dashboardPopupDefaultTableLabel" id="dashboardPopupDefaultTableLabel" for="dashboardPopupDefaultTableCheckbox"></label>
+                  </div>
                 </div>
               </td>
               <!-- End of Database -->
@@ -605,9 +615,11 @@
             <td class="dashboard-table-pm">3</td>
             <td><a href="#" class="dashboardTableActive">*******</a></td>
             <td>
-              <div class="dashboard-table-checkbox">
-                <input class="dashboardTableCheckbox" type="checkbox" name="dashboardTableCheckbox" value="dashboardTableCheckbox_value">
-                <label class="dashboardTableLabel" for="dashboardTableCheckbox"></label>
+              <div class="centerWrapper">
+                <div class="dashboard-table-checkbox">
+                  <input class="dashboardTableCheckbox" type="checkbox" name="dashboardTableCheckbox" value="dashboardTableCheckbox_value">
+                  <label class="dashboardTableLabel" for="dashboardTableCheckbox"></label>
+                </div>
               </div>
             </td>
             <td class="dashboardTableDelete"><div><i class="fas fa-times text-white" aria-hidden="true"></i></div></td>
@@ -647,7 +659,7 @@
         </div>
         <div class="dashboard-labels-payment">
           <!-- FROM SERVER -->
-          <h4>Default payment/device/month <span name="dashboardLabelsPayment">$1.0</span> </h4>
+          <h4>Default payment/device/month <input name="dashboardLabelsPayment" value="1.0"> </h4>
         </div>
         <div class="dashboard-labels-button">
           <span id="dashboard-labels-button-showModal">Add+</span>
@@ -686,7 +698,7 @@
             <!-- From server -->
             <td class="dashboard-admin-table-date">Default</td>
             <!-- LINK -->
-            <td><div class="dashboard-table-email" id="dashboardTableDefaultEmail">app@airconet.net</div></td>
+            <td><div class="dashboard-table-email dashboardTableDefaultEmail"> app@airconet.net</div></td>
             <td class="dashboard-admin-table-company">Airconet</td>
             <td class="dashboard-admin-table-account">5</td>
             <td class="dashboard-admin-table-devices">25</td>
@@ -704,7 +716,7 @@
             <!-- Database from server -->
             <td class="dashboard-admin-table-date">21/5/19, 12:00</td>
             <!-- LINK -->
-            <td><a href="#" class="dashboard-table-email">Abc@gmail.com</a></td>
+            <td><a href="#" class="dashboard-table-email dashboardTableDefaultEmail">Abc@gmail.com</a></td>
             <td class="dashboard-admin-table-company">Xyz Inc.</td>
             <td class="dashboard-admin-table-account">5</td>
             <td class="dashboard-admin-table-devices">25</td>
@@ -713,9 +725,11 @@
             <td class="dashboard-admin-table-total">50.0</td>
             <td class="dashboard-admin-table-errors">23</td>
             <td>
-              <div class="dashboard-table-checkbox">
-                <input class="dashboardAdminTableCheckbox" type="checkbox" name="dashboardAdminTableCheckbox" value="dashboardAdminTableCheckbox_value">
-                <label class="dashboardAdminTableLabel" for="dashboardAdminTableCheckbox"></label>
+              <div class="centerWrapper">
+                <div class="dashboard-table-checkbox">
+                  <input class="dashboardAdminTableCheckbox" type="checkbox" name="dashboardAdminTableCheckbox" value="dashboardAdminTableCheckbox_value">
+                  <label class="dashboardAdminTableLabel" for="dashboardAdminTableCheckbox"></label>
+                </div>
               </div>
             </td>
             <td class="dashboardAdminTableDelete"><div><i class="fas fa-times text-white" aria-hidden="true"></i></div></td>
@@ -829,7 +843,7 @@
           <tr>
             <th class="dashboard-table-sort">Date
               <div>
-                <i onclick="dashboardStatisticsSortSelect(this)" class="fas fa-caret-down text-white dashboard-statistics-table-sort-select" aria-hidden="true"></i>
+                <i onclick="dashboardStatisticsSortSelect(this)" class="fas fa-caret-down dashboard-table-sort-active dashboard-statistics-table-sort-select" aria-hidden="true"></i>
                 <i onclick="dashboardStatisticsSortSelect(this)" class="fas fa-caret-up text-white dashboard-statistics-table-sort-select" aria-hidden="true"></i>
               </div>
             </th>

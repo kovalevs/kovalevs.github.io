@@ -15,7 +15,7 @@
     <div class="setupmodal">
       <div class="setupmodal-window-wrapper">
         <div class="setupmodal-window">
-          <div class="setupmodal-title">Setup Passoword</div>
+          <div class="setupmodal-title">Setup Password</div>
           <div class="setupmodal-text">
             <div class="setupmodal-items">
               <input type="password" placeholder="Password" id="setupModalPassword">
@@ -51,11 +51,11 @@
                 <span></span>1. Connect devices (air conditioner controllers, On/Off controller and power meters) <a href="https://www.ekonhome.com.cn/manual">manual</a><br>
                 <span></span>2. Create app account/s on Android or iOS App (search Airconet) <a href="https://www.ekonhome.com.cn/download">download</a><br>
                 <span></span>3. Link devices to App in each location. Give each device a recognizable name <a href="https://www.ekonhome.com.cn/app">app setup</a><br><br>
-                After all devices can work with App in all locations, follow these steps:<br><br>
+                After all devices can work with App in all locations, follow these steps:<br><br class="brHeight">
                 <span></span>4. Create sub accounts according to your organization chart <a href="https://www.ekonhome.com.cn/esco">example</a><br>
                 <span></span>5. Give each account login username and password and mark who is responsible for cloud’s fees<br>
                 <span></span>6. Link the App accounts in groups according to its location in the organization (in Level 3) using<br>
-                the email and password used to sign in the App<br>
+                <span class="pMargin"></span>the email and password used to sign in the App<br>
                 <span></span>7. Go to ‘Control’ page and ensure all devices can work<br>
                 <span></span>8. Setup the others features such as Timers, Holiday, Alerts, etc.<br><br>
                 Note: you have 1 free month to test the system. Please add your payment method before the expiry date to ensure the system continues to work<br><br>
@@ -132,6 +132,15 @@
           <a href="#" id="levelTwoRef" onclick="showLevelOne(this)">Level</a>
           <p class="level-mid-text"> > </p>
           <p id="levelLevelTwoTabValue">Level 2</p></h4>
+
+          <h4 id="levelLevelThreeTab">
+          <a href="#" onclick="showLevelAdmin(this)" >Admin</a>
+          <p class="level-mid-text"> > </p>
+          <a href="#" id="levelTwoRef_0" onclick="showLevelOne(this)">Level</a>
+          <p class="level-mid-text"> > </p>
+          <a href="#" id="levelThreeRef" onclick="showLevelTwo(this)">Level</a>
+          <p class="level-mid-text"> > </p>
+          <p id="levelLevelThreeTabValue">Level 2</p></h4>
 
         </div>
         <span id="admin-add">Add+</span>
@@ -238,7 +247,7 @@
                 <i class="fas fa-bars text-black" aria-hidden="true"></i>
               </td>
               <td>
-                <a href="#" class="level_2_table-level" onclick="showLevelThree(this)" >Level 3a</a>
+                <a href="#" class="level_3_table-level" onclick="showLevelThree(this)" >Level 3a</a>
               </td>
               <td>
                 <input type="text" placeholder="Enter App Email" class="level-table-email" value="C1A1S2@gmail.com">
@@ -279,9 +288,9 @@
                 </tr>
                 <!-- Data from server -->
                 <tr>
-                  <td class="level_3_contactfield">Mr. xyz</td>
-                  <td class="level_3_phone">1134567890</td>
-                  <td class="level_3_address">123 abc st aaaa bbbb ccc</td>
+                  <td class="level_3_contactfield fromServerActiveTd"><input type="text" class="fromServerActive" value="Mr.xyz"></td>
+                  <td class="level_3_phone fromServerActiveTd"><input type="text" class="fromServerActive" value="1134567890"></td>
+                  <td class="level_3_address fromServerActiveTd"><input type="text" class="fromServerActive" value="123 abc st aaaa bbbb ccc"></td>
                 </tr>
               </table>
             </div>
@@ -293,9 +302,9 @@
                     <th>Sqm</th>
                   </tr>
                   <!-- Data from server -->
-                  <tr class="level_3_vertical">
-                    <td class="level_3_square">Square</td>
-                    <td class="level_3_meter">Meter</td>
+                  <tr class="level_3_vertical fromServerActiveTd">
+                    <td class="level_3_square"><input type="text" class="fromServerActive" value="Square"></td>
+                    <td class="level_3_meter"><input type="text" class="fromServerActive" value="Meter"></td>
                   </tr>
                 </table>
               </div>
@@ -380,7 +389,7 @@
                   </tr>
                   <!-- Data from server -->
                   <tr>
-                    <td class="level_3_maxpower">35 <i class="fas fa-retweet text-black" aria-hidden="true"></i></td>
+                    <td class="level_3_maxpower fromServerActiveTd"><input type="text" class="fromServerActive" value="35"> <i class="fas fa-retweet text-black" aria-hidden="true"></i></td>
                   </tr>
                 </table>
               </div>
@@ -446,11 +455,11 @@
 
                     <td>
                       <div class="filters" id="size-filters">
-                      <select id="sf-size-min" name="sf-size-min">
+                      <select id="sf-size-min" name="sf-size-min" onchange="setOrange(this)">
                         <option label="24" selected="selected" disabled="disabled" value="none">24</option>
                         <option label="16" value="16" id="sfSizeMin">16</option>
                       </select>
-                      <select id="sf-size-max" name="sf-size-max">
+                      <select id="sf-size-max" name="sf-size-max" onchange="setOrange(this)">
                         <option label="28" selected="selected" disabled="disabled" value="none">28</option>
                         <option label="16" value="16" id="sfSizeMax">16</option>
                       </select>
@@ -532,9 +541,11 @@
                     </td>
                     <td><input type="text" class="fromServerActive" value="Watt"></td>
                     <td class="level-checkbox-row">
-                      <div class="level-checkbox">
-                        <input class="level_3-checkbox_0" id="level_3_0_LevelCheckbox" type="checkbox" name="level_3_LevelCheckbox" value="level_3_LevelCheckbox_value">
-                        <label class="level_3-label_0" id="level_3_0_LevelLabel" for="level_3_LevelCheckbox"></label>
+                      <div class="centerWrapper">
+                        <div class="level-checkbox">
+                          <input class="level_3-checkbox_0" id="level_3_0_LevelCheckbox" type="checkbox" name="level_3_LevelCheckbox" value="level_3_LevelCheckbox_value">
+                          <label class="level_3-label_0" id="level_3_0_LevelLabel" for="level_3_LevelCheckbox"></label>
+                        </div>
                       </div>
                     </td>
                     <td>
@@ -607,13 +618,15 @@
                    <td><input type="text" class="fromServerActive" value="PM XYZ"></td>
                    <td><input type="text" class="fromServerDisabled" value="1PHx3"></td>
                    <td>
-                     <div class="custom-control custom-radio">
-                       <input class="form-check-input levelRadio" type="radio" name="levelRadio" value="levelRadio" checked>
+                     <div class="centerWrapper">
+                       <div class="custom-control custom-radio">
+                         <input class="form-check-input levelRadio" type="radio" name="levelRadio" value="levelRadio" checked>
+                       </div>
                      </div>
                    </td>
-                   <td><input type="text" class="fromServerDisabled" value="1234"></td>
-                   <td><input type="text" class="fromServerDisabled" value="111"></td>
-                   <td><input type="text" class="fromServerDisabled" value="222"></td>
+                   <td class="mergeBorder"><input type="text" class="fromServerDisabled noContent" value="1234"></td>
+                   <td class="mergeBorder"><input type="text" class="fromServerDisabled" value="111"></td>
+                   <td><input type="text" class="fromServerDisabled noContent" value="222"></td>
                    <td>
                      <div class="levelIco">
                        <i class="fas fa-undo text-black" aria-hidden="true"></i>
