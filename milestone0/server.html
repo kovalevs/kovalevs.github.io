@@ -10,6 +10,7 @@
   <script type="text/javascript" src="languages/main.js"></script>
 </head>
 <body>
+  <iframe id="txtArea1" style="display:none"></iframe>
   <div class="logmodal-wrapper" id="logModal">
     <div class="logmodal">
       <div class="logmodal-window-wrapper">
@@ -330,7 +331,7 @@
             </tr>
           </table>
           <!-- LINK -->
-          <div><i class="fas fa-save text-white dashboardTableSave" aria-hidden="true"></i></div>
+          <div><i class="fas fa-save text-white dashboardTableSave" onclick="fnExcelReport('dashboard-popup-table')" aria-hidden="true"></i></div>
         </div>
         <div class="dashboard-table-subinfo">
           <h6>Paid, <span>&shy;</span></h6><h6>delayed, <span>&shy;</span></h6><h6>disconnected, <span>&shy;</span></h6><h6>waiting</h6>
@@ -512,7 +513,7 @@
             </tr>
           </table>
           <!-- LINK -->
-          <div><i class="fas fa-save text-white dashboardTableSave" aria-hidden="true"></i></div>
+          <div><i class="fas fa-save text-white dashboardTableSave" onclick="fnExcelReport('dashboard-popup-default-table')" aria-hidden="true"></i></div>
         </div>
         <div class="dashboard-table-subinfo">
           <h6>Paid, <span>&shy;</span></h6><h6>delayed, <span>&shy;</span></h6><h6>disconnected, <span>&shy;</span></h6><h6>waiting</h6>
@@ -627,7 +628,7 @@
           </tr>
         </table>
         <!-- LINK -->
-        <div><i class="fas fa-save text-white dashboardTableSave" aria-hidden="true"></i></div>
+        <div><i class="fas fa-save text-white dashboardTableSave" aria-hidden="true" onclick="fnExcelReport('dashboard-table')"></i></div>
       </div>
       <div class="dashboard-table-subinfo">
         <!-- From server -->
@@ -738,7 +739,7 @@
 
         </table>
         <!-- LINK -->
-        <div><i class="fas fa-save text-white dashboardTableSave" aria-hidden="true"></i></div>
+        <div><i class="fas fa-save text-white dashboardTableSave" onclick="fnExcelReport('dashboard-admin-table')" aria-hidden="true"></i></div>
       </div>
       <div class="dashboard-table-subinfo">
         <h6>Paid, <span>&shy;</span></h6><h6>delayed, <span>&shy;</span></h6><h6>disconnected, <span>&shy;</span></h6><h6>waiting</h6>
@@ -809,7 +810,7 @@
           </tr>
         </table>
         <!-- LINK -->
-        <div><i class="fas fa-save text-white dashboardTableSave" aria-hidden="true"></i></div>
+        <div><i class="fas fa-save text-white dashboardTableSave" onclick="fnExcelReport('dashboard-alerts-table')" aria-hidden="true"></i></div>
       </div>
       <div class="dashboard-table-subinfo">
         <!-- From server -->
@@ -901,7 +902,7 @@
           </tr>
         </table>
         <!-- LINK -->
-        <div><i class="fas fa-save text-white dashboardTableSave" aria-hidden="true"></i></div>
+        <div><i class="fas fa-save text-white dashboardTableSave" onclick="fnExcelReport('dashboard-statistics-table')" aria-hidden="true"></i></div>
         <table class="dashboard-statistics-table-fake">
           <tr class="dashboard-statistics-table-total-fake">
             <td id="dashboard-statistics-total-date">Total<br>(all month)</td>

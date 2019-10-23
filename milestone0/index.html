@@ -154,10 +154,10 @@
             <th></th>
             <th>Level 1</th>
             <th>New Username</th>
-            <th>New Password  <i class="fas fa-eye text-black" aria-hidden="true"></i> </th>
-            <th></th>
+            <th>New Password  <i onclick="adminPasswords()" class="fas fa-eye text-black" aria-hidden="true"></i> </th>
             <th>Email for alerts</th>
             <th>Pay</th>
+            <th></th>
           </tr>
           <tbody id="adminTableData" class="level-table-data">
             <!-- Data from server -->
@@ -172,32 +172,44 @@
                 <input type="text" placeholder="Add username" class="level_1_table-username">
               </td>
               <td>
-                <input type="password" placeholder="Add password" class="level-table-password">
+                <input type="password" placeholder="Add password" class="level-table-password_0">
+              </td>
+              <td>
+                <input type="text" placeholder="Add email" class="level-table-email_0">
+              </td>
+              <td>
+                <div class="largeRow customRow">
+                  <div class="level-checkbox">
+                    <input onclick="levelOneHideCheckboxLabel(this)" class="admin-level-checkbox" id="adminLevelCheckbox" type="checkbox" name="adminLevelCheckbox" value="adminLevelCheckbox_value">
+                    <label class="admin-level-label" id="adminLevelLabel" for="adminLevelCheckbox"></label>
+                    <h6 class="level-1-checkbox-label">I Pay</h6>
+                  </div>
+                </div>
               </td>
               <td class="admin-table-delete">
                 <i class="fas fa-times text-black" aria-hidden="true"></i>
               </td>
-              <td>
-                <input type="text" placeholder="Add email" class="level-table-email">
-              </td>
-              <td>
-                <div class="level-checkbox">
-                  <input class="admin-level-checkbox" id="adminLevelCheckbox" type="checkbox" name="adminLevelCheckbox" value="adminLevelCheckbox_value">
-                  <label class="admin-level-label" id="adminLevelLabel" for="adminLevelCheckbox"></label>
-                </div>
-              </td>
             </tr>
           </tbody>
         </table>
+        <div class="dashboard-table-subinfo">
+          <div class="dashboard-table-pages">
+            <i class="fas fa-arrow-left text-white" id="dashboardPagesPrev" aria-hidden="true"></i>
+            <h4 id="dashboardPagesCounter">Page <span id="dashboardPagesCurrent">1</span>/<span id="dashboardPagesMax">3</span></h4>
+            <i class="fas fa-arrow-right text-white" id="dashboardPagesNext" aria-hidden="true"></i>
+            <input type="number" id="dashboardPagesInput">
+            <h4 id="dashboardPagesGo">Go</h4>
+          </div>
+        </div>
         <table id="level_1_table">
           <tr>
             <th></th>
             <th>Level 2</th>
             <th>New Username</th>
-            <th>New Password  <i class="fas fa-eye text-black" aria-hidden="true"></i> </th>
-            <th></th>
+            <th>New Password  <i onclick="levelPasswords() "class="fas fa-eye text-black" aria-hidden="true"></i> </th>
             <th>Email (alerts)</th>
             <th>Pay</th>
+            <th></th>
           </tr>
           <tbody id="level_1_TableData" class="level-table-data">
             <!-- Data from server -->
@@ -209,22 +221,25 @@
                 <a href="#" class="level_2_table-level" onclick="showLevelTwo(this)">Level 2a</a>
               </td>
               <td>
-                <input type="text" placeholder="Add username" class="level-table-username">
+                <input type="text" placeholder="Add username" class="level_2_table-username">
               </td>
               <td>
-                <input type="password" placeholder="Add password" class="level-table-password">
+                <input type="password" placeholder="Add password" class="level-table-password_1">
+              </td>
+              <td>
+                <input type="text" placeholder="Add email" class="level-table-email_1">
+              </td>
+              <td>
+              <div class="largeRow customRow">
+                <div class="level-checkbox">
+                  <input onclick="levelTwoHideCheckboxLabel(this)" class="level_1-checkbox" id="level_1_LevelCheckbox" type="checkbox" name="level_1_LevelCheckbox" value="level_1_LevelCheckbox_value">
+                  <label class="level_1-label" id="level_1_LevelLabel" for="level_1_LevelCheckbox"></label>
+                  <h6 class="level-2-checkbox-label">I Pay</h6>
+                </div>
+              </div>
               </td>
               <td class="level_1_table-delete">
                 <i class="fas fa-times text-black" aria-hidden="true"></i>
-              </td>
-              <td>
-                <input type="text" placeholder="Add email" class="level-table-email">
-              </td>
-              <td>
-                <div class="level-checkbox">
-                  <input class="level_1-checkbox" id="level_1_LevelCheckbox" type="checkbox" name="level_1_LevelCheckbox" value="level_1_LevelCheckbox_value">
-                  <label class="level_1-label" id="level_1_LevelLabel" for="level_1_LevelCheckbox"></label>
-                </div>
               </td>
             </tr>
           </tbody>
@@ -237,8 +252,8 @@
             <th>App Password</th>
             <th>Press Link</th>
             <th>New Site Name</th>
-            <th></th>
             <th>Pay</th>
+            <th></th>
           </tr>
           <tbody id="level_2_TableData" class="level-table-data">
             <!-- Data from server -->
@@ -247,34 +262,51 @@
                 <i class="fas fa-bars text-black" aria-hidden="true"></i>
               </td>
               <td>
-                <a href="#" class="level_3_table-level" onclick="showLevelThree(this)" >Level 3a</a>
+                <div class="levelLink">
+                  <a href="#" class="level_3_table-level" onclick="showLevelThree(this)" >Level 3a</a>
+                </div>
               </td>
               <td>
-                <input type="text" placeholder="Enter App Email" class="level-table-email" value="C1A1S2@gmail.com">
+                <input type="text" placeholder="Enter App Email" class="level-table-email_2">
               </td>
               <td>
-                <input type="password" placeholder="Enter App password" class="level-table-password" value="1234556">
+                <div class="levelNarrow">
+                  <input type="password" placeholder="Enter App password" class="level-table-password_2">
+                </div>
               </td>
               <td>
-                <i class="fas fa-link level-link" aria-hidden="true" onclick="levelLinkChange(this)"></i>
+                <div class="centerWrapper">
+                  <i class="fas fa-link level-link" aria-hidden="true" onclick="levelLinkChange(this)"></i>
+                </div>
               </td>
               <td>
-                <input type="text" placeholder="Add Site Name" class="level-table-sitename" value="Shop 1">
+                <input type="text" placeholder="Add Site Name" class="level-table-sitename">
+              </td>
+              <td>
+                <div class="largeRow">
+                  <div class="level-checkbox">
+                    <input onclick="levelHideCheckboxLabel(this)" class="level_2-checkbox" id="level_2_LevelCheckbox" type="checkbox" name="level_2_LevelCheckbox" value="level_2_LevelCheckbox_value">
+                    <label class="level_2-label" id="level_2_LevelLabel" for="level_2_LevelCheckbox"></label>
+                    <!-- From server -->
+                    <h6 class="level-checkbox-label">I Pay</h6>
+                  </div>
+                </div>
               </td>
               <td class="level_2_table-delete">
                 <i class="fas fa-times text-black" aria-hidden="true"></i>
               </td>
-              <td>
-                <div class="level-checkbox">
-                  <input onclick="levelHideCheckboxLabel(this)" class="level_2-checkbox" id="level_2_LevelCheckbox" type="checkbox" name="level_2_LevelCheckbox" value="level_2_LevelCheckbox_value">
-                  <label class="level_2-label" id="level_2_LevelLabel" for="level_2_LevelCheckbox"></label>
-                  <!-- From server -->
-                  <h6 class="level-checkbox-label">Pay by Shanghai</h6>
-                </div>
-              </td>
             </tr>
           </tbody>
         </table>
+        <div class="dashboard-table-subinfo">
+          <div class="dashboard-table-pages">
+            <i class="fas fa-arrow-left text-white" id="dashboardAlertsPagesPrev" aria-hidden="true"></i>
+            <h4 id="dashboardAlertsPagesCounter">Page <span id="dashboardAlertsPagesCurrent">1</span>/<span id="dashboardAlertsPagesMax">3</span></h4>
+            <i class="fas fa-arrow-right text-white" id="dashboardAlertsPagesNext" aria-hidden="true"></i>
+            <input type="number" id="dashboardAlertsPagesInput">
+            <h4 id="dashboardAlertsPagesGo">Go</h4>
+          </div>
+        </div>
         <div id="level_3" class="level-table-data">
           <!-- From server -->
           <h5>Account: <span id="level_3_account">C1A1S2@gmail.com<span></h5>
@@ -429,11 +461,11 @@
                     <td><input type="text" class="fromServerDisabled" value="AC GR"></td>
                     <td>
                       <div class="levelItemHorizontal">
-                        <input type="text" class="fromServerActive" value="Watt">
+                        <input type="text" class="fromServerActive" placeholder="Watt">
                         <i class="fas fa-retweet text-black" aria-hidden="true"></i>
                       </div>
                     </td>
-                    <td><input type="text" class="fromServerActive" value="Watt"></td>
+                    <td><input type="text" class="fromServerActive" placeholder="Watt"></td>
                     <td class="level-checkbox-row">
                       <div class="level-checkbox">
                         <input class="level_3-checkbox" id="level_3_0_LevelCheckbox" type="checkbox" name="level_3_LevelCheckbox" value="level_3_LevelCheckbox_value">
@@ -613,10 +645,69 @@
                 <tbody id="level_3_1_TableData" class="level-table-data">
                   <!-- Data from server -->
                   <tr class="level_3_table-line" id="level_31_tableLine">
-                    <!-- Data from server -->
                    <td><input type="text" class="fromServerDisabled" value="PM 4a"></td>
                    <td><input type="text" class="fromServerActive" value="PM XYZ"></td>
-                   <td><input type="text" class="fromServerDisabled" value="1PHx3"></td>
+                   <td><input type="text" class="fromServerDisabled" value="1PH*3"></td>
+                   <td>
+                     <div class="centerWrapper">
+                       <div class="custom-control custom-radio">
+                         <input class="form-check-input levelRadio" type="radio" name="levelRadio" value="levelRadio" checked>
+                       </div>
+                     </div>
+                   </td>
+                   <td class="mergeBorder"><input type="text" class="fromServerDisabled noContent" value="1234"></td>
+                   <td class="mergeBorder"><input type="text" class="fromServerDisabled" value="111"></td>
+                   <td><input type="text" class="fromServerDisabled noContent" value="222"></td>
+                   <td>
+                     <div class="levelIco">
+                       <i class="fas fa-undo text-black" aria-hidden="true"></i>
+                     </div>
+                     </td>
+                  </tr>
+                  <tr class="level_3_table-line" id="level_31_tableLine">
+                   <td><input type="text" class="fromServerDisabled" value="PM 4a"></td>
+                   <td><input type="text" class="fromServerActive" value="PM XYZ"></td>
+                   <td><input type="text" class="fromServerDisabled" value="1PH*3"></td>
+                   <td>
+                     <div class="centerWrapper">
+                       <div class="custom-control custom-radio">
+                         <input class="form-check-input levelRadio" type="radio" name="levelRadio" value="levelRadio" checked>
+                       </div>
+                     </div>
+                   </td>
+                   <td class="mergeBorder"><input type="text" class="fromServerDisabled noContent" value="1234"></td>
+                   <td class="mergeBorder"><input type="text" class="fromServerDisabled" value="111"></td>
+                   <td><input type="text" class="fromServerDisabled noContent" value="222"></td>
+                   <td>
+                     <div class="levelIco">
+                       <i class="fas fa-undo text-black" aria-hidden="true"></i>
+                     </div>
+                     </td>
+                  </tr>
+                  <tr class="level_3_table-line" id="level_31_tableLine">
+                   <td><input type="text" class="fromServerDisabled" value="PM 4a"></td>
+                   <td><input type="text" class="fromServerActive" value="PM XYZ"></td>
+                   <td><input type="text" class="fromServerDisabled" value="1PH*3"></td>
+                   <td>
+                     <div class="centerWrapper">
+                       <div class="custom-control custom-radio">
+                         <input class="form-check-input levelRadio" type="radio" name="levelRadio" value="levelRadio" checked>
+                       </div>
+                     </div>
+                   </td>
+                   <td class="mergeBorder"><input type="text" class="fromServerDisabled noContent" value="1234"></td>
+                   <td class="mergeBorder"><input type="text" class="fromServerDisabled" value="111"></td>
+                   <td><input type="text" class="fromServerDisabled noContent" value="222"></td>
+                   <td>
+                     <div class="levelIco">
+                       <i class="fas fa-undo text-black" aria-hidden="true"></i>
+                     </div>
+                     </td>
+                  </tr>
+                  <tr class="level_3_table-line" id="level_31_tableLine">
+                   <td><input type="text" class="fromServerDisabled" value="PM 4a"></td>
+                   <td><input type="text" class="fromServerActive" value="PM XYZ"></td>
+                   <td><input type="text" class="fromServerDisabled" value="3PH"></td>
                    <td>
                      <div class="centerWrapper">
                        <div class="custom-control custom-radio">
@@ -641,6 +732,7 @@
           </h6>
         </div>
       </div>
+      <a href="#level-subtext-common" id="pageBottom"></a>
       <div class="level-subtext" id="level-subtext-common">
         <h6>
           <!-- LINK -->

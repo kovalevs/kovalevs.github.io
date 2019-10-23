@@ -1,36 +1,31 @@
 // TEST DATA GENERATION, REMOVE IT WHEN USE REAL DATABASE
-for (let i = 0; i < 20; i++) {
+let alphabet = "abcdefghijklmnopqrstuvwxyz";
+
+for (let i = 0; i < 15; i++) {
   let copy_data = document.getElementsByClassName('admin-table-line')[0].cloneNode(true);
   document.getElementById("adminTableData").appendChild(copy_data);
 }
-for (let i = 0; i < 2; i++) {
-  let copy_data = document.getElementById('level_31_tableLine').cloneNode(true);
-  document.getElementById("level_3_1_TableData").appendChild(copy_data);
-}
-for (let i = 0; i < 20; i++) {
+for (let i = 0; i < 15; i++) {
   let copy_data = document.getElementsByClassName('level_2_table-line')[0].cloneNode(true);
   document.getElementById("level_2_TableData").appendChild(copy_data);
 }
-for (let i = 0; i < 20; i++) {
+for (let i = 0; i < 15; i++) {
   document.getElementsByClassName('level_1_table-level')[i].innerText = "Level " + i;
 
   document.getElementsByClassName('level_3_table-level')[i].innerText = "Level " + i;
 }
 
-for (let i = 0; i < 20; i++) {
+for (let i = 0; i < 15; i++) {
   let copy_data = document.getElementsByClassName('level_1_table-line')[0].cloneNode(true);
   document.getElementById("level_1_TableData").appendChild(copy_data);
 }
 
-for (let i = 0; i < 20; i++) {
-  document.getElementsByClassName('level_1_table-level')[i].innerText = "Level " + i;
-  document.getElementsByClassName('level_1_table-username')[i].value = "City " + i;
-  document.getElementsByClassName('level-table-username')[i].value = "City " + i + 2;
+for (let i = 0; i < 15; i++) {
+  document.getElementsByClassName('level_1_table-level')[i].innerText = "Level 1" + alphabet[i];
 
-  document.getElementsByClassName('level_2_table-level')[i].innerText = "Level " + i;
-  document.getElementsByClassName('level_2_table-level')[i].innerText = "Level " + i;
-  document.getElementsByClassName('level_3_table-level')[i].innerText = "Level " + i;
-  document.getElementsByClassName('level_3_table-level')[i].innerText = "Level " + i;
+  document.getElementsByClassName('level_2_table-level')[i].innerText = "Level 2" + alphabet[i];
+
+  document.getElementsByClassName('level_3_table-level')[i].innerText = "Level 3" + alphabet[i];
 
 }
 
@@ -175,79 +170,185 @@ function showLevelAdmin(element){
   levelSubextCustom = "none";
 }
 function showLevelOne(element){
-  levelOne.style.display = "table";
-  levelAdmin.style.display = "none";
-  levelTwo.style.display = "none";
-  levelThree.style.display = "none";
-
-  levelOneTab.style.display = "flex";
-  levelTwoTab.style.display = "none";
-  levelAdminTab.style.display = "none";
-  levelThreeTab.style.display = "none";
-
   if(element.classList.contains('level_1_table-level')){
     for (let i = 0; i < document.getElementsByClassName('level_1_table-level').length; i++) {
       if(document.getElementsByClassName('level_1_table-level')[i] == element){
-          document.getElementById('levelLevelOneTabValue').innerText = document.getElementsByClassName('level_1_table-username')[i].value;
+          if(document.getElementsByClassName('level_1_table-username')[i].value == "" || document.getElementsByClassName('level-table-password_0')[i].value == "" || document.getElementsByClassName('level-table-email_0')[i].value == ""){
+            alert('Please fill up details first');
+          } else {
+
+              levelOne.style.display = "table";
+              levelAdmin.style.display = "none";
+              levelTwo.style.display = "none";
+              levelThree.style.display = "none";
+
+              levelOneTab.style.display = "flex";
+              levelTwoTab.style.display = "none";
+              levelAdminTab.style.display = "none";
+              levelThreeTab.style.display = "none";
+
+              if(element.classList.contains('level_1_table-level')){
+                for (let i = 0; i < document.getElementsByClassName('level_1_table-level').length; i++) {
+                  if(document.getElementsByClassName('level_1_table-level')[i] == element){
+                      document.getElementById('levelLevelOneTabValue').innerText = document.getElementsByClassName('level_1_table-username')[i].value;
+
+                  }
+                }
+              }
+              document.getElementById('admin-add').style.display = "block";
+
+              document.getElementById('level-subtext-custom').style.display = "none";
+              document.getElementById('level-subtext-common').style.display = "block";
+
+              levelSubextCustom = "none";
+          }
       }
     }
+  } else {
+    levelOne.style.display = "table";
+    levelAdmin.style.display = "none";
+    levelTwo.style.display = "none";
+    levelThree.style.display = "none";
+
+    levelOneTab.style.display = "flex";
+    levelTwoTab.style.display = "none";
+    levelAdminTab.style.display = "none";
+    levelThreeTab.style.display = "none";
+
+    if(element.classList.contains('level_1_table-level')){
+      for (let i = 0; i < document.getElementsByClassName('level_1_table-level').length; i++) {
+        if(document.getElementsByClassName('level_1_table-level')[i] == element){
+            document.getElementById('levelLevelOneTabValue').innerText = document.getElementsByClassName('level_1_table-username')[i].value;
+
+        }
+      }
+    }
+    document.getElementById('admin-add').style.display = "block";
+
+    document.getElementById('level-subtext-custom').style.display = "none";
+    document.getElementById('level-subtext-common').style.display = "block";
+
+    levelSubextCustom = "none";
   }
-  document.getElementById('admin-add').style.display = "block";
 
-  document.getElementById('level-subtext-custom').style.display = "none";
-  document.getElementById('level-subtext-common').style.display = "block";
-
-  levelSubextCustom = "none";
 }
 function showLevelTwo(element){
-  levelOne.style.display = "none";
-  levelTwo.style.display = "table";
-  levelAdmin.style.display = "none";
-  levelThree.style.display = "none";
+  if(element.classList.contains('level_2_table-level')){
+    for (let i = 0; i < document.getElementsByClassName('level_1_table-level').length; i++) {
+      if(document.getElementsByClassName('level_2_table-level')[i] == element){
+          if(document.getElementsByClassName('level_2_table-username')[i].value == "" || document.getElementsByClassName('level-table-password_1')[i].value == "" || document.getElementsByClassName('level-table-email_1')[i].value == ""){
+            alert('Please fill up details first');
+          } else {
 
-  levelOneTab.style.display = "none";
-  levelTwoTab.style.display = "flex";
-  levelAdminTab.style.display = "none";
-  levelThreeTab.style.display = "none";
+            levelOne.style.display = "none";
+            levelTwo.style.display = "table";
+            levelAdmin.style.display = "none";
+            levelThree.style.display = "none";
 
-  for (let i = 0; i < document.getElementsByClassName('level_2_table-level').length; i++) {
-    if(document.getElementsByClassName('level_2_table-level')[i] == element){
-        document.getElementById('levelLevelTwoTabValue').innerText = document.getElementsByClassName('level-table-username')[i].value;
+            levelOneTab.style.display = "none";
+            levelTwoTab.style.display = "flex";
+            levelAdminTab.style.display = "none";
+            levelThreeTab.style.display = "none";
+
+            for (let i = 0; i < document.getElementsByClassName('level_2_table-level').length; i++) {
+              if(document.getElementsByClassName('level_2_table-level')[i] == element){
+                  document.getElementById('levelLevelTwoTabValue').innerText = document.getElementsByClassName('level_2_table-username')[i].value;
+              }
+            }
+            document.getElementById('levelTwoRef').innerText = document.getElementById('levelLevelOneTabValue').innerText;
+            document.getElementById('levelTwoRef_0').innerText = document.getElementById('levelLevelOneTabValue').innerText;
+            document.getElementById('level-subtext-custom').style.display = "block";
+            document.getElementById('level-subtext-common').style.display = "none";
+
+            document.getElementById('admin-add').style.display = "block";
+            levelSubextCustom = "block";
+          }
+      }
     }
-  }
-  document.getElementById('levelTwoRef').innerText = document.getElementById('levelLevelOneTabValue').innerText;
-  document.getElementById('levelTwoRef_0').innerText = document.getElementById('levelLevelOneTabValue').innerText;
-  document.getElementById('level-subtext-custom').style.display = "block";
-  document.getElementById('level-subtext-common').style.display = "none";
+  } else {
+    levelOne.style.display = "none";
+    levelTwo.style.display = "table";
+    levelAdmin.style.display = "none";
+    levelThree.style.display = "none";
 
-  document.getElementById('admin-add').style.display = "block";
-  levelSubextCustom = "block";
+    levelOneTab.style.display = "none";
+    levelTwoTab.style.display = "flex";
+    levelAdminTab.style.display = "none";
+    levelThreeTab.style.display = "none";
+
+    for (let i = 0; i < document.getElementsByClassName('level_2_table-level').length; i++) {
+      if(document.getElementsByClassName('level_2_table-level')[i] == element){
+          document.getElementById('levelLevelTwoTabValue').innerText = document.getElementsByClassName('level_2_table-username')[i].value;
+      }
+    }
+    document.getElementById('levelTwoRef').innerText = document.getElementById('levelLevelOneTabValue').innerText;
+    document.getElementById('levelTwoRef_0').innerText = document.getElementById('levelLevelOneTabValue').innerText;
+    document.getElementById('level-subtext-custom').style.display = "block";
+    document.getElementById('level-subtext-common').style.display = "none";
+
+    document.getElementById('admin-add').style.display = "block";
+    levelSubextCustom = "block";
+  }
 }
 
 function showLevelThree(element){
-  levelOne.style.display = "none";
-  levelTwo.style.display = "none";
-  levelAdmin.style.display = "none";
-  levelThree.style.display = "table";
+  if(element.classList.contains('level_3_table-level')){
+    for (let i = 0; i < document.getElementsByClassName('level_3_table-level').length; i++) {
+      if(document.getElementsByClassName('level_3_table-level')[i] == element){
+          if(document.getElementsByClassName('level-table-sitename')[i].value == "" || document.getElementsByClassName('level-table-password_2')[i].value == "" || document.getElementsByClassName('level-table-email_2')[i].value == ""){
+            alert('Please fill up details first');
+          } else {
+            levelOne.style.display = "none";
+            levelTwo.style.display = "none";
+            levelAdmin.style.display = "none";
+            levelThree.style.display = "table";
 
-  levelOneTab.style.display = "none";
-  levelTwoTab.style.display = "none";
-  levelThreeTab.style.display = "flex";
-  levelAdminTab.style.display = "none";
+            levelOneTab.style.display = "none";
+            levelTwoTab.style.display = "none";
+            levelThreeTab.style.display = "flex";
+            levelAdminTab.style.display = "none";
 
-  for (let i = 0; i < document.getElementsByClassName('level-table-sitename').length; i++) {
-    if(document.getElementsByClassName('level_3_table-level')[i] == element){
-      document.getElementById('levelLevelThreeTabValue').innerText = document.getElementsByClassName('level-table-sitename')[i].value;
+            for (let i = 0; i < document.getElementsByClassName('level-table-sitename').length; i++) {
+              if(document.getElementsByClassName('level_3_table-level')[i] == element){
+                document.getElementById('levelLevelThreeTabValue').innerText = document.getElementsByClassName('level-table-sitename')[i].value;
+              }
+            }
+
+            document.getElementById('levelThreeRef').innerText = document.getElementById('levelLevelTwoTabValue').innerText;
+
+            document.getElementById('level-subtext-custom').style.display = "none";
+            document.getElementById('level-subtext-common').style.display = "block";
+
+            document.getElementById('admin-add').style.display = "none";
+            levelSubextCustom = "block";
+          }
+      }
     }
+  } else {
+    levelOne.style.display = "none";
+    levelTwo.style.display = "none";
+    levelAdmin.style.display = "none";
+    levelThree.style.display = "table";
+
+    levelOneTab.style.display = "none";
+    levelTwoTab.style.display = "none";
+    levelThreeTab.style.display = "flex";
+    levelAdminTab.style.display = "none";
+
+    for (let i = 0; i < document.getElementsByClassName('level-table-sitename').length; i++) {
+      if(document.getElementsByClassName('level_3_table-level')[i] == element){
+        document.getElementById('levelLevelThreeTabValue').innerText = document.getElementsByClassName('level-table-sitename')[i].value;
+      }
+    }
+
+    document.getElementById('levelThreeRef').innerText = document.getElementById('levelLevelTwoTabValue').innerText;
+
+    document.getElementById('level-subtext-custom').style.display = "none";
+    document.getElementById('level-subtext-common').style.display = "block";
+
+    document.getElementById('admin-add').style.display = "none";
+    levelSubextCustom = "block";
   }
-
-  document.getElementById('levelThreeRef').innerText = document.getElementById('levelLevelTwoTabValue').innerText;
-
-  document.getElementById('level-subtext-custom').style.display = "none";
-  document.getElementById('level-subtext-common').style.display = "block";
-
-  document.getElementById('admin-add').style.display = "none";
-  levelSubextCustom = "block";
 }
 
 
@@ -265,10 +366,32 @@ function levelLinkChange(elem){
 function levelHideCheckboxLabel(elem){
   for (let i = 0; i < document.getElementsByClassName('level_2-checkbox').length; i++) {
     if( document.getElementsByClassName('level_2-checkbox')[i] == elem){
-      if(elem.checked){
+      if(!elem.checked){
         document.getElementsByClassName('level-checkbox-label')[i].style.visibility = "hidden";
       } else {
         document.getElementsByClassName('level-checkbox-label')[i].style.visibility = "visible";
+      }
+    }
+  }
+}
+function levelOneHideCheckboxLabel(elem){
+  for (let i = 0; i < document.getElementsByClassName('admin-level-checkbox').length; i++) {
+    if( document.getElementsByClassName('admin-level-checkbox')[i] == elem){
+      if(!elem.checked){
+        document.getElementsByClassName('level-1-checkbox-label')[i].style.visibility = "hidden";
+      } else {
+        document.getElementsByClassName('level-1-checkbox-label')[i].style.visibility = "visible";
+      }
+    }
+  }
+}
+function levelTwoHideCheckboxLabel(elem){
+  for (let i = 0; i < document.getElementsByClassName('level_1-checkbox').length; i++) {
+    if( document.getElementsByClassName('level_1-checkbox')[i] == elem){
+      if(!elem.checked){
+        document.getElementsByClassName('level-2-checkbox-label')[i].style.visibility = "hidden";
+      } else {
+        document.getElementsByClassName('level-2-checkbox-label')[i].style.visibility = "visible";
       }
     }
   }
@@ -378,3 +501,131 @@ function setOrange(elem){
 
 document.getElementsByClassName('noContent')[document.getElementsByClassName('noContent').length-1].value = "";
 document.getElementsByClassName('noContent')[document.getElementsByClassName('noContent').length-2].value = "";
+
+document.getElementsByClassName('admin-table-line')[document.getElementsByClassName('admin-table-line').length-1].style.display = "none";
+// document.getElementsByClassName('level_1_table-line')[document.getElementsByClassName('level_1_table-level').length-1].style.display = "none";
+document.getElementsByClassName('level_2_table-line')[document.getElementsByClassName('level_2_table-level').length-1].style.display = "none";
+
+let adminPassword = 1;
+function adminPasswords(){
+  if(adminPassword){
+    for (var i = 0; i < document.getElementsByClassName('level-table-password_0').length; i++) {
+      document.getElementsByClassName('level-table-password_0')[i].setAttribute('type', 'text');
+    }
+    adminPassword = 0;
+  } else {
+    for (var i = 0; i < document.getElementsByClassName('level-table-password_0').length; i++) {
+      document.getElementsByClassName('level-table-password_0')[i].setAttribute('type', 'password');
+    }
+    adminPassword = 1;
+  }
+}
+let levelPassword = 1;
+function levelPasswords(){
+  if(levelPassword){
+    for (var i = 0; i < document.getElementsByClassName('level-table-password_1').length; i++) {
+      document.getElementsByClassName('level-table-password_1')[i].setAttribute('type', 'text');
+    }
+    levelPassword = 0;
+  } else {
+    for (var i = 0; i < document.getElementsByClassName('level-table-password_1').length; i++) {
+      document.getElementsByClassName('level-table-password_1')[i].setAttribute('type', 'password');
+    }
+    levelPassword = 1;
+  }
+}
+
+
+
+// Pages counter generation
+let dashboard_pages_current_label = document.getElementById('dashboardPagesCurrent');
+let dashboard_pages_max_label = document.getElementById('dashboardPagesMax');
+let dashboard_lines = document.getElementsByClassName('admin-table-line');
+let dashboard_current_page = 1;
+
+let dashboard_current_range = 1;
+
+dashboard_pages_max_label.innerText = Math.ceil(dashboard_lines.length / 25);
+
+document.getElementById('dashboardPagesNext').onclick = function(){
+  if (dashboard_current_page != Math.ceil(dashboard_lines.length / 25)){
+    dashboard_current_page += 1;
+    dashboard_pages_current_label.innerText = dashboard_current_page;
+    dashboardHideLines();
+    dashboard_current_range += 25;
+    for (let i = dashboard_current_range-1; i < dashboard_current_range+24; i++){
+        try{
+          dashboard_lines[i].style.display = "table-row";
+        } catch {
+          break;
+        }
+    }
+  }
+}
+document.getElementById('dashboardPagesPrev').onclick = function(){
+  if (dashboard_current_page != 1){
+    dashboard_current_page -= 1;
+    dashboard_pages_current_label.innerText = dashboard_current_page;
+    dashboardHideLines();
+    dashboard_current_range -= 25;
+    for (let i = dashboard_current_range-1; i < dashboard_current_range+24; i++){
+        try{
+          dashboard_lines[i].style.display = "table-row";
+        } catch {
+          break;
+        }
+    }
+  }
+}
+
+// Alerts Pages counter generation
+let dashboard_alerts_pages_current_label = document.getElementById('dashboardAlertsPagesCurrent');
+let dashboard_alerts_pages_max_label = document.getElementById('dashboardAlertsPagesMax');
+let dashboard_alert_lines = document.getElementsByClassName('level_1_table-line');
+let dashboard_alerts_current_page = 1;
+
+let dashboard_alerts_current_range = 1;
+
+dashboard_alerts_pages_max_label.innerText = Math.ceil(dashboard_alert_lines.length / 25);
+
+document.getElementById('dashboardAlertsPagesNext').onclick = function(){
+  if (dashboard_alerts_current_page != Math.ceil(dashboard_alert_lines.length / 25)){
+    dashboard_alerts_current_page += 1;
+    dashboard_alerts_pages_current_label.innerText = dashboard_alerts_current_page;
+    dashboardAlertsHideLines();
+    dashboard_alerts_current_range += 25;
+    for (let i = dashboard_alerts_current_range-1; i < dashboard_alerts_current_range+24; i++){
+        try{
+          dashboard_alert_lines[i].style.display = "table-row";
+        } catch {
+          break;
+        }
+    }
+  }
+}
+document.getElementById('dashboardAlertsPagesPrev').onclick = function(){
+  if (dashboard_alerts_current_page != 1){
+    dashboard_alerts_current_page -= 1;
+    dashboard_alerts_pages_current_label.innerText = dashboard_alerts_current_page;
+    dashboardAlertsHideLines();
+    dashboard_alerts_current_range -= 25;
+    for (let i = dashboard_alerts_current_range-1; i < dashboard_alerts_current_range+24; i++){
+        try{
+          dashboard_alert_lines[i].style.display = "table-row";
+        } catch {
+          break;
+        }
+    }
+  }
+}
+
+function dashboardHideLines(){
+  for (let i=0; i< dashboard_lines.length; i++){
+      dashboard_lines[i].style.display = "none";
+  }
+}
+function dashboardAlertsHideLines(){
+  for (let i=0; i< dashboard_alert_lines.length; i++){
+      dashboard_alert_lines[i].style.display = "none";
+  }
+}
