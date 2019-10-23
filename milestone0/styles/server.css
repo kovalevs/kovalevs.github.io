@@ -1070,13 +1070,13 @@ body{
   width: 100%;
   height: 100%;
 }
-/* @media (min-width: 320px) and (max-width: 1439px){
+@media (min-width: 320px) and (max-width: 1000px){
   #mediaModal{
     display: -webkit-flex;
     display: -ms-flex;
     display: flex;
   }
-} */
+}
 
 #mainCaptcha{
   font-size: 17px;
