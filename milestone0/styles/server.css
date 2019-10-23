@@ -416,7 +416,7 @@ body{
 .headerDesktopSelected{
   color: rgb(237, 125, 50) !important;
 }
-#resetModal, #logModal{
+#resetModal{
   display: none;
 }
 .headerDesktopSelect{

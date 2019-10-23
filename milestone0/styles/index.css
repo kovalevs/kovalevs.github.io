@@ -448,12 +448,16 @@ input:focus,button:focus {outline:0 !important;}
 .level-link-green{
   color: #49862A;
 }
-.level-checkbox-label{
+.level-checkbox-label,
+.level-1-checkbox-label,
+.level-2-checkbox-label
+{
   color: #C1C1C1;
   font-size: 15px;
-  font-weight: 300;
+  font-weight: 500;
   padding-left: 20px;
   padding-left: 10px;
+  visibility: hidden;
 }
 #level-subtext-custom{
   display: none;
@@ -675,4 +679,75 @@ input:focus,button:focus {outline:0 !important;}
   margin: 2em;
   display: block;
   font-size: 24%;
+}
+.levelLink{
+  width: 80px;
+}
+.levelNarrow{
+  width: 165px;
+}
+.levelNarrow input{
+  width: 165px;
+}
+.level-table-sitename{
+  text-align: left !important;
+}
+.largeRow{
+  width: 75px;
+}
+.customRow label{
+  top: 5px !important;
+}
+#fakeData{
+  display: none;
+}
+
+.dashboard-table-pages{
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  -ms-align-items: center;
+  align-items: center;
+}
+.dashboard-table-pages i{
+  cursor: pointer;
+}
+#dashboardPagesInput,
+#dashboardStatisticsPagesInput,
+#dashboardAlertsPagesInput{
+  width: 80px;
+  margin: 0px 15px;
+  padding-left: 10px;
+}
+#dashboardPagesGo,
+#dashboardStatisticsPagesGo,
+#dashboardAlertsPagesGo{
+  cursor: pointer;
+}
+.dashboard-table-subinfo{
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  justify-content: center;
+  -ms-align-items: center;
+  align-items: center;
+  padding-top: 25px;
+  padding-bottom: 15px;
+}
+.dashboard-table-subinfo h4{
+  color: white;
+  font-weight: 500;
+  font-size: 18px;
+  margin: 0;
+}
+.dashboard-table-subinfo i{
+  padding: 0px 15px;
+}
+.dashboard-table-subinfo{
+  display: none;
+}
+#setupModal{
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
 }
