@@ -813,8 +813,9 @@ body{
   .daysAlert{
     display: flex;
   }
-  .dropdown-menu{
-    top: 50px !important;
+  .dropdown button{
+    letter-spacing: unset;
+    font-size: 13px;
   }
   .large-line{
     width: 280vw;
@@ -857,9 +858,9 @@ body{
   .level-checkbox-wrapper label{
     top: 0 !important;
   }
-  .control-level-title{
+  /* .control-level-title{
     overflow-y: auto;
-  }
+  } */
   .header-tabs-last{
     position: fixed;
     top: 49px;
