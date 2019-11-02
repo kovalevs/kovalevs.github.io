@@ -1322,3 +1322,8 @@ body{
       padding-bottom: 12px;
     }
   }
+  @media (min-width: 1600px) and (max-width: 2550px) {
+    .level-dropdown{
+      width: auto;
+    }
+  }
