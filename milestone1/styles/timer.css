@@ -1043,6 +1043,9 @@ body{
   font-size: 20px;
 }
 @media (min-width: 320px) and (max-width: 1160px) {
+  #home-mobile-searchbar-wrapper{
+    z-index: 90;
+  }
   .level-content{
     width: auto;
   }
@@ -1320,5 +1323,10 @@ body{
     .timer-title:first-child{
       border-bottom: 4px solid black;
       padding-bottom: 12px;
+    }
+  }
+  @media (min-width: 1600px) and (max-width: 2550px) {
+    .level-dropdown{
+      width: auto;
     }
   }

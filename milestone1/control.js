@@ -122,6 +122,9 @@ document.getElementById('level_1_checkbox').onclick = function(){
       clearAllMarked(1);
       document.getElementsByClassName('control-level')[1].style.display = "none";
       document.getElementsByClassName('control-level')[2].style.display = "none";
+
+      document.getElementsByClassName('control-large-levels')[0].style.display = "none";
+      document.getElementsByClassName('control-large-levels')[1].style.display = "none";
     }
      isOneChecked = 1;
   } else {
@@ -139,6 +142,9 @@ document.getElementById('level_2_checkbox').onclick = function(){
       level_2_checkbox[i].checked = true;
       clearAllMarked(2);
       document.getElementsByClassName('control-level')[2].style.display = "none";
+
+      document.getElementsByClassName('control-large-levels')[0].style.display = "none";
+      document.getElementsByClassName('control-large-levels')[1].style.display = "none";
     }
      isTwoChecked = 1;
   } else {
@@ -155,6 +161,9 @@ document.getElementById('level_3_checkbox').onclick = function(){
     for (var i = 0; i < level_3_item.length; i++) {
       level_3_checkbox[i].checked = true;
       clearAllMarked(3);
+
+      document.getElementsByClassName('control-large-levels')[0].style.display = "none";
+      document.getElementsByClassName('control-large-levels')[1].style.display = "none";
     }
      isThreeChecked = 1;
   } else {
@@ -539,6 +548,8 @@ function checkPay(elem){
     document.getElementsByClassName('control-level')[1].style.display = "none";
     document.getElementsByClassName('control-level')[2].style.display = "none";
 
+    document.getElementsByClassName('control-large-levels')[0].style.display = "none";
+    document.getElementsByClassName('control-large-levels')[1].style.display = "none";
   }
   if (elem.classList.contains('level-checkbox_2')) {
     document.getElementsByClassName('control-level')[2].style.display = "none";
@@ -550,6 +561,9 @@ function checkPay(elem){
     clearAllMarked(2);
     document.getElementsByClassName('control-level')[2].style.display = "none";
 
+    document.getElementsByClassName('control-large-levels')[0].style.display = "none";
+    document.getElementsByClassName('control-large-levels')[1].style.display = "none";
+
   }
   if (elem.classList.contains('level-checkbox_3')) {
     isOneChecked = 1;
@@ -559,6 +573,9 @@ function checkPay(elem){
     isTwoChecked = 1;
     document.getElementById('level_2_checkbox').click();
     document.getElementById('level_2_checkbox').checked = false;
+
+    document.getElementsByClassName('control-large-levels')[0].style.display = "none";
+    document.getElementsByClassName('control-large-levels')[1].style.display = "none";
 
     clearAllMarked(3);
 
