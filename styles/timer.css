@@ -1043,6 +1043,9 @@ body{
   font-size: 20px;
 }
 @media (min-width: 320px) and (max-width: 1160px) {
+  #home-mobile-searchbar-wrapper{
+    z-index: 90;
+  }
   .level-content{
     width: auto;
   }
