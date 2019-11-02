@@ -814,6 +814,12 @@ body{
   align-items: center;
   justify-content: center;
 }
+.control-before{
+  width: 18%;
+}
+.control{
+  justify-content: center;
+}
 .control-timer{
   height: 100%;
   width: 36%;
@@ -1043,6 +1049,12 @@ body{
   font-size: 20px;
 }
 @media (min-width: 320px) and (max-width: 1160px) {
+  .control{
+    justify-content: unset;
+  }
+  .header-tabs{
+    display: none !important;
+  }
   .level-content{
     width: auto;
   }
@@ -1313,10 +1325,6 @@ body{
 
   }
   @media (min-width: 1400px) and (max-width: 2550px) {
-    .timer-title-plus{
-      position: absolute;
-      right: 20px;
-    }
     .timer-title:first-child{
       border-bottom: 4px solid black;
       padding-bottom: 12px;

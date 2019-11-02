@@ -71,9 +71,19 @@ $(function(){
     });
 });
 function timerSelectThis(elem){
-  elem.style.color = "#ED7D32";
+  if(elem.style.color != "rgb(237, 125, 50)"){
+    elem.style.color = "#ED7D32";
+  } else{
+    elem.style.color = "white";
+  }
 }
 
+function setLineGrey(elem){
+  for (var i = 0; i < document.getElementsByClassName('timer_table').length; i++) {
+    document.getElementsByClassName('timer_table')[i].style.background = "#262626";
+  }
+  elem.style.background = "#595959";
+}
 // Ids for levels checkboxes/labels
 for (var i = 0; i < level_1_item.length; i++) {
   level_1_checkbox[i].setAttribute('id', 'level_1_data_checkbox_' + i);
@@ -110,6 +120,9 @@ document.getElementById('level_1_checkbox').onclick = function(){
   if(isOneChecked == 0){
     for (var i = 0; i < level_1_item.length; i++) {
       level_1_checkbox[i].checked = true;
+      clearAllMarked(1);
+      document.getElementsByClassName('control-level')[1].style.display = "none";
+      document.getElementsByClassName('control-level')[2].style.display = "none";
     }
      isOneChecked = 1;
   } else {
@@ -125,6 +138,8 @@ document.getElementById('level_2_checkbox').onclick = function(){
   if(isTwoChecked == 0){
     for (var i = 0; i < level_2_item.length; i++) {
       level_2_checkbox[i].checked = true;
+      clearAllMarked(2);
+      document.getElementsByClassName('control-level')[2].style.display = "none";
     }
      isTwoChecked = 1;
   } else {
@@ -140,6 +155,7 @@ document.getElementById('level_3_checkbox').onclick = function(){
   if(isThreeChecked == 0){
     for (var i = 0; i < level_3_item.length; i++) {
       level_3_checkbox[i].checked = true;
+      clearAllMarked(3);
     }
      isThreeChecked = 1;
   } else {
@@ -455,6 +471,23 @@ function checkIfIdle(elem) {
   }
 }
 
+function isAnyChecked(){
+  for (var i = 0; i < document.getElementsByClassName('level-checkbox_1').length; i++) {
+    if(document.getElementsByClassName('level-checkbox_1')[i].checked){
+      return true;
+    }
+  }
+  for (var i = 0; i < document.getElementsByClassName('level-checkbox_2').length; i++) {
+    if(document.getElementsByClassName('level-checkbox_2')[i].checked){
+      return true;
+    }
+  }
+  for (var i = 0; i < document.getElementsByClassName('level-checkbox_3').length; i++) {
+    if(document.getElementsByClassName('level-checkbox_3')[i].checked){
+      return true;
+    }
+  }
+}
 
 function offPress_1(elem){
   fiveLevelChecked();
@@ -528,6 +561,35 @@ function checkPay(elem){
           }
         }
     }
+  }
+  if (elem.classList.contains('level-checkbox_1')) {
+    clearAllMarked(1);
+    document.getElementsByClassName('control-level')[1].style.display = "none";
+    document.getElementsByClassName('control-level')[2].style.display = "none";
+
+  }
+  if (elem.classList.contains('level-checkbox_2')) {
+    document.getElementsByClassName('control-level')[2].style.display = "none";
+
+    isOneChecked = 1;
+    document.getElementById('level_1_checkbox').click();
+    document.getElementById('level_1_checkbox').checked = false;
+
+    clearAllMarked(2);
+    document.getElementsByClassName('control-level')[2].style.display = "none";
+
+  }
+  if (elem.classList.contains('level-checkbox_3')) {
+    isOneChecked = 1;
+    document.getElementById('level_1_checkbox').click();
+    document.getElementById('level_1_checkbox').checked = false;
+
+    isTwoChecked = 1;
+    document.getElementById('level_2_checkbox').click();
+    document.getElementById('level_2_checkbox').checked = false;
+
+    clearAllMarked(3);
+
   }
 }
 
@@ -642,6 +704,14 @@ function setOrange_1(elem){
 
   clearAllMarked(2);
   clearAllMarked(3);
+
+  isOneChecked = 1;
+  document.getElementById('level_1_checkbox').checked = 'true';
+  document.getElementById('level_1_label').click();
+
+  isTwoChecked = 1;
+  document.getElementById('level_2_checkbox').checked = 'true';
+  document.getElementById('level_2_label').click();
   document.getElementsByClassName('control-level')[1].style.display = "block";
 
   document.getElementsByClassName('control-level')[2].style.display = "none";
@@ -692,6 +762,16 @@ function setOrange_2(elem){
   document.getElementById('tab_1_span').setAttribute('style', 'visibility: visible; !important');
 
   clearAllMarked(3);
+
+  isTwoChecked = 1;
+  document.getElementById('level_2_checkbox').checked = 'true';
+  document.getElementById('level_2_label').click();
+
+  isThreeChecked = 1;
+  document.getElementById('level_3_checkbox').checked = 'true';
+  document.getElementById('level_3_label').click();
+
+
   document.getElementsByClassName('control-level')[2].style.display = "block";
 
   document.getElementsByClassName('control-large-levels')[0].style.display = "none";
@@ -735,6 +815,10 @@ function setOrange_3(elem){
   document.getElementById('tab_3_value').classList.add('tabActive');
   document.getElementById('tab_1_value').classList.remove('tabActive');
   document.getElementById('tab_2_value').classList.remove('tabActive');
+
+  isThreeChecked = 1;
+  document.getElementById('level_3_checkbox').checked = 'true';
+  document.getElementById('level_3_label').click();
 
 
   document.getElementsByClassName('control-large-levels')[0].style.display = "block";
@@ -784,4 +868,24 @@ if(width <= 1160){
   for (var i = 0; i < document.getElementsByClassName('timer-select-item').length; i++) {
      document.getElementsByClassName('timer-select-item')[i].innerText = document.getElementsByClassName('timer-select-item')[i].innerText.slice(0, 1);
   }
+}
+
+
+function tempItemA_1(elem){
+  for (var i = 0; i < document.getElementsByClassName('temp-item-a_1').length; i++) {
+    document.getElementsByClassName('temp-item-a_1')[i].style.color = "black";
+  }
+  elem.style.color = "orange";
+}
+function tempItemA_2(elem){
+  for (var i = 0; i < document.getElementsByClassName('temp-item-a_2').length; i++) {
+    document.getElementsByClassName('temp-item-a_2')[i].style.color = "black";
+  }
+  elem.style.color = "orange";
+}
+function tempItemA_3(elem){
+  for (var i = 0; i < document.getElementsByClassName('temp-item-a_3').length; i++) {
+    document.getElementsByClassName('temp-item-a_3')[i].style.color = "black";
+  }
+  elem.style.color = "orange";
 }

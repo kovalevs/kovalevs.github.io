@@ -60,6 +60,7 @@
         <span class="input-group-text purple lighten-3" id="header-desktop-search-button"><i class="fas fa-search text-white" aria-hidden="true"></i></span>
       </div>
       <input class="form-control my-0 py-1" id="header-desktop-search-input" type="text" placeholder="Search" aria-label="Search">
+      <!-- <div class="daysAlert">30 days trial version</div> -->
     </div>
   </div>
   <div class="control-wrapper">
@@ -206,7 +207,7 @@
                       <span class="temp-caret"></span>
                     </button>
                     <ul class="dropdown-menu dropdown-temp">
-                      <li class="temp-item"><a href="#" class="temp-item-a">25°C</a></li>
+                      <li class="temp-item"><a href="#" class="temp-item-a temp-item-a_1" onclick="tempItemA_1(this)">25°C</a></li>
                     </ul>
                   </div>
                 </div>
@@ -217,7 +218,7 @@
                       <span class="type-caret"></span>
                     </button>
                     <ul class="dropdown-menu dropdown-type">
-                      <li class="type-item"><a href="#" class="type-item-a">Cold</a></li>
+                      <li class="type-item"><a href="#" class="type-item-a temp-item-a_2" onclick="tempItemA_2(this)">Cold</a></li>
                     </ul>
                   </div>
                 </div>
@@ -228,7 +229,7 @@
                       <span class="fan-caret"></span>
                     </button>
                     <ul class="dropdown-menu dropdown-fan">
-                      <li class="fan-item"><a href="#" class="fan-item-a">Cold</a></li>
+                      <li class="fan-item"><a href="#" class="fan-item-a temp-item-a_3" onclick="tempItemA_3(this)">Cold</a></li>
                     </ul>
                   </div>
                 </div>
@@ -344,8 +345,8 @@
                     </div>
                     <div class="level-lamp">
                       <!-- color from server -->
-                      <img class="levelLampDefault" src="icons/lamp.png">
-                      <img class="levelLampYellow" src="icons/lamp_yellow.png">
+                      <img onclick="lampOn(this)" class="levelLampDefault" src="icons/lamp.png">
+                      <img onclick="lampOff(this)" class="levelLampYellow" src="icons/lamp_yellow.png">
                       <img class="levelLampError" src="icons/error.png">
                     </div>
                     <div class="level-price">
