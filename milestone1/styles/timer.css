@@ -1291,8 +1291,10 @@ body{
     border-left: 2px solid black;
     border-right: 2px solid black;
   }
+  #tab_0_span,
   #tab_1_span,
   #tab_2_span,
+  #tab_1_value,
   #tab_2_value,
   #tab_3_value
   {

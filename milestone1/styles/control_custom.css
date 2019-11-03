@@ -17,6 +17,9 @@ body{
   -ms-align-items: center;
   align-items: center;
 }
+.level-price{
+  display: none !important;
+}
 .level-heart{
   cursor: pointer;
 }
