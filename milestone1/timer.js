@@ -105,7 +105,7 @@ window.setInterval(function(){
       // pass
     }
   }
-}, 1000);
+}, 200);
 
 
 
