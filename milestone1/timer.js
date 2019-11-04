@@ -85,7 +85,7 @@ function testDropdown(){
     document.getElementsByClassName('minute')[0].disabled = false;
   }
 
-  window.onclick = function(){
+  body.onclick = function(){
     document.getElementsByClassName('hour')[0].disabled = false;
     document.getElementsByClassName('minute')[0].disabled = false;
   }
