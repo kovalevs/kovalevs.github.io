@@ -21,6 +21,7 @@ let level_6_label = document.getElementsByClassName('level-label_6');
 
 // TEST DATA
 
+
 for (var i = 0; i < 4; i++) {
   let copy_data = level_3_item[i].cloneNode(true);
   document.getElementsByClassName("control-level-items")[0].appendChild(copy_data);
@@ -51,6 +52,46 @@ $(function(){
         minuteStep: 1
     });
 });
+function testDropdown(){
+  document.getElementsByClassName('minute')[0].onclick = function(){
+    document.getElementsByClassName('hour')[0].disabled = true;
+  }
+  document.getElementsByClassName('minute')[0].onchange = function(){
+    document.getElementsByClassName('hour')[0].disabled = false;
+  }
+
+  document.getElementsByClassName('hour')[0].onclick = function(){
+    document.getElementsByClassName('minute')[0].disabled = true;
+  }
+  document.getElementsByClassName('hour')[0].onchange = function(){
+    document.getElementsByClassName('minute')[0].disabled = false;
+  }
+
+  document.getElementsByClassName('hour')[0].onblur = function(){
+    document.getElementsByClassName('hour')[0].disabled = false;
+    document.getElementsByClassName('minute')[0].disabled = false;
+  }
+  document.getElementsByClassName('minute')[0].onblur = function(){
+    document.getElementsByClassName('hour')[0].disabled = false;
+    document.getElementsByClassName('minute')[0].disabled = false;
+  }
+}
+
+
+window.setInterval(function(){
+  var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+  if(width <= 500){
+    try{
+      testDropdown();
+    } catch {
+      // pass
+    }
+  }
+}, 200);
+
+
+
+
 function timerSelectThis(elem){
   if(elem.style.color != "rgb(237, 125, 50)"){
     elem.style.color = "#ED7D32";
@@ -95,12 +136,30 @@ for (var i = 0; i < level_6_item.length; i++) {
 }
 
 
+
 let isThreeChecked = 0;
 document.getElementById('level_3_checkbox').onclick = function(){
   if(isThreeChecked == 0){
     for (var i = 0; i < level_3_item.length; i++) {
       level_3_checkbox[i].checked = true;
       clearAllMarked(3);
+
+      document.getElementsByClassName('control-large-levels')[0].style.display = "none";
+      document.getElementsByClassName('control-large-levels')[1].style.display = "none";
+
+      document.getElementsByClassName('checkbox_4_level')[0].style.display = "none";
+      document.getElementsByClassName('checkbox_5_level')[0].style.display = "none";
+
+
+      isFourChecked = 1;
+      isFiveChecked = 1;
+
+      document.getElementById('level_4_checkbox').click();
+      document.getElementById('level_5_checkbox').click();
+
+      document.getElementById('level_4_checkbox').checked = false;
+      document.getElementById('level_5_checkbox').checked = false;
+
     }
      isThreeChecked = 1;
   } else {
@@ -512,6 +571,21 @@ function checkPay(elem){
     document.getElementsByClassName('control-level')[1].style.display = "none";
     document.getElementsByClassName('control-level')[2].style.display = "none";
 
+    document.getElementsByClassName('control-large-levels')[0].style.display = "none";
+    document.getElementsByClassName('control-large-levels')[1].style.display = "none";
+
+    document.getElementsByClassName('checkbox_4_level')[0].style.display = "none";
+    document.getElementsByClassName('checkbox_5_level')[0].style.display = "none";
+
+    isFourChecked = 1;
+    isFiveChecked = 1;
+
+    document.getElementById('level_4_checkbox').click();
+    document.getElementById('level_5_checkbox').click();
+
+    document.getElementById('level_4_checkbox').checked = false;
+    document.getElementById('level_5_checkbox').checked = false;
+
   }
   if (elem.classList.contains('level-checkbox_2')) {
     document.getElementsByClassName('control-level')[2].style.display = "none";
@@ -523,9 +597,40 @@ function checkPay(elem){
     clearAllMarked(2);
     document.getElementsByClassName('control-level')[2].style.display = "none";
 
+    document.getElementsByClassName('control-large-levels')[0].style.display = "none";
+    document.getElementsByClassName('control-large-levels')[1].style.display = "none";
+
+    document.getElementsByClassName('checkbox_4_level')[0].style.display = "none";
+    document.getElementsByClassName('checkbox_5_level')[0].style.display = "none";
+
+    isFourChecked = 1;
+    isFiveChecked = 1;
+
+    document.getElementById('level_4_checkbox').click();
+    document.getElementById('level_5_checkbox').click();
+
+    document.getElementById('level_4_checkbox').checked = false;
+    document.getElementById('level_5_checkbox').checked = false;
+
   }
   if (elem.classList.contains('level-checkbox_3')) {
+
     clearAllMarked(3);
+
+    document.getElementsByClassName('control-large-levels')[0].style.display = "none";
+    document.getElementsByClassName('control-large-levels')[1].style.display = "none";
+
+    document.getElementsByClassName('checkbox_4_level')[0].style.display = "none";
+    document.getElementsByClassName('checkbox_5_level')[0].style.display = "none";
+
+    isFourChecked = 1;
+    isFiveChecked = 1;
+
+    document.getElementById('level_4_checkbox').click();
+    document.getElementById('level_5_checkbox').click();
+
+    document.getElementById('level_4_checkbox').checked = false;
+    document.getElementById('level_5_checkbox').checked = false;
 
   }
 }
@@ -546,13 +651,17 @@ function clearAllMarked(level){
   }
 }
 function showFirstLevel(){
+  document.getElementById('tab_1_value').setAttribute('style', 'visibility: hidden; !important');
   document.getElementById('tab_2_value').setAttribute('style', 'visibility: hidden; !important');
   document.getElementById('tab_3_value').setAttribute('style', 'visibility: hidden; !important');
 
-  document.getElementById('tab_3_value').classList.remove('tabActive');
-  document.getElementById('tab_1_value').classList.add('tabActive');
-  document.getElementById('tab_2_value').classList.remove('tabActive');
 
+  document.getElementById('tab_0_value').classList.add('tabActive');
+  document.getElementById('tab_1_value').classList.remove('tabActive');
+  document.getElementById('tab_2_value').classList.remove('tabActive');
+  document.getElementById('tab_3_value').classList.remove('tabActive');
+
+  document.getElementById('tab_0_span').setAttribute('style', 'visibility: hidden; !important');
   document.getElementById('tab_1_span').setAttribute('style', 'visibility: hidden; !important');
   document.getElementById('tab_2_span').setAttribute('style', 'visibility: hidden; !important');
 
@@ -580,16 +689,16 @@ function showFirstLevel(){
   hideLastLevel();
 }
 function showSecondLevel(){
-  document.getElementById('tab_2_value').setAttribute('style', 'visibility: visible; !important');
+  document.getElementById('tab_2_value').setAttribute('style', 'visibility: hidden; !important');
 
   document.getElementById('tab_3_value').setAttribute('style', 'visibility: hidden; !important');
 
   document.getElementById('tab_3_value').classList.remove('tabActive');
-  document.getElementById('tab_1_value').classList.remove('tabActive');
-  document.getElementById('tab_2_value').classList.add('tabActive');
+  document.getElementById('tab_1_value').classList.add('tabActive');
+  document.getElementById('tab_2_value').classList.remove('tabActive');
 
   document.getElementById('tab_2_span').setAttribute('style', 'visibility: hidden; !important');
-  document.getElementById('tab_1_span').setAttribute('style', 'visibility: visible; !important');
+  document.getElementById('tab_1_span').setAttribute('style', 'visibility: hidden; !important');
 
   clearAllMarked(3);
   document.getElementsByClassName('control-level')[2].style.display = "block";
@@ -603,6 +712,39 @@ function showSecondLevel(){
   document.getElementsByClassName('control-level')[0].style.display = "none";
   document.getElementsByClassName('control-level')[1].style.display = "block";
   document.getElementsByClassName('control-level')[2].style.display = "none";
+
+  document.getElementsByClassName('control-before')[0].style.display = "block";
+  document.getElementsByClassName('control-wrapper')[0].style.background = "black";
+
+  document.getElementsByClassName('control-after')[0].style.display = "none";
+
+  hideLastLevel();
+}
+function showThirdLevel(){
+  document.getElementById('tab_1_value').setAttribute('style', 'visibility: visible; !important');
+
+  document.getElementById('tab_2_value').setAttribute('style', 'visibility: visible; !important');
+
+  document.getElementById('tab_3_value').setAttribute('style', 'visibility: hidden; !important');
+
+  document.getElementById('tab_3_value').classList.remove('tabActive');
+  document.getElementById('tab_1_value').classList.remove('tabActive');
+  document.getElementById('tab_2_value').classList.add('tabActive');
+
+  document.getElementById('tab_2_span').setAttribute('style', 'visibility: hidden; !important');
+  document.getElementById('tab_1_span').setAttribute('style', 'visibility: visible; !important');
+
+  document.getElementsByClassName('control-level')[2].style.display = "block";
+
+  document.getElementsByClassName('control-large-levels')[0].style.display = "none";
+  document.getElementsByClassName('control-large-levels')[1].style.display = "none";
+
+  document.getElementsByClassName('checkbox_4_level')[0].style.display = "none";
+  document.getElementsByClassName('checkbox_5_level')[0].style.display = "none";
+
+  document.getElementsByClassName('control-level')[0].style.display = "none";
+  document.getElementsByClassName('control-level')[1].style.display = "none";
+  document.getElementsByClassName('control-level')[2].style.display = "block";
 
   document.getElementsByClassName('control-before')[0].style.display = "block";
   document.getElementsByClassName('control-wrapper')[0].style.background = "black";
@@ -629,18 +771,34 @@ function hideLastLevel(){
 function setOrange_1(elem){
   var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
   document.getElementById('tab_1_value').innerText = elem.innerText;
+
+  document.getElementById('tab_1_value').setAttribute('style', 'visibility: visible; !important');
+
   document.getElementById('tab_2_value').setAttribute('style', 'visibility: hidden; !important');
   document.getElementById('tab_3_value').setAttribute('style', 'visibility: hidden; !important');
 
   document.getElementById('tab_3_value').classList.remove('tabActive');
   document.getElementById('tab_1_value').classList.add('tabActive');
   document.getElementById('tab_2_value').classList.remove('tabActive');
+  document.getElementById('tab_0_value').classList.remove('tabActive');
 
+  document.getElementById('tab_0_span').setAttribute('style', 'visibility: visible; !important');
   document.getElementById('tab_1_span').setAttribute('style', 'visibility: hidden; !important');
   document.getElementById('tab_2_span').setAttribute('style', 'visibility: hidden; !important');
 
   clearAllMarked(2);
   clearAllMarked(3);
+
+  isFourChecked = 1;
+  isFiveChecked = 1;
+
+  document.getElementById('level_4_checkbox').click();
+  document.getElementById('level_5_checkbox').click();
+
+  document.getElementById('level_4_checkbox').checked = false;
+  document.getElementById('level_5_checkbox').checked = false;
+
+
 
   isOneChecked = 1;
   document.getElementById('level_1_checkbox').checked = 'true';
@@ -700,6 +858,15 @@ function setOrange_2(elem){
 
   clearAllMarked(3);
 
+  isFourChecked = 1;
+  isFiveChecked = 1;
+
+  document.getElementById('level_4_checkbox').click();
+  document.getElementById('level_5_checkbox').click();
+
+  document.getElementById('level_4_checkbox').checked = false;
+  document.getElementById('level_5_checkbox').checked = false;
+
   isTwoChecked = 1;
   document.getElementById('level_2_checkbox').checked = 'true';
   document.getElementById('level_2_label').click();
@@ -757,6 +924,14 @@ function setOrange_3(elem){
   document.getElementById('level_3_checkbox').checked = 'true';
   document.getElementById('level_3_label').click();
 
+  isFourChecked = 1;
+  isFiveChecked = 1;
+
+  document.getElementById('level_4_checkbox').click();
+  document.getElementById('level_5_checkbox').click();
+
+  document.getElementById('level_4_checkbox').checked = false;
+  document.getElementById('level_5_checkbox').checked = false;
 
   document.getElementsByClassName('control-large-levels')[0].style.display = "block";
   document.getElementsByClassName('control-large-levels')[1].style.display = "block";
@@ -792,8 +967,6 @@ function removeInfoAlert(){
 
 document.getElementById('level_6_label').click();
 
-document.getElementsByClassName('control-large-levels')[0].style.display = "none";
-document.getElementsByClassName('control-large-levels')[1].style.display = "none";
 
 
 
