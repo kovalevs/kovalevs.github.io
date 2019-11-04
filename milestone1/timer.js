@@ -96,9 +96,15 @@ function testDropdown(){
 }
 
 
-
 window.setInterval(function(){
-  testDropdown();
+  var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+  if(width <= 500){
+    try{
+      testDropdown();
+    } catch {
+      // pass
+    }
+  }
 }, 1000);
 
 
