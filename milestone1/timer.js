@@ -70,6 +70,35 @@ $(function(){
         minuteStep: 1
     });
 });
+function testDropdown(){
+  document.getElementsByClassName('minute')[0].onclick = function(){
+    document.getElementsByClassName('hour')[0].disabled = true;
+  }
+  document.getElementsByClassName('minute')[0].onchange = function(){
+    document.getElementsByClassName('hour')[0].disabled = false;
+  }
+
+  document.getElementsByClassName('hour')[0].onclick = function(){
+    document.getElementsByClassName('minute')[0].disabled = true;
+  }
+  document.getElementsByClassName('hour')[0].onchange = function(){
+    document.getElementsByClassName('minute')[0].disabled = false;
+  }
+
+  window.onclick = function(){
+    document.getElementsByClassName('hour')[0].disabled = false;
+    document.getElementsByClassName('minute')[0].disabled = false;
+  }
+}
+
+
+window.setInterval(function(){
+  testDropdown();
+}, 1000);
+
+
+
+
 function timerSelectThis(elem){
   if(elem.style.color != "rgb(237, 125, 50)"){
     elem.style.color = "#ED7D32";
