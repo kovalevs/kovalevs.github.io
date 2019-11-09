@@ -125,6 +125,9 @@ label:focus,
   display: none;
 }
 @media (min-width: 320px) and (max-width: 1075px) {
+  .bottom-item-info{
+    width: 60% !important;
+  }
   .home-signout{
     display: -webkit-flex !important;
     display: -ms-flex !important;
