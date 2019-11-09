@@ -121,14 +121,23 @@ label:focus,
   position: absolute;
   top: 0px;
 }
+.home-signout{
+  display: none;
+}
 @media (min-width: 320px) and (max-width: 1075px) {
+  .home-signout{
+    display: -webkit-flex !important;
+    display: -ms-flex !important;
+    display: flex !important;
+  }
   .home-chart-bottom{
-    margin: 10px;
+    margin-left: 30px;
+    margin-right: 15px;
     -ms-align-items: center;
     align-items: center;
   }
   .home-chart-body-title{
-    overflow-x: auto;
+    overflow-x: scroll;
     padding-left: 200px;
   }
   body{
@@ -176,6 +185,15 @@ label:focus,
     font-size: 25px;
     margin: 2px;
     padding: 0px;
+  }
+  #showPrev_2_chart,
+  #showNext_2_chart{
+    font-size: 25px;
+    margin: 2px;
+    padding: 0px;
+  }
+  .bottom-item-custom{
+    width: 70% !important;
   }
   .home-chart{
 	  height: calc(75vh - 50px) !important;
