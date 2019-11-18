@@ -1560,6 +1560,21 @@ input:focus,button:focus{
 }
 
 @media (min-width: 320px) and (max-width: 1075px) {
+  #chart_months_1 .home-chart:last-child{
+    margin-bottom: 70px !important;
+  }
+  #chart_orangegreen .home-chart:last-child{
+    margin-bottom: 70px !important;
+  }
+  #chart_third .canvas_wrapper{
+    padding-top: 120px !important;
+  }
+  .header-mobile{
+    z-index: 999;
+  }
+  #chart_subinfo{
+    margin-bottom: 70px;
+  }
   #small-tables-1{
     overflow-x: auto;
   }
@@ -1718,7 +1733,7 @@ input:focus,button:focus{
   .home-charts{
     width: 100%;
     padding: 5px !important;
-    margin-top: 110px;
+    margin-top: 115px;
   }
   .info-nav-item-times{
     display: none;

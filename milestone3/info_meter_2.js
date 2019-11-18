@@ -12,7 +12,7 @@ $(function () {
         chart: {
             type: 'gauge',
             backgroundColor: '#404040',
-            margin: [50,50,50,50],
+            margin: [30,30,30,30],
         },
 
         title: {

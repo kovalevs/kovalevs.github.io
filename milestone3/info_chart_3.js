@@ -290,6 +290,13 @@ function showFirstLevel(){
   document.getElementById('chart_second').style.display = "block";
   document.getElementById('chart_plusminus').style.display = "block";
 
+  var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+  if(width <= 1075){
+    for (var i = 0; i < document.getElementsByClassName('home-charts').length; i++) {
+      document.getElementsByClassName('home-charts')[i].style.marginTop = "115px";
+    }
+  }
+
   for (var i = 0; i < 12; i++) {
     document.getElementsByClassName('home-chart-body-title')[0].children[i].setAttribute('style', 'color:white !important');
   }
@@ -328,6 +335,13 @@ function showSecondLevel(elem){
   document.getElementById('chart_first').style.display = "block";
   document.getElementById('chart_second').style.display = "block";
   document.getElementById('chart_plusminus').style.display = "block";
+
+  var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+  if(width <= 1075){
+    for (var i = 0; i < document.getElementsByClassName('home-charts').length; i++) {
+      document.getElementsByClassName('home-charts')[i].style.marginTop = "115px";
+    }
+  }
 
   for (var i = 0; i < 12; i++) {
     document.getElementsByClassName('home-chart-body-title')[0].children[i].setAttribute('style', 'color:white !important');
@@ -369,6 +383,13 @@ function showThirdLevel(elem){
   document.getElementById('chart_second').style.display = "block";
   document.getElementById('chart_plusminus').style.display = "block";
 
+  var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+  if(width <= 1075){
+    for (var i = 0; i < document.getElementsByClassName('home-charts').length; i++) {
+      document.getElementsByClassName('home-charts')[i].style.marginTop = "115px";
+    }
+  }
+
   for (var i = 0; i < 12; i++) {
     document.getElementsByClassName('home-chart-body-title')[0].children[i].setAttribute('style', 'color:white !important');
   }
@@ -407,6 +428,13 @@ function showFourLevel(elem){
   hideAllExtraLast();
 
   hideSwOption();
+
+  var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+  if(width <= 1075){
+    for (var i = 0; i < document.getElementsByClassName('home-charts').length; i++) {
+      document.getElementsByClassName('home-charts')[i].style.marginTop = "150px";
+    }
+  }
 
   document.getElementById('yellowblueHideSw').style.display = "block";
 
@@ -499,6 +527,14 @@ function hideFourLevel(){
 function showFiveLevel(elem){
   hideAllExtra();
   hideAllExtraLast();
+
+  var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+  if(width <= 1075){
+    for (var i = 0; i < document.getElementsByClassName('home-charts').length; i++) {
+      document.getElementsByClassName('home-charts')[i].style.marginTop = "150px";
+    }
+  }
+
 
   for (var i = 0; i < 12; i++) {
     document.getElementsByClassName('home-chart-body-title')[0].children[i].setAttribute('style', 'color:white !important');

@@ -183,18 +183,8 @@ label:focus,
   .home-chart-panel-options-title h5{
     display: none;
   }
-  #showPrev_1_chart,
-  #showNext_1_chart{
-    font-size: 25px;
-    margin: 2px;
-    padding: 0px;
-  }
-  #showPrev_2_chart,
-  #showNext_2_chart{
-    font-size: 25px;
-    margin: 2px;
-    padding: 0px;
-  }
+  #showPrev_1_chart,#showNext_1_chart{font-size:25px;margin:2px;padding:0}#showPrev_2_chart,#showNext_2_chart{font-size:25px;margin:2px;padding:0}#showPrev_3_chart,#showNext_3_chart{font-size:25px;margin:2px;padding:0}#showPrev_4_chart,#showNext_4_chart{font-size:25px;margin:2px;padding:0}#showPrev_5_chart,#showNext_5_chart{font-size:25px;margin:2px;padding:0}#showPrev_6_chart,#showNext_6_chart{font-size:25px;margin:2px;padding:0}#showPrev_7_chart,#showNext_7_chart{font-size:25px;margin:2px;padding:0}#showPrev_8_chart,#showNext_8_chart{font-size:25px;margin:2px;padding:0}#showPrev_9_chart,#showNext_9_chart{font-size:25px;margin:2px;padding:0}#showPrev_10_chart,#showNext_10_chart{font-size:25px;margin:2px;padding:0}#showPrev_11_chart,#showNext_11_chart{font-size:25px;margin:2px;padding:0}#showPrev_12_chart,#showNext_12_chart{font-size:25px;margin:2px;padding:0}#showPrev_13_chart,#showNext_13_chart{font-size:25px;margin:2px;padding:0}#showPrev_14_chart,#showNext_14_chart{font-size:25px;margin:2px;padding:0}#showPrev_15_chart,#showNext_15_chart{font-size:25px;margin:2px;padding:0}#showPrev_16_chart,#showNext_16_chart{font-size:25px;margin:2px;padding:0}#showPrev_17_chart,#showNext_17_chart{font-size:25px;margin:2px;padding:0}#showPrev_18_chart,#showNext_18_chart{font-size:25px;margin:2px;padding:0}
+  
   .bottom-item-custom{
     width: 70% !important;
   }
