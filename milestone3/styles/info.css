@@ -45,7 +45,7 @@ html{
   color: white;
 }
 .combodate select option{
-  color: black !important;
+  color: white !important;
 }
 .home-charts{
   display: -webkit-flex;

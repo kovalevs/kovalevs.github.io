@@ -12,7 +12,6 @@ $(function () {
         chart: {
             type: 'gauge',
             backgroundColor: '#404040',
-            margin: [50,50,50,50],
         },
 
         title: {
@@ -23,7 +22,7 @@ $(function () {
             startAngle: -90,
             endAngle: 90,
             background: null,
-            size: '100%',
+            size: '70%',
         },
         credits: {
           enabled: false

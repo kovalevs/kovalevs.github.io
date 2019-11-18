@@ -957,3 +957,10 @@ var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
 if(width <= 1075){
   document.getElementById('level_1_tab').innerHTML = "<i class='fas fa-home text-orange' aria-hidden='true'></i>";
 }
+
+if(width >= 450){
+  if(width <= 1075){
+    document.getElementsByClassName('extra-tabs-last')[0].style.marginLeft = "10%";
+    document.getElementsByClassName('extra-tabs')[0].style.marginLeft = "10%";
+  }
+}
