@@ -71,15 +71,17 @@ var chart = new Chart('info_chart_5', {
   }
 });
 
-// var infoCanvas_5 = document.getElementById("info_chart_5");
-//
-// infoCanvas_5.onclick = function(e) {
-//    var slice = info_chart_5.getElementAtEvent(e);
-//    if (!slice.length) return;
-//    var link = slice[0]._model.label;
-//    for (var i = 0; i < info_chart_5_link.links.length; i++) {
-//      if(link == info_chart_5_data.labels[i]){
-//        window.open(info_chart_5_link.links[i]);
-//      }
-//    }
-// }
+
+
+
+function infoUpdateData_5(data_array, label_array, color_array) {
+  chart.data.datasets['0'].data = data_array;
+  chart.data.labels = label_array;
+  chart.data.datasets['0'].backgroundColor = color_array;
+
+  info_chart_5_start = chart.data.labels;
+  info_chart_5_start_data = chart.data.datasets['0'].data;
+  info_chart_5_start_colors = chart.data.datasets['0'].backgroundColor;
+
+  chart.update();
+}

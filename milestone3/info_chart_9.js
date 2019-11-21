@@ -4,9 +4,51 @@ var chart_9_vary_data = ['Nan', 'Nan', 8, 20, 21, 25, 26, 20, 24, 'Nan', 12, 10,
 
 var chart_9_data_hours = ["00:00", "00:30", "01:00", "01:30", "02:00", "02:30", "03:00", "03:30", "04:00", "04:30", "05:00", "05:30", "06:00", "06:30", "07:00", "07:30", "08:00", "08:30", "09:00", "09:30", "10:00", "10:30", "11:00", "11:30", "12:00", "12:30", "13:00", "13:30", "14:00", "14:30", "15:00", "15:30", "16:00", "16:30", "17:00", "17:30", "18:00", "18:30", "19:00", "19:30", "20:00", "20:30", "21:00", "21:30", "22:00", "22:30", "23:00", "23:30"];
 
+var globalHours = ["00:00", "00:30", "01:00", "01:30", "02:00", "02:30", "03:00", "03:30", "04:00", "04:30", "05:00", "05:30", "06:00", "06:30", "07:00", "07:30", "08:00", "08:30", "09:00", "09:30", "10:00", "10:30", "11:00", "11:30", "12:00", "12:30", "13:00", "13:30", "14:00", "14:30", "15:00", "15:30", "16:00", "16:30", "17:00", "17:30", "18:00", "18:30", "19:00", "19:30", "20:00", "20:30", "21:00", "21:30", "22:00", "22:30", "23:00", "23:30"];
+
+var globalHours_full = ["00:00", "01:00", "02:00", "03:00", "04:00", "05:00", "06:00", "07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00", "23:00"];
 
 var chart_9_data_month = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 var chart_9_data_month_temp = [];
+
+current_minute = date.getMinutes();
+
+var chart_9_data_hours_12 = []
+
+current_hour = date.getHours();
+
+if(current_hour < 10){
+  current_hour = '0' + current_hour.toString();
+} else {
+  current_hour = current_hour.toString();
+}
+current_string = current_hour + ':' + "00";
+
+var currentHours_i = 0;
+
+for (var i = 0; i < globalHours_full.length; i++) {
+  if(globalHours_full[i] == current_string){
+    currentHours_i = i;
+  }
+}
+
+var temp_op = 23;
+
+for (var i = 0; i < 12; i++) {
+  if(currentHours_i < 23){
+    if(currentHours_i != -1){
+        chart_9_data_hours_12.push(globalHours_full[currentHours_i]);
+        currentHours_i -= 1;
+    } else {
+      chart_9_data_hours_12.push(globalHours_full[temp_op]);
+      currentHours_i = -1;
+      temp_op -= 1;
+    }
+  }
+
+}
+
+chart_9_data_hours_12 = chart_9_data_hours_12.reverse();
 
 
 var currentMonth_1 = new Date().getDay();
@@ -43,6 +85,83 @@ document.getElementsByClassName('info-chart-subtab')[document.getElementsByClass
 document.getElementsByClassName('info-chart-subtab')[document.getElementsByClassName('info-chart-subtab').length-1].style.display = "none";
 
 function selectedWhite(elem){
+  var nineChartLabels = [];
+  var tenChartLabels = [];
+
+  for (var i = 0; i < 5 + 1; i++) {
+    if(elem == document.getElementsByClassName('info-chart-subtab')[i]){
+      nineChartLabels = ["00:00", "00:30", "01:00", "01:30", "02:00", "02:30", "03:00", "03:30", "04:00", "04:30", "05:00", "05:30", "06:00", "06:30", "07:00", "07:30", "08:00", "08:30", "09:00", "09:30", "10:00", "10:30", "11:00", "11:30", "12:00", "12:30", "13:00", "13:30", "14:00", "14:30", "15:00", "15:30", "16:00", "16:30", "17:00", "17:30", "18:00", "18:30", "19:00", "19:30", "20:00", "20:30", "21:00", "21:30", "22:00", "22:30", "23:00", "23:30"];
+      tenChartLabels = ["00:00", "00:30", "01:00", "01:30", "02:00", "02:30", "03:00", "03:30", "04:00", "04:30", "05:00", "05:30", "06:00", "06:30", "07:00", "07:30", "08:00", "08:30", "09:00", "09:30", "10:00", "10:30", "11:00", "11:30", "12:00", "12:30", "13:00", "13:30", "14:00", "14:30", "15:00", "15:30", "16:00", "16:30", "17:00", "17:30", "18:00", "18:30", "19:00", "19:30", "20:00", "20:30", "21:00", "21:30", "22:00", "22:30", "23:00", "23:30"];
+    }
+  }
+
+  if(elem == document.getElementsByClassName('info-chart-subtab')[6]){
+    current_hour = date.getHours();
+    current_minute = date.getMinutes();
+
+    if(current_minute < 30){
+      current_minute = '00';
+    } else {
+      current_minute = '30';
+    }
+    if(current_hour < 10){
+      current_hour = '0' + current_hour.toString();
+    } else {
+      current_hour = current_hour.toString();
+    }
+    current_string = current_hour + ':' + current_minute;
+
+    for (var i = 0; i < globalHours.length; i++) {
+      if(globalHours[i] == current_string){
+        nineChartLabels.push(globalHours[i]);
+        tenChartLabels.push(globalHours[i]);
+        break;
+      } else {
+        nineChartLabels.push(globalHours[i]);
+        tenChartLabels.push(globalHours[i]);
+      }
+    }
+  }
+  if(elem == document.getElementsByClassName('info-chart-subtab')[7]){
+    current_hour = date.getHours();
+
+    if(current_hour < 10){
+      current_hour = '0' + current_hour.toString();
+    } else {
+      current_hour = current_hour.toString();
+    }
+    current_string = current_hour + ':' + "00";
+
+    var currentHours_i = 0;
+
+    for (var i = 0; i < globalHours_full.length; i++) {
+      if(globalHours_full[i] == current_string){
+        currentHours_i = i;
+      }
+    }
+    temp_op = 23;
+
+    for (var i = 0; i < 12; i++) {
+      if(currentHours_i < 23){
+        if(currentHours_i != -1){
+            nineChartLabels.push(globalHours_full[currentHours_i]);
+            tenChartLabels.push(globalHours_full[currentHours_i]);
+            currentHours_i -= 1;
+        } else {
+          nineChartLabels.push(globalHours_full[temp_op]);
+          tenChartLabels.push(globalHours_full[temp_op]);
+          currentHours_i = -1;
+          temp_op -= 1;
+        }
+      }
+
+    }
+
+    nineChartLabels = nineChartLabels.reverse();
+    tenChartLabels = tenChartLabels.reverse();
+
+  }
+
 
 
   // Set month data here
@@ -51,7 +170,6 @@ function selectedWhite(elem){
   for (var i = 0; i < 45; i++) {
    nineChartData.push(randomInteger(10, 60));
   }
-  var nineChartLabels = ["00:00", "00:30", "01:00", "01:30", "02:00", "02:30", "03:00", "03:30", "04:00", "04:30", "05:00", "05:30", "06:00", "06:30", "07:00", "07:30", "08:00", "08:30", "09:00", "09:30", "10:00", "10:30", "11:00", "11:30", "12:00", "12:30", "13:00", "13:30", "14:00", "14:30", "15:00", "15:30", "16:00", "16:30", "17:00", "17:30", "18:00", "18:30", "19:00", "19:30", "20:00", "20:30", "21:00", "21:30", "22:00", "22:30", "23:00", "23:30"];
 
 
 
@@ -67,7 +185,6 @@ function selectedWhite(elem){
   for (var i = 0; i < 45; i++) {
    tenChartData.push(randomInteger(-60, 60));
   }
-  var tenChartLabels = ["00:00", "00:30", "01:00", "01:30", "02:00", "02:30", "03:00", "03:30", "04:00", "04:30", "05:00", "05:30", "06:00", "06:30", "07:00", "07:30", "08:00", "08:30", "09:00", "09:30", "10:00", "10:30", "11:00", "11:30", "12:00", "12:30", "13:00", "13:30", "14:00", "14:30", "15:00", "15:30", "16:00", "16:30", "17:00", "17:30", "18:00", "18:30", "19:00", "19:30", "20:00", "20:30", "21:00", "21:30", "22:00", "22:30", "23:00", "23:30"];
 
 
 
@@ -92,11 +209,11 @@ document.getElementsByClassName('info-chart-subtab')[document.getElementsByClass
 
 var info_chart_9_data = {
   // Test data
-  labels: chart_9_data_hours,
+  labels: chart_9_data_hours_12,
   datasets: [
     {
     type: 'line',
-    label: "Temperature (Celsius)",
+    label: "Power Factor",
     fill: false,
     data: chart_9_data,
     borderColor: "#CE5800",
@@ -104,9 +221,10 @@ var info_chart_9_data = {
     backgroundColor: "#CE5800",
     pointRadius: 0,
     tension: 0.1,
+    pointHitRadius: 10,
   },{
   type: 'line',
-  label: "Temperature (Celsius)",
+  label: "Power (watt)",
   fill: false,
   data: chart_9_vary_data,
   borderColor: "#FFC8A6",
@@ -115,6 +233,7 @@ var info_chart_9_data = {
   pointRadius: 0,
   tension: 0.1,
   spanGaps: false,
+  pointHitRadius: 10,
   }]
 };
 var info_chart_9_link = {
@@ -168,6 +287,9 @@ var options_9 = {
           fontColor: '#858585',
           fontSize: 15,
           padding: 20,
+          callback: function(tick, index, array) {
+            return (index % 2 && index != array.length-1 && array.length > 12) ? "" : tick;
+          },
       },
       barPercentage: 1.0,
       categoryPercentage: 1.0,

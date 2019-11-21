@@ -1,6 +1,55 @@
 Chart.defaults.global.plugins.datalabels.display = false;
 
 // test data
+
+function testUpdateData(){
+  for (var i = 0; i < document.getElementsByClassName('info-type_3').length; i++) {
+    document.getElementsByClassName('info-type_3')[i].innerText = randomInteger(1, 20);
+  }
+
+  var infoNewData = shuffle([5, 2.5, 3, 3.5, 7, 4.5, 5, 3.5, 6, 3.5, 5, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6, 6.5, 7]);
+  var infoNewLabels = shuffle(["cire1", "City 9", "City 18", "City 74", "City 20", "City 61", "City 8", "City 44", "City 5", "City 23", "City 17", "City 9", "City 18", "City 2", "City 20", "City 6", "City 8", "City 4", "City 5", "City 3", "City 12"]);
+  var infoNewColors = shuffle(["#ff0000", "#fbef00", "#ffbe00", "#fbe0f0", "#ffbe00", "#ffbe00", "#ffffff", "#ffbe00", "#ffbe00", "#ffbe00", "#ffbe00", "#ffbe00", "#ffbe00", "#ff7603", "#ff7603", "#ff7603", "#ff7603", "#ff0000", "#ff0000", "#ff0000", "#ff0000"]);
+  infoUpdateData(infoNewData, infoNewLabels, infoNewColors);
+
+  var infoNewData_2 = shuffle([7 , 6.5, 6, 5.5, 5, 4.5, 4, 3.5, 3, 2.5, 5 , 3.5, 6, 3.5, 5, 4.5, 7, 3.5, 3, 2.5, 5]);
+  var infoNewLabels_2 = shuffle(["City 123", "City 23", "City 5", "City 4", "City 8", "City 6", "City 20", "City 2", "City 18", "City 9", "City 17", "City 23", "City 5", "City 44", "City 8", "City 61", "City 20", "City 74", "City 18", "City 9", "cire1"]);
+  var infoNewColors_2 = shuffle(["#00B050", "#ff0000", "#ff0000", "#ff0000", "#ff7603", "#00B050", "#ff7603", "#ff7603", "#FF0200", "#ffbe00", "#ffbe00", "#ffbe00", "#ffbe00", "#ffbe00", "#ffbe00", "#ffbe00", "#ffbe00", "#ffbe00", "#ffbe00", "#ffbe00", "#FEFF00"]);
+  infoUpdateData_2(infoNewData_2, infoNewLabels_2, infoNewColors_2);
+
+  var infoNewData_4 = (shuffle(randomIntegerArray), shuffle(randomIntegerArray1), shuffle(randomIntegerArray2));
+  var infoNewLabels_4 = shuffle(["Shop 123", "Shop 23", "Shop 5", "Shop 4", "Shop 8", "Shop 6", "Shop 20", "Shop 2", "Shop 18", "Shop 9", "Shop 17", "Shop 23", "Shop 5", "Shop 44", "Shop 8", "Shop 61", "Shop 20", "Shop 74", "Shop 18", "Shop 9", "cire1"]);
+  var infoNewColors_4 = blueColorArray.concat(blueColorArray);
+  infoUpdateData_4(infoNewData_4, infoNewLabels_4, infoNewColors_4);
+
+  var infoNewData_5 = shuffle([48, 20, 5, 10, 15, 2]);
+  var infoNewLabels_5 = shuffle(['Others', 'AC1', 'AC2', 'AC3', 'Light 1', 'Switch 2']);
+  var infoNewColors_5 = shuffle(["#70AD47", "#4572C4", "#ED7D32", "#A5A5A5", "#FFC004", "#5C9BD5"]);
+  infoUpdateData_5(infoNewData_5, infoNewLabels_5, infoNewColors_5);
+
+  var infoNewData_6 = shuffle([7 , 6.5, 6, 5.5, 5, 4.5, 4, 3.5, 3, 2.5, 5 , 3.5, 6, 3.5, 5, 4.5, 7, 3.5, 3, 2.5, 5]);
+  var infoNewLabels_6 = shuffle(["City 123", "City 23", "City 5", "City 4", "City 8", "City 6", "City 20", "City 2", "City 18", "City 9", "City 17", "City 23", "City 5", "City 44", "City 8", "City 61", "City 20", "City 74", "City 18", "City 9", "cire1"]);
+  var infoNewColors_6 = shuffle(["#00B050", "#ff0000", "#ff0000", "#ff0000", "#ff7603", "#00B050", "#ff7603", "#ff7603", "#FF0200", "#ffbe00", "#ffbe00", "#ffbe00", "#ffbe00", "#ffbe00", "#ffbe00", "#ffbe00", "#ffbe00", "#ffbe00", "#ffbe00", "#ffbe00", "#FEFF00"]);
+  infoUpdateData_6(infoNewData_6, infoNewLabels_6, infoNewColors_6);
+
+  var infoNewData_7 = shuffle(info_chart_7_data.datasets['0'].data);
+  var infoNewLabels_7 = info_chart_7_data.labels;
+  var infoNewColors_7 = info_chart_7_data.datasets['0'].backgroundColor;
+  infoUpdateData_7(infoNewData_7, infoNewLabels_7, infoNewColors_7);
+}
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+  while (0 !== currentIndex) {
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+
 for (let i = 0; i < 1; i++) {
   let copy_data = document.getElementsByClassName('dashboard-statistics-table-data')[0].cloneNode(true);
   document.getElementById("dashboard-statistics-table").appendChild(copy_data);
@@ -242,50 +291,103 @@ function infoRemoveActiveOptions(){
   info_showYear.classList.remove('info-chart-panel-options-buttons-active');
 }
 
+var global_selection = 'month';
+
+var date = new Date();
+
+var getDaysInMonth = function(month, year) {
+ return new Date(year, month, 0).getDate();
+};
+
+function applyGlobalSelection(){
+  globalArray = [];
+
+  if(global_selection == 'month'){
+    var temp_day = 0;
+    for (var i = 0; i < 31 + 1; i++) {
+      if(date.getDate()-i <= 0){
+        globalArray.push(getDaysInMonth(date.getMonth()+1, date.getFullYear()) - temp_day);
+        temp_day += 1;
+      } else {
+        globalArray.push(date.getDate()-i);
+      }
+    }
+
+
+    infoNewData_7 = info_chart_7_data.datasets['0'].data;
+    infoNewColors_7 = info_chart_7_data.datasets['0'].backgroundColor;
+
+    infoUpdateData_7(infoNewData_7, globalArray.reverse(), infoNewColors_7);
+  } else if (global_selection == 'year'){
+
+    infoNewData_7 = info_chart_7_data.datasets['0'].data;
+    infoNewColors_7 = info_chart_7_data.datasets['0'].backgroundColor;
+
+    infoUpdateData_7(infoNewData_7, chart_3_data_month, infoNewColors_7);
+
+  } else if (global_selection == 'week'){
+
+    infoNewData_7 = info_chart_7_data.datasets['0'].data;
+    infoNewColors_7 = info_chart_7_data.datasets['0'].backgroundColor;
+
+    infoUpdateData_7(infoNewData_7, chart_9_data_month, infoNewColors_7);
+  } else{
+
+    infoNewData_7 = info_chart_7_data.datasets['0'].data;
+    infoNewColors_7 = info_chart_7_data.datasets['0'].backgroundColor;
+
+    infoUpdateData_7(infoNewData_7, chart_9_data_hours, infoNewColors_7);
+  }
+}
+
+
 info_showYear.onclick = function(){
+  // Test func
+  testUpdateData()
+  //
+
+  global_selection = 'year';
+  applyGlobalSelection();
+
   infoRemoveActiveOptions();
   info_showYear.classList.add('info-chart-panel-options-buttons-active');
-
-  // Test data
-  var infoNewData = [5, 2.5, 3, 3.5, 7, 4.5, 5, 3.5, 6, 3.5, 5, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6, 6.5, 7];
-  var infoNewLabels = info_chart_1_data.labels = ["cire1", "City 9", "City 18", "City 74", "City 20", "City 61", "City 8", "City 44", "City 5", "City 23", "City 17", "City 9", "City 18", "City 2", "City 20", "City 6", "City 8", "City 4", "City 5", "City 3", "City 12"];
-  var infoNewColors = info_chart_1_data.datasets['0'].backgroundColor = ["#ff0000", "#fbef00", "#ffbe00", "#fbe0f0", "#ffbe00", "#ffbe00", "#ffffff", "#ffbe00", "#ffbe00", "#ffbe00", "#ffbe00", "#ffbe00", "#ffbe00", "#ff7603", "#ff7603", "#ff7603", "#ff7603", "#ff0000", "#ff0000", "#ff0000", "#ff0000"];
-
-  infoUpdateData(infoNewData, infoNewLabels, infoNewColors);
-
 }
+
 info_showMonth.onclick = function(){
+  // Test func
+  testUpdateData()
+  //
+
+  global_selection = 'month';
+  applyGlobalSelection();
+
   infoRemoveActiveOptions();
   info_showMonth.classList.add('info-chart-panel-options-buttons-active');
 
-  // Test data
-  var infoNewData = [5, 2.5, 3, 3.5, 7, 4.5, 5, 3.5, 6, 3.5, 5, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6, 6.5, 7];
-  var infoNewLabels = info_chart_1_data.labels = ["cire1", "City 9", "City 18", "City 74", "City 20", "City 61", "City 8", "City 44", "City 5", "City 23", "City 17", "City 9", "City 18", "City 2", "City 20", "City 6", "City 8", "City 4", "City 5", "City 3", "City 12"];
-  var infoNewColors = info_chart_1_data.datasets['0'].backgroundColor = ["#ffffff", "#ff7603", "#ffbe00", "#fbe0f0", "#ffbe00", "#ffbe00", "#ff7603", "#ffbe00", "#ff0000", "#fbef00", "#ff7603", "#ffbe00", "#ff0000", "#ff7603", "#ffbe00", "#ffbe00", "#ffbe00", "#ff0000", "#ffbe00", "#ff0000", "#ff0f00"];
-
-  infoUpdateData(infoNewData, infoNewLabels, infoNewColors);
 }
+
 info_showWeek.onclick = function(){
+  // Test func
+  testUpdateData()
+  //
+
+  global_selection = 'week';
+  applyGlobalSelection();
+
   infoRemoveActiveOptions();
   info_showWeek.classList.add('info-chart-panel-options-buttons-active');
-
-  // Test data
-  var infoNewData = [5, 2.5, 3, 3.5, 7, 4.5, 5, 3.5, 6, 3.5, 5, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6, 6.5, 7];
-  var infoNewLabels = info_chart_1_data.labels = ["cire1", "City 9", "City 18", "City 74", "City 20", "City 61", "City 8", "City 44", "City 5", "City 23", "City 17", "City 9", "City 18", "City 2", "City 20", "City 6", "City 8", "City 4", "City 5", "City 3", "City 12"];
-  var infoNewColors = info_chart_1_data.datasets['0'].backgroundColor = ["#ffbe00", "#ffbe00", "#ffbe00", "#ffffff", "#ffbe00", "#ff0000", "#ffbe00", "#fbef00", "#ffbe00", "#fbe0f0", "#ff0000", "#ff0000", "#ff7603", "#ff7603", "#ff7603", "#ffbe00", "#ff0000", "#ff7603", "#ffbe00", "#ff0000", "#ffff00"];
-
-  infoUpdateData(infoNewData, infoNewLabels, infoNewColors);
 }
+
 info_showToday.onclick = function(){
+  // Test func
+  testUpdateData()
+  //
+
+  global_selection = 'today';
+  applyGlobalSelection();
+
   infoRemoveActiveOptions();
   info_showToday.classList.add('info-chart-panel-options-buttons-active');
-
-  // Test data
-  var infoNewData = [7 , 6.5, 6, 5.5, 5, 4.5, 4, 3.5, 3, 2.5, 5 , 3.5, 6, 3.5, 5, 4.5, 7, 3.5, 3, 2.5, 5];
-  var infoNewLabels = ["City 12", "City 3", "City 5", "City 4", "City 8", "City 6", "City 20", "City 2", "City 18", "City 9", "City 17", "City 23", "City 5", "City 44", "City 8", "City 61", "City 20", "City 74", "City 18", "City 9", "cire1"];
-  var infoNewColors = ["#ff0000", "#ff0000", "#ff0000", "#ff0000", "#ff7603", "#ff7603", "#ff7603", "#ff7603", "#ffbe00", "#ffbe00", "#ffbe00", "#ffbe00", "#ffbe00", "#ffbe00", "#ffbe00", "#ffbe00", "#ffbe00", "#ffbe00", "#ffbe00", "#ffbe00", "#ff0000"];
-
-  infoUpdateData(infoNewData, infoNewLabels, infoNewColors);
 }
 
 
@@ -313,7 +415,8 @@ infoCanvas.onclick = function(e) {
 $(function(){
     $('#from').combodate({
       value:  moment().format('DD-MM-YYYY'),
-      maxYear: moment().year() + 1,
+      maxYear: moment().year(),
+      minYear: 2018,
       firstItem: 'none'
      });
 });
@@ -328,7 +431,8 @@ if(currentMonth != 12){
 $(function(){
     $('#to').combodate({
       value:  moment().format('DD') + "-" + currentMonth + "-" + moment().format('YYYY'),
-      maxYear: moment().year() + 1,
+      maxYear: moment().year(),
+      minYear: 2018,
       firstItem: 'none'
      });
 });

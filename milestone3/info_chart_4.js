@@ -32,7 +32,7 @@ var info_chart_4_data = {
   // Test data
   labels: ["Shop 123", "Shop 23", "Shop 5", "Shop 4", "Shop 8", "Shop 6", "Shop 20", "Shop 2", "Shop 18", "Shop 9", "Shop 17", "Shop 23", "Shop 5", "Shop 44", "Shop 8", "Shop 61", "Shop 20", "Shop 74", "Shop 18", "Shop 9", "cire1"],
   datasets: [{
-    label: "Energy rate",
+    label: "Energy Cost",
     backgroundColor: blueColorArray,
     borderColor: "rgb(70, 70, 70)",
     borderWidth: 1,
@@ -40,7 +40,7 @@ var info_chart_4_data = {
     hoverBorderColor: "rgb(70, 70, 70)",
     data: randomIntegerArray,
   },{
-    label: "Energy rate",
+    label: "Energy Cost",
     backgroundColor: orangeColorArray,
     borderColor: "rgb(70, 70, 70)",
     borderWidth: 1,
@@ -48,7 +48,7 @@ var info_chart_4_data = {
     hoverBorderColor: "rgb(70, 70, 70)",
     data: randomIntegerArray1,
   },{
-    label: "Energy rate",
+    label: "Energy Cost",
     backgroundColor: greyColorArray,
     borderColor: "rgb(70, 70, 70)",
     borderWidth: 1,

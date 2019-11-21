@@ -56,7 +56,13 @@ html{
   flex-direction: column;
 }
 .home-chart{
-  margin-bottom: 20px;
+  margin-bottom: 40px;
+}
+#chart_third .canvas_wrapper{
+  height: 90% !important;
+}
+#chart_plusminus .canvas_wrapper{
+  height: 90% !important;
 }
 .home-section{
   display: -webkit-flex;
@@ -107,10 +113,39 @@ text{
   padding: 0;
 }
 .highcharts-root{
-  height: 150%;
+  height: 185%;
 }
+
+.tabs-section-fixed{
+  position: fixed;
+  top: 80px;
+  overflow: auto;
+  padding-bottom: 100px;
+  height: 100%;
+}
+.header-desktop{
+  position: fixed;
+  width: 100%;
+}
+.home-charts{
+  margin-top: 60px;
+}
+
+
 .meter-chart{
   background: #404040 !important;
+}
+#chart_meter_1 .home-chart{
+  height: calc(55vh - 50px) !important;
+}
+#chart_meter_2 .home-chart{
+  height: calc(55vh - 50px) !important;
+}
+#chart_meter_3 .home-chart{
+  height: calc(55vh - 50px) !important;
+}
+#chart_meter_4 .home-chart{
+  height: calc(55vh - 50px) !important;
 }
 .canvas_wrapper-full{
   height: 85% !important;
@@ -1560,6 +1595,22 @@ input:focus,button:focus{
 }
 
 @media (min-width: 320px) and (max-width: 1075px) {
+  .tabs-section-fixed{
+    position: static !important;
+    top: 0px !important;
+    overflow: hidden !important;
+    padding-bottom: 0px !important;
+    height: auto !important;
+  }
+  .header-desktop{
+    position: static !important;
+    width: auto !important;
+  }
+  .home-charts{
+    margin-top: 0px !important;
+  }
+
+
   #chart_months_1 .home-chart:last-child{
     margin-bottom: 70px !important;
   }
@@ -1609,6 +1660,9 @@ input:focus,button:focus{
     margin-bottom: 70px;
   }
   .tabs-section h2{
+    font-size: 17px;
+  }
+  .tabs-section-fixed h2{
     font-size: 17px;
   }
   #chart_blueyellow .info-chart-wrapper{
@@ -1693,6 +1747,20 @@ input:focus,button:focus{
     background: #000;
     margin-top: 0%;
     padding: 15px 15px;
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    -ms-align-items: center;
+    align-items: center;
+    z-index: 999;
+    flex-wrap: wrap;
+  }
+  .tabs-section-fixed{
+    width: 100%;
+    position: fixed;
+    border-top: 0px;
+    background: #000;
+    margin-top: 0%;
     display: -webkit-flex;
     display: -ms-flex;
     display: flex;

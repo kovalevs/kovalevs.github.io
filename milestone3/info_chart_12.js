@@ -32,7 +32,7 @@ var info_chart_12_data = {
   // Test data
   labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
   datasets: [{
-    label: "Energy rate",
+    label: "Aircon cost",
     backgroundColor: blueColorArray,
     borderColor: "rgb(70, 70, 70)",
     borderWidth: 1,
@@ -40,7 +40,7 @@ var info_chart_12_data = {
     hoverBorderColor: "rgb(70, 70, 70)",
     data: randomIntegerArray,
   },{
-    label: "Energy rate",
+    label: "Switch cost",
     backgroundColor: orangeColorArray,
     borderColor: "rgb(70, 70, 70)",
     borderWidth: 1,
@@ -48,7 +48,7 @@ var info_chart_12_data = {
     hoverBorderColor: "rgb(70, 70, 70)",
     data: randomIntegerArray1,
   },{
-    label: "Energy rate",
+    label: "Other cost",
     backgroundColor: greyColorArray,
     borderColor: "rgb(70, 70, 70)",
     borderWidth: 1,

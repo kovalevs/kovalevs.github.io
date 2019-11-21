@@ -9,26 +9,28 @@ var chart_17_data_month_temp = [];
 
 var info_chart_17_data = {
   // Test data
-  labels: chart_17_data_month,
+  labels: chart_9_data_hours_12,
   datasets: [
     {
     type: 'line',
-    label: "Temperature (Celsius)",
+    label: "Power Factor",
     fill: false,
     data: chart_17_data,
     borderColor: "#CE5800",
     borderWidth: 7,
     backgroundColor: "#CE5800",
+    pointHitRadius: 10,
     pointRadius: 0,
     tension: 0.1,
   },{
   type: 'line',
-  label: "Temperature (Celsius)",
+  label: "Power (W)",
   fill: false,
   data: chart_17_vary_data,
   borderColor: "#FFC8A6",
   borderWidth: 7,
   backgroundColor: "#FFC8A6",
+  pointHitRadius: 10,
   pointRadius: 0,
   tension: 0.1,
   spanGaps: false,
@@ -85,6 +87,9 @@ var options_17 = {
           fontColor: '#858585',
           fontSize: 15,
           padding: 20,
+          callback: function(tick, index, array) {
+            return (index % 2 && index != array.length-1 && array.length > 12) ? "" : tick;
+          },
       },
       barPercentage: 1.0,
       categoryPercentage: 1.0,

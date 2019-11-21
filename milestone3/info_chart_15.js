@@ -8,26 +8,28 @@ var chart_15_data_hours = ["00:00", "00:30", "01:00", "01:30", "02:00", "02:30",
 
 var info_chart_15_data = {
   // Test data
-  labels: chart_15_data_hours,
+  labels: chart_9_data_hours_12,
   datasets: [
     {
     type: 'line',
-    label: "Temperature (Celsius)",
+    label: "Room Temperature",
     fill: false,
     data: chart_15_data,
     borderColor: "#FFDB2E",
     borderWidth: 7,
     backgroundColor: "#FFDB2E",
+    pointHitRadius: 10,
     pointRadius: 0,
     tension: 0.1,
   },{
   type: 'line',
-  label: "Temperature (Celsius)",
+  label: "Set Point",
   fill: false,
   data: chart_15_vary_data,
   borderColor: "#4572C4",
   borderWidth: 7,
   backgroundColor: "#4572C4",
+  pointHitRadius: 10,
   pointRadius: 0,
   tension: 0.1,
   spanGaps: false,
@@ -85,6 +87,9 @@ var options_15 = {
           fontColor: '#858585',
           fontSize: 15,
           padding: 20,
+          callback: function(tick, index, array) {
+            return (index % 2 && index != array.length-1 && array.length > 12) ? "" : tick;
+          }
       },
       barPercentage: 1.0,
       categoryPercentage: 1.0,

@@ -2,6 +2,8 @@
 var info_meter_1_data = [0, 29, 72];
 // Data - 'max' value
 var info_meter_1_maxvalue = 100;
+// Data - 'arrow' value
+var info_meter_1_arrowvalue = 37;
 
 
 
@@ -81,7 +83,7 @@ $(function () {
 
         series: [{
             name: null,
-            data: [37],
+            data: [info_meter_1_arrowvalue],
         }]
 
     },

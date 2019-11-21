@@ -3,7 +3,15 @@ var chart_3_data = [10, 7, 10, -17, 15, 10, 6, 11, -2, -16, 17, 10];
 var chart_3_data_month = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
 var chart_3_data_month_temp = [];
+var backgroundColorHome_3 = [];
 
+for (var i = 0; i < chart_3_data.length; i++) {
+  if(chart_3_data[i] > 0){
+    backgroundColorHome_3.push('#9CD488');
+  } else {
+    backgroundColorHome_3.push('#D00001');
+  }
+}
 
 var currentMonth = new Date().getMonth();
 
@@ -27,7 +35,7 @@ var home_chart_3_data = {
   datasets: [
     {
     type: 'line',
-    label: "Temperature (Celsius)",
+    label: " $ Save",
     fill: false,
     data: chart_3_data,
     borderColor: "#408224",
@@ -36,8 +44,8 @@ var home_chart_3_data = {
     pointRadius: 0,
     tension: 0.1,
     },{
-    label: "Energy rate",
-    backgroundColor: ['#9CD488', '#9CD488', '#9CD488', '#9CD488', '#9CD488', '#9CD488', '#9CD488', '#9CD488', '#9CD488', '#9CD488', '#9CD488', '#9CD488'],
+    label: " % Save",
+    backgroundColor: backgroundColorHome_3,
     borderColor: "rgb(70, 70, 70)",
     borderWidth: 1,
     hoverBackgroundColor: "rgba(255,99,132,0.4)",

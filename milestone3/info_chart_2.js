@@ -2,7 +2,7 @@ var info_chart_2_data = {
   // Test data
   labels: ["City 123", "City 23", "City 5", "City 4", "City 8", "City 6", "City 20", "City 2", "City 18", "City 9", "City 17", "City 23", "City 5", "City 44", "City 8", "City 61", "City 20", "City 74", "City 18", "City 9", "cire1"],
   datasets: [{
-    label: "Energy rate",
+    label: "Errors count",
     backgroundColor: ["#00B050", "#ff0000", "#ff0000", "#ff0000", "#ff7603", "#00B050", "#ff7603", "#ff7603", "#FF0200", "#ffbe00", "#ffbe00", "#ffbe00", "#ffbe00", "#ffbe00", "#ffbe00", "#ffbe00", "#ffbe00", "#ffbe00", "#ffbe00", "#ffbe00", "#FEFF00"],
     borderColor: "rgb(70, 70, 70)",
     borderWidth: 1,

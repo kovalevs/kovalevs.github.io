@@ -8,6 +8,8 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
   <link rel="stylesheet" href="styles/info.css">
   <link rel="stylesheet" href="styles/header.css">
+
+  <script type="text/javascript" src="languages/main.js"></script>
   <!-- Import lang -->
 </head>
 <body>
@@ -30,9 +32,9 @@
     <ul>
       <li><a href="#"><img src="header-desktop-logo.png" id="header-desktop-logo" alt="logo"></a></li>
       <li style="margin-right: 20%;"><a href="#">Home (admin)</a></li>
-      <li><a href="#">Control</a></li>
-      <li><a href="#" class="headerDesktopSelected">Info</a></li>
-      <li><a href="#">Timer</a></li>
+      <li><a href="#"><script>document.write(en.control)</script></a></li>
+      <li><a href="#" class="headerDesktopSelected"><script>document.write(en.info)</script></a></li>
+      <li><a href="#"><script>document.write(en.timer)</script></a></li>
       <li><a href="#">
         <div class="input-group md-form form-sm form-1 pl-0">
           <div class="input-group-prepend">
@@ -41,8 +43,8 @@
           <input class="form-control my-0 py-1" id="header-desktop-search-input" type="text" placeholder="Search" aria-label="Search">
         </div>
       </a></li>
-      <li><a href="#">Alerts <span id="headerDesktopAlertAmount">3</span></a></li>
-      <li id="home-desktop-setup"><a href="#">Setup</a><a href="#"><i class="fas fa-sign-out-alt text-white" id="header-desktop-signout" aria-hidden="true"></i></a></li>
+      <li><a href="#"><script>document.write(en.alerts)</script> <span id="headerDesktopAlertAmount">3</span></a></li>
+      <li id="home-desktop-setup"><a href="#"><script>document.write(en.setup)</script></a><a href="#"><i class="fas fa-sign-out-alt text-white" id="header-desktop-signout" aria-hidden="true"></i></a></li>
     </ul>
   </div>
   <div class="header-mobile">
@@ -64,69 +66,70 @@
   </div>
   <div class="home-section">
     <div class="tabs-section">
-      <h2 class="tab-active" id="level_1_tab" onclick="showFirstLevel()">ADMIN</h2>
-        <div class="tab-wrapper"><span id="level_2_span"> > </span>  <h2 id="level_2_tab" onclick="showSecondLevel(this)">Level 1</h2></div>
-            <div class="tab-wrapper"><span id="level_3_span"> > </span>  <h2 id="level_3_tab" onclick="showThirdLevel(this)">Level 2</h2></div>
-                <div class="tab-wrapper"><span id="level_4_span"> > </span>  <h2 id="level_4_tab" onclick="showFourLevel(this)">Level 3</h2></div>
-                    <div class="tab-wrapper"><span id="level_5_span"> > </span>  <h2 id="level_5_tab" onclick="showFiveLevel(this)">Level 4</h2></div>
+      <div class="tabs-section-fixed">
+          <h2 class="tab-active" id="level_1_tab" onclick="showFirstLevel()">ADMIN</h2>
+            <div class="tab-wrapper"><span id="level_2_span"> > </span>  <h2 id="level_2_tab" onclick="showSecondLevel(this)">Level 1</h2></div>
+                <div class="tab-wrapper"><span id="level_3_span"> > </span>  <h2 id="level_3_tab" onclick="showThirdLevel(this)">Level 2</h2></div>
+                    <div class="tab-wrapper"><span id="level_4_span"> > </span>  <h2 id="level_4_tab" onclick="showFourLevel(this)">Level 3</h2></div>
+                        <div class="tab-wrapper"><span id="level_5_span"> > </span>  <h2 id="level_5_tab" onclick="showFiveLevel(this)">Level 4</h2></div>
 
 
 
-    <div class="extra-tabs">
-      <h3 onclick="showExtraOne(this)">Site Dashboard</h3>
-      <h3 onclick="showExtraSecond(this)">Power Meter</h3>
-      <h3 onclick="showExtraThird(this)">Electric Bill</h3>
-    </div>
-    <div class="extra-tabs-last">
-      <h3 onclick="showExtraOneLast(this)">Maintenance</h3>
-      <h3 onclick="showExtraSecondLast(this)">Power History</h3>
-    </div>
-    <div class="extra-info">
-      <h4 class="underline">Information:</h4>
-      <h4>Address: ABC st.</h4>
-      <h4>Contact: ABC</h4>
-      <h4>Phone: 12345678</h4>
-      <!-- Link -->
-      <h4>Email: <a href="#">abd@gmail.com</a></h4>
-      <h4>Peak kW: 20</h4>
-      <h4>Size: 120 sqm</h4>
-      <h4>Work hours:</h4>
-      <table>
-        <tr>
-          <th>Day</th>
-          <th>Hrs</th>
-        </tr>
-        <tr>
-          <td>Mon</td>
-          <td>09:00-17:00</td>
-        </tr>
-        <tr>
-          <td>Tus</td>
-          <td>09:00-17:00</td>
-        </tr>
-        <tr>
-          <td>Wed</td>
-          <td>09:00-17:00</td>
-        </tr>
-        <tr>
-          <td>Thu</td>
-          <td>09:00-17:00</td>
-        </tr>
-        <tr>
-          <td>Fri</td>
-          <td>09:00-17:00</td>
-        </tr>
-        <tr>
-          <td>Sat</td>
-          <td>00:00-00:00</td>
-        </tr>
-        <tr>
-          <td>Sun</td>
-          <td>00:00-00:00</td>
-        </tr>
-      </table>
-    </div>
-
+        <div class="extra-tabs">
+          <h3 onclick="showExtraOne(this)">Site Dashboard</h3>
+          <h3 onclick="showExtraSecond(this)">Power Meter</h3>
+          <h3 onclick="showExtraThird(this)">Electric Bill</h3>
+        </div>
+        <div class="extra-tabs-last">
+          <h3 onclick="showExtraOneLast(this)">Maintenance</h3>
+          <h3 onclick="showExtraSecondLast(this)">Power History</h3>
+        </div>
+        <div class="extra-info">
+          <h4 class="underline">Information:</h4>
+          <h4>Address: ABC st.</h4>
+          <h4>Contact: ABC</h4>
+          <h4>Phone: 12345678</h4>
+          <!-- Link -->
+          <h4>Email: <a href="#">abd@gmail.com</a></h4>
+          <h4>Peak kW: 20</h4>
+          <h4>Size: 120 sqm</h4>
+          <h4>Work hours:</h4>
+          <table>
+            <tr>
+              <th>Day</th>
+              <th>Hrs</th>
+            </tr>
+            <tr>
+              <td>Mon</td>
+              <td>09:00-17:00</td>
+            </tr>
+            <tr>
+              <td>Tus</td>
+              <td>09:00-17:00</td>
+            </tr>
+            <tr>
+              <td>Wed</td>
+              <td>09:00-17:00</td>
+            </tr>
+            <tr>
+              <td>Thu</td>
+              <td>09:00-17:00</td>
+            </tr>
+            <tr>
+              <td>Fri</td>
+              <td>09:00-17:00</td>
+            </tr>
+            <tr>
+              <td>Sat</td>
+              <td>00:00-00:00</td>
+            </tr>
+            <tr>
+              <td>Sun</td>
+              <td>00:00-00:00</td>
+            </tr>
+          </table>
+        </div>
+      </div>
     </div>
     <div class="home-charts">
       <div class="info-navigation">
@@ -181,7 +184,7 @@
             <canvas id="info_chart_6"></canvas>
           </div>
           <div class="home-chart-bottom">
-            <div class="bottom-item-info">Online Errors</div>
+            <div class="bottom-item-info">Realtime error</div>
             <div class="bottom-item-second">High</div>
             <div class="bottom-item-second">Mid</div>
             <div class="bottom-item-second">Low</div>
@@ -1003,11 +1006,11 @@
       <div class="home-chart" id="chart_first">
           <div class="home-chart-panel">
             <div class="home-chart-panel-title">
-              <h5>Energy Rate</h5>
+              <h5><script>document.write(en.energy_rate)</script></h5>
             </div>
             <div class="home-chart-panel-options">
               <div class="home-chart-panel-options-title">
-                <h5>Energy rate</h5>
+                <h5><script>document.write(en.energy_rate)</script></h5>
               </div>
               <div class="home-chart-panel-navigation">
                 <button id="showPrev_1_chart"><i class="fas fa-arrow-circle-left text-white" aria-hidden="true"></i></button>
@@ -1019,19 +1022,19 @@
             <canvas id="info_chart_1"></canvas>
           </div>
           <div class="home-chart-bottom">
-            <div class="bottom-item bottom-item-custom">7(worst)</div>
+            <div class="bottom-item bottom-item-custom">7 (worst)</div>
             <div class="bottom-item">6</div>
             <div class="bottom-item">5</div>
             <div class="bottom-item">4</div>
             <div class="bottom-item">3</div>
             <div class="bottom-item">2</div>
-            <div class="bottom-item bottom-item-custom">1(best)</div>
+            <div class="bottom-item bottom-item-custom">1 (best)</div>
           </div>
       </div>
       <div class="home-chart" id="chart_second">
         <div class="home-chart-panel">
           <div class="home-chart-panel-title">
-            <h5>Device Health</h5>
+            <h5><script>document.write(en.device_health)</script></h5>
           </div>
           <div class="home-chart-panel-options">
             <div class="home-chart-panel-options-title">
@@ -1047,7 +1050,7 @@
           <canvas id="info_chart_2"></canvas>
         </div>
         <div class="home-chart-bottom">
-          <div class="bottom-item-info">Online Errors</div>
+          <div class="bottom-item-info"><script>document.write(en.realtime_error)</script></div>
           <div class="bottom-item-second">High</div>
           <div class="bottom-item-second">Mid</div>
           <div class="bottom-item-second">Low</div>

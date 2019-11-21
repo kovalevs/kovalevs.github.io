@@ -9,11 +9,11 @@ var chart_10_data_month_temp = [];
 
 var info_chart_10_data = {
   // Test data
-  labels: chart_10_data_month,
+  labels: chart_9_data_hours_12,
   datasets: [
     {
     type: 'line',
-    label: "Temperature (Celsius)",
+    label: "Current (Amp)",
     fill: false,
     data: chart_10_data,
     borderColor: "#528135",
@@ -21,9 +21,10 @@ var info_chart_10_data = {
     backgroundColor: "#528135",
     pointRadius: 0,
     tension: 0.1,
+    pointHitRadius: 10,
   },{
   type: 'line',
-  label: "Temperature (Celsius)",
+  label: "Volt Amp",
   fill: false,
   data: chart_10_vary_data,
   borderColor: "#C5E0B3",
@@ -32,6 +33,7 @@ var info_chart_10_data = {
   pointRadius: 0,
   tension: 0.1,
   spanGaps: false,
+  pointHitRadius: 10,
   }]
 };
 var info_chart_10_link = {
@@ -85,6 +87,9 @@ var options_10 = {
           fontColor: '#858585',
           fontSize: 15,
           padding: 20,
+          callback: function(tick, index, array) {
+            return (index % 2 && index != array.length-1 && array.length > 12) ? "" : tick;
+          },
       },
       barPercentage: 1.0,
       categoryPercentage: 1.0,

@@ -7,7 +7,7 @@ var info_chart_8_data = {
   // Test data
   labels: ["AC1", 'AC2', 'Air conditioner', 'Switch 1', 'ON/OFF switch 2', 'Others', 'AC3', 'AC4', 'AC5', 'AC6', 'AC7', 'AC8'],
   datasets: [{
-    label: "Energy rate",
+    label: "Cost per hour",
     backgroundColor: chart_8_colors,
     borderColor: "rgb(70, 70, 70)",
     borderWidth: 1,

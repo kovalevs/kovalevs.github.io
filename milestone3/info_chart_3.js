@@ -18,7 +18,7 @@ var info_chart_3_data = {
   // Test data
   labels: ["Shop 123", "Shop 23", "Shop 5", "Shop 4", "Shop 8", "Shop 6", "Shop 20", "Shop 2", "Shop 18", "Shop 9", "Shop 17", "Shop 23", "Shop 5", "Shop 44", "Shop 8", "Shop 61", "Shop 20", "Shop 74", "Shop 18", "Shop 9", "Shop 1", 'Shop 2'],
   datasets: [{
-    label: "Energy rate",
+    label: " % Savings",
     backgroundColor: backgroundColors,
     borderColor: "rgb(70, 70, 70)",
     borderWidth: 1,
@@ -36,6 +36,26 @@ var options_3 = {
     display: false
   },
   maintainAspectRatio: false,
+  annotation: {
+    annotations: [{
+      type: 'line',
+      mode: 'horizontal',
+      scaleID: 'y-axis-0',
+      value: 2,
+      borderColor: 'rgb(76, 76, 76)',
+      borderWidth: 4,
+      label: {
+        enabled: false,
+        content: 'Average',
+        backgroundColor: 'rgba(0,0,0,0)',
+        fontSize: 20,
+        fontColor: "#3c3c3c",
+        position: "left",
+        xAdjust: 10,
+        yAdjust: -25,
+      }
+    }]
+  },
   scales: {
     yAxes: [{
       ticks: {
@@ -303,6 +323,8 @@ function showFirstLevel(){
   document.getElementsByClassName('home-chart-body-title')[0].children[11].setAttribute('style', 'color:#ED7D33 !important');
 
   infoRemoveActiveOptions();
+
+  global_selection = 'month';
   info_showMonth.classList.add('info-chart-panel-options-buttons-active');
 
   cleanActive();
@@ -349,6 +371,8 @@ function showSecondLevel(elem){
   document.getElementsByClassName('home-chart-body-title')[0].children[11].setAttribute('style', 'color:#ED7D33 !important');
 
   infoRemoveActiveOptions();
+
+  global_selection = 'month';
   info_showMonth.classList.add('info-chart-panel-options-buttons-active');
 
   fourChart.style.display = "none";
@@ -396,6 +420,8 @@ function showThirdLevel(elem){
   document.getElementsByClassName('home-chart-body-title')[0].children[11].setAttribute('style', 'color:#ED7D33 !important');
 
   infoRemoveActiveOptions();
+
+  global_selection = 'month';
   info_showMonth.classList.add('info-chart-panel-options-buttons-active');
 
   fourChart.style.display = "block";
@@ -453,6 +479,8 @@ function showFourLevel(elem){
   }
   document.getElementsByClassName('home-chart-body-title')[0].children[11].setAttribute('style', 'color:#ED7D33 !important');
   infoRemoveActiveOptions();
+
+  global_selection = 'month';
   info_showMonth.classList.add('info-chart-panel-options-buttons-active');
 
   fourChart.style.display = "block";
@@ -541,6 +569,8 @@ function showFiveLevel(elem){
   }
   document.getElementsByClassName('home-chart-body-title')[0].children[11].setAttribute('style', 'color:#ED7D33 !important');
   infoRemoveActiveOptions();
+
+  global_selection = 'month';
   info_showMonth.classList.add('info-chart-panel-options-buttons-active');
 
   fourChart.style.display = "block";
