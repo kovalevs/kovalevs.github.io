@@ -475,6 +475,8 @@ text{
   padding-top: 50px;
   padding-left: 40px;
   padding-right: 40px;
+
+  padding-bottom: 10px;
 }
 .full-fill-wrapper{
   height: 90%;
@@ -1401,6 +1403,9 @@ input:focus,button:focus{
 #dashboardStatistics_11{
   display: none;
 }
+.header-desktop{
+  z-index: 1;
+}
 #chart_pie,
 #chart_line,
 #chart_energy,
@@ -1764,6 +1769,7 @@ input:focus,button:focus{
     align-items: center;
     z-index: 999;
     flex-wrap: wrap;
+    padding-right: 15px;
   }
   #dashboard-statistics-table_2{
     min-width: 1120px;
@@ -1797,7 +1803,7 @@ input:focus,button:focus{
   .home-charts{
     width: 100%;
     padding: 5px !important;
-    margin-top: 115px;
+    margin-top: 100px;
   }
   .info-nav-item-times{
     display: none;
@@ -1944,6 +1950,12 @@ input:focus,button:focus{
   }
   .meter_wrapper{
     height: 70% !important;
+  }
+  #header-desktop-search-input, #header-desktop-search-button{
+    height: 35px !important;
+  }
+  .tabs-section{
+    top: 45px;
   }
 
 }
