@@ -1,0 +1,1485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+  <link rel="stylesheet" href="styles/info.css">
+  <link rel="stylesheet" href="styles/header.css">
+  <script type="text/javascript" src="languages/main.js"></script>
+</head>
+<body>
+  <div class="paymodal-wrapper" id="levelPayModal">
+    <div class="paymodal">
+      <div class="paymodal-window-wrapper">
+        <div class="paymodal-window">
+          <div class="paymodal-text">
+            <h4>Please check you payment method</h4>
+            <div class="paymodal-buttons">
+              <button id="payModalCancel">Ok</button>
+              <button id="payModalConfirm">Setup</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="header-desktop">
+    <ul>
+      <li><a href="#"><img src="header-desktop-logo.png" id="header-desktop-logo" alt="logo"></a></li>
+      <li style="margin-right: 20%;"><a href="#">Home (admin)</a></li>
+      <li><a href="#"><script>document.write(en.control)</script></a></li>
+      <li><a href="#" class="headerDesktopSelected"><script>document.write(en.info)</script></a></li>
+      <li><a href="#"><script>document.write(en.timer)</script></a></li>
+      <li><a href="#">
+        <div class="input-group md-form form-sm form-1 pl-0">
+          <div class="input-group-prepend">
+            <span class="input-group-text purple lighten-3" id="header-desktop-search-button"><i class="fas fa-search text-white" aria-hidden="true"></i></span>
+          </div>
+          <input class="form-control my-0 py-1" id="header-desktop-search-input" type="text" placeholder="Search" aria-label="Search">
+        </div>
+      </a></li>
+      <li><a href="#"><script>document.write(en.alerts)</script> <span id="headerDesktopAlertAmount">3</span></a></li>
+      <li id="home-desktop-setup"><a href="#"><script>document.write(en.setup)</script></a><a href="#"><i class="fas fa-sign-out-alt text-white" id="header-desktop-signout" aria-hidden="true"></i></a></li>
+    </ul>
+  </div>
+  <div class="header-mobile">
+      <ul class="header-mobile-navigation">
+        <li><a href="#"><i class="fas fa-home" aria-hidden="true"></i></a></li>
+        <li><a href="#"><i class="fas fa-power-off text-white" aria-hidden="true"></i></a></li>
+        <li><a href="#"><i class="fas fa-chart-bar headerMobileSelected" aria-hidden="true"></i></a></li>
+        <li><a href="#"><i class="fas fa-clock text-white" aria-hidden="true"></i></a></li>
+        <li><a href="#"><i class="fas fa-exclamation-triangle text-white" aria-hidden="true"></i><span id="header-mobile-navigation-alertConunter">3</span></a></li>
+      </ul>
+  </div>
+  <div class="home-mobile-search">
+    <div class="input-group md-form form-sm form-1 pl-0" id="home-mobile-searchbar-wrapper">
+      <div class="input-group-prepend">
+        <span class="input-group-text purple lighten-3" id="header-desktop-search-button"><i class="fas fa-search text-white" aria-hidden="true"></i></span>
+      </div>
+      <input class="form-control my-0 py-1" id="header-desktop-search-input" type="text" placeholder="Search" aria-label="Search">
+    </div>
+  </div>
+  <div class="home-section">
+    <div class="tabs-section">
+      <div class="tabs-section-fixed">
+          <h2 class="tab-active" id="level_1_tab" onclick="showFirstLevel()">ADMIN</h2>
+            <div class="tab-wrapper"><span id="level_2_span"> > </span>  <h2 id="level_2_tab" onclick="showSecondLevel(this)">Level 1</h2></div>
+                <div class="tab-wrapper"><span id="level_3_span"> > </span>  <h2 id="level_3_tab" onclick="showThirdLevel(this)">Level 2</h2></div>
+                    <div class="tab-wrapper"><span id="level_4_span"> > </span>  <h2 id="level_4_tab" onclick="showFourLevel(this)">Level 3</h2></div>
+                        <div class="tab-wrapper"><span id="level_5_span"> > </span>  <h2 id="level_5_tab" onclick="showFiveLevel(this)">Level 4</h2></div>
+
+
+
+        <div class="extra-tabs">
+          <h3 onclick="showExtraOne(this)">Site Dashboard</h3>
+          <h3 onclick="showExtraSecond(this)">Power Meter</h3>
+          <h3 onclick="showExtraThird(this)">Electric Bill</h3>
+        </div>
+        <div class="extra-tabs-last">
+          <h3 onclick="showExtraOneLast(this)">Maintenance</h3>
+          <h3 onclick="showExtraSecondLast(this)">Power History</h3>
+        </div>
+        <div class="extra-info">
+          <h4 class="underline">Information:</h4>
+          <h4>Address: ABC st.</h4>
+          <h4>Contact: ABC</h4>
+          <h4>Phone: 12345678</h4>
+          <!-- Link -->
+          <h4>Email: <a href="#">abd@gmail.com</a></h4>
+          <h4>Peak kW: 20</h4>
+          <h4>Size: 120 sqm</h4>
+          <h4>Work hours:</h4>
+          <table>
+            <tr>
+              <th>Day</th>
+              <th>Hrs</th>
+            </tr>
+            <tr>
+              <td>Mon</td>
+              <td>09:00-17:00</td>
+            </tr>
+            <tr>
+              <td>Tus</td>
+              <td>09:00-17:00</td>
+            </tr>
+            <tr>
+              <td>Wed</td>
+              <td>09:00-17:00</td>
+            </tr>
+            <tr>
+              <td>Thu</td>
+              <td>09:00-17:00</td>
+            </tr>
+            <tr>
+              <td>Fri</td>
+              <td>09:00-17:00</td>
+            </tr>
+            <tr>
+              <td>Sat</td>
+              <td>00:00-00:00</td>
+            </tr>
+            <tr>
+              <td>Sun</td>
+              <td>00:00-00:00</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="home-charts">
+      <div class="info-navigation">
+        <div class="info-nav-item">
+          <div class="home-chart-panel-options-buttons">
+            <button id="info_1_showToday">Today</button>
+            <button id="info_1_showWeek">Week</button>
+            <button id="info_1_showMonth" class="info-chart-panel-options-buttons-active">Month</button>
+            <button id="info_1_showYear">Year</button>
+          </div>
+        </div>
+        <div class="info-nav-item info-nav-item-times">
+          <div class="info-nav-item-time">
+            <p>From:</p>
+            <input type="text" id="from" data-format="DD-MM-YYYY" data-template="D MMM YYYY" name="from">
+          </div>
+          <div class="info-nav-item-time">
+            <p>To:</p>
+            <input type="text" id="to" data-format="DD-MM-YYYY" data-template="D MMM YYYY" name="to">
+          </div>
+        </div>
+      </div>
+      <div class="info-chart-wrapper" id="chart_pie">
+        <div class="home-chart">
+            <div class="home-chart-panel">
+              <div class="home-chart-panel-title">
+                <h5>Device’s Proportion Energy Cost</h5>
+              </div>
+              <div class="home-chart-panel-options">
+              </div>
+            </div>
+            <div class="canvas_wrapper">
+              <canvas id="info_chart_5"></canvas>
+            </div>
+        </div>
+        <div class="home-chart">
+          <div class="home-chart-panel">
+            <div class="home-chart-panel-title">
+              <h5>Device Health</h5>
+            </div>
+            <div class="home-chart-panel-options">
+              <div class="home-chart-panel-options-title">
+                <h5>Total <span name="homeChartLabelAmount">#</span> of Past Errors</h5>
+              </div>
+              <div class="home-chart-panel-navigation">
+                <button id="showPrev_6_chart"><i class="fas fa-arrow-circle-left text-white" aria-hidden="true"></i></button>
+                <button id="showNext_6_chart"><i class="fas fa-arrow-circle-right text-white" aria-hidden="true"></i></button>
+              </div>
+            </div>
+          </div>
+          <div class="canvas_wrapper">
+            <canvas id="info_chart_6"></canvas>
+          </div>
+          <div class="home-chart-bottom">
+            <div class="bottom-item-info">Realtime error</div>
+            <div class="bottom-item-second">High</div>
+            <div class="bottom-item-second">Mid</div>
+            <div class="bottom-item-second">Low</div>
+            <div class="bottom-item-second">None</div>
+          </div>
+        </div>
+      </div>
+      <div class="chart_main_wrapper" id="chart_line">
+        <div class="home-chart">
+          <div class="home-chart-panel">
+            <div class="home-chart-panel-title">
+              <h5>Power Consumption (kWh)</h5>
+            </div>
+            <div class="home-chart-panel-options">
+            </div>
+          </div>
+          <div class="canvas_wrapper canvas_wrapper-full">
+            <canvas id="info_chart_7"></canvas>
+          </div>
+        </div>
+      </div>
+      <div class="dashboard" id="dashboardStatistics_3">
+        <div class="info-title">
+         Device Summary
+        </div>
+        <div class="dashboard-table">
+          <table id="dashboard-statistics-table_3">
+            <tr>
+              <th class="dashboard-table-sort">Device
+              </th>
+              <th class="dashboard-table-sort">Type
+              </th>
+              <th class="dashboard-table-sort">kWh
+                <div>
+                  <i onclick="tableSelect(this)" class="fas fa-caret-down text-white infoTableSelect" aria-hidden="true"></i>
+                  <i onclick="tableSelect(this)" class="fas fa-caret-up text-white infoTableSelect" aria-hidden="true"></i>
+                </div>
+              </th>
+              <th class="dashboard-table-sort">Cost $
+                <div>
+                  <i onclick="tableSelect(this)" class="fas fa-caret-down text-white infoTableSelect" aria-hidden="true"></i>
+                  <i onclick="tableSelect(this)" class="fas fa-caret-up text-white infoTableSelect" aria-hidden="true"></i>
+                </div>
+              </th>
+              <th class="dashboard-table-sort">'On'<br>hours
+                <div>
+                  <i onclick="tableSelect(this)" class="fas fa-caret-down text-white infoTableSelect" aria-hidden="true"></i>
+                  <i onclick="tableSelect(this)" class="fas fa-caret-up text-white infoTableSelect" aria-hidden="true"></i>
+                </div>
+              </th>
+              <th class="dashboard-table-sort">$/ON<br>hours
+              </th>
+              <th class="dashboard-table-sort">%W<br>error
+                <div>
+                  <i onclick="tableSelect(this)" class="fas fa-caret-down text-white infoTableSelect" aria-hidden="true"></i>
+                  <i onclick="tableSelect(this)" class="fas fa-caret-up text-white infoTableSelect" aria-hidden="true"></i>
+                </div>
+              </th>
+              <th class="dashboard-table-sort">% MFQ<br>error
+                <div>
+                  <i onclick="tableSelect(this)" class="fas fa-caret-down text-white infoTableSelect" aria-hidden="true"></i>
+                  <i onclick="tableSelect(this)" class="fas fa-caret-up text-white infoTableSelect" aria-hidden="true"></i>
+                </div>
+              </th>
+              <th class="dashboard-table-sort">#<br>Alert
+              </th>
+              <th class="dashboard-table-sort">Min-<br>Max<br>temp
+              </th>
+              <th class="dashboard-table-sort" colspan="2">Filter (hours)
+                <div>
+                  <i onclick="tableSelect(this)" class="fas fa-caret-down text-white infoTableSelect" aria-hidden="true"></i>
+                  <i onclick="tableSelect(this)" class="fas fa-caret-up text-white infoTableSelect" aria-hidden="true"></i>
+                </div>
+              </th>
+            </tr>
+            <tr class="dashboard-statistics-table-data_3">
+              <!-- Database from server -->
+              <td class="info-level-admin info-level-admin-left">
+                <div class="info-one-level-container">
+                  <a href="#" class="nextLevelButton_3" onclick="showFiveLevel(this)">Main AC</a>
+                  <!-- <div class="level-dollar">
+                      <i class="fas fa-dollar-sign text-red text-red-visible" aria-hidden="true"></i>
+                  </div> -->
+                </div>
+              </td>
+              <td class="info-device_3">AC-GR</td>
+              <td class="info-type_3">20</td>
+              <td class="info-kwh_3">20</td>
+              <td class="info-cost_3">10</td>
+              <td class="info-onhours_3_value">2</td>
+              <td class="info-onhours_3">-1%</td>
+              <td class="info-error_3">0%</td>
+              <td class="info-alerts_3">0</td>
+              <td class="info-mfqerror_3">23-25</td>
+              <td class="info-minmax_3">86</td>
+              <td class="info-filterhours_3"><i class="fas fa-undo text-white" aria-hidden="true"></i></td>
+              <!-- End of Database -->
+            </tr>
+          </table>
+          <!-- LINK -->
+          <div><i class="fas fa-save text-white dashboardTableSave" onclick="fnExcelReport('dashboard-statistics-table_3')" aria-hidden="true"></i></div>
+          <table class="dashboard-statistics-table-fake">
+            <tr class="dashboard-statistics-table-total-fake_3">
+              <td class="info-device_3 info-level-admin-right" colspan="2">Total Air conditioner</td>
+              <td class="info-device_3">44</td>
+              <td class="info-type_3">44</td>
+              <td class="info-kwh_3">25</td>
+              <td class="info-cost_3">25</td>
+            </tr>
+            <tr class="dashboard-statistics-table-total-fake_3_1">
+              <td class="info-device_3 info-level-admin-right" colspan="2">Total Switch (on/off)</td>
+              <td class="info-device_3">44</td>
+              <td class="info-type_3">414</td>
+              <td class="info-kwh_3">251</td>
+              <td class="info-cost_3">25</td>
+            </tr>
+            <tr class="dashboard-statistics-table-total-fake_3_2">
+              <td class="info-device_3 info-level-admin-right" colspan="2">Others devices</td>
+              <td class="info-device_3">144</td>
+              <td class="info-type_3">44</td>
+              <td class="info-kwh_3">20</td>
+              <td class="info-cost_3">25</td>
+            </tr>
+            <tr class="dashboard-statistics-table-total-fake_3_3">
+              <td class="info-device_3 info-level-admin-right" colspan="2">Master Power meter</td>
+              <td class="info-device_3">44</td>
+              <td class="info-type_3">104</td>
+              <td class="info-kwh_3">50</td>
+              <td class="info-cost_3">50</td>
+            </tr>
+          </table>
+        </div>
+        <h5 class="dashboard-table-subinfo-text">If % Watt is too high meaning air conditioner has a problem. If manufacturer % error is high need to check reason. Red alerts require to check air conditioner. If air conditioner has many alerts it means something is wrong. Clean air conditioner filter if it shows red</h5>
+      </div>
+
+      <div class="chart_main_wrapper" id="chart_energy">
+        <div class="info-title info-title-chart">
+          Realtime devices
+          <i class="fas fa-undo text-white" aria-hidden="true"></i>
+        </div>
+        <div class="home-chart">
+          <div class="home-chart-panel">
+            <div class="home-chart-panel-title">
+              <h5>Energy Cost (average per hour)</h5>
+            </div>
+            <div class="home-chart-panel-options">
+              <div class="home-chart-panel-options-title home-chart-panel-options-title-center">
+                <h5 class="title-blue"><span>--</span>Air conditioner<span>--</span></h5>
+                <h5 class="title-orange"><span>--</span>Switch<span>--</span></h5>
+                <h5 class="title-white"><span>--</span>Others<span>--</span></h5>
+              </div>
+              <div class="home-chart-panel-navigation">
+                <button id="showPrev_8_chart"><i class="fas fa-arrow-circle-left text-white" aria-hidden="true"></i></button>
+                <button id="showNext_8_chart"><i class="fas fa-arrow-circle-right text-white" aria-hidden="true"></i></button>
+              </div>
+            </div>
+          </div>
+          <div class="canvas_wrapper canvas_wrapper-full">
+            <canvas id="info_chart_8"></canvas>
+          </div>
+        </div>
+      </div>
+      <div class="chart_main_wrapper" id="chart_meter_1">
+        <div class="info-title info-title-chart">
+          Realtime Master Power meter
+        </div>
+        <div class="info-chart-wrapper">
+          <div class="home-chart meter-chart">
+              <div class="home-chart-panel">
+                <div class="home-chart-panel-title">
+                  <h5>Power (kW)</h5>
+                </div>
+                <div class="home-chart-panel-options">
+                </div>
+              </div>
+              <div class="canvas_wrapper meter_wrapper" id="meter_1">
+              </div>
+          </div>
+          <div class="home-chart meter-chart">
+              <div class="home-chart-panel">
+                <div class="home-chart-panel-title">
+                  <h5>Power Factor</h5>
+                </div>
+                <div class="home-chart-panel-options">
+                </div>
+              </div>
+              <div class="canvas_wrapper meter_wrapper" id="meter_2">
+              </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="small-tables-1">
+        <div class="dashboard" id="dashboardStatistics_4">
+          <div class="dashboard-table divideTable_0">
+            <table id="dashboard-statistics-table_4">
+              <tr>
+                <th>Current<br>(A)</th>
+                <th>Power<br>(kW)</th>
+                <th class="divideTable_last">Volt Amp<br>(kVA)</th>
+              </tr>
+              <tr class="divide_table_0_data">
+                <tbody>
+                  <td>10.0</td>
+                  <td>10.2</td>
+                  <td>10.3</td>
+                </tbody>
+                <tbody>
+                  <td>9.0</td>
+                  <td>10.6</td>
+                  <td>9.4</td>
+                </tbody>
+                <tbody>
+                  <td>98</td>
+                  <td>96</td>
+                  <td>97</td>
+                </tbody>
+                <tbody>
+                  <td class="divideTable_total">30.5</td>
+                  <td class="divideTable_total">29</td>
+                  <td class="divideTable_total">96</td>
+                </tbody>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div class="dashboard" id="dashboardStatistics_5">
+          <div class="dashboard-table divideTable_0">
+            <table id="dashboard-statistics-table_5">
+              <tr>
+                <th>Volt<br>(V)</th>
+                <th>Power<br>Factor</th>
+                <th class="divideTable_last">Frequency<br>(Hz)</th>
+              </tr>
+              <tr class="divide_table_0_data">
+                <tbody>
+                  <td>220</td>
+                  <td>0.86</td>
+                  <td>50</td>
+                </tbody>
+                <tbody>
+                  <td>224</td>
+                  <td>0.84</td>
+                  <td>50</td>
+                </tbody>
+                <tbody>
+                  <td>222</td>
+                  <td>0.82</td>
+                  <td>50</td>
+                </tbody>
+                <tbody>
+                  <td class="divideTable_total">222</td>
+                  <td class="divideTable_total">0.84</td>
+                  <td class="divideTable_total">50</td>
+                </tbody>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="chart_main_wrapper" id="chart_months_1">
+        <div class="info-title info-title-chart">
+          Master power meter history
+          <div class="info-chart-subtabs">
+            <div class="info-chart-subtab" onclick="selectedWhite(this)">
+              Day
+            </div>
+          </div>
+        </div>
+        <div class="info-chart-wrapper">
+          <div class="home-chart">
+            <div class="home-chart-panel home-chart-panel-large home-chart-panel-large_9">
+              <div class="home-chart-panel-options">
+                <div class="home-chart-panel-options-title home-chart-panel-options-title-center">
+                  <h5 class="title-beige">--Power--</h5>
+                  <h5 class="title-orange">--Power Factor--</h5>
+                </div>
+              </div>
+            </div>
+            <div class="canvas_wrapper full-fill-wrapper full-fill-wrapper_width">
+              <canvas id="info_chart_9"></canvas>
+            </div>
+          </div>
+          <div class="home-chart">
+            <div class="home-chart-panel home-chart-panel-large home-chart-panel-large_9">
+              <div class="home-chart-panel-options">
+                <div class="home-chart-panel-options-title home-chart-panel-options-title-center">
+                  <h5 class="title-green">--Current--</h5>
+                  <h5 class="title-lightgreen">--Volt Amp--</h5>
+                </div>
+              </div>
+            </div>
+            <div class="canvas_wrapper full-fill-wrapper full-fill-wrapper_width">
+              <canvas id="info_chart_10"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="chart_main_wrapper" id="chart_green_1">
+        <div class="info-title info-title-chart info-title-chart-white">
+          Electric bill – last 12 month
+        </div>
+        <div class="home-chart">
+          <div class="home-chart-panel home-chart-panel-large">
+            <div class="home-chart-panel-title">
+              <h5>Total savings on all Electric bills (base to month)</h5>
+            </div>
+            <div class="home-chart-panel-options">
+              <div class="home-chart-panel-options-title home-chart-panel-fill">
+                <div class="option-joins">
+                  <div class="options-join">
+                    <h5 class="options-join-light">%</h5>
+                  </div>
+                  <div class="options-join options-join-middle">
+                    <h5 class="options-join-light">--% savings--</h5>
+                    <h5 class="options-join-dark">--$ saving--</h5>
+                  </div>
+                  <div class="options-join">
+                    <h5 class="options-join-dark">$</h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="canvas_wrapper full-fill-wrapper full-fill-wrapper_11">
+            <canvas id="info_chart_11"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <div class="chart_main_wrapper" id="chart_enery_horiz">
+        <div class="home-chart">
+          <div class="home-chart-panel">
+            <div class="home-chart-panel-title">
+              <h5>Electric bills</h5>
+            </div>
+            <div class="home-chart-panel-options">
+              <div class="home-chart-panel-options-title home-chart-panel-options-title-center">
+                <h5 class="title-blue"><span>--</span>Air conditioner<span>--</span></h5>
+                <h5 class="title-orange"><span>--</span>Switch<span>--</span></h5>
+                <h5 class="title-white"><span>--</span>Others<span>--</span></h5>
+              </div>
+            </div>
+          </div>
+          <div class="canvas_wrapper canvas_wrapper-large canvas_wrapper-large_12">
+            <canvas id="info_chart_12"></canvas>
+          </div>
+        </div>
+      </div>
+      <div class="chart_main_wrapper" id="chart_blueyellow">
+        <div class="info-chart-wrapper">
+          <div class="home-chart">
+              <div class="home-chart-panel">
+                <div class="home-chart-panel-title">
+                  <h5>Electricity % of Turnover</h5>
+                </div>
+                <div class="home-chart-panel-options">
+                  <div class="home-chart-panel-options-title">
+                    <h5></h5>
+                  </div>
+                  <div class="home-chart-panel-navigation">
+                    <button id="showPrev_13_chart"><i class="fas fa-arrow-circle-left text-white" aria-hidden="true"></i></button>
+                    <button id="showNext_13_chart"><i class="fas fa-arrow-circle-right text-white" aria-hidden="true"></i></button>
+                  </div>
+                </div>
+              </div>
+              <div class="canvas_wrapper canvas_wrapper-large">
+                <canvas id="info_chart_13"></canvas>
+              </div>
+          </div>
+          <div class="home-chart">
+              <div class="home-chart-panel">
+                <div class="home-chart-panel-title">
+                  <h5>% Bill Error (Bill to master PM Reading)</h5>
+                </div>
+                <div class="home-chart-panel-options">
+                  <div class="home-chart-panel-options-title">
+                    <h5></h5>
+                  </div>
+                  <div class="home-chart-panel-navigation">
+                    <button id="showPrev_14_chart"><i class="fas fa-arrow-circle-left text-white" aria-hidden="true"></i></button>
+                    <button id="showNext_14_chart"><i class="fas fa-arrow-circle-right text-white" aria-hidden="true"></i></button>
+                  </div>
+                </div>
+              </div>
+              <div class="canvas_wrapper canvas_wrapper-large">
+                <canvas id="info_chart_14"></canvas>
+              </div>
+          </div>
+        </div>
+      </div>
+      <div class="dashboard" id="dashboardStatistics_6">
+        <div class="dashboard-table">
+          <table id="dashboard-statistics-table_6">
+            <tr>
+              <th class="dashboard-table-sort">Month
+                <div>
+                  <i onclick="tableSelect(this)" class="fas fa-caret-down text-white infoTableSelect" aria-hidden="true"></i>
+                  <i onclick="tableSelect(this)" class="fas fa-caret-up text-white infoTableSelect" aria-hidden="true"></i>
+                </div>
+              </th>
+              <th class="dashboard-table-sort">Day<br>cycle
+                <div class="selectHidden">
+                  <i onclick="tableSelect(this)" class="fas fa-caret-down text-white infoTableSelect" aria-hidden="true"></i>
+                  <i onclick="tableSelect(this)" class="fas fa-caret-up text-white infoTableSelect" aria-hidden="true"></i>
+                </div>
+              </th>
+              <th class="dashboard-table-sort">Days<br>in<br>cycle
+                <div class="selectHidden">
+                  <i onclick="tableSelect(this)" class="fas fa-caret-down text-white infoTableSelect" aria-hidden="true"></i>
+                  <i onclick="tableSelect(this)" class="fas fa-caret-up text-white infoTableSelect" aria-hidden="true"></i>
+                </div>
+              </th>
+              <th class="dashboard-table-sort">Bill $
+                <div class="selectHidden">
+                  <i onclick="tableSelect(this)" class="fas fa-caret-down text-white infoTableSelect" aria-hidden="true"></i>
+                  <i onclick="tableSelect(this)" class="fas fa-caret-up text-white infoTableSelect" aria-hidden="true"></i>
+                </div>
+              </th>
+              <th class="dashboard-table-sort">Master<br>PM $
+                <div class="selectHidden">
+                  <i onclick="tableSelect(this)" class="fas fa-caret-down text-white infoTableSelect" aria-hidden="true"></i>
+                  <i onclick="tableSelect(this)" class="fas fa-caret-up text-white infoTableSelect" aria-hidden="true"></i>
+                </div>
+              </th>
+              <th class="dashboard-table-sort">% bill<br>Error
+                <div class="selectHidden">
+                  <i onclick="tableSelect(this)" class="fas fa-caret-down text-white infoTableSelect" aria-hidden="true"></i>
+                  <i onclick="tableSelect(this)" class="fas fa-caret-up text-white infoTableSelect" aria-hidden="true"></i>
+                </div>
+              </th>
+              <th class="dashboard-table-sort">$ Sum<br>sub PM<br>(AC)
+                <div class="selectHidden">
+                  <i onclick="tableSelect(this)" class="fas fa-caret-down text-white infoTableSelect" aria-hidden="true"></i>
+                  <i onclick="tableSelect(this)" class="fas fa-caret-up text-white infoTableSelect" aria-hidden="true"></i>
+                </div>
+              </th>
+              <th class="dashboard-table-sort">$ Sum<br>sub PM<br>(AC)
+                <div class="selectHidden">
+                  <i onclick="tableSelect(this)" class="fas fa-caret-down text-white infoTableSelect" aria-hidden="true"></i>
+                  <i onclick="tableSelect(this)" class="fas fa-caret-up text-white infoTableSelect" aria-hidden="true"></i>
+                </div>
+              </th>
+              <th class="dashboard-table-sort">$<br>other
+                <div class="selectHidden">
+                  <i onclick="tableSelect(this)" class="fas fa-caret-down text-white infoTableSelect" aria-hidden="true"></i>
+                  <i onclick="tableSelect(this)" class="fas fa-caret-up text-white infoTableSelect" aria-hidden="true"></i>
+                </div>
+              </th>
+              <th class="dashboard-table-sort">$ Base<br>line<br>Bill
+                <div class="selectHidden">
+                  <i onclick="tableSelect(this)" class="fas fa-caret-down text-white infoTableSelect" aria-hidden="true"></i>
+                  <i onclick="tableSelect(this)" class="fas fa-caret-up text-white infoTableSelect" aria-hidden="true"></i>
+                </div>
+              </th>
+              <th class="dashboard-table-sort">Saving<br>(new to<br>base)
+                <div class="selectHidden">
+                  <i onclick="tableSelect(this)" class="fas fa-caret-down text-white infoTableSelect" aria-hidden="true"></i>
+                  <i onclick="tableSelect(this)" class="fas fa-caret-up text-white infoTableSelect" aria-hidden="true"></i>
+                </div>
+              </th>
+              <th class="dashboard-table-sort">%<br>Save
+                <div>
+                  <i onclick="tableSelect(this)" class="fas fa-caret-down text-white infoTableSelect" aria-hidden="true"></i>
+                  <i onclick="tableSelect(this)" class="fas fa-caret-up text-white infoTableSelect" aria-hidden="true"></i>
+                </div>
+              </th>
+              <th class="dashboard-table-sort">Turn<br>ove<br>unit
+                <div class="selectHidden">
+                  <i onclick="tableSelect(this)" class="fas fa-caret-down text-white infoTableSelect" aria-hidden="true"></i>
+                  <i onclick="tableSelect(this)" class="fas fa-caret-up text-white infoTableSelect" aria-hidden="true"></i>
+                </div>
+              </th>
+              <th class="dashboard-table-sort">% of<br>turn<br>over
+                <div class="selectHidden">
+                  <i onclick="tableSelect(this)" class="fas fa-caret-down text-white infoTableSelect" aria-hidden="true"></i>
+                  <i onclick="tableSelect(this)" class="fas fa-caret-up text-white infoTableSelect" aria-hidden="true"></i>
+                </div>
+              </th>
+            </tr>
+            <tr class="dashboard-statistics-table-data_6">
+              <!-- Database from server -->
+              <td class="info_table_date_6">09/2019</td>
+              <td class="info_table_daycycle_6">05</td>
+              <td class="info_table_daysincycle_6">31</td>
+              <td class="info_table_bill_6">3000</td>
+              <td class="info_table_masterpm_6">3000</td>
+              <td class="info_table_billerror_6">0%</td>
+              <td class="info_table_sumpm_0_6">1800</td>
+              <td class="info_table_sumpm_1_6">220</td>
+              <td class="info_table_other_6">1200</td>
+              <td class="info_table_baselinebill_6">3300</td>
+              <td class="info_table_saving_6">300</td>
+              <td class="info_table_save_6">10%</td>
+              <td class="info_table_turnoverunit_6">10000</td>
+              <td class="info_table_percentturnover_6">1%</td>
+              <!-- End of Database -->
+            </tr>
+          </table>
+          <!-- LINK -->
+          <div><i class="fas fa-save text-white dashboardTableSave" onclick="fnExcelReport('dashboard-statistics-table_6')" aria-hidden="true"></i></div>
+        </div>
+        <h5 class="dashboard-table-subinfo-text" id="marginBottom">
+          If % savings is minus or small, need to limit more max/min set point range of air conditioner and reduce working hours (by timer).<br>
+          If ‘other cost’ is high, need to check which other devices take power.<br>
+          ‘Electricity % of turnover’ indicates the proportion of electric cost to monthly cost as set in Level 3 setup (turnover or number of items sold this month). Lower number indicates better efficiency.<br>
+          If ‘% error in bill’ is higher than 0, check the electric bill and the government power meter as compared to the actual system reading.<br>
+        </h5>
+      </div>
+
+      <div class="chart_main_wrapper" id="chart_meter_2">
+        <div class="info-title info-title-chart">
+          Realtime
+          <i class="fas fa-undo text-white" aria-hidden="true"></i>
+        </div>
+        <div class="info-chart-wrapper">
+          <div class="home-chart meter-chart">
+              <div class="home-chart-panel">
+                <div class="home-chart-panel-title">
+                  <h5>Power (kW)</h5>
+                </div>
+                <div class="home-chart-panel-options">
+                </div>
+              </div>
+              <div class="canvas_wrapper meter_wrapper" id="meter_3">
+              </div>
+          </div>
+          <div class="home-chart meter-chart">
+              <div class="home-chart-panel">
+                <div class="home-chart-panel-title">
+                  <h5>Power Factor</h5>
+                </div>
+                <div class="home-chart-panel-options">
+                </div>
+              </div>
+              <div class="canvas_wrapper meter_wrapper" id="meter_4">
+              </div>
+          </div>
+        </div>
+      </div>
+      <div id="small-tables-2">
+        <div class="dashboard" id="dashboardStatistics_7">
+          <div class="dashboard-table divideTable_0">
+            <table id="dashboard-statistics-table_7">
+              <tr>
+                <th>Current<br>(A)</th>
+                <th>Power<br>(kW)</th>
+                <th class="divideTable_last">Volt Amp<br>(kVA)</th>
+              </tr>
+              <tr class="divide_table_0_data">
+                <tbody class="divide_table_hidden">
+                  <td>10.0</td>
+                  <td>10.2</td>
+                  <td>10.3</td>
+                </tbody>
+                <tbody class="divide_table_hidden">
+                  <td>9.0</td>
+                  <td>10.6</td>
+                  <td>9.4</td>
+                </tbody>
+                <tbody class="divide_table_hidden">
+                  <td>98</td>
+                  <td>96</td>
+                  <td>97</td>
+                </tbody>
+                <tbody>
+                  <td class="divideTable_total">30.5</td>
+                  <td class="divideTable_total">29</td>
+                  <td class="divideTable_total">96</td>
+                </tbody>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div class="dashboard" id="dashboardStatistics_8">
+          <div class="dashboard-table divideTable_0">
+            <table id="dashboard-statistics-table_8">
+              <tr>
+                <th>Volt<br>(V)</th>
+                <th>Power<br>Factor</th>
+                <th class="divideTable_last">Frequency<br>(Hz)</th>
+              </tr>
+              <tr class="divide_table_0_data">
+                <tbody class="divide_table_hidden">
+                  <td>220</td>
+                  <td>0.86</td>
+                  <td>50</td>
+                </tbody>
+                <tbody class="divide_table_hidden">
+                  <td>224</td>
+                  <td>0.84</td>
+                  <td>50</td>
+                </tbody>
+                <tbody class="divide_table_hidden">
+                  <td>222</td>
+                  <td>0.82</td>
+                  <td>50</td>
+                </tbody>
+                <tbody>
+                  <td class="divideTable_total">222</td>
+                  <td class="divideTable_total">0.84</td>
+                  <td class="divideTable_total">50</td>
+                </tbody>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="dashboard" id="dashboardStatistics_9">
+        <div class="info-title info-title-more">
+         Control and Monitor
+        </div>
+        <div class="dashboard-table">
+          <table id="dashboard-statistics-table_9">
+            <tr>
+              <th>Device</th>
+              <th>Current status</th>
+            </tr>
+            <tr>
+              <td class="small-td">
+                <div class="large-title">
+                <h2>AC GR</h2>
+                </div>
+              </td>
+              <td>
+                <div class="large-line">
+                  <div class="level-power">
+                    <!-- color from server -->
+                    <button><i class="fas fa-power-off text-blue serverIco" onclick="powerChangeColor(this)" aria-hidden="true"></i></button>
+                  </div>
+                  <div class="level-lamp">
+                    <img onclick="lampOn(this)" class="levelLampDefault" src="icons/lamp.png" style="display: block;">
+                    <img onclick="lampOff(this)" class="levelLampYellow" src="icons/lamp_yellow.png" style="display: none;">
+                    <img class="levelLampError" src="icons/error.png">
+                  </div>
+                  <div class="level-temp-info">
+                    <div class="level-temp-info-text">
+                      <h2>24<span>°C</span></h2>
+                      <img src="icons/increase.png">
+
+                      <h2 class="info-mid">25<span>°C</span></h2>
+
+                      <img src="icons/decrease.png">
+                      <h2>28<span>°C</span></h2>
+                    </div>
+                  </div>
+                  <div class="level-home">
+                    <!-- temp from server -->
+                    <i class="fas fa-home text-grey" aria-hidden="true"></i>
+                    <h2 name="levelHomeTemp">26<span>°C</span></h2>
+                  </div>
+                  <div class="level-temp">
+                    <!-- temp from server -->
+                    <div class="level-temp-icon">
+                      <i class="fas fa-power-off text-grey icoHidden" aria-hidden="true" style="display: block;"></i>
+                      <i class="fas fa-snowflake text-grey icoHidden" aria-hidden="true" style="display: none;"></i>
+                      <img class="icoHidden" src="icons/fan.png" style="display: none;">
+                      <img class="icoHidden" src="icons/drop.png" style="display: none;">
+                      <i class="fas fa-sun text-grey icoHidden" aria-hidden="true" style="display: none;"></i>
+                      <img class="icoHidden" src="icons/a_letter.png" style="display: none;">
+                    </div>
+                    <h2 name="levelFan">F1</h2>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <h5 class="dashboard-table-subinfo-text">
+          Press the control button to test control and feedback
+        </h5>
+      </div>
+      <div class="dashboard" id="dashboardStatistics_10">
+        <div class="info-title">
+         Maintenance
+        </div>
+        <div class="dashboard-table divideTable_0" id="longTable">
+          <table id="dashboard-statistics-table_10">
+            <tr>
+              <th id="swHideTh">Clean filter</th>
+              <th>Working Hours</th>
+              <th>Baseline W</th>
+              <th>% error W</th>
+              <th>MFQ Power</th>
+              <th class="table_10_row">% MFQ error</th>
+            </tr>
+            <tr class="divide_table_0_data">
+              <tbody>
+                <td class="info_cleanfilter_10">-10 <span>hrs</span></td>
+                <td class="info_workinghours_10">210 <span>hrs</span></td>
+                <td class="info_baseline_10">980 <span>kW</span></td>
+                <td class="info_error_10">10<span>%</span></td>
+                <td class="info_mfqpower_10">1050<span>kW</span></td>
+                <td class="info_mfqerror_10">5<span>%</span></td>
+              </tbody>
+              <tbody class="divide_table_hidden">
+                <td>224</td>
+                <td>0.84</td>
+                <td>50</td>
+              </tbody>
+              <tbody class="divide_table_hidden">
+                <td>222</td>
+                <td>0.82</td>
+                <td>50</td>
+              </tbody>
+              <tbody class="divide_table_hidden">
+                <td class="divideTable_total">222</td>
+                <td class="divideTable_total">0.84</td>
+                <td class="divideTable_total">50</td>
+              </tbody>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="dashboard" id="dashboardStatistics_11">
+        <div class="info-title info-title-more">
+         Alerts <span class="span-red">(5)</span>
+        </div>
+        <div class="dashboard-table">
+          <table id="dashboard-statistics-table_11">
+            <tr>
+              <th>Date error</th>
+              <th>#</th>
+              <th>Error</th>
+              <th>Status</th>
+              <th>Fix date</th>
+              <th>Note</th>
+              <th></th>
+            </tr>
+            <tr class="dashboard-statistics-table-data_11">
+              <!-- Database from server -->
+              <td>01.01.2019, 15:35</td>
+              <td>H1</td>
+              <td>Current is +7%</td>
+              <td>Fixed</td>
+              <td>02.01.2019 12:45</td>
+              <td><div class="info-textarea"><textarea placeholder="Note"></textarea></div></td>
+              <td>
+                <i class="fas fa-smile text-white" aria-hidden="true"></i>
+                <i class="fas fa-frown text-white" aria-hidden="true"></i>
+              </td>
+              <!-- End of Database -->
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="chart_main_wrapper" id="chart_months_2">
+        <div class="info-title info-title-chart">
+          <div class="info-chart-subtabs_2">
+            <div class="info-chart-subtab_2" onclick="selectedWhite_2(this)">
+              Day
+            </div>
+            <div class="subtabs-right">
+              Device added on: <span>25/04/2019 12:56</span>
+            </div>
+          </div>
+        </div>
+        <div class="info-chart-wrapper">
+          <div class="home-chart" id="yellowblueHideSw">
+            <div class="home-chart-panel home-chart-panel-large home-chart-panel-large_none">
+              <div class="home-chart-panel-options">
+                <div class="home-chart-panel-options-title home-chart-panel-options-title-center">
+                  <h5 class="title-blue">--Set Point--</h5>
+                  <h5 class="title-yellow">--Room temp--</h5>
+                </div>
+              </div>
+            </div>
+            <div class="canvas_wrapper full-fill-wrapper canvas_wrapper-large">
+              <canvas id="info_chart_15"></canvas>
+            </div>
+          </div>
+          <div class="home-chart">
+            <div class="home-chart-panel home-chart-panel-large home-chart-panel-large_none">
+              <div class="home-chart-panel-options">
+                <div class="home-chart-panel-options-title home-chart-panel-options-title-center">
+                  <h5 class="title-red">--kWh--</h5>
+                </div>
+              </div>
+            </div>
+            <div class="canvas_wrapper full-fill-wrapper canvas_wrapper-large">
+              <canvas id="info_chart_16"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="chart_main_wrapper" id="chart_orangegreen">
+        <div class="info-chart-wrapper">
+          <div class="home-chart">
+            <div class="home-chart-panel home-chart-panel-large home-chart-panel-large_9">
+              <div class="home-chart-panel-options">
+                <div class="home-chart-panel-options-title home-chart-panel-options-title-center">
+                  <h5 class="title-beige">--Power--</h5>
+                  <h5 class="title-orange">--Power Factor--</h5>
+                </div>
+              </div>
+            </div>
+            <div class="canvas_wrapper full-fill-wrapper canvas_wrapper-large">
+              <canvas id="info_chart_17"></canvas>
+            </div>
+          </div>
+          <div class="home-chart">
+            <div class="home-chart-panel home-chart-panel-large home-chart-panel-large_9">
+              <div class="home-chart-panel-options">
+                <div class="home-chart-panel-options-title home-chart-panel-options-title-center">
+                  <h5 class="title-green">--Current--</h5>
+                  <h5 class="title-lightgreen">--Volt Amp--</h5>
+                </div>
+              </div>
+            </div>
+            <div class="canvas_wrapper full-fill-wrapper canvas_wrapper-large">
+              <canvas id="info_chart_18"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="home-chart" id="chart_first">
+          <div class="home-chart-panel">
+            <div class="home-chart-panel-title">
+              <h5><script>document.write(en.energy_rate)</script></h5>
+            </div>
+            <div class="home-chart-panel-options">
+              <div class="home-chart-panel-options-title">
+                <h5><script>document.write(en.energy_rate)</script></h5>
+              </div>
+              <div class="home-chart-panel-navigation">
+                <button id="showPrev_1_chart"><i class="fas fa-arrow-circle-left text-white" aria-hidden="true"></i></button>
+                <button id="showNext_1_chart"><i class="fas fa-arrow-circle-right text-white" aria-hidden="true"></i></button>
+              </div>
+            </div>
+          </div>
+          <div class="canvas_wrapper">
+            <canvas id="info_chart_1"></canvas>
+          </div>
+          <div class="home-chart-bottom">
+            <div class="bottom-item bottom-item-custom">7 (worst)</div>
+            <div class="bottom-item">6</div>
+            <div class="bottom-item">5</div>
+            <div class="bottom-item">4</div>
+            <div class="bottom-item">3</div>
+            <div class="bottom-item">2</div>
+            <div class="bottom-item bottom-item-custom">1 (best)</div>
+          </div>
+      </div>
+      <div class="home-chart" id="chart_second">
+        <div class="home-chart-panel">
+          <div class="home-chart-panel-title">
+            <h5><script>document.write(en.device_health)</script></h5>
+          </div>
+          <div class="home-chart-panel-options">
+            <div class="home-chart-panel-options-title">
+              <h5>Total <span name="homeChartLabelAmount">#</span> of Past Errors</h5>
+            </div>
+            <div class="home-chart-panel-navigation">
+              <button id="showPrev_2_chart"><i class="fas fa-arrow-circle-left text-white" aria-hidden="true"></i></button>
+              <button id="showNext_2_chart"><i class="fas fa-arrow-circle-right text-white" aria-hidden="true"></i></button>
+            </div>
+          </div>
+        </div>
+        <div class="canvas_wrapper">
+          <canvas id="info_chart_2"></canvas>
+        </div>
+        <div class="home-chart-bottom">
+          <div class="bottom-item-info"><script>document.write(en.realtime_error)</script></div>
+          <div class="bottom-item-second">High</div>
+          <div class="bottom-item-second">Mid</div>
+          <div class="bottom-item-second">Low</div>
+          <div class="bottom-item-second">None</div>
+        </div>
+      </div>
+      <div class="home-chart home-chart-stacked" id="chart_third">
+        <div class="home-chart-panel">
+          <div class="home-chart-panel-title">
+            <h5>Energy Cost</h5>
+          </div>
+          <div class="home-chart-panel-options">
+            <div class="home-chart-panel-options-title home-chart-panel-options-title-center">
+              <h5 class="title-blue"><span>--</span>Air conditioner<span>--</span></h5>
+              <h5 class="title-orange"><span>--</span>Switch<span>--</span></h5>
+              <h5 class="title-white"><span>--</span>Others<span>--</span></h5>
+            </div>
+            <div class="home-chart-panel-navigation">
+              <button id="showPrev_4_chart"><i class="fas fa-arrow-circle-left text-white" aria-hidden="true"></i></button>
+              <button id="showNext_4_chart"><i class="fas fa-arrow-circle-right text-white" aria-hidden="true"></i></button>
+            </div>
+          </div>
+        </div>
+        <div class="canvas_wrapper">
+          <canvas id="info_chart_4"></canvas>
+        </div>
+      </div>
+      <div class="dashboard" id="dashboardStatistics">
+        <div class="dashboard-table">
+          <table id="dashboard-statistics-table">
+            <tr>
+              <th class="dashboard-table-sort">Level ADMIN
+                <div class="selectHidden">
+                  <i onclick="tableSelect(this)" class="fas fa-caret-down infoTableSelect" aria-hidden="true"></i>
+                  <i onclick="tableSelect(this)" class="fas fa-caret-up text-white infoTableSelect" aria-hidden="true"></i>
+                </div>
+              </th>
+              <th class="dashboard-table-sort">Cost $
+                <div>
+                  <i onclick="tableSelect(this)" class="fas fa-caret-down text-white infoTableSelect" aria-hidden="true"></i>
+                  <i onclick="tableSelect(this)" class="fas fa-caret-up text-white infoTableSelect" aria-hidden="true"></i>
+                </div>
+              </th>
+              <th class="dashboard-table-sort">Avg. E. Rate
+                <div>
+                  <i onclick="tableSelect(this)" class="fas fa-caret-down text-white infoTableSelect" aria-hidden="true"></i>
+                  <i onclick="tableSelect(this)" class="fas fa-caret-up text-white infoTableSelect" aria-hidden="true"></i>
+                </div>
+              </th>
+              <th class="dashboard-table-sort"># acct
+                <div>
+                  <i onclick="tableSelect(this)" class="fas fa-caret-down text-white infoTableSelect" aria-hidden="true"></i>
+                  <i onclick="tableSelect(this)" class="fas fa-caret-up text-white infoTableSelect" aria-hidden="true"></i>
+                </div>
+              </th>
+              <th class="dashboard-table-sort"># AC
+                <div>
+                  <i onclick="tableSelect(this)" class="fas fa-caret-down text-white infoTableSelect" aria-hidden="true"></i>
+                  <i onclick="tableSelect(this)" class="fas fa-caret-up text-white infoTableSelect" aria-hidden="true"></i>
+                </div>
+              </th>
+              <th class="dashboard-table-sort"># SW
+                <div>
+                  <i onclick="tableSelect(this)" class="fas fa-caret-down text-white infoTableSelect" aria-hidden="true"></i>
+                  <i onclick="tableSelect(this)" class="fas fa-caret-up text-white infoTableSelect" aria-hidden="true"></i>
+                </div>
+              </th>
+              <th class="dashboard-table-sort"># PM
+                <div>
+                  <i onclick="tableSelect(this)" class="fas fa-caret-down text-white infoTableSelect" aria-hidden="true"></i>
+                  <i onclick="tableSelect(this)" class="fas fa-caret-up text-white infoTableSelect" aria-hidden="true"></i>
+                </div>
+              </th>
+              <th class="dashboard-table-sort">kWh
+                <div>
+                  <i onclick="tableSelect(this)" class="fas fa-caret-down text-white infoTableSelect" aria-hidden="true"></i>
+                  <i onclick="tableSelect(this)" class="fas fa-caret-up text-white infoTableSelect" aria-hidden="true"></i>
+                </div>
+              </th>
+              <th class="dashboard-table-sort">Alert
+                <div>
+                  <i onclick="tableSelect(this)" class="fas fa-caret-down text-white infoTableSelect" aria-hidden="true"></i>
+                  <i onclick="tableSelect(this)" class="fas fa-caret-up text-white infoTableSelect" aria-hidden="true"></i>
+                </div>
+              </th>
+            </tr>
+            <tr class="dashboard-statistics-table-data">
+              <!-- Database from server -->
+              <td class="info-level-admin info-level-admin-left">
+                <div class="info-one-level-container">
+                  <a href="#" class="nextLevelButton" onclick="showSecondLevel(this)">City 1</a>
+                  <div class="level-dollar">
+                      <i class="fas fa-dollar-sign text-red text-red-visible" aria-hidden="true"></i>
+                  </div>
+                </div>
+              </td>
+              <td class="info-cost">10000</td>
+              <td class="info-avg-rate">2</td>
+              <td class="info-acct">3</td>
+              <td class="info-ac">20</td>
+              <td class="info-sw">10</td>
+              <td class="info-pm">2</td>
+              <td class="info-kwh">10000</td>
+              <td class="info-alerts">2</td>
+              <!-- End of Database -->
+            </tr>
+          </table>
+          <!-- LINK -->
+          <div><i class="fas fa-save text-white dashboardTableSave" onclick="fnExcelReport('dashboard-statistics-table')" aria-hidden="true"></i></div>
+          <table class="dashboard-statistics-table-fake">
+            <tr class="dashboard-statistics-table-total-fake">
+              <td id="info-level-admin">Total</td>
+              <td id="info-cost">0</td>
+              <td id="info-avg-rate">0</td>
+              <td id="info-acct">0</td>
+              <td id="info-ac">0</td>
+              <td id="info-sw">0</td>
+              <td id="info-pm">0</td>
+              <td id="info-kwh">0</td>
+              <td id="info-alerts">0</td>
+            </tr>
+          </table>
+        </div>
+        <h5 class="dashboard-table-subinfo-text">In High Energy Levels sites need to find the inefficient source. Alerts in red meaning open error that needs attention.</h5>
+      </div>
+      <div class="dashboard" id="dashboardStatistics_1">
+        <div class="dashboard-table">
+          <table id="dashboard-statistics-table_1">
+            <tr>
+              <th class="dashboard-table-sort">Level 1
+                <div class="selectHidden">
+                  <i onclick="tableSelect(this)" class="fas fa-caret-down infoTableSelect" aria-hidden="true"></i>
+                  <i onclick="tableSelect(this)" class="fas fa-caret-up text-white infoTableSelect" aria-hidden="true"></i>
+                </div>
+              </th>
+              <th class="dashboard-table-sort">Cost
+                <div>
+                  <i onclick="tableSelect(this)" class="fas fa-caret-down text-white infoTableSelect" aria-hidden="true"></i>
+                  <i onclick="tableSelect(this)" class="fas fa-caret-up text-white infoTableSelect" aria-hidden="true"></i>
+                </div>
+              </th>
+              <th class="dashboard-table-sort">Avg. E. Rate
+                <div>
+                  <i onclick="tableSelect(this)" class="fas fa-caret-down text-white infoTableSelect" aria-hidden="true"></i>
+                  <i onclick="tableSelect(this)" class="fas fa-caret-up text-white infoTableSelect" aria-hidden="true"></i>
+                </div>
+              </th>
+              <th class="dashboard-table-sort"># acct
+                <div>
+                  <i onclick="tableSelect(this)" class="fas fa-caret-down text-white infoTableSelect" aria-hidden="true"></i>
+                  <i onclick="tableSelect(this)" class="fas fa-caret-up text-white infoTableSelect" aria-hidden="true"></i>
+                </div>
+              </th>
+              <th class="dashboard-table-sort"># AC
+                <div>
+                  <i onclick="tableSelect(this)" class="fas fa-caret-down text-white infoTableSelect" aria-hidden="true"></i>
+                  <i onclick="tableSelect(this)" class="fas fa-caret-up text-white infoTableSelect" aria-hidden="true"></i>
+                </div>
+              </th>
+              <th class="dashboard-table-sort"># SW
+                <div>
+                  <i onclick="tableSelect(this)" class="fas fa-caret-down text-white infoTableSelect" aria-hidden="true"></i>
+                  <i onclick="tableSelect(this)" class="fas fa-caret-up text-white infoTableSelect" aria-hidden="true"></i>
+                </div>
+              </th>
+              <th class="dashboard-table-sort"># PM
+                <div>
+                  <i onclick="tableSelect(this)" class="fas fa-caret-down text-white infoTableSelect" aria-hidden="true"></i>
+                  <i onclick="tableSelect(this)" class="fas fa-caret-up text-white infoTableSelect" aria-hidden="true"></i>
+                </div>
+              </th>
+              <th class="dashboard-table-sort">kWh
+                <div>
+                  <i onclick="tableSelect(this)" class="fas fa-caret-down text-white infoTableSelect" aria-hidden="true"></i>
+                  <i onclick="tableSelect(this)" class="fas fa-caret-up text-white infoTableSelect" aria-hidden="true"></i>
+                </div>
+              </th>
+              <th class="dashboard-table-sort">Alert
+                <div>
+                  <i onclick="tableSelect(this)" class="fas fa-caret-down text-white infoTableSelect" aria-hidden="true"></i>
+                  <i onclick="tableSelect(this)" class="fas fa-caret-up text-white infoTableSelect" aria-hidden="true"></i>
+                </div>
+              </th>
+            </tr>
+            <tr class="dashboard-statistics-table-data_1">
+              <!-- Database from server -->
+              <td class="info-level-admin info-level-admin-left">
+                <div class="info-one-level-container">
+                  <a href="#" class="nextLevelButton" onclick="showThirdLevel(this)">Area 1</a>
+                  <div class="level-dollar">
+                      <i class="fas fa-dollar-sign text-red text-red-visible" aria-hidden="true"></i>
+                  </div>
+                </div>
+              </td>
+              <td class="info-cost_1">20000</td>
+              <td class="info-avg-rate_1">3</td>
+              <td class="info-acct_1">5</td>
+              <td class="info-ac_1">20</td>
+              <td class="info-sw_1">20</td>
+              <td class="info-pm_1">5</td>
+              <td class="info-kwh_1">20000</td>
+              <td class="info-alerts_1">2</td>
+              <!-- End of Database -->
+            </tr>
+          </table>
+          <!-- LINK -->
+          <div><i class="fas fa-save text-white dashboardTableSave" onclick="fnExcelReport('dashboard-statistics-table_1')" aria-hidden="true"></i></div>
+          <table class="dashboard-statistics-table-fake">
+            <tr class="dashboard-statistics-table-total-fake_1">
+              <td id="info-level-admin_1">Total</td>
+              <td id="info-cost_1">0</td>
+              <td id="info-avg-rate_1">0</td>
+              <td id="info-acct_1">0</td>
+              <td id="info-ac_1">0</td>
+              <td id="info-sw_1">0</td>
+              <td id="info-pm_1">0</td>
+              <td id="info-kwh_1">0</td>
+              <td id="info-alerts_1">0</td>
+            </tr>
+          </table>
+        </div>
+        <h5 class="dashboard-table-subinfo-text">In High Energy Levels sites need to find the inefficient source. Alerts in red meaning open error that needs attention.</h5>
+      </div>
+      <div class="dashboard" id="dashboardStatistics_2">
+        <div class="dashboard-table">
+          <table id="dashboard-statistics-table_2">
+            <tr>
+              <th class="dashboard-table-sort">Level 2
+                <div class="selectHidden">
+                  <i onclick="tableSelect(this)" class="fas fa-caret-down infoTableSelect" aria-hidden="true"></i>
+                  <i onclick="tableSelect(this)" class="fas fa-caret-up text-white infoTableSelect" aria-hidden="true"></i>
+                </div>
+              </th>
+              <th class="dashboard-table-sort">E. Rate
+                <div>
+                  <i onclick="tableSelect(this)" class="fas fa-caret-down text-white infoTableSelect" aria-hidden="true"></i>
+                  <i onclick="tableSelect(this)" class="fas fa-caret-up text-white infoTableSelect" aria-hidden="true"></i>
+                </div>
+              </th>
+              <th class="dashboard-table-sort">PM $
+                <div>
+                  <i onclick="tableSelect(this)" class="fas fa-caret-down text-white infoTableSelect" aria-hidden="true"></i>
+                  <i onclick="tableSelect(this)" class="fas fa-caret-up text-white infoTableSelect" aria-hidden="true"></i>
+                </div>
+              </th>
+              <th class="dashboard-table-sort">AC $
+                <div>
+                  <i onclick="tableSelect(this)" class="fas fa-caret-down text-white infoTableSelect" aria-hidden="true"></i>
+                  <i onclick="tableSelect(this)" class="fas fa-caret-up text-white infoTableSelect" aria-hidden="true"></i>
+                </div>
+              </th>
+              <th class="dashboard-table-sort">SW $
+                <div>
+                  <i onclick="tableSelect(this)" class="fas fa-caret-down text-white infoTableSelect" aria-hidden="true"></i>
+                  <i onclick="tableSelect(this)" class="fas fa-caret-up text-white infoTableSelect" aria-hidden="true"></i>
+                </div>
+              </th>
+              <th class="dashboard-table-sort">Other $
+                <div>
+                  <i onclick="tableSelect(this)" class="fas fa-caret-down text-white infoTableSelect" aria-hidden="true"></i>
+                  <i onclick="tableSelect(this)" class="fas fa-caret-up text-white infoTableSelect" aria-hidden="true"></i>
+                </div>
+              </th>
+              <th class="dashboard-table-sort"># AC
+                <div>
+                  <i onclick="tableSelect(this)" class="fas fa-caret-down text-white infoTableSelect" aria-hidden="true"></i>
+                  <i onclick="tableSelect(this)" class="fas fa-caret-up text-white infoTableSelect" aria-hidden="true"></i>
+                </div>
+              </th>
+              <th class="dashboard-table-sort"># SW
+                <div>
+                  <i onclick="tableSelect(this)" class="fas fa-caret-down text-white infoTableSelect" aria-hidden="true"></i>
+                  <i onclick="tableSelect(this)" class="fas fa-caret-up text-white infoTableSelect" aria-hidden="true"></i>
+                </div>
+              </th>
+              <th class="dashboard-table-sort">Work<br>Hours
+                <div class="selectHidden">
+                  <i onclick="tableSelect(this)" class="fas fa-caret-down text-white infoTableSelect" aria-hidden="true"></i>
+                  <i onclick="tableSelect(this)" class="fas fa-caret-up text-white infoTableSelect" aria-hidden="true"></i>
+                </div>
+              </th>
+              <th class="dashboard-table-sort">SQM
+                <div class="selectHidden">
+                  <i onclick="tableSelect(this)" class="fas fa-caret-down text-white infoTableSelect" aria-hidden="true"></i>
+                  <i onclick="tableSelect(this)" class="fas fa-caret-up text-white infoTableSelect" aria-hidden="true"></i>
+                </div>
+              </th>
+              <th class="dashboard-table-sort">kWh
+                <div>
+                  <i onclick="tableSelect(this)" class="fas fa-caret-down text-white infoTableSelect" aria-hidden="true"></i>
+                  <i onclick="tableSelect(this)" class="fas fa-caret-up text-white infoTableSelect" aria-hidden="true"></i>
+                </div>
+              </th>
+              <th class="dashboard-table-sort">Alert
+                <div>
+                  <i onclick="tableSelect(this)" class="fas fa-caret-down text-white infoTableSelect" aria-hidden="true"></i>
+                  <i onclick="tableSelect(this)" class="fas fa-caret-up text-white infoTableSelect" aria-hidden="true"></i>
+                </div>
+              </th>
+            </tr>
+            <tr class="dashboard-statistics-table-data_2">
+              <!-- Database from server -->
+              <td class="info-level-admin info-level-admin-left">
+                <div class="info-one-level-container">
+                  <a href="#" class="nextLevelButton nextLevelButton_4" onclick="showFourLevel(this)">Shop 1</a>
+                  <div class="level-dollar">
+                      <i class="fas fa-dollar-sign text-red text-red-visible" aria-hidden="true"></i>
+                  </div>
+                </div>
+              </td>
+              <td class="info-rate_2">10000</td>
+              <td class="info-pm_2">1</td>
+              <td class="info-ac_2">2</td>
+              <td class="info-sw_2">23</td>
+              <td class="info-other_2">20</td>
+              <td class="info-ac_value_2">5</td>
+              <td class="info-sw_value_2">200</td>
+              <td class="info-workhours_2">4</td>
+              <td class="info-sqm_2">2</td>
+              <td class="info-kwh_2">5</td>
+              <td class="info-alerts_2">7</td>
+              <!-- End of Database -->
+            </tr>
+          </table>
+          <!-- LINK -->
+          <div><i class="fas fa-save text-white dashboardTableSave" onclick="fnExcelReport('dashboard-statistics-table_2')" aria-hidden="true"></i></div>
+          <table class="dashboard-statistics-table-fake">
+            <tr class="dashboard-statistics-table-total-fake_2">
+              <td id="info-level-admin_2">Total</td>
+              <td id="info-rate_2">0</td>
+              <td id="info-pm_2">0</td>
+              <td id="info-ac_2">0</td>
+              <td id="info-sw_2">0</td>
+              <td id="info-other_2">0</td>
+              <td id="info-ac_value_2">0</td>
+              <td id="info-sw_value_2">0</td>
+              <td id="info-workhours_2">0</td>
+              <td id="info-sqm_2">0</td>
+              <td id="info-kwh_2">0</td>
+              <td id="info-alerts_2">0</td>
+            </tr>
+          </table>
+        </div>
+        <h5 class="dashboard-table-subinfo-text">In High Energy Levels sites need to find the inefficient source. Alerts in red meaning open error that needs attention.</h5>
+      </div>
+
+      <div class="chart-setting" id="chart_settings">
+        <div class="chart-setting-item">
+          <h5>Monthly savings on electric bill</h5>
+        </div>
+        <div class="chart-setting-item">
+          <div class="home-chart-body-title">
+            <h5 onclick="updateThirdChartData(this)">Jan</h5>
+            <h5 onclick="updateThirdChartData(this)">Feb</h5>
+            <h5 onclick="updateThirdChartData(this)">Mar</h5>
+            <h5 onclick="updateThirdChartData(this)">Apr</h5>
+            <h5 onclick="updateThirdChartData(this)">May</h5>
+            <h5 onclick="updateThirdChartData(this)">Jun</h5>
+            <h5 onclick="updateThirdChartData(this)">Jul</h5>
+            <h5 onclick="updateThirdChartData(this)">Aug</h5>
+            <h5 onclick="updateThirdChartData(this)">Sep</h5>
+            <h5 onclick="updateThirdChartData(this)">Oct</h5>
+            <h5 onclick="updateThirdChartData(this)">Nov</h5>
+            <h5 onclick="updateThirdChartData(this)" class="home-chart-body-title-active">Dec</h5>
+            <h5 class="home-chart-body-title-info">(2019)</h5>
+          </div>
+        </div>
+      </div>
+      <div class="home-chart home-chart-large" id="chart_plusminus">
+        <div class="home-chart-panel">
+          <div class="home-chart-panel-title">
+            <h5>Total % savings (base to month)</h5>
+          </div>
+          <div class="home-chart-panel-options">
+            <div class="home-chart-panel-options-title">
+              <h5>% savings</h5>
+            </div>
+            <div class="home-chart-panel-navigation">
+              <button id="showPrev_3_chart"><i class="fas fa-arrow-circle-left text-white" aria-hidden="true"></i></button>
+              <button id="showNext_3_chart"><i class="fas fa-arrow-circle-right text-white" aria-hidden="true"></i></button>
+            </div>
+          </div>
+        </div>
+        <div class="canvas_wrapper canvas_wrapper-large">
+          <canvas id="info_chart_3"></canvas>
+        </div>
+      </div>
+      <div class="chart-subinfo" id="chart_subinfo">
+        <!-- Link -->
+        <a href="#">Electric bill settings</a>
+      </div>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.js" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="combodate.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.7.3/dist/Chart.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@0.7.0"></script>
+
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <script src="https://code.highcharts.com/highcharts-more.js"></script>
+  <script src="https://code.highcharts.com/modules/exporting.js"></script>
+
+  <script type="text/javascript" src="chartjs-plugin-annotation.js"></script>
+  <script type="text/javascript" src="info_chart_1.js"></script>
+  <script type="text/javascript" src="info_chart_2.js"></script>
+  <script type="text/javascript" src="info_chart_3.js"></script>
+  <script type="text/javascript" src="info_chart_4.js"></script>
+  <script type="text/javascript" src="info_chart_6.js"></script>
+  <script type="text/javascript" src="info_chart_7.js"></script>
+  <script type="text/javascript" src="info_chart_8.js"></script>
+  <script type="text/javascript" src="info_chart_9.js"></script>
+  <script type="text/javascript" src="info_chart_10.js"></script>
+  <script type="text/javascript" src="info_chart_11.js"></script>
+  <script type="text/javascript" src="info_chart_12.js"></script>
+  <script type="text/javascript" src="info_chart_13.js"></script>
+  <script type="text/javascript" src="info_chart_14.js"></script>
+  <script type="text/javascript" src="info_chart_15.js"></script>
+  <script type="text/javascript" src="info_chart_16.js"></script>
+  <script type="text/javascript" src="info_chart_17.js"></script>
+  <script type="text/javascript" src="info_chart_18.js"></script>
+
+  <script type="text/javascript" src="info_meter_1.js"></script>
+  <script type="text/javascript" src="info_meter_2.js"></script>
+  <script type="text/javascript" src="info_meter_3.js"></script>
+  <script type="text/javascript" src="info_meter_4.js"></script>
+
+  <script type="text/javascript" src="info_chart_5.js"></script>
+</body>
+</html>

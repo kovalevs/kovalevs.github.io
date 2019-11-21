@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+  <link rel="stylesheet" href="styles/home.css">
+  <link rel="stylesheet" href="styles/header.css">
+</head>
+<body>
+  <div class="header-desktop">
+    <ul>
+      <li><a href="#"><img src="header-desktop-logo.png" id="header-desktop-logo" alt="logo"></a></li>
+      <li style="margin-right:20%"><a href="#" class="headerDesktopSelected">Home (admin)</a></li>
+      <li><a href="#">Control</a></li>
+      <li><a href="#">Info</a></li>
+      <li><a href="#">Timer</a></li>
+      <li><a href="#">
+        <div class="input-group md-form form-sm form-1 pl-0">
+          <div class="input-group-prepend">
+            <span class="input-group-text purple lighten-3" id="header-desktop-search-button"><i class="fas fa-search text-white" aria-hidden="true"></i></span>
+          </div>
+          <input class="form-control my-0 py-1" id="header-desktop-search-input" type="text" placeholder="Search" aria-label="Search">
+        </div>
+      </a></li>
+      <li><a href="#">Alerts <span id="headerDesktopAlertAmount">3</span></a></li>
+      <li id="home-desktop-setup"><a href="#">Setup</a><a href="#"><i class="fas fa-sign-out-alt text-white" id="header-desktop-signout" aria-hidden="true"></i></a></li>
+    </ul>
+  </div>
+  <div class="header-mobile">
+      <ul class="header-mobile-navigation">
+        <li><a href="#"><i class="fas fa-home headerMobileSelected" aria-hidden="true"></i></a></li>
+        <li><a href="#"><i class="fas fa-power-off text-white" aria-hidden="true"></i></a></li>
+        <li><a href="#"><i class="fas fa-chart-bar text-white" aria-hidden="true"></i></a></li>
+        <li><a href="#"><i class="fas fa-clock text-white" aria-hidden="true"></i></a></li>
+        <li><a href="#"><i class="fas fa-exclamation-triangle text-white" aria-hidden="true"></i><span id="header-mobile-navigation-alertConunter">3</span></a></li>
+      </ul>
+  </div>
+  <div class="home-mobile-search">
+    <div class="input-group md-form form-sm form-1 pl-0" id="home-mobile-searchbar-wrapper">
+      <div class="input-group-prepend">
+        <span class="input-group-text purple lighten-3" id="header-desktop-search-button"><i class="fas fa-search text-white" aria-hidden="true"></i></span>
+      </div>
+      <input class="form-control my-0 py-1" id="header-desktop-search-input" type="text" placeholder="Search" aria-label="Search">
+    </div>
+  </div>
+  <div class="home-section">
+    <div class="home-charts">
+      <div class="home-chart">
+          <div class="home-chart-panel">
+            <div class="home-chart-panel-title">
+              <h5><span name="homeChartLabelName">Energy Rate</span> (average for level)</h5>
+            </div>
+            <div class="home-chart-panel-options">
+              <div class="home-chart-panel-options-title">
+                <h5>Energy rate</h5>
+              </div>
+              <div class="home-chart-panel-options-buttons">
+                <button id="home_1_showToday" class="home-chart-panel-options-buttons-active">Today</button>
+                <button id="home_1_showWeek">Week</button>
+                <button id="home_1_showMonth">Month</button>
+                <button id="home_1_showYear">Year</button>
+              </div>
+              <div class="home-chart-panel-navigation">
+                <button id="showPrev_1_chart"><i class="fas fa-arrow-circle-left text-white" aria-hidden="true"></i></button>
+                <button id="showNext_1_chart"><i class="fas fa-arrow-circle-right text-white" aria-hidden="true"></i></button>
+              </div>
+            </div>
+          </div>
+          <div class="canvas_wrapper">
+            <canvas id="home_chart_1"></canvas>
+          </div>
+          <div class="home-chart-bottom">
+            <div class="bottom-item bottom-item-custom">7 (worst)</div>
+            <div class="bottom-item">6</div>
+            <div class="bottom-item">5</div>
+            <div class="bottom-item">4</div>
+            <div class="bottom-item">3</div>
+            <div class="bottom-item">2</div>
+            <div class="bottom-item bottom-item-custom">1 (best)</div>
+          </div>
+      </div>
+      <div class="home-chart">
+        <div class="home-chart-panel">
+          <div class="home-chart-panel-title">
+            <h5>Device Health</h5>
+          </div>
+          <div class="home-chart-panel-options">
+            <div class="home-chart-panel-options-title">
+              <h5>Total <span name="homeChartLabelAmount">#</span> of Past Errors</h5>
+            </div>
+            <div class="home-chart-panel-navigation">
+              <button id="showPrev_2_chart"><i class="fas fa-arrow-circle-left text-white" aria-hidden="true"></i></button>
+              <button id="showNext_2_chart"><i class="fas fa-arrow-circle-right text-white" aria-hidden="true"></i></button>
+            </div>
+          </div>
+        </div>
+        <div class="canvas_wrapper">
+          <canvas id="home_chart_2"></canvas>
+        </div>
+        <div class="home-chart-bottom">
+          <div class="bottom-item-info">Realtime Alerts</div>
+          <div class="bottom-item-second">High</div>
+          <div class="bottom-item-second">Mid</div>
+          <div class="bottom-item-second">Low</div>
+          <div class="bottom-item-second">None</div>
+        </div>
+      </div>
+      <div class="home-chart">
+        <div class="home-chart-panel home-chart-panel-large">
+          <div class="home-chart-panel-title">
+            <h5>TOTAL savings on electric bills for all sub levels (month to base)</h5>
+          </div>
+          <div class="home-chart-panel-options">
+            <div class="home-chart-panel-options-title home-chart-panel-fill">
+              <div class="option-joins">
+                <div class="options-join">
+                  <h5 class="options-join-light">% save</h5>
+                </div>
+                <div class="options-join options-join-middle">
+                  <h5 class="options-join-light">- $ save -</h5>
+                  <h5 class="options-join-dark">- % save -</h5>
+                </div>
+                <div class="options-join">
+                  <h5 class="options-join-dark">$ save</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="canvas_wrapper full-fill-wrapper">
+          <canvas id="home_chart_3"></canvas>
+        </div>
+      </div>
+      <div class="home-chart home-nochart">
+        <div class="home-chart-panel">
+          <div class="home-chart-panel-title">
+            <h5>Account Summary</h5>
+          </div>
+        </div>
+        <div class="home-chart-body">
+          <div class="home-chart-body-title">
+            <h5 onclick="setOrange(this)">Jan</h5>
+            <h5 onclick="setOrange(this)">Feb</h5>
+            <h5 onclick="setOrange(this)">Mar</h5>
+            <h5 onclick="setOrange(this)">Apr</h5>
+            <h5 onclick="setOrange(this)">May</h5>
+            <h5 onclick="setOrange(this)">Jun</h5>
+            <h5 onclick="setOrange(this)">Jul</h5>
+            <h5 onclick="setOrange(this)">Aug</h5>
+            <h5 onclick="setOrange(this)">Sep</h5>
+            <h5 onclick="setOrange(this)">Oct</h5>
+            <h5 onclick="setOrange(this)">Nov</h5>
+            <h5 onclick="setOrange(this)" class="home-chart-body-title-active">Dec</h5>
+            <h5 class="home-chart-body-title-info">(2019)</h5>
+          </div>
+          <div class="home-chart-body-section">
+            <div class="home-chart-body-section-item">
+              <h5>Monthly server Cost</h5>
+              <h4>$<span id="monthlyServerCost">1200</span></h4>
+            </div>
+            <div class="home-chart-body-section-item">
+              <h5>Energy Savings</h5>
+              <h4>$<span id="energySavings">2300</span></h4>
+            </div>
+            <div class="home-chart-body-section-item">
+              <h5>ROI (for selected month only)</h5>
+              <h4><span id="roiValue">191.66</span>%</h4>
+            </div>
+            <div class="home-chart-body-section-item">
+              <h5>Total # of Level 1</h5>
+              <h4><span id="levelOneTotal">20</span></h4>
+            </div>
+            <div class="home-chart-body-section-item">
+              <h5>Total # of Level 2</h5>
+              <h4><span id="levelTwoTotal">300</span></h4>
+            </div>
+            <div class="home-chart-body-section-item">
+              <h5>Total # of app accounts</h5>
+              <h4><span id="appAccountsTotal">1200</span></h4>
+            </div>
+            <div class="home-chart-body-section-item">
+              <h5>Total # of Power meters</h5>
+              <h4><span id="powerMetersTotal">1500</span></h4>
+            </div>
+            <div class="home-chart-body-section-item">
+              <h5>Total # of Air conditioners</h5>
+              <h4><span id="conditionersTotal">4500</span></h4>
+            </div>
+            <div class="home-chart-body-section-item">
+              <h5>Total # of Switches</h5>
+              <h4><span id="switchesTotal">5690</span></h4>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="home-signout">
+        <h5>Access level: Admin</h5>
+        <h4>Sign Out <i class="fas fa-sign-out-alt text-white" aria-hidden="true"></i></h4>
+      </div>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+  <script type="text/javascript" src="chartjs-plugin-annotation.js"></script>
+  <script type="text/javascript" src="home_chart_1.js"></script>
+  <script type="text/javascript" src="home_chart_2.js"></script>
+  <script type="text/javascript" src="home_chart_3.js"></script>
+  <script type="text/javascript" src="home_chart_4.js"></script>
+</body>
+</html>

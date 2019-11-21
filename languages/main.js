@@ -3,11 +3,14 @@ let currentLanguage = 'en';
 
 
 const en = {
-    level1: "Level 1",
-    level2: "Level 2",
-    level3: "Level 3",
-    on: "On",
-    off: "Off",
+    control: "Control",
+    info: "Info",
+    timer: "Timer",
+    alerts: "Alerts",
+    setup: "Setup",
+    energy_rate: "Energy Rate",
+    device_health: "Device Health",
+    realtime_error: "Realtime error",
     // ...
 };
 
