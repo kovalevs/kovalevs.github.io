@@ -1606,10 +1606,6 @@ input:focus,button:focus{
     position: static !important;
     width: auto !important;
   }
-  .home-charts{
-    margin-top: 0px !important;
-  }
-
 
   #chart_months_1 .home-chart:last-child{
     margin-bottom: 70px !important;
@@ -1845,7 +1841,7 @@ input:focus,button:focus{
     margin-top: 15px !important;
   }
   .extra-tabs h3{
-    margin: 0px 5px;
+    margin: 0px 6px;
     font-size: 15px;
   }
   .dashboard .dashboard-table{
@@ -1871,5 +1867,106 @@ input:focus,button:focus{
   .dashboard-table table{
     table-layout: fixed;
     min-width: 800px;
+  }
+  .title-blue span{
+    display: none;
+  }
+  .title-orange span{
+    display: none;
+  }
+  .title-white span{
+    display: none;
+  }
+  #chart_third .canvas_wrapper{
+    padding-top: 80px !important;
+  }
+  .bottom-item-info{
+    display: none;
+  }
+  .canvas_wrapper{
+    height: 80%;
+    padding: 0;
+    padding-top: 50px;
+  }
+  .home-chart-panel-options-buttons button{
+    margin-right: 11px;
+  }
+  #chart_line .home-chart{
+    margin-bottom: 20px;
+  }
+  #dashboard-statistics-table_3{
+    min-width: 1080px;
+  }
+  #chart_energy .canvas_wrapper{
+    padding-top: 80px;
+  }
+  #dashboardStatistics_4 table{
+    min-width: 380px;
+  }
+  #dashboardStatistics_5 table{
+    min-width: 380px;
+  }
+  #dashboardStatistics_4{
+    margin-right: 198px;
+  }
+
+  #dashboardStatistics_7 table{
+    min-width: 380px;
+  }
+  #dashboardStatistics_8 table{
+    min-width: 380px;
+  }
+  #dashboardStatistics_7{
+    margin-right: 198px;
+  }
+  .info-chart-subtabs_2{
+    margin-top: 0;
+  }
+  #yellowblueHideSw .canvas_wrapper{
+    height: 90%;
+  }
+  .canvas_wrapper-large{
+    height: 90%;
+  }
+  .info-chart-subtab{
+    min-width: 115px;
+    height: auto;
+  }
+  .info-chart-subtab_2{
+    min-width: 115px;
+    height: auto;
+  }
+  .full-fill-wrapper_width{
+    height: 90%;
+  }
+  .full-fill-wrapper_11{
+    height: 90%;
+  }
+  .meter_wrapper{
+    height: 70% !important;
+  }
+
+}
+
+@media (min-height: 320px) and (max-height: 620px) and (min-width: 320px) and (max-width: 500px){
+  .canvas_wrapper{
+    height: 75%;
+    padding: 0;
+    padding-top: 50px;
+  }
+  .full-fill-wrapper_width{
+    height: 90%;
+  }
+  .full-fill-wrapper_11{
+    height: 90%;
+  }
+  .canvas_wrapper-large{
+    height: 90%;
+  }
+  .tabs-section-fixed h2{
+    font-size: 15px;
+  }
+  #chart_energy .canvas_wrapper{
+    padding-top: 100px;
   }
 }
