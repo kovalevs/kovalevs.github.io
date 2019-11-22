@@ -1,0 +1,351 @@
+button:focus {outline:0;}
+
+.content{
+  background-image: url('../images/content_bg.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: calc(100vh - 100px);
+  width: 100%;
+}
+.content h3{
+  color: white;
+  font-family: robotoRegular;
+  letter-spacing: 0.3em;
+  font-size: 9vh;
+  font-weight: 100;
+  text-transform: uppercase;
+  text-align: center;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  -ms-align-items: center;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.3;
+  height: 100%;
+  width: 100%;
+  margin: 0px;
+}
+.about-text{
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  -ms-align-items: center;
+  align-items: center;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  justify-content: center;
+}
+.content-wrapper{
+  margin: 0px 3px;
+  margin-top: 55px;
+}
+.info-about div{
+  margin: 0px 60px;
+}
+.info-wrapper{
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  justify-content: center;
+}
+.info{
+  margin-top: 7%;
+  width: 910px;
+}
+.info-photos{
+  margin-top: 50px;
+}
+.about-img img{
+  height: 420px;
+}
+.about-text h2{
+  font-size: 38px;
+  letter-spacing: 6px;
+  text-align: center;
+  margin-bottom: 25px;
+}
+.about-text p{
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-align: center;
+  font-family: robotoRegular;
+  color: black;
+  line-height: 1.8;
+}
+.info-about{
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+}
+.info-about div:first-child{
+  margin-left: -22px;
+}
+.info-about div:last-child{
+  margin-right: 0;
+}
+.photos-grid{
+  display: grid;
+   width: 100%;
+   margin: 0 auto;
+   grid-template-columns: repeat(4, 1fr);
+   grid-template-rows: repeat(4, 100%);
+   grid-gap: 15px;
+   margin-bottom: 350px;
+}
+.about-text-title h2{
+  margin-bottom: 15px;
+}
+.photos-grid div {
+  color: white;
+  font-size: 20px;
+  padding: 13%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.item-1 {
+  background-image: url('../images/info_1.png');
+  grid-column: 1 / span 1;
+  grid-row: span 2;
+}
+.item-2 {
+  background-image: url('../images/info_2.png');
+  grid-column: 2 / span 1;
+  grid-row: span 1;
+}
+.item-3 {
+  background-image: url('../images/info_3.png');
+  grid-column: 2 / span 1;
+  grid-row: span 1;
+}
+.item-4 {
+  background-image: url('../images/info_4.png');
+  grid-column: 3 / span 2;
+  grid-row: 1 / span 1;
+}
+.item-5 {
+  background-image: url('../images/info_5.png');
+  grid-column: 3 / span 1;
+  grid-row: 2 / span 1;
+}
+.item-6 {
+  background-image: url('../images/info_6.png');
+  grid-column: 4 / span 1;
+  grid-row: 2 / span 1;
+}
+#header-bar-desktop{
+  display: none;
+}
+.desktop-hidden{
+  display: none;
+}
+.music-item{
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  width: 320px;
+  border-bottom: 1px solid #292929;
+  -ms-align-items: center;
+  align-items: center;
+  padding-bottom: 5px;
+}
+.music-item img{
+  height: 32px;
+  margin: 0;
+  padding: 0;
+  margin-right: 15px;
+  cursor: pointer;
+}
+.musicStop{
+  display: none;
+}
+.music-content{
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 910px;
+}
+.music-content-wrapper{
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+  margin-bottom: 3%;
+}
+.music-item{
+  margin: 20px 40px;
+}
+.music-item p{
+  font-size: 13px;
+  font-weight: 100;
+  letter-spacing: 4px;
+  text-align: center;
+  font-family: robotoRegular;
+  color: #292929;
+  line-height: 1.8;
+  margin: 0;
+  padding: 0;
+}
+.music-more{
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  justify-content: center;
+}
+.music-more button{
+  border: 1px solid #292929;
+  color: #292929;
+  font-size: 22px;
+  font-family: robotoRegular;
+  letter-spacing: 2px;
+  text-align: center;
+  padding: 10px 100px;
+  cursor: pointer;
+}
+
+@media (min-width: 320px) and (max-width: 1000px){
+  .photos-grid div{
+    padding: 0%;
+  }
+  .desktop-hidden{
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+  }
+  .mobile-hidden{
+    display: none;
+  }
+  .content h3{
+    font-size: 8vw;
+  }
+  .about-img img{
+    height: 320px;
+    margin-top: 20px;
+  }
+  .info-about{
+    flex-wrap: wrap;
+  }
+  .about-text br{
+    display: none;
+  }
+  .about-text h2{
+    margin-bottom: 0;
+  }
+  .info{
+    width: 100%;
+    margin-bottom: 12%;
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    justify-content: center;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+  .info-about div{
+    margin: 0px 30px;
+  }
+  .photos-grid{
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+    height: 170px;
+    margin-bottom: 550px;
+  }
+  .item-4{
+    grid-column: 1 / span 2;
+    grid-row: 1 / span 1;
+  }
+  .item-5{
+    grid-column: 2 / span 1;
+    grid-row: 2 / span 1;
+  }
+  .item-6{
+    grid-column: 1 / span 1;
+    grid-row: 4 / span 1;
+  }
+  .info-photos{
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  .about-img{
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    padding-bottom: 35px;
+    margin-right: 35px;
+  }
+  .info-about div:first-child{
+    margin-left: 30px;
+  }
+  .content h3{
+    letter-spacing: 0.1em;
+  }
+  .about-text p{
+    font-size: 17px;
+    text-align: left;
+  }
+  .about-text h2{
+    width: 100%;
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    text-align: right;
+  }
+  .content-wrapper{
+    margin-top: 0;
+    margin: 0px 2px;
+  }
+  .info-about div:last-child{
+    margin-right: 30px;
+  }
+  .music{
+    margin-right: 30px;
+    margin-left: 30px;
+  }
+  .about-text-title p{
+    width: 100%;
+  }
+  .content{
+    height: calc(100vh + 30px);
+  }
+  .music-content{
+    width: 100%;
+  }
+  .music-item{
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+  .music-content-wrapper{
+    margin-top: 15px;
+  }
+}
+@media (min-width: 600px) and (max-width: 1000px){
+  .photos-grid{
+    height: 400px;
+  }
+  .photos-grid{
+    margin-bottom: 1190px;
+  }
+  .info-about div:first-child{
+    justify-content: flex-start;
+    margin-left: 30px;
+  }
+  .info-about{
+    flex-wrap: nowrap;
+  }
+  .music-item{
+    margin-left: 40px;
+    margin-right: 40px;
+  }
+}
