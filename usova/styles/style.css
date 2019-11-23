@@ -83,9 +83,7 @@ button:focus {outline:0;}
   justify-content: space-between;
   align-content: center;
 }
-.info-about div:first-child{
-  margin-left: -22px;
-}
+
 .info-about div:last-child{
   margin-right: 0;
 }
@@ -211,8 +209,85 @@ button:focus {outline:0;}
   padding: 10px 100px;
   cursor: pointer;
 }
-
+.posts-wrapper{
+  margin-top: 90px;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  justify-content: center;
+}
+.post{
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  justify-content: center;
+  -ms-align-items: center;
+  align-items: flex-start;
+  padding-top: 70px;
+  margin-top: 40px;
+  background-image: url('../images/icons/quote-bg.png');
+  background-repeat: no-repeat;
+}
+.posts{
+  width: 910px;
+}
+.post-img img{
+  height: 350px;
+}
+.post div{
+  margin: 0px 40px;
+}
+.post-content h2{
+  text-align: center;
+  font-family: robotoRegular;
+  color: black;
+  letter-spacing: 0.3em;
+  font-weight: 600;
+  font-size: 23px;
+  line-height: 1.5;
+}
+.post-content p{
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-align: center;
+  font-family: robotoRegular;
+  color: black;
+  line-height: 1.8;
+  width: 560px;
+  margin-top: 30px;
+  margin-bottom: 40px;
+}
+.post-content h6{
+  font-size: 14px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  text-align: center;
+  font-family: robotoBold;
+  color: black;
+  line-height: 1.8;
+  max-width: 550px;
+}
+.music-more button{
+  background: white;
+}
 @media (min-width: 320px) and (max-width: 1000px){
+  .post{
+    flex-wrap: wrap;
+  }
+  .posts{
+    width: auto;
+  }
+  .post-content p{
+    width: auto;
+    font-size: 15px;
+  }
+  .about-text h2{
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    justify-content: flex-start;
+  }
   .photos-grid div{
     padding: 0%;
   }
@@ -225,7 +300,7 @@ button:focus {outline:0;}
     display: none;
   }
   .content h3{
-    font-size: 8vw;
+    font-size: 13vw;
   }
   .about-img img{
     height: 320px;
@@ -251,9 +326,7 @@ button:focus {outline:0;}
     -ms-flex-direction: column;
     flex-direction: column;
   }
-  .info-about div{
-    margin: 0px 30px;
-  }
+
   .photos-grid{
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 10px;
@@ -280,17 +353,10 @@ button:focus {outline:0;}
     display: -webkit-flex;
     display: -ms-flex;
     display: flex;
-    justify-content: flex-start;
     width: 100%;
-    padding-bottom: 35px;
-    margin-right: 35px;
+    justify-content: center;
   }
-  .info-about div:first-child{
-    margin-left: 30px;
-  }
-  .content h3{
-    letter-spacing: 0.1em;
-  }
+
   .about-text p{
     font-size: 17px;
     text-align: left;
@@ -308,6 +374,7 @@ button:focus {outline:0;}
   }
   .info-about div:last-child{
     margin-right: 30px;
+    margin-top: 40px;
   }
   .music{
     margin-right: 30px;
@@ -329,8 +396,14 @@ button:focus {outline:0;}
   .music-content-wrapper{
     margin-top: 15px;
   }
+  .posts .about-text h2{
+    justify-content: center;
+  }
 }
 @media (min-width: 600px) and (max-width: 1000px){
+  .content h3{
+    font-size: 8vw;
+  }
   .photos-grid{
     height: 400px;
   }
