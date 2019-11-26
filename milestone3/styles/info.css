@@ -1898,6 +1898,7 @@ input:focus,button:focus{
   }
   #chart_third .canvas_wrapper{
     padding-top: 60px !important;
+    padding-bottom: 5px !important;
   }
   .bottom-item-info{
     display: none;
