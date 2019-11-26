@@ -29,3 +29,7 @@ function setOrange(elem){
   }
   elem.style.color = "#ED7D32";
 }
+
+for (var i = 0; i < document.getElementsByClassName('align_end').length; i++) {
+  document.getElementsByClassName('align_end')[0].scrollTo(pageYOffset, 200);
+}

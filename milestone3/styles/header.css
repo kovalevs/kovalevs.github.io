@@ -141,8 +141,11 @@ label:focus,
   }
   .home-chart-body-title{
     overflow-x: scroll;
-    padding-left: 200px;
+    justify-content: unset;
   }
+
+
+
   body{
     background: #000;
   }

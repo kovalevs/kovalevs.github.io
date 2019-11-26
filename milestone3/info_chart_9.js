@@ -35,7 +35,7 @@ for (var i = 0; i < globalHours_full.length; i++) {
 var temp_op = 23;
 
 for (var i = 0; i < 12; i++) {
-  if(currentHours_i < 23){
+  if(currentHours_i < 24){
     if(currentHours_i != -1){
         chart_9_data_hours_12.push(globalHours_full[currentHours_i]);
         currentHours_i -= 1;
@@ -142,7 +142,7 @@ function selectedWhite(elem){
     temp_op = 23;
 
     for (var i = 0; i < 12; i++) {
-      if(currentHours_i < 23){
+      if(currentHours_i < 24){
         if(currentHours_i != -1){
             nineChartLabels.push(globalHours_full[currentHours_i]);
             tenChartLabels.push(globalHours_full[currentHours_i]);

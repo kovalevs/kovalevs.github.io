@@ -59,7 +59,7 @@ html{
   margin-bottom: 40px;
 }
 #chart_third .canvas_wrapper{
-  height: 90% !important;
+  height: 92% !important;
 }
 #chart_plusminus .canvas_wrapper{
   height: 90% !important;
@@ -113,7 +113,7 @@ text{
   padding: 0;
 }
 .highcharts-root{
-  height: 185%;
+  height: 155%;
 }
 
 .tabs-section-fixed{
@@ -136,17 +136,18 @@ text{
 .meter-chart{
   background: #404040 !important;
 }
+
 #chart_meter_1 .home-chart{
-  height: calc(55vh - 50px) !important;
+  height: 300px !important;
 }
 #chart_meter_2 .home-chart{
-  height: calc(55vh - 50px) !important;
+  height: 300px !important;
 }
 #chart_meter_3 .home-chart{
-  height: calc(55vh - 50px) !important;
+  height: 300px !important;
 }
 #chart_meter_4 .home-chart{
-  height: calc(55vh - 50px) !important;
+  height: 300px !important;
 }
 .canvas_wrapper-full{
   height: 85% !important;
@@ -296,6 +297,10 @@ text{
 }
 .home-chart-panel-large_9 .home-chart-panel-options{
   margin-top: 0;
+}
+
+.extra-width{
+  padding-top: 10px !important;
 }
 
 .home-chart-panel-large_none{
@@ -1601,6 +1606,13 @@ input:focus,button:focus{
 }
 
 @media (min-width: 320px) and (max-width: 1075px) {
+  .canvas_wrapper-large_12{
+    height: 90% !important;
+  }
+
+  .highcharts-root{
+    height: 185%;
+  }
   .tabs-section-fixed{
     position: static !important;
     top: 0px !important;
@@ -1748,7 +1760,7 @@ input:focus,button:focus{
     border-top: 0px;
     background: #000;
     margin-top: 0%;
-    padding: 15px 15px;
+    padding: 10px 10px;
     display: -webkit-flex;
     display: -ms-flex;
     display: flex;
@@ -1804,7 +1816,7 @@ input:focus,button:focus{
   .home-charts{
     width: 100%;
     padding: 5px !important;
-    margin-top: 100px;
+    margin-top: 82px;
   }
   .info-nav-item-times{
     display: none;
@@ -1885,7 +1897,7 @@ input:focus,button:focus{
     display: none;
   }
   #chart_third .canvas_wrapper{
-    padding-top: 80px !important;
+    padding-top: 60px !important;
   }
   .bottom-item-info{
     display: none;
@@ -1905,7 +1917,8 @@ input:focus,button:focus{
     min-width: 1080px;
   }
   #chart_energy .canvas_wrapper{
-    padding-top: 80px;
+    padding-top: 50px;
+    height: 90% !important;
   }
   #dashboardStatistics_4 table{
     min-width: 380px;
@@ -1950,7 +1963,7 @@ input:focus,button:focus{
     height: 90%;
   }
   .meter_wrapper{
-    height: 70% !important;
+    height: 90% !important;
   }
   #header-desktop-search-input, #header-desktop-search-button{
     height: 35px !important;

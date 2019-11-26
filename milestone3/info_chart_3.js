@@ -313,7 +313,7 @@ function showFirstLevel(){
   var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
   if(width <= 1075){
     for (var i = 0; i < document.getElementsByClassName('home-charts').length; i++) {
-      document.getElementsByClassName('home-charts')[i].style.marginTop = "115px";
+      document.getElementsByClassName('home-charts')[i].style.marginTop = "92px";
     }
   }
 
@@ -347,6 +347,11 @@ function showFirstLevel(){
   document.getElementById('dashboardStatistics_1').style.display = "none";
   document.getElementById('dashboardStatistics_2').style.display = "none";
 
+  document.getElementById('chart_settings').style.display = "flex";
+
+  for (var i = 0; i < document.getElementsByClassName('align_end').length; i++) {
+    document.getElementsByClassName('align_end')[0].scrollTo(pageYOffset, 200);
+  }
 }
 
 function showSecondLevel(elem){
@@ -361,7 +366,7 @@ function showSecondLevel(elem){
   var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
   if(width <= 1075){
     for (var i = 0; i < document.getElementsByClassName('home-charts').length; i++) {
-      document.getElementsByClassName('home-charts')[i].style.marginTop = "115px";
+      document.getElementsByClassName('home-charts')[i].style.marginTop = "92px";
     }
   }
 
@@ -397,6 +402,12 @@ function showSecondLevel(elem){
   document.getElementById('dashboardStatistics_1').style.display = "block";
   document.getElementById('dashboardStatistics_2').style.display = "none";
 
+  document.getElementById('chart_settings').style.display = "flex";
+
+  for (var i = 0; i < document.getElementsByClassName('align_end').length; i++) {
+    document.getElementsByClassName('align_end')[0].scrollTo(pageYOffset, 200);
+  }
+
 }
 function showThirdLevel(elem){
   hideAllExtra();
@@ -410,7 +421,7 @@ function showThirdLevel(elem){
   var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
   if(width <= 1075){
     for (var i = 0; i < document.getElementsByClassName('home-charts').length; i++) {
-      document.getElementsByClassName('home-charts')[i].style.marginTop = "115px";
+      document.getElementsByClassName('home-charts')[i].style.marginTop = "92px";
     }
   }
 
@@ -444,8 +455,14 @@ function showThirdLevel(elem){
   document.getElementById('dashboardStatistics_1').style.display = "none";
   document.getElementById('dashboardStatistics_2').style.display = "block";
 
+
+  document.getElementById('chart_settings').style.display = "flex";
+
   // Hide lower levels
 
+  for (var i = 0; i < document.getElementsByClassName('align_end').length; i++) {
+    document.getElementsByClassName('align_end')[0].scrollTo(pageYOffset, 200);
+  }
 
 }
 
@@ -458,7 +475,7 @@ function showFourLevel(elem){
   var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
   if(width <= 1075){
     for (var i = 0; i < document.getElementsByClassName('home-charts').length; i++) {
-      document.getElementsByClassName('home-charts')[i].style.marginTop = "150px";
+      document.getElementsByClassName('home-charts')[i].style.marginTop = "130px";
     }
   }
 
@@ -559,7 +576,7 @@ function showFiveLevel(elem){
   var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
   if(width <= 1075){
     for (var i = 0; i < document.getElementsByClassName('home-charts').length; i++) {
-      document.getElementsByClassName('home-charts')[i].style.marginTop = "150px";
+      document.getElementsByClassName('home-charts')[i].style.marginTop = "130px";
     }
   }
 

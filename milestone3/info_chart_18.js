@@ -128,7 +128,7 @@ function selectedWhite_2(elem){
     temp_op = 23;
 
     for (var i = 0; i < 12; i++) {
-      if(currentHours_i < 23){
+      if(currentHours_i < 24){
         if(currentHours_i != -1){
             fifteenChartLabels.push(globalHours_full[currentHours_i]);
             sixteenChartLabels.push(globalHours_full[currentHours_i]);
@@ -341,4 +341,8 @@ infoCanvas_18.onclick = function(e) {
        window.open(info_chart_18_link.links[i]);
      }
    }
+}
+
+for (var i = 0; i < document.getElementsByClassName('align_end').length; i++) {
+  document.getElementsByClassName('align_end')[0].scrollTo(pageYOffset, 200);
 }
