@@ -1,10 +1,6 @@
 button:focus {outline:0;}
 
-<<<<<<< HEAD
 .modal ::-webkit-scrollbar {
-=======
-::-webkit-scrollbar {
->>>>>>> bcff64c0f1f3e657006920a077a7c8362bedb283
     display: none;
 }
 
