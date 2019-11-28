@@ -1,6 +1,6 @@
 button:focus {outline:0;}
 
-.modal ::-webkit-scrollbar {
+.modal::-webkit-scrollbar {
     display: none;
 }
 
