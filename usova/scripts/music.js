@@ -44,3 +44,12 @@ var scroll = new SmoothScroll('a[href*="#"]', {
 function closeMenu(){
   document.getElementById('header-checkbox').click();
 }
+
+var modal = document.getElementById('modal');
+
+document.getElementById('imagesMore').onclick = function(){
+  modal.style.display = "flex";
+}
+modal.onclick = function(){
+  modal.style.display = "none";
+}
