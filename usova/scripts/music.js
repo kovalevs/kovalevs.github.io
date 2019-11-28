@@ -45,11 +45,22 @@ function closeMenu(){
   document.getElementById('header-checkbox').click();
 }
 
-var modal = document.getElementById('modal');
+var modalImages = document.getElementById('modalImages');
 
 document.getElementById('imagesMore').onclick = function(){
-  modal.style.display = "flex";
+  modalImages.style.display = "flex";
 }
-modal.onclick = function(){
-  modal.style.display = "none";
+modalImages.onclick = function(){
+  modalImages.style.display = "none";
+}
+
+
+var modalMusic = document.getElementById('modalMusic');
+var modalMusicContent = document.getElementById('modalMusicContent');
+
+document.getElementById('musicMore').onclick = function(){
+  modalMusic.style.display = "flex";
+}
+modalMusic.onclick = function(){
+  modalMusic.style.display = "none";
 }

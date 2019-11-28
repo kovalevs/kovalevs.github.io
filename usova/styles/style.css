@@ -42,6 +42,7 @@ button:focus {outline:0;}
   -ms-align-items: flex-end;
   align-items: flex-end;
   justify-content: center;
+  display: none;
 }
 .modal{
   display: -webkit-flex;
@@ -59,9 +60,6 @@ button:focus {outline:0;}
   height: 100%;
   margin-right: 10px;
   margin-bottom: 5vw;
-}
-#modal{
-  display: none;
 }
 .about-text{
   display: -webkit-flex;
@@ -110,6 +108,13 @@ button:focus {outline:0;}
   font-family: robotoRegular;
   color: black;
   line-height: 1.8;
+}
+#modalMusic .modal{
+  margin-bottom: 5vw;
+  background: white;
+}
+#modalMusic .music-item{
+  min-width: 240px;
 }
 .header a{
   text-decoration: none;
@@ -460,6 +465,10 @@ button:focus {outline:0;}
   min-width: 130px;
 }
 @media (min-width: 320px) and (max-width: 1000px){
+  #modalMusic .music-item{
+    margin-right: 20px;
+    min-width: 195px;
+  }
   .modal{
     margin: 0px;
     padding-left: 20px;
