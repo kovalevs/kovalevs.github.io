@@ -197,6 +197,7 @@ for (var i = 0; i < 12; i++) {
 }
 function updateThirdChartData(elem){
 
+
   // Set month data here
 
   thirdChartData = [];
@@ -235,6 +236,12 @@ function updateThirdChartData(elem){
     document.getElementsByClassName('home-chart-body-title')[0].children[i].setAttribute('style', 'color: white !important');
   }
   elem.style.color = "#ED7D32";
+
+  var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+  if(width <= 600){
+    document.getElementsByClassName('home-chart-body-title')[0].children[0].setAttribute('style', 'color:#7B7B7B !important');
+  }
+
 }
 
 
@@ -324,10 +331,12 @@ function showFirstLevel(){
   var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
   if(width <= 600){
     document.getElementsByClassName('home-chart-body-title')[0].children[1].setAttribute('style', 'color:#ED7D33 !important');
+    document.getElementsByClassName('home-chart-body-title')[0].children[0].setAttribute('style', 'color:#7B7B7B !important');
   }
   if(width > 601){
     document.getElementsByClassName('home-chart-body-title')[0].children[11].setAttribute('style', 'color:#ED7D33 !important');
   }
+
 
   infoRemoveActiveOptions();
 
@@ -383,6 +392,7 @@ function showSecondLevel(elem){
   var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
   if(width <= 600){
     document.getElementsByClassName('home-chart-body-title')[0].children[1].setAttribute('style', 'color:#ED7D33 !important');
+    document.getElementsByClassName('home-chart-body-title')[0].children[0].setAttribute('style', 'color:#7B7B7B !important');
   }
   if(width > 601){
     document.getElementsByClassName('home-chart-body-title')[0].children[11].setAttribute('style', 'color:#ED7D33 !important');
@@ -444,6 +454,7 @@ function showThirdLevel(elem){
   var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
   if(width <= 600){
     document.getElementsByClassName('home-chart-body-title')[0].children[1].setAttribute('style', 'color:#ED7D33 !important');
+    document.getElementsByClassName('home-chart-body-title')[0].children[0].setAttribute('style', 'color:#7B7B7B !important');
   }
   if(width > 601){
     document.getElementsByClassName('home-chart-body-title')[0].children[11].setAttribute('style', 'color:#ED7D33 !important');
@@ -517,6 +528,7 @@ function showFourLevel(elem){
   var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
   if(width <= 600){
     document.getElementsByClassName('home-chart-body-title')[0].children[1].setAttribute('style', 'color:#ED7D33 !important');
+    document.getElementsByClassName('home-chart-body-title')[0].children[0].setAttribute('style', 'color:#7B7B7B !important');
   }
   if(width > 601){
     document.getElementsByClassName('home-chart-body-title')[0].children[11].setAttribute('style', 'color:#ED7D33 !important');
@@ -614,6 +626,7 @@ function showFiveLevel(elem){
   var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
   if(width <= 600){
     document.getElementsByClassName('home-chart-body-title')[0].children[1].setAttribute('style', 'color:#ED7D33 !important');
+    document.getElementsByClassName('home-chart-body-title')[0].children[0].setAttribute('style', 'color:#7B7B7B !important');
   }
   if(width > 601){
     document.getElementsByClassName('home-chart-body-title')[0].children[11].setAttribute('style', 'color:#ED7D33 !important');
