@@ -1604,6 +1604,12 @@ input:focus,button:focus{
 }
 
 @media (min-width: 320px) and (max-width: 1075px) {
+  #chart_line .canvas_wrapper-full{
+    height: 90% !important;
+    margin-top: 0px !important;
+    padding-top: 10px !important;
+    padding-bottom: 5px !important;
+  }
   .canvas_wrapper-large_12{
     height: 90% !important;
   }

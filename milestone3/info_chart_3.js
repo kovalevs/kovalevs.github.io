@@ -235,12 +235,16 @@ function updateThirdChartData(elem){
   for (var i = 0; i < 12; i++) {
     document.getElementsByClassName('home-chart-body-title')[0].children[i].setAttribute('style', 'color: white !important');
   }
-  elem.style.color = "#ED7D32";
+
 
   var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
   if(width <= 600){
+    for (var i = 0; i < 13; i++) {
+      document.getElementsByClassName('home-chart-body-title')[0].children[i].setAttribute('style', 'color: white !important');
+    }
     document.getElementsByClassName('home-chart-body-title')[0].children[0].setAttribute('style', 'color:#7B7B7B !important');
   }
+  elem.style.color = "#ED7D32";
 
 }
 
@@ -330,6 +334,9 @@ function showFirstLevel(){
 
   var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
   if(width <= 600){
+    for (var i = 0; i < 13; i++) {
+      document.getElementsByClassName('home-chart-body-title')[0].children[i].setAttribute('style', 'color: white !important');
+    }
     document.getElementsByClassName('home-chart-body-title')[0].children[1].setAttribute('style', 'color:#ED7D33 !important');
     document.getElementsByClassName('home-chart-body-title')[0].children[0].setAttribute('style', 'color:#7B7B7B !important');
   }
@@ -391,6 +398,9 @@ function showSecondLevel(elem){
   }
   var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
   if(width <= 600){
+    for (var i = 0; i < 13; i++) {
+      document.getElementsByClassName('home-chart-body-title')[0].children[i].setAttribute('style', 'color: white !important');
+    }
     document.getElementsByClassName('home-chart-body-title')[0].children[1].setAttribute('style', 'color:#ED7D33 !important');
     document.getElementsByClassName('home-chart-body-title')[0].children[0].setAttribute('style', 'color:#7B7B7B !important');
   }
@@ -453,6 +463,9 @@ function showThirdLevel(elem){
   }
   var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
   if(width <= 600){
+    for (var i = 0; i < 13; i++) {
+      document.getElementsByClassName('home-chart-body-title')[0].children[i].setAttribute('style', 'color: white !important');
+    }
     document.getElementsByClassName('home-chart-body-title')[0].children[1].setAttribute('style', 'color:#ED7D33 !important');
     document.getElementsByClassName('home-chart-body-title')[0].children[0].setAttribute('style', 'color:#7B7B7B !important');
   }
@@ -527,6 +540,9 @@ function showFourLevel(elem){
   }
   var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
   if(width <= 600){
+    for (var i = 0; i < 13; i++) {
+      document.getElementsByClassName('home-chart-body-title')[0].children[i].setAttribute('style', 'color: white !important');
+    }
     document.getElementsByClassName('home-chart-body-title')[0].children[1].setAttribute('style', 'color:#ED7D33 !important');
     document.getElementsByClassName('home-chart-body-title')[0].children[0].setAttribute('style', 'color:#7B7B7B !important');
   }
@@ -625,6 +641,9 @@ function showFiveLevel(elem){
   }
   var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
   if(width <= 600){
+    for (var i = 0; i < 13; i++) {
+      document.getElementsByClassName('home-chart-body-title')[0].children[i].setAttribute('style', 'color: white !important');
+    }
     document.getElementsByClassName('home-chart-body-title')[0].children[1].setAttribute('style', 'color:#ED7D33 !important');
     document.getElementsByClassName('home-chart-body-title')[0].children[0].setAttribute('style', 'color:#7B7B7B !important');
   }
