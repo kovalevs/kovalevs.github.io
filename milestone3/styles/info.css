@@ -1869,6 +1869,9 @@ input:focus,button:focus{
     margin-top: 10px;
     margin-bottom: 10px;
     padding-left: 0% !important;
+    -webkit-flex-direction: row-reverse;
+    -ms-flex-direction: row-reverse;
+    flex-direction: row-reverse;
   }
   .home-chart-body-title{
     display: flex !important;

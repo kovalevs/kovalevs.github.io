@@ -320,7 +320,14 @@ function showFirstLevel(){
   for (var i = 0; i < 12; i++) {
     document.getElementsByClassName('home-chart-body-title')[0].children[i].setAttribute('style', 'color:white !important');
   }
-  document.getElementsByClassName('home-chart-body-title')[0].children[11].setAttribute('style', 'color:#ED7D33 !important');
+
+  var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+  if(width <= 600){
+    document.getElementsByClassName('home-chart-body-title')[0].children[1].setAttribute('style', 'color:#ED7D33 !important');
+  }
+  if(width > 601){
+    document.getElementsByClassName('home-chart-body-title')[0].children[11].setAttribute('style', 'color:#ED7D33 !important');
+  }
 
   infoRemoveActiveOptions();
 
@@ -373,7 +380,13 @@ function showSecondLevel(elem){
   for (var i = 0; i < 12; i++) {
     document.getElementsByClassName('home-chart-body-title')[0].children[i].setAttribute('style', 'color:white !important');
   }
-  document.getElementsByClassName('home-chart-body-title')[0].children[11].setAttribute('style', 'color:#ED7D33 !important');
+  var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+  if(width <= 600){
+    document.getElementsByClassName('home-chart-body-title')[0].children[1].setAttribute('style', 'color:#ED7D33 !important');
+  }
+  if(width > 601){
+    document.getElementsByClassName('home-chart-body-title')[0].children[11].setAttribute('style', 'color:#ED7D33 !important');
+  }
 
   infoRemoveActiveOptions();
 
@@ -428,7 +441,14 @@ function showThirdLevel(elem){
   for (var i = 0; i < 12; i++) {
     document.getElementsByClassName('home-chart-body-title')[0].children[i].setAttribute('style', 'color:white !important');
   }
-  document.getElementsByClassName('home-chart-body-title')[0].children[11].setAttribute('style', 'color:#ED7D33 !important');
+  var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+  if(width <= 600){
+    document.getElementsByClassName('home-chart-body-title')[0].children[1].setAttribute('style', 'color:#ED7D33 !important');
+  }
+  if(width > 601){
+    document.getElementsByClassName('home-chart-body-title')[0].children[11].setAttribute('style', 'color:#ED7D33 !important');
+  }
+
 
   infoRemoveActiveOptions();
 
@@ -494,7 +514,14 @@ function showFourLevel(elem){
   for (var i = 0; i < 12; i++) {
     document.getElementsByClassName('home-chart-body-title')[0].children[i].setAttribute('style', 'color:white !important');
   }
-  document.getElementsByClassName('home-chart-body-title')[0].children[11].setAttribute('style', 'color:#ED7D33 !important');
+  var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+  if(width <= 600){
+    document.getElementsByClassName('home-chart-body-title')[0].children[1].setAttribute('style', 'color:#ED7D33 !important');
+  }
+  if(width > 601){
+    document.getElementsByClassName('home-chart-body-title')[0].children[11].setAttribute('style', 'color:#ED7D33 !important');
+  }
+
   infoRemoveActiveOptions();
 
   global_selection = 'month';
@@ -584,7 +611,14 @@ function showFiveLevel(elem){
   for (var i = 0; i < 12; i++) {
     document.getElementsByClassName('home-chart-body-title')[0].children[i].setAttribute('style', 'color:white !important');
   }
-  document.getElementsByClassName('home-chart-body-title')[0].children[11].setAttribute('style', 'color:#ED7D33 !important');
+  var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+  if(width <= 600){
+    document.getElementsByClassName('home-chart-body-title')[0].children[1].setAttribute('style', 'color:#ED7D33 !important');
+  }
+  if(width > 601){
+    document.getElementsByClassName('home-chart-body-title')[0].children[11].setAttribute('style', 'color:#ED7D33 !important');
+  }
+
   infoRemoveActiveOptions();
 
   global_selection = 'month';

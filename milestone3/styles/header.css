@@ -142,6 +142,9 @@ label:focus,
   .home-chart-body-title{
     overflow-x: scroll;
     justify-content: unset;
+    -webkit-flex-direction: row-reverse;
+    -ms-flex-direction: row-reverse;
+    flex-direction: row-reverse;
   }
 
 
