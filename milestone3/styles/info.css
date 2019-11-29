@@ -90,7 +90,6 @@ circle.highcharts-pivot{
 }
 text{
   color: white !important;
-  padding: 100px !important;
 }
 #meter_1{
   width: 100%;
@@ -1995,5 +1994,13 @@ input:focus,button:focus{
   }
   #chart_energy .canvas_wrapper{
     padding-top: 100px;
+  }
+  text{
+    font: 11px Trebuchet MS, Verdana, sans-serif !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  .highcharts-root{
+    height: 150%;
   }
 }
