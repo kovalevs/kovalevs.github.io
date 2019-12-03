@@ -537,6 +537,9 @@ button:focus {outline:0;}
   margin: 10px 0px;
 }
 @media (min-width: 320px) and (max-width: 1000px){
+  .photos-grid{
+    max-width: 90%;
+  }
   .footer-links-items{
     -webkit-flex-direction: row;
     -ms-flex-direction: row;
