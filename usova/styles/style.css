@@ -1,9 +1,5 @@
 button:focus {outline:0;}
 
-.modal::-webkit-scrollbar {
-    display: none;
-}
-
 .content{
   background-image: url('../images/content_bg.png');
   background-position: center;
@@ -43,14 +39,11 @@ button:focus {outline:0;}
   display: none;
 }
 .modal{
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  display: -webkit-flex;
-  display: -ms-flex;
   display: flex;
-  -ms-align-items: center;
-  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  -ms-align-items: flex-start;
+  align-items: flex-start;
   overflow: auto;
   margin: 0px 15px;
   background: rgba(0,0,0,0.5);
@@ -60,13 +53,24 @@ button:focus {outline:0;}
   padding-right: 3%;
   padding-left: 3%;
 }
+.modal > div{
+  flex-grow: 1;
+  height: 100%;
+  width: 100%;
+  flex: 1 1 30%;
+}
+#modalMusic .modal{
+  -ms-align-items: flex-start;
+  align-items: flex-start;
+}
 #modalImages .modal img{
   margin: 10px;
-  min-width: 300px;
-  max-width: 300px;
 }
 .modal img:last-child{
   margin-bottom: 100px !important;
+}
+.modal .music-item:last-child{
+  margin-bottom: 120px !important;
 }
 .about-text{
   display: -webkit-flex;
@@ -534,7 +538,13 @@ button:focus {outline:0;}
 }
 #modalVideoContent img,
 #modalVideoContent video{
-  margin: 10px 0px;
+  margin: 20px;
+}
+#modalMusic .music-item{
+  height: 50px;
+}
+.modal{
+  max-width: 1200px;
 }
 @media (min-width: 320px) and (max-width: 1000px){
   .photos-grid{
