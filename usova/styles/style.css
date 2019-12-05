@@ -158,14 +158,16 @@ button:focus {outline:0;}
   justify-content: center;
   -ms-align-items: center;
   align-items: center;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
 }
 .footer-links img{
   height: 25px;
   cursor: pointer;
+  margin: 5px;
 }
+
 .info-about div:last-child{
   margin-right: 0;
 }
