@@ -702,16 +702,6 @@ function setOrange_1(elem){
         }
     }
   }
-  if(width <= 1160){
-    setTimeout(removePayAlert, 5000);
-    document.getElementsByClassName('control-level')[0].style.display = "none";
-    document.getElementsByClassName('control-level')[1].style.display = "block";
-    document.getElementsByClassName('control-level')[2].style.display = "none";
-
-    document.getElementsByClassName('control-before')[0].style.display = "block";
-    document.getElementsByClassName('control-wrapper')[0].style.background = "black";
-    hideLastLevel();
-  }
 }
 function setOrange_2(elem){
   isFourChecked = 1;
@@ -758,17 +748,6 @@ function setOrange_2(elem){
         }
     }
   }
-  var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
-  if(width <= 1160){
-    setTimeout(removePayAlert, 5000);
-    document.getElementsByClassName('control-level')[0].style.display = "none";
-    document.getElementsByClassName('control-level')[1].style.display = "none";
-    document.getElementsByClassName('control-level')[2].style.display = "block";
-
-    document.getElementsByClassName('control-before')[0].style.display = "block";
-    document.getElementsByClassName('control-wrapper')[0].style.background = "black";
-    hideLastLevel();
-  }
 }
 function setOrange_3(elem){
   isFourChecked = 1;
@@ -800,32 +779,6 @@ function setOrange_3(elem){
   }
   elem.style.color = "#ED7D32";
 
-  var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
-  if(width <= 1160){
-    setTimeout(removePayAlert, 5000);
-    document.getElementsByClassName('control-before')[0].style.display = "none";
-    document.getElementsByClassName('control-wrapper')[0].style.background = "#1F2935";
-
-
-    document.getElementsByClassName('control-level-title-4')[0].classList.add('control-level-title-last');
-    document.getElementsByClassName('control-level-title-5')[0].classList.add('control-level-title-last');
-
-    document.getElementsByClassName('header-tabs')[0].classList.add('header-tabs-last');
-    document.getElementsByClassName('control-wrapper')[0].classList.add('control-wrapper-last');
-    document.getElementsByClassName('control-large-levels')[0].classList.add('control-large-levels-last');
-    document.getElementsByClassName('control-large-levels')[1].classList.add('control-large-levels-last');
-    document.getElementsByClassName('control-large-level')[1].classList.add('control-large-level-last');
-    document.getElementsByClassName('control-large-level')[0].classList.add('control-large-level-last');
-    document.getElementsByClassName('control-column')[1].classList.add('control-column-last');
-
-    document.getElementsByClassName('control-column')[0].classList.add('control-column-last_4');
-
-    document.getElementsByClassName('sign_5')[0].classList.add('sign_5-last');
-    document.getElementsByClassName('img_5')[0].classList.add('img_5-last');
-    document.getElementsByClassName('subsign_5')[0].classList.add('subsign_5-last');
-
-
-  }
 }
 function lampOn(elem){
   thisI = 0;

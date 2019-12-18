@@ -1096,6 +1096,9 @@ body{
   .dashboard-table table{
     direction: rtl;
   }
+  .dashboard-table table tbody{
+    direction: ltr;
+  }
   .blockHidden{
     display: none !important;
   }
