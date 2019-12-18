@@ -1096,7 +1096,13 @@ body{
   .dashboard-table table{
     direction: rtl;
   }
-  .dashboard-table table tbody{
+  .dashboardTableDelete{
+    direction: ltr;
+  }
+  .info-textarea{
+    direction: ltr;
+  }
+  .dashboard-table-data td{
     direction: ltr;
   }
   .blockHidden{
