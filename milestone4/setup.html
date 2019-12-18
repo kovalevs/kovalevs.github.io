@@ -1,0 +1,1803 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+  <link rel="stylesheet" href="styles/vanilla-calendar-min.css">
+  <link rel="stylesheet" href="styles/setup.css">
+  <script type="text/javascript" src="languages/main.js"></script>
+  <script src="https://raw.githack.com/SortableJS/Sortable/master/Sortable.js"></script>
+</head>
+<body>
+  <div class="setupmodal-wrapper" id="levelDeleteModal">
+      <div class="setupmodal">
+        <div class="setupmodal-window-wrapper">
+          <div class="setupmodal-window">
+            <div class="setupmodal-text">
+              <h4>Are you sure you want to delete?</h4>
+              <div class="setupmodal-buttons">
+                <button id="setupDeleteAccountCancel">No</button>
+                <button id="setupDeleteAccountConfirm">Yes</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <div class="setupmodal-wrapper" id="setupModal">
+    <div class="setupmodal">
+      <div class="setupmodal-window-wrapper">
+        <div class="setupmodal-window">
+          <div class="setupmodal-title">Add Card</div>
+          <div class="setupmodal-text">
+            <div class="setupmodal-items">
+              <div class="modal-table">
+                <table id="alert-7">
+                  <tbody>
+                    <tr class="dashboard-table-data">
+                      <td>Card type</td>
+                      <td class="selectTd">
+                        <select class="customSelect">
+                          <option selected>Visa</option>
+                          <option>MasterCard</option>
+                          <option>American Express</option>
+                        </select>
+                      </td>
+                    </tr>
+                    <tr class="dashboard-table-data">
+                      <td>Name card holder</td>
+                      <td class="selectTd">
+                        <input type="text" id="input-field"/>
+                      </td>
+                    </tr>
+                    <tr class="dashboard-table-data">
+                      <td>Card number</td>
+                      <td class="selectTd">
+                        <input type="text" id="cardNumber">
+                      </td>
+                    </tr>
+                    <tr class="dashboard-table-data">
+                      <td>Exp date</td>
+                      <td class="selectTd">
+                        <select class="customSelect">
+                          <option selected>01</option>
+                          <option>02</option>
+                          <option>03</option>
+                          <option>05</option>
+                          <option>06</option>
+                          <option>07</option>
+                          <option>08</option>
+                          <option>09</option>
+                          <option>10</option>
+                          <option>11</option>
+                          <option>12</option>
+                        </select>
+                        <select class="customSelect" style="margin-left:30px;">
+                          <option selected>2025</option>
+                          <option>2024</option>
+                          <option>2023</option>
+                          <option>2022</option>
+                          <option>2021</option>
+                          <option>2020</option>
+                          <option selected>2019</option>
+                        </select>
+                      </td>
+                    </tr>
+                    <tr class="dashboard-table-data">
+                      <td>CVC</td>
+                      <td class="selectTd">
+                        <input oninput="javascript: if (this.value.length > this.maxLength) this.value = Math.abs(this.value.slice(0, this.maxLength));" type = "number" min="0" maxlength = "3"/>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="setupmodal-buttons">
+                <button id="setupModalCancel" class="setup-modal-buttons-button" style="margin-right:20px;">Cancel</button>
+                <button id="setupModalConfirm" class="setup-modal-buttons-button">OK</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="setupmodal-wrapper" id="mediaModal">
+    <div class="setupmodal">
+      <div class="setupmodal-window-wrapper">
+        <div class="setupmodal-window">
+          <div class="setupmodal-text">
+            <h4>Please setup the system from your computer’s browser</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    <div class="setupmodal-wrapper" id="levelDeleteModal">
+      <div class="setupmodal">
+        <div class="setupmodal-window-wrapper">
+          <div class="setupmodal-window">
+            <div class="setupmodal-text">
+              <h4>Are you sure you want to delete this account?</h4>
+              <div class="setupmodal-buttons">
+                <button id="setupDeleteAccountCancel">No</button>
+                <button id="setupDeleteAccountConfirm">Yes</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <div class="header-desktop">
+    <ul>
+      <!-- LINK -->
+      <li><a href="#"><img src="header-desktop-logo.png" id="header-desktop-logo" alt="logo"></a></li>
+      <li style="margin-right:20%;"><a href="#">Home (admin)</a></li>
+      <li><a href="#">Control</a></li>
+      <li><a href="#">Info</a></li>
+      <li><a href="#">Timer</a></li>
+      <li><a href="#">
+        <div class="input-group md-form form-sm form-1 pl-0">
+          <div class="input-group-prepend">
+            <span class="input-group-text purple lighten-3" id="header-desktop-search-button"><i class="fas fa-search text-white" aria-hidden="true"></i></span>
+          </div>
+          <input class="form-control my-0 py-1" id="header-desktop-search-input" type="text" placeholder="Search" aria-label="Search">
+        </div>
+      </a></li>
+      <li><a href="#">Alerts <span id="headerDesktopAlertAmount">3</span></a></li>
+      <!-- red danger below -->
+      <!-- <i class="fas fa-exclamation-triangle textRed" aria-hidden="true"></i> -->
+      <li id="home-desktop-setup"><a href="#" class="headerDesktopSelected">Setup <img class="levelLampError" src="images/icons/error.png"></a><a href="#"><i class="fas fa-sign-out-alt text-white" id="header-desktop-signout" aria-hidden="true"></i></a></li>
+    </ul>
+  </div>
+  <div class="level-navigation">
+    <div class="header-navigation">
+      <ul id="tabSelection">
+        <li onclick="setTab(this)">Levels</li>
+        <li onclick="setTab(this)" class="setup-active">System</li>
+        <li onclick="setTab(this)">Holiday</li>
+        <li onclick="setTab(this)">Alerts</li>
+        <li onclick="setTab(this)">Monitor Sensor</li>
+        <li onclick="setTab(this)">
+          <div class="flexCenter">
+            Sys Payment <img class="levelLampError" src="images/icons/error.png">
+            <!-- <i class="fas fa-exclamation-triangle textRed" aria-hidden="true"></i> -->
+          </div>
+        </li>
+        <li onclick="setTab(this)">Electric bill</li>
+      </ul>
+    </div>
+    <div id="admin-level" class="section-level">
+      <div class="level-title">
+        <div class="level-tabs">
+          <h4 id="levelAdminTab">Admin</h4>
+          <h4 id="levelLevelOneTab">
+            <a onclick="showLevelAdmin(this)" href="#">
+              Admin
+            </a> <p class="level-mid-text"> > </p>
+          <p id="levelLevelOneTabValue">Level</p></h4>
+
+          <h4 id="levelLevelTwoTab">
+        <!-- LINK -->
+          <a href="#/index.html" >Admin</a>
+          <p class="level-mid-text"> > </p>
+          <!-- LINK -->
+          <a href="#/index.html" id="levelTwoRef">Level</a>
+          <p class="level-mid-text"> > </p>
+          <p id="levelLevelTwoTabValue">Level 2</p></h4>
+
+          <h4 id="levelLevelThreeTab">
+          <a href="#" onclick="showLevelAdmin(this)" >Admin</a>
+          <p class="level-mid-text"> > </p>
+          <a href="#" id="levelTwoRef_0" onclick="showLevelOne(this)">Level</a>
+          <p class="level-mid-text"> > </p>
+          <a href="#" id="levelThreeRef" onclick="showLevelTwo(this)">Level</a>
+          <p class="level-mid-text"> > </p>
+          <p id="levelLevelThreeTabValue">Level 2</p></h4>
+
+        </div>
+      </div>
+      <div class="level-table">
+        <div class="level-tables-wrapper">
+          <h6>Tariff by time:</h6>
+          <table id="admin_table">
+            <tr>
+              <th>From time</th>
+              <th>To time</th>
+              <th>$ Price</th>
+              <th></th>
+            </tr>
+            <tbody id="adminTableData" class="level-table-data">
+              <!-- Data from server -->
+              <tr class="admin-table-line">
+                <td>
+                  <input type="text" class="fromTime" data-format="HH:mm" data-template="HH :mm" name="datetime">
+                </td>
+                <td>
+                  <input type="text" class="toTime" data-format="HH:mm" data-template="HH :mm" name="datetime">
+                </td>
+                <td>
+                  <input class="numberInput" type="number" value="1.0">
+                </td>
+                <td class="admin-table-delete">
+                  <i class="fas fa-times text-black" aria-hidden="true"></i>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="relative-block">
+            <span class="absButton">Add time +</span>
+          </div>
+          <h6>Tariff by Peak kW:</h6>
+          <table id="admin_table_1">
+            <tr>
+              <th>From kW</th>
+              <th>To kW</th>
+              <th>$ Price</th>
+              <th></th>
+            </tr>
+            <tbody id="adminTableData_1" class="level-table-data">
+              <!-- Data from server -->
+              <tr class="admin-table-line">
+                <td>
+                  <span>
+                    <input class="numberInput" type="number">
+                  </span>
+                </td>
+                <td>
+                  <span>
+                    <input class="numberInput" type="number">
+                  </span>
+                </td>
+                <td>
+                  <span>
+                    <input class="numberInput" type="number">
+                  </span>
+                </td>
+                <td class="admin-table-delete">
+                  <i class="fas fa-times text-black" aria-hidden="true"></i>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="relative-block">
+            <span class="absButton">Add kW +</span>
+          </div>
+        </div>
+
+        <table id="admin_table_2">
+          <tr>
+            <th class="h_gray"></th>
+            <th class="h_green">ok</th>
+            <th class="h_red">- Amp</th>
+            <th class="h_orange">- Amp</th>
+            <th class="h_yellow">- Amp</th>
+            <th class="h_green">ok</th>
+            <th class="h_yellow">+ Amp</th>
+            <th class="h_orange">+ Amp</th>
+            <th class="h_red">+ Amp</th>
+          </tr>
+          <h2>Current % Alert</h2>
+          <tbody id="adminTableData_2" class="level-table-data">
+            <!-- Data from server -->
+            <tr class="admin-table-line">
+              <td class="h_gray">
+                <span>% error</span>
+              </td>
+              <td>
+                <span> &lt; <input class="numberInput numberInput_number" type="number" value="90"> </span>
+                <i class="fas fa-pen text-black" aria-hidden="true"></i>
+              </td>
+              <td>
+                <span> &lt; <input class="numberInput numberInput_number" type="number" value="5"> </span>
+                <i class="fas fa-pen text-black" aria-hidden="true"></i>
+              </td>
+              <td>
+                <span> &lt; <input class="numberInput numberInput_number" type="number" value="4"> </span>
+                <i class="fas fa-pen text-black" aria-hidden="true"></i>
+              </td>
+              <td>
+                <span> &lt; <input class="numberInput numberInput_number" type="number" value="3"> </span>
+                <i class="fas fa-pen text-black" aria-hidden="true"></i>
+              </td>
+              <td>
+                <span> &lt; <input class="numberInput numberInput_number" type="number" value="0"> &gt </span>
+              </td>
+              <td>
+                <span> &lt; <input class="numberInput numberInput_number" type="number" value="5"> </span>
+                <i class="fas fa-pen text-black" aria-hidden="true"></i>
+              </td>
+              <td>
+                <span> &gt <input class="numberInput numberInput_number" type="number" value="10"> </span>
+                <i class="fas fa-pen text-black" aria-hidden="true"></i>
+              </td>
+              <td>
+                <span> &gt <input class="numberInput numberInput_number" type="number" value="15"> </span>
+                <i class="fas fa-pen text-black" aria-hidden="true"></i>
+              </td>
+            </tr>
+            <tr class="admin-table-line">
+              <th class="h_gray">Alert No.</th>
+              <th class="h_green">-</th>
+              <th class="h_red">A3L</th>
+              <th class="h_orange">A3L</th>
+              <th class="h_yellow">A1L</th>
+              <th class="h_green">-</th>
+              <th class="h_yellow">A1H</th>
+              <th class="h_orange">A2H</th>
+              <th class="h_red">A3H</th>
+
+            </tr>
+          </tbody>
+        </table>
+        <h6 class="withoutPadding">Note: an alert is sent if any air conditioner is reaching these levels</h6>
+
+
+      <div class="admin-system">
+        <h2>Minimum to maximum allowable set point temperature range</h2>
+        <div class="admin-system-minmax">
+          <div class="filters" id="size-filters">
+          <h6>Minimum: </h6>
+          <select id="sf-size-min" name="sf-size-min">
+            <option label="24℃" selected="selected" disabled="disabled" value="none">24</option>
+            <option label="16" value="16" id="sfSizeMin">16</option>
+          </select>
+          <h6 class="max-choose">Maximum: </h6>
+          <select id="sf-size-max" name="sf-size-max">
+            <option label="28℃" selected="selected" disabled="disabled" value="none">28</option>
+            <option label="16" value="16" id="sfSizeMax">16</option>
+          </select>
+         </div>
+        </div>
+        <div class="button-update">
+          <span class="absButton_clear">Update All</span>
+        </div>
+        <h6>Pressing ‘Update All’ will overwrite all the settings for all its lower levels</h6>
+        <div class="password-change">
+          <h2>Change password</h2>
+          <div class="password-block">
+            <input type="password" placeholder="Enter new password" id="newPassword">
+            <span class="absButton_clear">Change password</span>
+          </div>
+        </div>
+      </div>
+
+      <h2 class="langSection">Language</h2>
+      <div class="dropdown">
+         <button class="btn btn-default dropdown-toggle" type="button" id="levelThreeDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+           English
+           <span class="caret"></span>
+         </button>
+         <ul class="dropdown-menu">
+           <li><a href="#" data-value="1" draggable="false">English</a></li>
+           <li><a href="#" data-value="1" draggable="false">Spanish</a></li>
+           <li><a href="#" data-value="1" draggable="false">Hebrew</a></li>
+           <li><a href="#" data-value="1" draggable="false">Thai</a></li>
+           <li><a href="#" data-value="1" draggable="false">Arabic</a></li>
+         </ul>
+       </div>
+      </div>
+
+      <div class="level-holiday">
+        <div class="check-wrapper">
+          <div class="dashboard-labels-checkbox">
+            <input  id="dashboardPopupCheckbox" type="checkbox" name="dashboardPopupCheckbox" value="dashboardPopupCheckbox_value" checked="">
+            <label id="dashboardPopupLabel" for="dashboardPopupCheckbox"></label>
+          </div>
+          <h3>Holiday Mode (disable all system’s timers)</h3>
+        </div>
+        <h6 class="withoutPadding">Select dates in which timers will be disabled</h6>
+
+        <div class="calendar">
+          <div id="fromCalendar" class="vanilla-calendar"></div>
+          <div id="toCalendar" class="vanilla-calendar"></div>
+        </div>
+        <div class="button-update">
+          <span class="absButton_clear">Update All</span>
+        </div>
+        <h6 class="withoutPadding">Pressing ‘Update All’ will overwrite all the holiday dates for all its lower levels</h6>
+      </div>
+      <div class="level-alerts">
+        <div class="check-wrapper">
+          <div class="dashboard-labels-checkbox">
+            <input  id="dashboardPopupCheckbox_1" type="checkbox" name="dashboardPopupCheckbox_1" value="dashboardPopupCheckbox_value_1" checked="">
+            <label id="dashboardPopupLabel_1" for="dashboardPopupCheckbox_1"></label>
+          </div>
+          <h3>Current % Error</h3>
+        </div>
+        <h6 class="withoutPadding">Alert is sent if any air conditioner is reaching high or low levels of current (Amp) indicating of aircon problem</h6>
+        <div class="check-wrapper">
+          <div class="dashboard-labels-checkbox">
+            <input  id="dashboardPopupCheckbox_2" type="checkbox" name="dashboardPopupCheckbox_2" value="dashboardPopupCheckbox_value_2" checked="">
+            <label id="dashboardPopupLabel_2" for="dashboardPopupCheckbox_2"></label>
+          </div>
+          <h3>Efficiency Energy Rate</h3>
+        </div>
+        <table id="table_3">
+          <tbody><tr>
+            <th class="h_gray">Rank</th>
+            <th class="h_green">1</th>
+            <th class="h_lightgreen">2</th>
+            <th class="h_mentolgreen">3</th>
+            <th class="h_yellow">4 <i class="fas fa-undo text-black" aria-hidden="true"></i></th>
+            <th class="h_orange">5</th>
+            <th class="h_red">6</th>
+            <th class="h_darkred">7</th>
+          </tr>
+
+          </tbody>
+          <tbody id="adminTableData_3" class="level-table-data">
+            <!-- Data from server -->
+            <tr class="admin-table-line">
+              <td class="h_gray">
+                <span>% offset</span>
+              </td>
+              <td>
+                <span> &lt; <input class="numberInput numberInput_number" type="number" value="15"> </span>
+                <i class="fas fa-pen text-black" aria-hidden="true"></i>
+              </td>
+              <td>
+                <span> &lt; <input class="numberInput numberInput_number" type="number" value="10"> </span>
+                <i class="fas fa-pen text-black" aria-hidden="true"></i>
+              </td>
+              <td>
+                <span> &lt; <input class="numberInput numberInput_number" type="number" value="5"> </span>
+                <i class="fas fa-pen text-black" aria-hidden="true"></i>
+              </td>
+              <td>
+                <input type="number" placeholder="Average" class="numberInput">
+                <i class="fas fa-pen text-black" aria-hidden="true"></i>
+              </td>
+              <td>
+                <span> &gt; <input class="numberInput numberInput_number" type="number" value="5"> </span>
+                <i class="fas fa-pen text-black" aria-hidden="true"></i>
+              </td>
+              <td>
+                <span> &gt; <input class="numberInput numberInput_number" type="number" value="10"> </span>
+                <i class="fas fa-pen text-black" aria-hidden="true"></i>
+              </td>
+              <td>
+                <span> &gt; <input class="numberInput numberInput_number" type="number" value="15"> </span>
+                <i class="fas fa-pen text-black" aria-hidden="true"></i>
+              </td>
+            </tr>
+            <tr class="admin-table-line">
+              <th class="h_gray">Alert No.</th>
+              <th class="h_green"></th>
+              <th class="h_lightgreen"></th>
+              <th class="h_mentolgreen"></th>
+              <th class="h_yellow"></th>
+              <th class="h_orange">E5</th>
+              <th class="h_red">E6</th>
+              <th class="h_darkred">E7</th>
+            </tr>
+          </tbody>
+        </table>
+        <h6 class="withoutPadding moreheight">Note: an alert is sent if any account is reaching these levels. Efficiency Rank = Master power meter reading / sqm / working hours<br>Press <i class="fas fa-undo text-i-gray" aria-hidden="true"></i> to reset the average reading</h6>
+        <div class="check-wrapper">
+          <div class="dashboard-labels-checkbox">
+            <input  id="dashboardPopupCheckbox_3" type="checkbox" name="dashboardPopupCheckbox_3" value="dashboardPopupCheckbox_value_3" checked="">
+            <label id="dashboardPopupLabel_3" for="dashboardPopupCheckbox_3"></label>
+          </div>
+          <h3>Air Quality Level</h3>
+        </div>
+        <table id="table_4">
+          <tbody><tr>
+            <th class="h_gray">Rank</th>
+            <th class="h_green">1</th>
+            <th class="h_lightgreen">2</th>
+            <th class="h_mentolgreen">3</th>
+            <th class="h_yellow">4</th>
+            <th class="h_orange">5</th>
+            <th class="h_red">6</th>
+            <th class="h_darkred">7</th>
+          </tr>
+          </tbody>
+          <tbody id="adminTableData_4" class="level-table-data">
+            <!-- Data from server -->
+            <tr class="admin-table-line">
+              <td class="h_gray">
+                <span>Send alert</span>
+              </td>
+              <td>
+                <div class="centerWrapper">
+                  <div class="dashboard-table-checkbox">
+                    <input class="dashboardPopupTableCheckbox" id="dashboardPopupTableCheckbox_0" type="checkbox" name="dashboardPopupTableCheckbox" value="dashboardPopupTableCheckbox_value">
+                    <label class="dashboardPopupTableLabel" id="dashboardPopupTableLabel" for="dashboardPopupTableCheckbox_0"></label>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <div class="centerWrapper">
+                  <div class="dashboard-table-checkbox">
+                    <input class="dashboardPopupTableCheckbox" id="dashboardPopupTableCheckbox_1" type="checkbox" name="dashboardPopupTableCheckbox" value="dashboardPopupTableCheckbox_value">
+                    <label class="dashboardPopupTableLabel" for="dashboardPopupTableCheckbox_1"></label>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <div class="centerWrapper">
+                  <div class="dashboard-table-checkbox">
+                    <input class="dashboardPopupTableCheckbox" id="dashboardPopupTableCheckbox_2" type="checkbox" name="dashboardPopupTableCheckbox" value="dashboardPopupTableCheckbox_value">
+                    <label class="dashboardPopupTableLabel" for="dashboardPopupTableCheckbox_2"></label>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <div class="centerWrapper">
+                  <div class="dashboard-table-checkbox">
+                    <input class="dashboardPopupTableCheckbox" id="dashboardPopupTableCheckbox_3" type="checkbox" name="dashboardPopupTableCheckbox" value="dashboardPopupTableCheckbox_value">
+                    <label class="dashboardPopupTableLabel" for="dashboardPopupTableCheckbox_3"></label>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <div class="centerWrapper">
+                  <div class="dashboard-table-checkbox">
+                    <input class="dashboardPopupTableCheckbox" id="dashboardPopupTableCheckbox_4" type="checkbox" name="dashboardPopupTableCheckbox" value="dashboardPopupTableCheckbox_value">
+                    <label class="dashboardPopupTableLabel" for="dashboardPopupTableCheckbox_4"></label>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <div class="centerWrapper">
+                  <div class="dashboard-table-checkbox">
+                    <input class="dashboardPopupTableCheckbox" id="dashboardPopupTableCheckbox_5" type="checkbox" name="dashboardPopupTableCheckbox" value="dashboardPopupTableCheckbox_value">
+                    <label class="dashboardPopupTableLabel" for="dashboardPopupTableCheckbox_5"></label>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <div class="centerWrapper">
+                  <div class="dashboard-table-checkbox">
+                    <input class="dashboardPopupTableCheckbox" id="dashboardPopupTableCheckbox_6" type="checkbox" name="dashboardPopupTableCheckbox" value="dashboardPopupTableCheckbox_value">
+                    <label class="dashboardPopupTableLabel" for="dashboardPopupTableCheckbox_6"></label>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr class="admin-table-line">
+              <th class="h_gray">Alert No.</th>
+              <th class="h_green"></th>
+              <th class="h_lightgreen"></th>
+              <th class="h_mentolgreen"></th>
+              <th class="h_yellow"></th>
+              <th class="h_orange">AQ5</th>
+              <th class="h_red">AQ6</th>
+              <th class="h_darkred">AQ7</th>
+            </tr>
+          </tbody>
+        </table>
+        <h6 class="withoutPadding moreheight">Note: an alert is sent if any air conditioner is reaching these air quality levels.</h6>
+
+        <div class="check-wrapper">
+          <div class="dashboard-labels-checkbox">
+            <input  id="dashboardPopupCheckbox_4" type="checkbox" name="dashboardPopupCheckbox_4" value="dashboardPopupCheckbox_value_4" checked="">
+            <label id="dashboardPopupLabel_4" for="dashboardPopupCheckbox_4"></label>
+          </div>
+          <h3>Hazard room temperature</h3>
+        </div>
+        <table id="table_3">
+          <tbody><tr>
+            <th class="h_gray"></th>
+            <th class="h_red">- ℃</th>
+            <th class="h_orange">- ℃</th>
+            <th class="h_yellow">- ℃</th>
+            <th class="h_green">ok</th>
+            <th class="h_yellow">+ ℃</th>
+            <th class="h_orange">+ ℃</th>
+            <th class="h_red">+ ℃</th>
+          </tr>
+
+          </tbody>
+          <tbody id="adminTableData_5" class="level-table-data">
+            <!-- Data from server -->
+            <tr class="admin-table-line">
+              <td class="h_gray">
+                <span>℃</span>
+              </td>
+              <td>
+                <span> &lt; <input class="numberInput numberInput_number" type="number" value="8"> </span>
+                <i class="fas fa-pen text-black" aria-hidden="true"></i>
+              </td>
+              <td>
+                <span> &lt; <input class="numberInput numberInput_number" type="number" value="10"> </span>
+                <i class="fas fa-pen text-black" aria-hidden="true"></i>
+              </td>
+              <td>
+                <span> &lt; <input class="numberInput numberInput_number" type="number" value="16"> </span>
+                <i class="fas fa-pen text-black" aria-hidden="true"></i>
+              </td>
+              <td class="h_green">
+                <span> &lt; &gt; </span>
+              </td>
+              <td>
+                <span> &gt; <input class="numberInput numberInput_number" type="number" value="30"> </span>
+                <i class="fas fa-pen text-black" aria-hidden="true"></i>
+              </td>
+              <td>
+                <span> &gt; <input class="numberInput numberInput_number" type="number" value="32"> </span>
+                <i class="fas fa-pen text-black" aria-hidden="true"></i>
+              </td>
+              <td>
+                <span> &gt; <input class="numberInput numberInput_number" type="number" value="35"> </span>
+                <i class="fas fa-pen text-black" aria-hidden="true"></i>
+              </td>
+            </tr>
+            <tr class="admin-table-line">
+              <th class="h_gray">Alert No.</th>
+              <th class="h_red">T3L</th>
+              <th class="h_orange">T2L</th>
+              <th class="h_yellow">T1L</th>
+              <th class="h_green">-</th>
+              <th class="h_yellow">T1H</th>
+              <th class="h_orange">T2H</th>
+              <th class="h_red">T3H</th>
+            </tr>
+          </tbody>
+        </table>
+        <h6 class="withoutPadding moreheight">Alert is sent if any air conditioner’s room temperature is reaching these levels. These levels are modifiable</h6>
+
+        <div class="check-wrapper">
+          <div class="dashboard-labels-checkbox">
+            <input  id="dashboardPopupCheckbox_8" type="checkbox" name="dashboardPopupCheckbox_4" value="dashboardPopupCheckbox_value_4" checked="">
+            <label id="dashboardPopupLabel_8" for="dashboardPopupCheckbox_8"></label>
+          </div>
+          <h3>Clean filter after <input type="number" class="numberInput numberInput_small"> hours</h3>
+        </div>
+        <div class="check-wrapper">
+          <div class="dashboard-labels-checkbox">
+            <input  id="dashboardPopupCheckbox_9" type="checkbox" name="dashboardPopupCheckbox_9" value="dashboardPopupCheckbox_value_9" checked="">
+            <label id="dashboardPopupLabel_9" for="dashboardPopupCheckbox_9"></label>
+          </div>
+          <h3>Send alert if any account goes over the peak powe <input  style="width: 60px !important;" type="number" class="numberInput numberInput_small"> kW</h3>
+        </div>
+        <div class="check-wrapper">
+          <div class="dashboard-labels-checkbox">
+            <input  id="dashboardPopupCheckbox_10" type="checkbox" name="dashboardPopupCheckbox_10" value="dashboardPopupCheckbox_value_10" checked="false">
+            <label id="dashboardPopupLabel_9" for="dashboardPopupCheckbox_10"></label>
+          </div>
+          <h3>Send alert if electric bill is higher than actual PM readings by<input style="width: 50px !important;" type="number" class="numberInput numberInput_small"> %</h3>
+        </div>
+        <div class="check-wrapper">
+          <div class="dashboard-labels-checkbox">
+            <input  id="dashboardPopupCheckbox_11" type="checkbox" name="dashboardPopupCheckbox_11" value="dashboardPopupCheckbox_value_11" checked="">
+            <label id="dashboardPopupLabel_9" for="dashboardPopupCheckbox_11"></label>
+          </div>
+          <h3>Send alert if Power Factor (PF) goes below this value <input style="width: 50px !important;" type="number" class="numberInput numberInput_small"></h3>
+        </div>
+        <div class="button-update marginTop">
+          <span class="absButton_clear">Update All</span>
+        </div>
+        <h6 class="withoutPadding">Pressing ‘Update All’ will overwrite all the settings for all its lower levels</h6>
+      </div>
+
+      <div class="level-monitor">
+        <div class="check-wrapper">
+          <div class="dashboard-labels-checkbox">
+            <input  id="dashboardPopupCheckbox_12" type="checkbox" name="dashboardPopupCheckbox_11" value="dashboardPopupCheckbox_value_12" checked="">
+            <label id="dashboardPopupLabel_9" for="dashboardPopupCheckbox_12"></label>
+          </div>
+          <h3 class="fontGray">Motion sensor Enabled</h3>
+        </div>
+        <h3 class="fontGray">Delay away countdown:
+          <select class="customSelect">
+            <option>5min</option>
+            <option>10min</option>
+            <option selected>15min</option>
+            <option>20min</option>
+            <option>25min</option>
+            <option>30min</option>
+            <option>35min</option>
+            <option>40min</option>
+            <option>45min</option>
+            <option>50min</option>
+            <option>55min</option>
+            <option>60min</option>
+            <option>65min</option>
+            <option>70min</option>
+            <option>75min</option>
+            <option>80min</option>
+            <option>85min</option>
+            <option>90min</option>
+            <option>95min</option>
+            <option>100min</option>
+            <option>105min</option>
+            <option>110min</option>
+            <option>115min</option>
+            <option>120min</option>
+          </select>
+        </h3>
+        <h6 class="withoutPadding">Select how many minutes from the time it senses there is no motion till it sends the ‘Away’ command</h6>
+        <div class="check-wrapper">
+          <div class="dashboard-labels-checkbox">
+            <input  id="dashboardPopupCheckbox_13" type="checkbox" name="dashboardPopupCheckbox_11" value="dashboardPopupCheckbox_value_13" checked="">
+            <label id="dashboardPopupLabel_9" for="dashboardPopupCheckbox_13"></label>
+          </div>
+          <h3 class="fontGray">Disable motion sensor during sleep time from:
+            <select class="customSelect">
+              <option>00</option>
+              <option>01</option>
+              <option>02</option>
+              <option>03</option>
+              <option>04</option>
+              <option>05</option>
+              <option>06</option>
+              <option>07</option>
+              <option>08</option>
+              <option>09</option>
+              <option>10</option>
+              <option>11</option>
+              <option>12</option>
+              <option>13</option>
+              <option>14</option>
+              <option>15</option>
+              <option>16</option>
+              <option>17</option>
+              <option>18</option>
+              <option>19</option>
+              <option>20</option>
+              <option>21</option>
+              <option selected>22</option>
+              <option>23</option>
+            </select>
+            <span style="color:white;">:</span>
+            <select class="customSelect" id="minuteSelect">
+              <option class="minuteSelect">00</option>
+            </select> to <select class="customSelect">
+              <option>00</option>
+              <option>01</option>
+              <option>02</option>
+              <option>03</option>
+              <option>04</option>
+              <option>05</option>
+              <option>06</option>
+              <option selected>07</option>
+              <option>08</option>
+              <option>09</option>
+              <option>10</option>
+              <option>11</option>
+              <option>12</option>
+              <option>13</option>
+              <option>14</option>
+              <option>15</option>
+              <option>16</option>
+              <option>17</option>
+              <option>18</option>
+              <option>19</option>
+              <option>20</option>
+              <option>21</option>
+              <option>22</option>
+              <option>23</option>
+            </select>
+            <span style="color:white;">:</span>
+            <select class="customSelect" id="minuteSelect_1">
+              <option class="minuteSelect">00</option>
+            </select>
+          </h3>
+        </div>
+        <h6 class="withoutPadding">Select the time period the motion sensor is not functioning</h6>
+        <h3 class="fontGray marginTop_small">Away command</h3>
+        <div class="radioButtons">
+          <form action="#">
+            <p>
+              <input type="radio" id="rad_1" name="radio-group" checked>
+              <label for="rad_1">Off (AC+SW)</label>
+            </p>
+            <p>
+              <input type="radio" id="rad_2" name="radio-group">
+              <label for="rad_2">No change</label>
+            </p>
+            <p>
+              <input type="radio" id="rad_3" name="radio-group">
+              <label for="rad_3">Conservation Mode – AC from:<select id="sf-size-min_1" name="sf-size-min_1" class="customSelect">
+                  <option label="16℃" selected="selected" disabled="disabled" value="16">24℃</option>
+                  <option label="16" value="16" id="sfSizeMin_1">16</option>
+                </select>
+                 to:<select id="sf-size-max_1" name="sf-size-max_1" class="customSelect">
+                   <option label="28℃" selected="selected" disabled="disabled" value="28">28℃</option>
+                   <option label="16" value="16" id="sfSizeMax_1">16</option>
+                 </select>
+                  for:<select class="customSelect">
+                    <option>Forever</option>
+                    <option>1hrs</option>
+                    <option>2hrs</option>
+                    <option>3hrs</option>
+                    <option>4hrs</option>
+                    <option selected>5hrs</option>
+                    <option>6hrs</option>
+                    <option>07hrs</option>
+                    <option>08hrs</option>
+                    <option>09hrs</option>
+                    <option>10hrs</option>
+                    <option>11hrs</option>
+                    <option>12hrs</option>
+                    <option>13hrs</option>
+                    <option>14hrs</option>
+                    <option>15hrs</option>
+                    <option>16hrs</option>
+                    <option>17hrs</option>
+                    <option>18hrs</option>
+                    <option>19hrs</option>
+                    <option>20hrs</option>
+                    <option>21hrs</option>
+                    <option>22hrs</option>
+                    <option>23hrs</option>
+                    <option>24hrs</option>
+                  </select> (+ Switch Off)</label>
+            </p>
+          </form>
+        </div>
+        <h6 class="withoutPadding">Select what happened when room is left empty. Conservation mode keep the room at preset temperature for preset time and power off SW</h6>
+        <h3 class="fontGray marginTop_small">Arrive command</h3>
+        <div class="radioButtons">
+          <form action="#">
+            <p>
+              <input type="radio" id="rad_4" name="radio-group" checked>
+              <label for="rad_4">On (last AC settings + SW On)</label>
+            </p>
+            <p>
+              <input type="radio" id="rad_5" name="radio-group">
+              <label for="rad_5">No change</label>
+            </p>
+            <p>
+              <input type="radio" id="rad_6" name="radio-group">
+              <label for="rad_6">On: <select class="customSelect">
+                <option selected>16℃</option>
+                <option>17℃</option>
+                <option>18℃</option>
+                <option>19℃</option>
+                <option>20℃</option>
+                <option>21℃</option>
+                <option>22℃</option>
+                <option>23℃</option>
+                <option>24℃</option>
+                <option>25℃</option>
+                <option>26℃</option>
+                <option>27℃</option>
+                <option>28℃</option>
+                <option>29℃</option>
+                <option>30℃</option>
+                <option>31℃</option>
+                <option>32℃</option>
+              </select><select class="customSelect">
+                <option selected>Cold</option>
+                <option>Hot</option>
+                <option>Auto</option>
+                <option>Dry</option>
+                <option>Fan</option>
+              </select><select class="customSelect">
+                <option selected>Fan 1</option>
+                <option>Fan 2</option>
+                <option>Fan 3</option>
+                <option>Fan 3</option>
+                <option>Fan Auto</option>
+              </select> (+ Switch On)</label>
+            </p>
+          </form>
+        </div>
+        <h6 class="withoutPadding">Select what happened when coming back to the room</h6>
+        <div class="button-update marginTop_small">
+          <span class="absButton_clear">Update All</span>
+        </div>
+        <h6 class="withoutPadding">Pressing ‘Update All’ will overwrite all the settings for all its lower levels</h6>
+      </div>
+      <div class="level-syspayment">
+        <div class="control-wrapper" id="alert-last">
+          <div class="header-tabs">
+            <h5 class="tabActive" id="tab_0_value" onclick="showFirstLevel()"><i class="fas fa-home text-orange" aria-hidden="true"></i></h5>   <span id="tab_0_span"> > </span>  <h5 id="tab_1_value" onclick="showSecondLevel()">Level 1</h5>  <span id="tab_1_span"> > </span>  <h5 id="tab_2_value" onclick="showThirdLevel()">Level 2</h5> <span id="tab_2_span"> > </span> <h5 id="tab_3_value">Level 3</h5>
+          </div>
+          <div class="control">
+            <div class="control-before">
+                <div class="control-levels">
+                  <div class="control-level">
+                    <div class="control-level-title">
+                      <div class="control-checkbox">
+                        <div class="level-checkbox-wrapper">
+                          <input class="level-checkbox" id="level_1_checkbox" type="checkbox" name="level_1_checkbox">
+                          <label class="level-label" id="level_1_label" for="level_1_checkbox"></label>
+                        </div>
+                      </div>
+                      <h2><script>document.write(en.level1)</script></h2>
+                      <!-- From server -->
+                      <h6>(50/240)</h6>
+                    </div>
+                    <div class="control-level-data">
+                      <div class="control-level-items">
+                        <div class="control-level-item control-level-item_1">
+                          <div class="level-content">
+                            <div class="control-checkbox">
+                              <div class="level-checkbox-wrapper">
+                                <input onclick="checkPay(this)" class="level-checkbox level-checkbox-small level-checkbox_1" id="level_1_data_checkbox" type="checkbox" name="level_1_data_checkbox">
+                                <label class="level-label level-label-small level-label_1" id="level_1_data_label" for="level_1_data_checkbox"></label>
+                              </div>
+                            </div>
+                            <h2 class="selectedLevel_1" onclick="setOrange_1(this)">Shanghai</h2>
+                            <!-- From server -->
+                            <h6>(35)</h6>
+                          </div>
+                          <div class="level-dollar">
+                            <i class="fas fa-dollar-sign text-red" aria-hidden="true"></i>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="control-level">
+                    <div class="control-level-title">
+                      <div class="control-checkbox">
+                        <div class="level-checkbox-wrapper">
+                          <input class="level-checkbox" id="level_2_checkbox" type="checkbox" name="level_2_checkbox">
+                          <label class="level-label" id="level_2_label" for="level_2_checkbox"></label>
+                        </div>
+                      </div>
+                      <h2><script>document.write(en.level2)</script></h2>
+                      <!-- From server -->
+                      <h6>(50/240)</h6>
+                    </div>
+                    <div class="control-level-data">
+                      <div class="control-level-items">
+                        <div class="control-level-item control-level-item_2">
+                          <div class="level-content">
+                            <div class="control-checkbox">
+                              <div class="level-checkbox-wrapper">
+                                <input onclick="checkPay(this)" class="level-checkbox level-checkbox-small level-checkbox_2" id="level_2_data_checkbox" type="checkbox" name="level_2_data_checkbox">
+                                <label class="level-label level-label-small level-label_2" id="level_2_data_label" for="level_2_data_checkbox"></label>
+                              </div>
+                            </div>
+                            <h2 class="selectedLevel_2" onclick="setOrange_2(this)">Pudong</h2>
+                            <!-- From server -->
+                            <h6>(25)</h6>
+                          </div>
+                          <div class="level-dollar level-dollar-1">
+                            <i class="fas fa-dollar-sign text-red" aria-hidden="true"></i>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="control-level">
+                    <div class="control-level-title">
+                      <div class="control-checkbox">
+                        <div class="level-checkbox-wrapper">
+                          <input class="level-checkbox" id="level_3_checkbox" type="checkbox" name="level_3_checkbox">
+                          <label class="level-label" id="level_3_label" for="level_3_checkbox"></label>
+                        </div>
+                      </div>
+                      <h2><script>document.write(en.level3)</script></h2>
+                      <!-- From server -->
+                      <h6>(50/240)</h6>
+                    </div>
+                    <div class="control-level-data">
+                      <div class="control-level-items">
+                        <div class="control-level-item control-level-item_3">
+                          <div class="level-content">
+                            <div class="control-checkbox">
+                              <div class="level-checkbox-wrapper">
+                                <input onclick="checkPay(this)" class="level-checkbox level-checkbox-small level-checkbox_3" id="level_3_data_checkbox" type="checkbox" name="level_3_data_checkbox">
+                                <label class="level-label level-label-small level-label_3" id="level_3_data_label" for="level_3_data_checkbox"></label>
+                              </div>
+                            </div>
+                            <h2 class="selectedLevel_3" onclick="setOrange_3(this)">Shop 1</h2>
+                            <!-- From server -->
+                            <h6>(6)</h6>
+                          </div>
+                          <div class="level-dollar level-dollar-2">
+                            <i class="fas fa-dollar-sign text-red" aria-hidden="true"></i>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <div class="control-after">
+              <div class="control-columns">
+                <div class="control-column">
+                  <div class="control-level-title control-level-title-4">
+                    <h2 class="afterIco sign_5-last">Alert</h2>
+                  </div>
+                  <div class="control-large-levels">
+                    <div class="wrapperOne">
+                      <div class="control-large-level">
+                        <h3>Payment Method</h3>
+                      </div>
+                      <table id="syspayment_table">
+                        <tbody><tr>
+                          <th></th>
+                          <th>Card type</th>
+                          <th>Card #</th>
+                          <th>Exp. Date</th>
+                          <th>Edit</th>
+                        </tr>
+                        </tbody><tbody id="syspayment_table_body" class="level-table-data">
+                          <!-- Data from server -->
+                          <tr class="admin-table-line">
+                            <td style="padding-right:11px;">
+                              <div class="radioButtons">
+                                <form action="#">
+                                  <p>
+                                    <input type="radio" id="syspay_1" name="radio-group" checked="">
+                                    <label for="syspay_1"></label>
+                                  </p>
+                                </form>
+                              </div>
+                            </td>
+                            <td>
+                              Visa
+                            </td>
+                            <td>
+                              4580******123
+                            </td>
+                            <td>
+                              02 / 2019
+                            </td>
+                            <td class="admin-table-delete">
+                              <i onclick="deleteModal();" class="fas fa-times text-black" aria-hidden="true"></i>
+                              <i onclick="showCardModal();" class="fas fa-cog text-white" style="margin-left:7px;" aria-hidden="true"></i>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <div class="subTable">
+                        <div class="button-update">
+                          <span onclick="showCardModal();" class="absButton_clear">Add card</span>
+                          <a href="https://www.ekonhome.com.cn/legal">Terms and conditions</a>
+                        </div>
+                      </div>
+                      <div class="greyBlock">
+                        <div class="greyBlock_title">
+                          <h3 style="color:black;">Invoice</h3>
+                          <h3 style="color:red;">Account suspended!!!</h3>
+                          <h3 style="color:black;">Date: <span style="font-size:30px;">04</span> 2019</h3>
+                        </div>
+                        <div class="greyTable">
+                          <table id="greyTable_table">
+                            <tbody><tr>
+                              <th>Rate/unit/month</th>
+                              <th>Amount</th>
+                              <th>Issue date</th>
+                              <th>Due date</th>
+                            </tr>
+                            </tbody><tbody id="greyTable_table_body" class="level-table-data">
+                              <!-- Data from server -->
+                              <tr class="admin-table-line">
+                                <td>
+                                  $1.0
+                                </td>
+                                <td>
+                                  $253
+                                </td>
+                                <td>
+                                  21/04/2019
+                                </td>
+                                <td>
+                                  28/04/2019
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                        <div class="greyTable smallPaddingTop">
+                          <table id="greyTable_table_big">
+                            <tbody><tr>
+                              <th>Level</th>
+                              <th>Name</th>
+                              <th>Unit</th>
+                              <th>Price</th>
+                              <th>Amount</th>
+                            </tr>
+                            </tbody><tbody id="greyTable_table_big_body" class="level-table-data">
+                              <!-- Data from server -->
+                              <tr class="admin-table-line">
+                                <td style="text-align:left;" rowspan="2">
+                                  L1
+                                </td>
+                                <td class="alignLeft">
+                                  City 3
+                                </td>
+                                <td>
+                                  135
+                                </td>
+                                <td>
+                                  1.0
+                                </td>
+                                <td>
+                                  135
+                                </td>
+                              </tr>
+                              <tr class="admin-table-line">
+                                <td class="alignLeft">
+                                  Beijing
+                                </td>
+                                <td>
+                                  14
+                                </td>
+                                <td>
+                                  1.0
+                                </td>
+                                <td>
+                                  15
+                                </td>
+                              </tr>
+                              <tr class="admin-table-line">
+                                <td style="text-align:left;" rowspan="3">
+                                  L2
+                                </td>
+                                <td class="alignLeft">
+                                  Pudong
+                                </td>
+                                <td>
+                                  35
+                                </td>
+                                <td>
+                                  1.0
+                                </td>
+                                <td>
+                                  35
+                                </td>
+                              </tr>
+                              <tr class="admin-table-line">
+                                <td class="alignLeft">
+                                  Area 2
+                                </td>
+                                <td>
+                                  15
+                                </td>
+                                <td>
+                                  1.0
+                                </td>
+                                <td>
+                                  15
+                                </td>
+                              </tr>
+                              <tr class="admin-table-line">
+                                <td class="alignLeft">
+                                  Area 6
+                                </td>
+                                <td>
+                                  25
+                                </td>
+                                <td>
+                                  1.0
+                                </td>
+                                <td>
+                                  25
+                                </td>
+                              </tr>
+                              <tr class="admin-table-line">
+                                <td style="text-align:left;">
+                                  L3
+                                </td>
+                                <td class="alignLeft">
+                                  Shop aaa
+                                </td>
+                                <td>
+                                  5
+                                </td>
+                                <td>
+                                  1.0
+                                </td>
+                                <td>
+                                  5
+                                </td>
+                              </tr>
+                              <tr class="admin-table-line">
+                                <td class="fakeTd"></td>
+                                <td class="fakeTd"></td>
+                                <td class="fakeTd"></td>
+                                <td>
+                                  Subtotal
+                                </td>
+                                <td>
+                                  230
+                                </td>
+                              </tr>
+                              <tr class="admin-table-line">
+                                <td class="fakeTd"></td>
+                                <td class="fakeTd"></td>
+                                <td class="fakeTd"></td>
+                                <td>
+                                  Tax 10%
+                                </td>
+                                <td>
+                                  23
+                                </td>
+                              </tr>
+                              <tr class="admin-table-line">
+                                <td class="fakeTd"></td>
+                                <td class="fakeTd"></td>
+                                <td class="fakeTd"></td>
+                                <td style="font-weight:800;">
+                                  Total $
+                                </td>
+                                <td style="font-weight:800;">
+                                  253
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                          <div class="subTable">
+                            <div class="button-update">
+                              <i id="save-syspay" class="fas fa-save text-black dashboardTableSave" aria-hidden="true" onclick="fnExcelReport('greyTable_table_big')"></i>
+                              <span class="absButton_clear">Pay in advance</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="subTable_last">
+                        <div class="control-large-level">
+                          <div class="subTitle_title">
+                            <h3>History payment</h3>
+                            <select class="customSelect">
+                              <option selected>2019</option>
+                              <option>2018</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="alert_1_wrapper">
+                          <table id="alert-1">
+                            <tbody>
+                            <tr>
+                              <th class="dashboard-table-sort inline-sort">
+                              <div class="inline">Date
+                                <div class="sticks">
+                                  <i onclick="dashboardSortSelect(this)" class="fas fa-caret-down dashboard-table-sort-active dashboard-table-sort-select" aria-hidden="true"></i>
+                                  <i onclick="dashboardSortSelect(this)" class="fas fa-caret-up text-white dashboard-table-sort-select" aria-hidden="true"></i>
+                                </div>
+                              </div>
+                             </th>
+                              <th class="dashboard-table-sort">
+                                <div>#<br>Devices</div>
+                              </th>
+                              <th class="dashboard-table-sort">
+                                <div>$ /<br>unit</div>
+                              </th>
+                              <th class="dashboard-table-sort">
+                                <div>$<br>Total</div>
+                              </th>
+                              <th class="dashboard-table-sort">
+                                <div>%<br>Tax</div>
+                              </th>
+                              <th class="dashboard-table-sort">
+                                <div>Sub<br>Total</div>
+                              </th>
+                              <th class="dashboard-table-sort">
+                                <div>Invoice<br>date</div>
+                              </th>
+                              <th class="dashboard-table-sort">
+                                <div>Date<br>paid</div>
+                              </th>
+                            </tr>
+                            <tr class="dashboard-table-data">
+                              <td>5/19</td>
+                              <td>40</td>
+                              <td>2</td>
+                              <td>80</td>
+                              <td>5</td>
+                              <td>84</td>
+                              <td>10/4/19</td>
+                              <td></td>
+                            </tr>
+                            <tr class="dashboard-table-data">
+                              <td>3/19</td>
+                              <td>25</td>
+                              <td>2</td>
+                              <td>80</td>
+                              <td>5</td>
+                              <td>84</td>
+                              <td>10/4/19</td>
+                              <td>15/31/19</td>
+                            </tr>
+                            <tr class="dashboard-table-data">
+                              <td>2/19</td>
+                              <td>40</td>
+                              <td>2</td>
+                              <td>80</td>
+                              <td>5</td>
+                              <td>84</td>
+                              <td>10/4/19</td>
+                              <td>15/31/19</td>
+                            </tr>
+                            <tr class="dashboard-table-data">
+                              <td>1/19</td>
+                              <td>15</td>
+                              <td>2</td>
+                              <td>80</td>
+                              <td>5</td>
+                              <td>84</td>
+                              <td>10/4/19</td>
+                              <td>15/31/19</td>
+                            </tr>
+                            <tr class="dashboard-table-data">
+                              <td>4/19</td>
+                              <td>40</td>
+                              <td>2</td>
+                              <td>80</td>
+                              <td>5</td>
+                              <td>84</td>
+                              <td>10/4/19</td>
+                              <td>15/31/19</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="wrapperTwo">
+                      <div class="wrapperExcel">
+                        <i id="excelCustom" class="fas fa-save text-white dashboardTableSave" aria-hidden="true" onclick="fnExcelReport('one_table_1');fnExcelReport('two_table_1');"></i>
+                      </div>
+                      <h3 style="color:#7F7F7F;margin-top:5px;font-size:23px;">Baseline old bills (to calculate saving)</h3>
+                      <h6 style="margin-top:5px;margin-bottom:10px;">Please enter last 12-month electric bill charges include read date and charge period (month to month)</h6>
+                      <div class="oneTable">
+                        <table id="one_table_1">
+                          <tbody><tr>
+                            <th>Month</th>
+                            <th>01</th>
+                            <th>02</th>
+                            <th>03</th>
+                            <th>04</th>
+                            <th>05</th>
+                            <th>06</th>
+                            <th>07</th>
+                            <th>08</th>
+                            <th>09</th>
+                            <th>10</th>
+                            <th>11</th>
+                            <th>12</th>
+                          </tr>
+                          </tbody><tbody id="oneTableData_1" class="level-table-data">
+                            <!-- Data from server -->
+                            <tr class="admin-table-line">
+                              <td style="background:#A6A6A6;">
+                                Read date
+                              </td>
+                              <td class="inputCustom">
+                                <input type="number">
+                              </td>
+                              <td class="inputCustom">
+                                <input type="number">
+                              </td>
+                              <td class="inputCustom">
+                                <input type="number">
+                              </td>
+                              <td class="inputCustom">
+                                <input type="number">
+                              </td>
+                              <td class="inputCustom">
+                                <input type="number">
+                              </td>
+                              <td class="inputCustom">
+                                <input type="number">
+                              </td>
+                              <td class="inputCustom">
+                                <input type="number">
+                              </td>
+                              <td class="inputCustom">
+                                <input type="number">
+                              </td>
+                              <td class="inputCustom">
+                                <input type="number">
+                              </td>
+                              <td class="inputCustom">
+                                <input type="number">
+                              </td>
+                              <td class="inputCustom">
+                                <input type="number">
+                              </td>
+                              <td class="inputCustom">
+                                <input type="number">
+                              </td>
+                            </tr>
+                            <tr class="admin-table-line">
+                              <td style="background:#A6A6A6;">
+                                Period (days)
+                              </td>
+                              <td class="inputCustom">
+                                <input type="number">
+                              </td>
+                              <td class="inputCustom">
+                                <input type="number">
+                              </td>
+                              <td class="inputCustom">
+                                <input type="number">
+                              </td>
+                              <td class="inputCustom">
+                                <input type="number">
+                              </td>
+                              <td class="inputCustom">
+                                <input type="number">
+                              </td>
+                              <td class="inputCustom">
+                                <input type="number">
+                              </td>
+                              <td class="inputCustom">
+                                <input type="number">
+                              </td>
+                              <td class="inputCustom">
+                                <input type="number">
+                              </td>
+                              <td class="inputCustom">
+                                <input type="number">
+                              </td>
+                              <td class="inputCustom">
+                                <input type="number">
+                              </td>
+                              <td class="inputCustom">
+                                <input type="number">
+                              </td>
+                              <td class="inputCustom">
+                                <input type="number">
+                              </td>
+                            </tr>
+                            <tr class="admin-table-line">
+                              <td style="background:#A6A6A6;">
+                                Bill ($)
+                              </td>
+                              <td class="inputCustom">
+                                <input type="number">
+                              </td>
+                              <td class="inputCustom">
+                                <input type="number">
+                              </td>
+                              <td class="inputCustom">
+                                <input type="number">
+                              </td>
+                              <td class="inputCustom">
+                                <input type="number">
+                              </td>
+                              <td class="inputCustom">
+                                <input type="number">
+                              </td>
+                              <td class="inputCustom">
+                                <input type="number">
+                              </td>
+                              <td class="inputCustom">
+                                <input type="number">
+                              </td>
+                              <td class="inputCustom">
+                                <input type="number">
+                              </td>
+                              <td class="inputCustom">
+                                <input type="number">
+                              </td>
+                              <td class="inputCustom">
+                                <input type="number">
+                              </td>
+                              <td class="inputCustom">
+                                <input type="number">
+                              </td>
+                              <td class="inputCustom">
+                                <input type="number">
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+
+                      <h3 style="color:#7F7F7F;margin-top:25px;font-size:23px;">New bill
+                        <select class="customSelect" style="margin-left:70px;color:#7F7F7F;">
+                          <option selected>Year 2019</option>
+                          <option>Year 2020</option>
+                          <option>Year 2021</option>
+                          <option>Year 2022</option>
+                          <option>Year 2023</option>
+                          <option>Year 2024</option>
+                          <option>Year 2025</option>
+                          <option>Year 2026</option>
+                          <option>Year 2027</option>
+                          <option>Year 2028</option>
+                          <option>Year 2029</option>
+                          <option>Year 2030</option>
+                          <option>Year 2031</option>
+                          <option>Year 2032</option>
+                          <option>Year 2033</option>
+                          <option>Year 2034</option>
+                          <option>Year 2035</option>
+                          <option>Year 2036</option>
+                          <option>Year 2037</option>
+                          <option>Year 2038</option>
+                          <option>Year 2039</option>
+                          <option>Year 2040</option>
+                          <option>Year 2041</option>
+                          <option>Year 2042</option>
+                          <option>Year 2043</option>
+                          <option>Year 2044</option>
+                          <option>Year 2045</option>
+                          <option>Year 2046</option>
+                          <option>Year 2047</option>
+                          <option>Year 2048</option>
+                          <option>Year 2049</option>
+                          <option>Year 2050</option>
+                        </select>
+                      </h3>
+                      <h6 style="margin-top:5px;margin-bottom:10px;">Please enter each month electric bill charges i2n0cl1ud9e read date and charge period (month to month)</h6>
+                      <div class="oneTable">
+                        <table id="two_table_1">
+                          <tbody><tr>
+                            <th>Month</th>
+                            <th>01</th>
+                            <th>02</th>
+                            <th>03</th>
+                            <th>04</th>
+                            <th>05</th>
+                            <th>06</th>
+                            <th>07</th>
+                            <th>08</th>
+                            <th>09</th>
+                            <th>10</th>
+                            <th>11</th>
+                            <th>12</th>
+                          </tr>
+                          </tbody><tbody id="twoTableData_1" class="level-table-data">
+                            <!-- Data from server -->
+                            <tr class="admin-table-line">
+                              <td style="background:#A6A6A6;">
+                                Read date
+                              </td>
+                              <td class="inputCustom">
+                                <input type="number">
+                              </td>
+                              <td class="inputCustom">
+                                <input type="number">
+                              </td>
+                              <td class="inputCustom">
+                                <input type="number">
+                              </td>
+                              <td class="inputCustom">
+                                <input type="number">
+                              </td>
+                              <td class="inputCustom">
+                                <input type="number">
+                              </td>
+                              <td class="inputCustom">
+                                <input type="number">
+                              </td>
+                              <td class="inputCustom">
+                                <input type="number">
+                              </td>
+                              <td class="inputCustom">
+                                <input type="number">
+                              </td>
+                              <td class="inputCustom">
+                                <input type="number">
+                              </td>
+                              <td class="inputCustom">
+                                <input type="number">
+                              </td>
+                              <td class="inputCustom">
+                                <input type="number">
+                              </td>
+                              <td class="inputCustom">
+                                <input type="number">
+                              </td>
+                            </tr>
+                            <tr class="admin-table-line">
+                              <td style="background:#A6A6A6;">
+                                Period (days)
+                              </td>
+                              <td class="inputCustom">
+                                <input type="number">
+                              </td>
+                              <td class="inputCustom">
+                                <input type="number">
+                              </td>
+                              <td class="inputCustom">
+                                <input type="number">
+                              </td>
+                              <td class="inputCustom">
+                                <input type="number">
+                              </td>
+                              <td class="inputCustom">
+                                <input type="number">
+                              </td>
+                              <td class="inputCustom">
+                                <input type="number">
+                              </td>
+                              <td class="inputCustom">
+                                <input type="number">
+                              </td>
+                              <td class="inputCustom">
+                                <input type="number">
+                              </td>
+                              <td class="inputCustom">
+                                <input type="number">
+                              </td>
+                              <td class="inputCustom">
+                                <input type="number">
+                              </td>
+                              <td class="inputCustom">
+                                <input type="number">
+                              </td>
+                              <td class="inputCustom">
+                                <input type="number">
+                              </td>
+                            </tr>
+                            <tr class="admin-table-line">
+                              <td style="background:#A6A6A6;">
+                                Bill ($)
+                              </td>
+                              <td class="inputCustom">
+                                <input type="number">
+                              </td>
+                              <td class="inputCustom">
+                                <input type="number">
+                              </td>
+                              <td class="inputCustom">
+                                <input type="number">
+                              </td>
+                              <td class="inputCustom">
+                                <input type="number">
+                              </td>
+                              <td class="inputCustom">
+                                <input type="number">
+                              </td>
+                              <td class="inputCustom">
+                                <input type="number">
+                              </td>
+                              <td class="inputCustom">
+                                <input type="number">
+                              </td>
+                              <td class="inputCustom">
+                                <input type="number">
+                              </td>
+                              <td class="inputCustom">
+                                <input type="number">
+                              </td>
+                              <td class="inputCustom">
+                                <input type="number">
+                              </td>
+                              <td class="inputCustom">
+                                <input type="number">
+                              </td>
+                              <td class="inputCustom">
+                                <input type="number">
+                              </td>
+                            </tr>
+                            <tr class="admin-table-line">
+                              <td style="background:#A6A6A6;">
+                                Turnover ($)
+                              </td>
+                              <td class="inputCustom">
+                                <input type="number">
+                              </td>
+                              <td class="inputCustom">
+                                <input type="number">
+                              </td>
+                              <td class="inputCustom">
+                                <input type="number">
+                              </td>
+                              <td class="inputCustom">
+                                <input type="number">
+                              </td>
+                              <td class="inputCustom">
+                                <input type="number">
+                              </td>
+                              <td class="inputCustom">
+                                <input type="number">
+                              </td>
+                              <td class="inputCustom">
+                                <input type="number">
+                              </td>
+                              <td class="inputCustom">
+                                <input type="number">
+                              </td>
+                              <td class="inputCustom">
+                                <input type="number">
+                              </td>
+                              <td class="inputCustom">
+                                <input type="number">
+                              </td>
+                              <td class="inputCustom">
+                                <input type="number">
+                              </td>
+                              <td class="inputCustom">
+                                <input type="number">
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <h6 style="margin-top:5px;margin-bottom:10px;">Fill up turnover to know proportion of electric bill to turnover</h6>
+                    </div>
+
+                  </div>
+                </div>
+                <div class="control-column">
+                  <div class="control-level-title control-level-title-5">
+                    <h2 class="afterIco sign_5">Alert</h2>
+                  </div>
+                  <div class="control-large-levels">
+                    <div class="control-large-level">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="bill-level" class="level-bill">
+      <style id="bill_level_style">
+        .control-column{
+          padding-top: 0px;
+        }
+        .control-level{
+          background: #222A35;
+        }
+        .control-level-item{
+          background: #222A35;
+        }
+        .control-level-title{
+          background: #222A35;
+          -ms-align-items: center;
+          align-items: center;
+        }
+        .level-title{
+          display: -webkit-flex !important;
+          display: -ms-flex !important;
+          display: flex !important;
+          margin-left: 2px;
+          margin-bottom: 5px;
+        }
+        .control-level-item i::before{
+          font-family: "Font Awesome 5 Free";
+          font-weight: 900;
+          content: "\f00c";
+        }
+        .control-level-item i{
+          font-size: 30px !important;
+          color: white !important;
+        }
+        .control-level-item i{
+          display: none;
+        }
+        .control-level-item .text-green-visible{
+          display: flex;
+        }
+        .control-level-title h6{
+          color: white;
+          display: none;
+        }
+        .control-level-title h2{
+          color: white;
+        }
+        .control-level-item{
+          border-bottom: 3px solid #333F51;
+          padding-bottom: 10px;
+        }
+        .control-level-item:first-child{
+          border-top: 3px solid #333F51;
+        }
+        .nullPadding{
+          padding: 20px !important;
+          padding-bottom: 5px !important;
+        }
+        .level-content h6{
+          visibility: hidden;
+        }
+        .control-after{
+          background: #000;
+        }
+        .control-level-title{
+          height: 55px;
+        }
+      </style>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.js" crossorigin="anonymous"></script>
+  <script src="http://vitalets.github.io/combodate/combodate.js" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="vanilla-calendar-min.js"></script>
+  <script type="text/javascript" src="setup-selection.js"></script>
+  <script type="text/javascript" src="setup.js"></script>
+</body>
+</html>
