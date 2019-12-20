@@ -651,26 +651,16 @@ function hideLastLevel(){
   document.getElementsByClassName('subsign_5')[0].classList.remove('subsign_5-last');
 }
 function setOrange_1(elem){
-  isFourChecked = 1;
-  isFiveChecked = 1;
-
-  var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
-  document.getElementById('tab_1_value').innerText = elem.innerText;
-
-  document.getElementById('tab_1_value').setAttribute('style', 'visibility: visible; !important');
-
-  document.getElementById('tab_2_value').setAttribute('style', 'visibility: hidden; !important');
-  document.getElementById('tab_3_value').setAttribute('style', 'visibility: hidden; !important');
-
-  document.getElementById('tab_3_value').classList.remove('tabActive');
-  document.getElementById('tab_1_value').classList.add('tabActive');
-  document.getElementById('tab_2_value').classList.remove('tabActive');
-  document.getElementById('tab_0_value').classList.remove('tabActive');
-
-  document.getElementById('tab_0_span').setAttribute('style', 'visibility: visible; !important');
-  document.getElementById('tab_1_span').setAttribute('style', 'visibility: hidden; !important');
-  document.getElementById('tab_2_span').setAttribute('style', 'visibility: hidden; !important');
-
+  var normalStep = true;
+  for (var i = 0; i < document.getElementsByClassName('selectedLevel_1').length; i++) {
+    if(document.getElementsByClassName('selectedLevel_1')[i] == elem){
+      if(document.getElementsByClassName('level-dollar')[i].children[0].classList.contains('text-green-visible') || document.getElementsByClassName('level-dollar')[i].children[0].classList.contains('text-red-visible')){
+        if(document.getElementById('bill_level_style').disabled){
+          normalStep = false;  
+        }
+      }
+    }
+  }
   clearAllMarked(2);
   clearAllMarked(3);
 
@@ -702,23 +692,51 @@ function setOrange_1(elem){
         }
     }
   }
+
+  if(normalStep){
+    $(document).ready(function(){
+      $('.control-levels').scrollLeft($('.control-levels').width());
+    });
+
+    isFourChecked = 1;
+    isFiveChecked = 1;
+
+    var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+    document.getElementById('tab_1_value').innerText = elem.innerText;
+
+    document.getElementById('tab_1_value').setAttribute('style', 'visibility: visible; !important');
+
+    document.getElementById('tab_2_value').setAttribute('style', 'visibility: hidden; !important');
+    document.getElementById('tab_3_value').setAttribute('style', 'visibility: hidden; !important');
+
+    document.getElementById('tab_3_value').classList.remove('tabActive');
+    document.getElementById('tab_1_value').classList.add('tabActive');
+    document.getElementById('tab_2_value').classList.remove('tabActive');
+    document.getElementById('tab_0_value').classList.remove('tabActive');
+
+    document.getElementById('tab_0_span').setAttribute('style', 'visibility: visible; !important');
+    document.getElementById('tab_1_span').setAttribute('style', 'visibility: hidden; !important');
+    document.getElementById('tab_2_span').setAttribute('style', 'visibility: hidden; !important');
+
+  } else {
+    document.getElementsByClassName('control-large-levels')[0].style.display = "block";
+    document.getElementsByClassName('control-level')[2].style.display = "none";
+    document.getElementsByClassName('control-level')[1].style.display = "none";
+  }
+
+
 }
 function setOrange_2(elem){
-  isFourChecked = 1;
-  isFiveChecked = 1;
-
-  document.getElementById('tab_2_value').innerText = elem.innerText;
-  document.getElementById('tab_2_value').setAttribute('style', 'visibility: visible; !important');
-
-  document.getElementById('tab_3_value').setAttribute('style', 'visibility: hidden; !important');
-
-  document.getElementById('tab_3_value').classList.remove('tabActive');
-  document.getElementById('tab_1_value').classList.remove('tabActive');
-  document.getElementById('tab_2_value').classList.add('tabActive');
-
-  document.getElementById('tab_2_span').setAttribute('style', 'visibility: hidden; !important');
-  document.getElementById('tab_1_span').setAttribute('style', 'visibility: visible; !important');
-
+  var normalStep_2 = true;
+  for (var i = 0; i < document.getElementsByClassName('selectedLevel_2').length; i++) {
+    if(document.getElementsByClassName('selectedLevel_2')[i] == elem){
+      if(document.getElementsByClassName('level-dollar')[i+document.getElementsByClassName('selectedLevel_1').length].children[0].classList.contains('text-green-visible') || document.getElementsByClassName('level-dollar')[i+document.getElementsByClassName('selectedLevel_1').length].children[0].classList.contains('text-red-visible')){
+        if(document.getElementById('bill_level_style').disabled){
+          normalStep_2 = false;
+        }
+      }
+    }
+  }
   clearAllMarked(3);
 
   isTwoChecked = 1;
@@ -748,8 +766,36 @@ function setOrange_2(elem){
         }
     }
   }
+  if(normalStep_2){
+    $(document).ready(function(){
+      $('.control-levels').scrollLeft($('.control-levels').width());
+    });
+
+    isFourChecked = 1;
+    isFiveChecked = 1;
+
+    document.getElementById('tab_2_value').innerText = elem.innerText;
+    document.getElementById('tab_2_value').setAttribute('style', 'visibility: visible; !important');
+
+    document.getElementById('tab_3_value').setAttribute('style', 'visibility: hidden; !important');
+
+    document.getElementById('tab_3_value').classList.remove('tabActive');
+    document.getElementById('tab_1_value').classList.remove('tabActive');
+    document.getElementById('tab_2_value').classList.add('tabActive');
+
+    document.getElementById('tab_2_span').setAttribute('style', 'visibility: hidden; !important');
+    document.getElementById('tab_1_span').setAttribute('style', 'visibility: visible; !important');
+  } else {
+    document.getElementsByClassName('control-large-levels')[0].style.display = "block";
+    document.getElementsByClassName('control-level')[2].style.display = "none";
+  }
+
 }
 function setOrange_3(elem){
+  $(document).ready(function(){
+    $('.control-levels').scrollLeft($('.control-levels').width());
+  });
+
   isFourChecked = 1;
   isFiveChecked = 1;
 

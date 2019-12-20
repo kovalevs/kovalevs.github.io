@@ -125,7 +125,7 @@ for (let i = 17; i < 33; i++) {
   copy_data.setAttribute('value', i);
   document.getElementById("sf-size-min").appendChild(copy_data);
 }
-for (let i = 17; i < 36; i++) {
+for (let i = 11; i < 36; i++) {
   let copy_data = document.getElementById('sfSizeMin_1').cloneNode(true);
   copy_data.setAttribute('label', i);
   copy_data.setAttribute('value', i);
@@ -150,7 +150,7 @@ function setTab(elem){
   elem.classList.add('setup-active');
 }
 
-for (let i = 1; i < 61; i++) {
+for (let i = 1; i < 60; i++) {
   let copy_data = document.getElementsByClassName('minuteSelect')[0].cloneNode(true);
 	if(i < 10){
 		copy_data.innerText = '0'+i;
@@ -159,7 +159,7 @@ for (let i = 1; i < 61; i++) {
 	}
   document.getElementById("minuteSelect").appendChild(copy_data);
 }
-for (let i = 1; i < 61; i++) {
+for (let i = 1; i < 60; i++) {
   let copy_data = document.getElementsByClassName('minuteSelect')[1].cloneNode(true);
 	if(i < 10){
 		copy_data.innerText = '0'+i;
@@ -254,11 +254,13 @@ document.getElementById('tabSelection').children[5].addEventListener('click', fu
 	adminLevel.classList.add('nullPadding')
 	adminLevelTab.style.display = "none";
 
+
 	document.getElementById('bill_level_style').disabled = true;
 	document.getElementsByClassName('wrapperOne')[0].style.display = "block";
 	document.getElementsByClassName('wrapperTwo')[0].style.display = "none";
 
 	clearAllLevels();
+	document.getElementsByClassName('control-large-levels')[0].style.display = "none";
 
  }, false);
 document.getElementById('tabSelection').children[6].addEventListener('click', function(){
@@ -279,6 +281,7 @@ document.getElementById('tabSelection').children[6].addEventListener('click', fu
 	document.getElementById('levelLevelTwoTab').style.display = "none";
 	document.getElementById('levelAdminTab').style.display = "flex";
 	clearAllLevels();
+	document.getElementsByClassName('control-large-levels')[0].style.display = "none";
 
  }, false);
 
@@ -340,6 +343,14 @@ for (var i = 0; i < document.getElementsByClassName('vanilla-calendar-btn').leng
 		}
 	 }, false);
 }
+
+document.getElementsByClassName('vanilla-calendar-btn')[0].addEventListener('click', function(){
+	document.getElementsByClassName('vanilla-calendar-btn')[2].click();
+ }, false);
+document.getElementsByClassName('vanilla-calendar-btn')[3].addEventListener('click', function(){
+	document.getElementsByClassName('vanilla-calendar-btn')[1].click();
+ }, false);
+
 
  //
 // showBody.style.display = "none";
@@ -445,4 +456,18 @@ document.getElementById('setupDeleteAccountConfirm').onclick = function(){
 
 function deleteModal(){
 	document.getElementById('levelDeleteModal').style.display = "flex";
+}
+
+
+document.getElementById('monthDate').innerText = moment().month()+1;
+document.getElementById('yearDate').innerText = moment().year();
+
+if(moment().year() == 2019){
+	document.getElementById('firstYear').setAttribute('selected', 'true');
+} else if(moment().year() == 2020){
+	document.getElementById('secondYear').setAttribute('selected', 'true');
+} else if(moment().year() == 2021){
+	document.getElementById('thirdYear').setAttribute('selected', 'true');
+} else if(moment().year() == 2022){
+	document.getElementById('fourYear').setAttribute('selected', 'true');
 }

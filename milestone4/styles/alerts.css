@@ -1079,6 +1079,9 @@ body{
 #mobileTitle{
   display: none;
 }
+.mobileOnly{
+  display: none;
+}
 @media (min-width: 320px) and (max-width: 1000px){
   #mobileTitle{
     display: -webkit-flex;
@@ -1093,10 +1096,10 @@ body{
     margin-bottom: 5px;
     margin-top: 10px;
   }
-  .dashboard-table table{
+  /* .dashboard-table table{
     direction: rtl;
-  }
-  .dashboardTableDelete{
+  } */
+  /* .dashboardTableDelete{
     direction: ltr;
   }
   .info-textarea{
@@ -1104,6 +1107,12 @@ body{
   }
   .dashboard-table-data td{
     direction: ltr;
+  } */
+  .mobileOnly{
+    display: table-cell;
+  }
+  .desktopOnly{
+    display: none;
   }
   .blockHidden{
     display: none !important;

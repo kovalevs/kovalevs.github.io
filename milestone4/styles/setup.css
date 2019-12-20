@@ -17,6 +17,12 @@ input:focus,button:focus {outline:0 !important;}
 .admin-table-line select{
   background: white;
 }
+#fromCalendar .vanilla-calendar-btn:last-child{
+  display: none;
+}
+#toCalendar .vanilla-calendar-btn:first-child{
+  display: none;
+}
 .admin-system{
   display: none;
 }
@@ -1142,8 +1148,7 @@ i{
   background: #FF0200 !important;
 }
 .h_darkred{
-  background: #C00000 !important;
-  color: white !important;
+  background: #920000 !important;
 }
 .h_orange{
   background: #FFC004 !important;
@@ -2141,4 +2146,23 @@ input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-i
 
 .alert_1_wrapper{
   overflow: auto;
+}
+
+.wrapperTwo td{
+  font-size: 12px !important;
+  min-width: 125px !important;
+}
+.wrapperTwo th{
+  font-size: 12px !important;
+}
+.wrapperTwo .inputCustom{
+  min-width: unset !important;
+}
+.wrapperTwo .inputCustom input{
+  width: 55px !important;
+}
+@media (min-width: 1500px) and (max-width: 2500px){
+  .control-level{
+    min-width: 33.3%;
+  }
 }
