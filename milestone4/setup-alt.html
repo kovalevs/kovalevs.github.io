@@ -66,6 +66,7 @@
                           <option selected>01</option>
                           <option>02</option>
                           <option>03</option>
+                          <option>04</option>
                           <option>05</option>
                           <option>06</option>
                           <option>07</option>
@@ -76,13 +77,13 @@
                           <option>12</option>
                         </select>
                         <select class="customSelect" style="margin-left:30px;">
-                          <option selected>2025</option>
-                          <option>2024</option>
-                          <option>2023</option>
-                          <option>2022</option>
-                          <option>2021</option>
-                          <option>2020</option>
                           <option selected>2019</option>
+                          <option>2020</option>
+                          <option>2021</option>
+                          <option>2022</option>
+                          <option>2023</option>
+                          <option>2024</option>
+                          <option>2025</option>
                         </select>
                       </td>
                     </tr>
@@ -280,7 +281,7 @@
             <th class="h_orange">+ Amp</th>
             <th class="h_red">+ Amp</th>
           </tr>
-          <h2 class="hideAdminBlock">Current % Alert</h2>
+          <h2>Current % Alert</h2>
           <tbody id="adminTableData_2" class="level-table-data">
             <!-- Data from server -->
             <tr class="admin-table-line">
@@ -333,7 +334,8 @@
             </tr>
           </tbody>
         </table>
-        <h6 class="withoutPadding hideAdminBlock">Note: an alert is sent if any air conditioner is reaching these levels</h6>
+        <h6 class="withoutPadding">Note: an alert is sent if any air conditioner is reaching these levels</h6>
+
 
       <div class="admin-system">
         <h2>Minimum to maximum allowable set point temperature range</h2>
@@ -418,9 +420,9 @@
         <table id="table_3">
           <tbody><tr>
             <th class="h_gray">Rank</th>
-            <th class="h_green">1</th>
+            <th class="h_mentolgreen">1</th>
             <th class="h_lightgreen">2</th>
-            <th class="h_mentolgreen">3</th>
+            <th class="h_green">3</th>
             <th class="h_yellow">4 <i class="fas fa-undo text-black" aria-hidden="true"></i></th>
             <th class="h_orange">5</th>
             <th class="h_red">6</th>
@@ -465,9 +467,9 @@
             </tr>
             <tr class="admin-table-line">
               <th class="h_gray">Alert No.</th>
-              <th class="h_green"></th>
-              <th class="h_lightgreen"></th>
               <th class="h_mentolgreen"></th>
+              <th class="h_lightgreen"></th>
+              <th class="h_green"></th>
               <th class="h_yellow"></th>
               <th class="h_orange">E5</th>
               <th class="h_red">E6</th>
@@ -486,9 +488,9 @@
         <table id="table_4">
           <tbody><tr>
             <th class="h_gray">Rank</th>
-            <th class="h_green">1</th>
+            <th class="h_mentolgreen">1</th>
             <th class="h_lightgreen">2</th>
-            <th class="h_mentolgreen">3</th>
+            <th class="h_green">3</th>
             <th class="h_yellow">4</th>
             <th class="h_orange">5</th>
             <th class="h_red">6</th>
@@ -536,7 +538,7 @@
               <td>
                 <div class="centerWrapper">
                   <div class="dashboard-table-checkbox">
-                    <input class="dashboardPopupTableCheckbox" id="dashboardPopupTableCheckbox_4" type="checkbox" name="dashboardPopupTableCheckbox" value="dashboardPopupTableCheckbox_value">
+                    <input checked class="dashboardPopupTableCheckbox" id="dashboardPopupTableCheckbox_4" type="checkbox" name="dashboardPopupTableCheckbox" value="dashboardPopupTableCheckbox_value">
                     <label class="dashboardPopupTableLabel" for="dashboardPopupTableCheckbox_4"></label>
                   </div>
                 </div>
@@ -544,7 +546,7 @@
               <td>
                 <div class="centerWrapper">
                   <div class="dashboard-table-checkbox">
-                    <input class="dashboardPopupTableCheckbox" id="dashboardPopupTableCheckbox_5" type="checkbox" name="dashboardPopupTableCheckbox" value="dashboardPopupTableCheckbox_value">
+                    <input checked class="dashboardPopupTableCheckbox" id="dashboardPopupTableCheckbox_5" type="checkbox" name="dashboardPopupTableCheckbox" value="dashboardPopupTableCheckbox_value">
                     <label class="dashboardPopupTableLabel" for="dashboardPopupTableCheckbox_5"></label>
                   </div>
                 </div>
@@ -552,7 +554,7 @@
               <td>
                 <div class="centerWrapper">
                   <div class="dashboard-table-checkbox">
-                    <input class="dashboardPopupTableCheckbox" id="dashboardPopupTableCheckbox_6" type="checkbox" name="dashboardPopupTableCheckbox" value="dashboardPopupTableCheckbox_value">
+                    <input checked class="dashboardPopupTableCheckbox" id="dashboardPopupTableCheckbox_6" type="checkbox" name="dashboardPopupTableCheckbox" value="dashboardPopupTableCheckbox_value">
                     <label class="dashboardPopupTableLabel" for="dashboardPopupTableCheckbox_6"></label>
                   </div>
                 </div>
@@ -560,9 +562,9 @@
             </tr>
             <tr class="admin-table-line">
               <th class="h_gray">Alert No.</th>
-              <th class="h_green"></th>
-              <th class="h_lightgreen"></th>
               <th class="h_mentolgreen"></th>
+              <th class="h_lightgreen"></th>
+              <th class="h_green"></th>
               <th class="h_yellow"></th>
               <th class="h_orange">AQ5</th>
               <th class="h_red">AQ6</th>
@@ -645,28 +647,28 @@
             <input  id="dashboardPopupCheckbox_8" type="checkbox" name="dashboardPopupCheckbox_4" value="dashboardPopupCheckbox_value_4" checked="">
             <label id="dashboardPopupLabel_8" for="dashboardPopupCheckbox_8"></label>
           </div>
-          <h3>Clean filter after <input type="number" class="numberInput numberInput_small"> hours</h3>
+          <h3>Clean filter after <input type="number" class="numberInput numberInput_small" value="750"> hours</h3>
         </div>
         <div class="check-wrapper">
           <div class="dashboard-labels-checkbox">
-            <input  id="dashboardPopupCheckbox_9" type="checkbox" name="dashboardPopupCheckbox_9" value="dashboardPopupCheckbox_value_9" checked="">
+            <input id="dashboardPopupCheckbox_9" type="checkbox" name="dashboardPopupCheckbox_9" value="dashboardPopupCheckbox_value_9">
             <label id="dashboardPopupLabel_9" for="dashboardPopupCheckbox_9"></label>
           </div>
-          <h3>Send alert if any account goes over the peak powe <input  style="width: 60px !important;" type="number" class="numberInput numberInput_small"> kW</h3>
+          <h3>Send alert if any account goes over the peak power <input  style="width: 60px !important;" type="number" class="numberInput numberInput_small"> kW</h3>
         </div>
         <div class="check-wrapper">
           <div class="dashboard-labels-checkbox">
             <input  id="dashboardPopupCheckbox_10" type="checkbox" name="dashboardPopupCheckbox_10" value="dashboardPopupCheckbox_value_10" checked="false">
             <label id="dashboardPopupLabel_9" for="dashboardPopupCheckbox_10"></label>
           </div>
-          <h3>Send alert if electric bill is higher than actual PM readings by<input style="width: 50px !important;" type="number" class="numberInput numberInput_small"> %</h3>
+          <h3>Send alert if electric bill is higher than actual PM readings by<input style="width: 50px !important;" type="number" class="numberInput numberInput_small" value="5"> %</h3>
         </div>
         <div class="check-wrapper">
           <div class="dashboard-labels-checkbox">
             <input  id="dashboardPopupCheckbox_11" type="checkbox" name="dashboardPopupCheckbox_11" value="dashboardPopupCheckbox_value_11" checked="">
             <label id="dashboardPopupLabel_9" for="dashboardPopupCheckbox_11"></label>
           </div>
-          <h3>Send alert if Power Factor (PF) goes below this value <input style="width: 50px !important;" type="number" class="numberInput numberInput_small"></h3>
+          <h3>Send alert if Power Factor (PF) goes below this value <input style="width: 50px !important;" type="number" class="numberInput numberInput_small" value="0.8"></h3>
         </div>
         <div class="button-update marginTop">
           <span class="absButton_clear">Update All</span>
@@ -793,8 +795,8 @@
             <p>
               <input type="radio" id="rad_3" name="radio-group">
               <label for="rad_3">Conservation Mode – AC from:<select id="sf-size-min_1" name="sf-size-min_1" class="customSelect">
-                  <option label="16℃" selected="selected" disabled="disabled" value="16">24℃</option>
-                  <option label="16" value="16" id="sfSizeMin_1">16</option>
+                  <option label="16℃" selected="selected" disabled="disabled" value="16">16℃</option>
+                  <option label="10" value="10" id="sfSizeMin_1">16</option>
                 </select>
                  to:<select id="sf-size-max_1" name="sf-size-max_1" class="customSelect">
                    <option label="28℃" selected="selected" disabled="disabled" value="28">28℃</option>
@@ -871,7 +873,6 @@
               </select><select class="customSelect">
                 <option selected>Fan 1</option>
                 <option>Fan 2</option>
-                <option>Fan 3</option>
                 <option>Fan 3</option>
                 <option>Fan Auto</option>
               </select> (+ Switch On)</label>
@@ -1051,7 +1052,7 @@
                         <div class="greyBlock_title">
                           <h3 style="color:black;">Invoice</h3>
                           <h3 style="color:red;">Account suspended!!!</h3>
-                          <h3 style="color:black;">Date: <span style="font-size:30px;">04</span> 2019</h3>
+                          <h3 style="color:black;">Date: <span style="font-size:30px;" id="monthDate">04</span> <span id="yearDate">2019</span></h3>
                         </div>
                         <div class="greyTable">
                           <table id="greyTable_table">
@@ -1481,10 +1482,10 @@
 
                       <h3 style="color:#7F7F7F;margin-top:25px;font-size:23px;">New bill
                         <select class="customSelect" style="margin-left:70px;color:#7F7F7F;">
-                          <option selected>Year 2019</option>
-                          <option>Year 2020</option>
-                          <option>Year 2021</option>
-                          <option>Year 2022</option>
+                          <option selected id="firstYear">Year 2019</option>
+                          <option id="secondYear">Year 2020</option>
+                          <option id="thirdYear">Year 2021</option>
+                          <option id="fourYear">Year 2022</option>
                           <option>Year 2023</option>
                           <option>Year 2024</option>
                           <option>Year 2025</option>
@@ -1515,7 +1516,7 @@
                           <option>Year 2050</option>
                         </select>
                       </h3>
-                      <h6 style="margin-top:5px;margin-bottom:10px;">Please enter each month electric bill charges i2n0cl1ud9e read date and charge period (month to month)</h6>
+                      <h6 style="margin-top:5px;margin-bottom:10px;">Please enter each month electric bill charges include read date and charge period (month to month)</h6>
                       <div class="oneTable">
                         <table id="two_table_1">
                           <tbody><tr>
@@ -1787,8 +1788,13 @@
         .control-level-title{
           height: 55px;
         }
+        .control-wrapper{
+          height: calc(100vh - 120px);
+        }
+        .control-levels{
+          overflow-y: hidden;
+        }
       </style>
-
       <style>
         .admin-system{
           display: block !important;
@@ -1808,7 +1814,7 @@
         #size-filters select{
           width: 70px !important;
         }
-      </style>
+    </style>
     </div>
   </div>
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
