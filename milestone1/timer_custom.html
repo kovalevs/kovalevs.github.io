@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+  <link rel="stylesheet" href="styles/timer_custom.css">
+  <script type="text/javascript" src="languages/main.js"></script>
+</head>
+<body>
+  <div class="dashboardmodal-wrapper" id="dashboardDeleteModal">
+    <div class="resetmodal">
+      <div class="resetmodal-window-wrapper">
+        <div class="resetmodal-window">
+          <div class="resemodal-text">
+            <h4>Are you sure you want to delete?</h4>
+            <div class="resetmodal-buttons">
+              <button id="dashboardDeleteAccountCancel" class="reset-modal-buttons-button_darkgrey">No</button>
+              <button id="dashboardDeleteAccountConfirm" class="reset-modal-buttons-button_darkgrey">Yes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="paymodal-wrapper" id="levelPayModal">
+    <div class="paymodal">
+      <div class="paymodal-window-wrapper">
+        <div class="paymodal-window">
+          <div class="paymodal-text">
+            <h4>Please check you payment method</h4>
+            <div class="paymodal-buttons">
+              <button id="payModalCancel">Ok</button>
+              <button id="payModalConfirm">Setup</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="header-desktop">
+    <ul>
+      <!-- LINK -->
+      <li><a href="#"><img src="header-desktop-logo.png" id="header-desktop-logo" alt="logo"></a></li>
+      <li style="margin-right:20%;"><a href="#">Home (admin)</a></li>
+      <li><a href="#">Control</a></li>
+      <li><a href="#">Info</a></li>
+      <li><a href="#" class="headerDesktopSelected">Timer</a></li>
+      <li><a href="#">
+        <div class="input-group md-form form-sm form-1 pl-0">
+          <div class="input-group-prepend">
+            <span class="input-group-text purple lighten-3" id="header-desktop-search-button"><i class="fas fa-search text-white" aria-hidden="true"></i></span>
+          </div>
+          <input class="form-control my-0 py-1" id="header-desktop-search-input" type="text" placeholder="Search" aria-label="Search">
+        </div>
+      </a></li>
+      <li><a href="#">Alerts <span id="headerDesktopAlertAmount">3</span></a></li>
+      <li id="home-desktop-setup"><a href="#">Setup</a><a href="#"><i class="fas fa-sign-out-alt text-white" id="header-desktop-signout" aria-hidden="true"></i></a></li>
+    </ul>
+  </div>
+  <div class="header-mobile">
+      <ul class="header-mobile-navigation">
+        <li><a href="#"><i class="fas fa-home text-white" aria-hidden="true"></i></a></li>
+        <li><a href="#"><i class="fas fa-power-off text-white" aria-hidden="true"></i></a></li>
+        <li><a href="#"><i class="fas fa-chart-bar text-white" aria-hidden="true"></i></a></li>
+        <li><a href="#"><i class="fas fa-clock headerMobileSelected" aria-hidden="true"></i></a></li>
+        <li><a href="#"><i class="fas fa-exclamation-triangle text-white" aria-hidden="true"></i><span id="header-mobile-navigation-alertConunter">3</span></a></li>
+      </ul>
+  </div>
+  <div class="home-mobile-search">
+    <div class="input-group md-form form-sm form-1 pl-0" id="home-mobile-searchbar-wrapper">
+      <div class="input-group-prepend">
+        <span class="input-group-text purple lighten-3" id="header-desktop-search-button"><i class="fas fa-search text-white" aria-hidden="true"></i></span>
+      </div>
+      <input class="form-control my-0 py-1" id="header-desktop-search-input" type="text" placeholder="Search" aria-label="Search">
+      <!-- <div class="daysAlert">30 days trial version</div> -->
+    </div>
+  </div>
+  <div class="control-wrapper">
+    <div class="header-tabs">
+      <h5 class="tabActive" id="tab_1_value" onclick="showFirstLevel()"><i class="fas fa-home text-orange" aria-hidden="true"></i></h5>  <span id="tab_1_span"> > </span>  <h5 id="tab_2_value" onclick="showSecondLevel()">Level 2</h5> <span id="tab_2_span"> > </span> <h5 id="tab_3_value">Level 3</h5>
+    </div>
+    <div class="control">
+      <div class="control-before">
+          <div class="control-levels">
+            <div class="control-level">
+              <div class="control-level-title">
+                <div class="control-checkbox">
+                  <div class="level-checkbox-wrapper">
+                    <input class="level-checkbox" id="level_3_checkbox" type="checkbox" name="level_3_checkbox">
+                    <label class="level-label" id="level_3_label" for="level_3_checkbox"></label>
+                  </div>
+                </div>
+                <h2><script>document.write(en.level3)</script></h2>
+                <!-- From server -->
+                <h6>(50/240)</h6>
+              </div>
+              <div class="control-level-data">
+                <div class="control-level-items">
+                  <div class="control-level-item control-level-item_3">
+                    <div class="level-content">
+                      <div class="control-checkbox">
+                        <div class="level-checkbox-wrapper">
+                          <input onclick="checkPay(this)" class="level-checkbox level-checkbox-small level-checkbox_3" id="level_3_data_checkbox" type="checkbox" name="level_3_data_checkbox">
+                          <label class="level-label level-label-small level-label_3" id="level_3_data_label" for="level_3_data_checkbox"></label>
+                        </div>
+                      </div>
+                      <h2 class="selectedLevel_3" onclick="setOrange_3(this)">Shop 1</h2>
+                      <!-- From server -->
+                      <h6>(6)</h6>
+                    </div>
+                    <div class="level-dollar level-dollar-2">
+                      <i class="fas fa-dollar-sign text-red" aria-hidden="true"></i>
+                    </div>
+                    <div class="level-clock">
+                      <i class="fas fa-stopwatch text-clock" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+      <div class="control-after">
+        <div class="control-columns">
+          <div class="control-column">
+            <div class="control-level-title control-level-title-4">
+              <div class="control-checkbox checkbox_4_level">
+                <div class="level-checkbox-wrapper">
+                  <input class="level-checkbox" id="level_4_checkbox" type="checkbox" name="level_4_checkbox">
+                  <label class="level-label" id="level_4_label" for="level_4_checkbox"></label>
+                </div>
+              </div>
+              <img src="icons/thermometer.png">
+              <h2 class="afterIco">AC</h2>
+              <!-- From server -->
+              <h6>(4)</h6>
+            </div>
+            <div class="control-large-levels">
+              <div class="control-large-level">
+                <div class="large-lines">
+                  <div class="large-line control-level-item_4">
+                    <div class="large-title">
+                      <div class="control-checkbox">
+                        <div class="level-checkbox-wrapper">
+                          <input class="level-checkbox level-checkbox-small level-checkbox_4" id="level_4_data_checkbox" type="checkbox" name="level_4_data_checkbox">
+                          <label class="level-label level-label-small level-label_4" id="level_4_data_label" for="level_4_data_checkbox"></label>
+                        </div>
+                      </div>
+                    <h2>AC 1 name</h2>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="control-column">
+            <div class="control-level-title control-level-title-5">
+              <div class="control-checkbox checkbox_5_level">
+                <div class="level-checkbox-wrapper">
+                  <input class="level-checkbox" id="level_5_checkbox" type="checkbox" name="level_5_checkbox">
+                  <label class="level-label" id="level_5_label" for="level_5_checkbox"></label>
+                </div>
+              </div>
+              <img src="icons/lamp.png">
+              <h2 class="afterIco">SW</h2>
+              <!-- From server -->
+              <h6>(3)</h6>
+            </div>
+            <div class="control-large-levels">
+              <div class="control-large-level">
+                <div class="large-lines">
+                  <div class="large-line control-level-item_5">
+                    <div class="large-title">
+                      <div class="control-checkbox">
+                        <div class="level-checkbox-wrapper">
+                          <input class="level-checkbox level-checkbox-small level-checkbox_5" id="level_5_data_checkbox" type="checkbox" name="level_5_data_checkbox">
+                          <label class="level-label level-label-small level-label_5" id="level_5_data_label" for="level_5_data_checkbox"></label>
+                        </div>
+                      </div>
+                    <h2>Light switch 1</h2>
+                    </div>
+                    <!-- optional from server-->
+                    <div class="level-optional_3">
+                      <img src="icons/person.png">
+                      <h2>11:00</h2>
+                      <img src="icons/battery_low.png">
+                    </div>
+                    <div class="level-optional_4">
+                      <img src="icons/person_alert.png">
+                    </div>
+                    <div class="level-optional_5">
+                      <img src="icons/heart_alert.png">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="control-timer">
+        <div class="timer-title">
+          <div class="timer-title-time">
+            <input type="text" class="toTime" data-format="HH:mm" data-template="HH : mm" name="datetime">
+          </div>
+          <div class="timer-select">
+            <div onclick="timerSelectThis(this)" class="timer-select-item">Mon</div>
+            <div onclick="timerSelectThis(this)" class="timer-select-item">Tue</div>
+            <div onclick="timerSelectThis(this)" class="timer-select-item">Wed</div>
+            <div onclick="timerSelectThis(this)" class="timer-select-item">Thu</div>
+            <div onclick="timerSelectThis(this)" class="timer-select-item">Fri</div>
+            <div onclick="timerSelectThis(this)" class="timer-select-item">Sat</div>
+            <div onclick="timerSelectThis(this)" class="timer-select-item">Sun</div>
+          </div>
+        </div>
+        <div class="timer-title timer-title-last">
+          <div class="level-dropdown level-dropdown_power">
+            <div class="dropdown powerDropdown" style="position: static">
+              <img src="icons/thermometer.png">
+              <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" id="powerDropdown">
+                On
+                <span class="power-caret"></span>
+              </button>
+              <ul class="dropdown-menu dropdown-power">
+                <li><a onclick="timerCheckOff(this)" href="#">On</a></li>
+                <li><a onclick="timerCheckOff(this)" href="#">Off</a></li>
+                <li><a onclick="timerCheckOff(this)" href="#">Idle</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="level-dropdowns level-dropdowns-timer">
+            <div class="level-dropdown">
+              <div class="dropdown" style="position: static">
+                <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" id="tempDropdown">
+                  25°C
+                  <span class="temp-caret"></span>
+                </button>
+                <ul class="dropdown-menu dropdown-temp">
+                  <li class="temp-item"><a href="#" class="temp-item-a" onclick="tempItemA_1(this)">25°C</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="level-dropdown">
+              <div class="dropdown" style="position: static">
+                <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" id="typeDropdown">
+                  Cold
+                  <span class="type-caret"></span>
+                </button>
+                <ul class="dropdown-menu dropdown-type">
+                  <li class="type-item"><a href="#" class="type-item-a" onclick="tempItemA_2(this)">Cold</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="level-dropdown">
+              <div class="dropdown" style="position: static">
+                <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" id="fanDropdown">
+                  Fan 1
+                  <span class="fan-caret"></span>
+                </button>
+                <ul class="dropdown-menu dropdown-fan">
+                  <li class="fan-item"><a href="#" class="fan-item-a" onclick="tempItemA_3(this)">Cold</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="level-dropdown level-dropdown_power">
+            <div class="dropdown powerDropdown" style="position: static">
+              <img src="icons/lamp_yellow.png">
+              <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" id="power1Dropdown">
+                On
+                <span class="power1-caret"></span>
+              </button>
+              <ul class="dropdown-menu dropdown-power1">
+                <li><a onclick="checkIfIdle(this)" href="#">On</a></li>
+                <li><a onclick="checkIfIdle(this)" href="#">Off</a></li>
+                <li><a onclick="checkIfIdle(this)" href="#">Idle</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="timer-title-plus">
+            <i class="fas fa-plus text-white" aria-hidden="true"></i>
+          </div>
+        </div>
+        <div class="timer-table">
+          <table id="timer_table">
+            <tr>
+              <th>Time</th>
+              <th>Days</th>
+              <th>°C</th>
+              <th>AC</th>
+              <th><img src="icons/command.png" width="20px"></th>
+              <th><img src="icons/lamp_black.png" width="20px"></th>
+              <th class="timer-checkitem">
+                <div class="control-checkbox">
+                  <div class="level-checkbox-wrapper">
+                    <input class="level-checkbox" id="level_6_checkbox" type="checkbox" name="level_6_checkbox">
+                    <label class="level-label level-label-small" id="level_6_label" for="level_6_checkbox"></label>
+                  </div>
+                </div>
+              </th>
+              <th></th>
+            </tr>
+            <tr onclick="setLineGrey(this)" class="timer_table">
+              <td>09:00</td>
+              <td>
+                <div class="timer-select">
+                  <div onclick="timerSelectThis(this)" class="timer-select-item timer-select-item-1">M</div>
+                  <div onclick="timerSelectThis(this)" class="timer-select-item timer-select-item-1">T</div>
+                  <div onclick="timerSelectThis(this)" class="timer-select-item timer-select-item-1">W</div>
+                  <div onclick="timerSelectThis(this)" class="timer-select-item timer-select-item-1">T</div>
+                  <div onclick="timerSelectThis(this)" class="timer-select-item timer-select-item-1">F</div>
+                  <div onclick="timerSelectThis(this)" class="timer-select-item timer-select-item-1">S</div>
+                  <div onclick="timerSelectThis(this)" class="timer-select-item timer-select-item-1">S</div>
+                </div>
+              </td>
+              <td>25</td>
+              <td>Cold</td>
+              <td>3</td>
+              <td>Off</td>
+              <td>
+                <div class="control-checkbox">
+                  <div class="level-checkbox-wrapper">
+                    <input class="level-checkbox level-checkbox-small level-checkbox_6" id="level_6_data_checkbox" type="checkbox" name="level_6_data_checkbox">
+                    <label class="level-label level-label-small level-label_6" id="level_6_data_label" for="level_6_data_checkbox"></label>
+                  </div>
+              </td>
+              <td onclick="openDeleteModal()">
+                  <i class="fas fa-times text-times" aria-hidden="true"></i>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="timer-alert">
+          <h6>Please select schedule time and days to repeat timer. Then select control conditions (off or on at certain settings) follow by which levels or devices are participating in timer. When you finish, press Done</h6>
+          <div class="timer-alerts-buttons">
+            <div class="timer-alert-done" onclick="removeInfoAlert()">
+              Done
+            </div>
+            <div class="timer-alert-cancel" onclick="removeInfoAlert()">
+              Cancel
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.js" crossorigin="anonymous"></script>
+<script type="text/javascript" src="combodate.js"></script>
+<script type="text/javascript" src="timer_custom.js"></script>
+</body>
+</html>

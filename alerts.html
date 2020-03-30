@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="styles/alerts.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+  <script type="text/javascript" src="languages/main.js"></script>
+</head>
+<body>
+  <div class="setupmodal-wrapper" id="setupModal">
+    <div class="setupmodal">
+      <div class="setupmodal-window-wrapper">
+        <div class="setupmodal-window">
+          <div class="setupmodal-title">Alert</div>
+          <div class="setupmodal-text">
+            <div class="setupmodal-items">
+              <h3>Alert No. <span>123</span></h3>
+              <!-- <h3 class="yellowText">Alert No. <span>123</span></h3> -->
+              <div class="modal-table">
+                <table id="alert-7">
+                  <tbody>
+                      <tr>
+                        <th class="dashboard-table-sort">
+                          <div>Level 1</div>
+                        </th>
+                        <th class="dashboard-table-sort">
+                          <div>Level 2</div>
+                        </th>
+                        <th class="dashboard-table-sort">
+                          <div>Level 3</div>
+                        </th>
+                        <th class="dashboard-table-sort">
+                          <div>Device</div>
+                        </th>
+                    </tr>
+                    <tr class="dashboard-table-data">
+                      <!-- Database from server -->
+                      <td>Shanghai</td>
+                      <td>Pudong</td>
+                      <td class="classLink">Branch 1</td>
+                      <td class="classLink">Main AC</td>
+                      <!-- End of Database -->
+                    </tr>
+                  </tbody>
+                </table>
+                <p>The area of air conditioner ABC has low air quality. Please open the windows or add air purifier</p>
+                <!-- <p class="yellowText">The area of air conditioner ABC has low air quality. Please open the windows or add air purifier</p> -->
+              </div>
+              <div class="setupmodal-buttons">
+                <button id="setupModalConfirm" class="setup-modal-buttons-button">OK</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="home-mobile-search">
+    <div class="input-group md-form form-sm form-1 pl-0" id="home-mobile-searchbar-wrapper">
+      <div class="input-group-prepend">
+        <span class="input-group-text purple lighten-3" id="header-desktop-search-button"><i class="fas fa-search text-white" aria-hidden="true"></i></span>
+      </div>
+      <input class="form-control my-0 py-1" id="header-desktop-search-input" type="text" placeholder="Search" aria-label="Search">
+    </div>
+  </div>
+  <div class="header-desktop">
+    <ul>
+      <!-- LINK -->
+      <li><a href="#"><img src="header-desktop-logo.png" id="header-desktop-logo" alt="logo"></a></li>
+      <li style="margin-right:20%;"><a href="#">Home (admin)</a></li>
+      <li><a href="#">Control</a></li>
+      <li><a href="#">Info</a></li>
+      <li><a href="#">Timer</a></li>
+      <li><a href="#">
+        <div class="input-group md-form form-sm form-1 pl-0">
+          <div class="input-group-prepend">
+            <span class="input-group-text purple lighten-3" id="header-desktop-search-button"><i class="fas fa-search text-white" aria-hidden="true"></i></span>
+          </div>
+          <input class="form-control my-0 py-1" id="header-desktop-search-input" type="text" placeholder="Search" aria-label="Search">
+        </div>
+      </a></li>
+      <li><a href="#" class="headerDesktopSelected">Alerts <span id="headerDesktopAlertAmount">3</span></a></li>
+      <li id="home-desktop-setup"><a href="#">Setup</a><a href="#"><i class="fas fa-sign-out-alt text-white" id="header-desktop-signout" aria-hidden="true"></i></a></li>
+    </ul>
+  </div>
+  <div class="header-mobile">
+      <ul class="header-mobile-navigation">
+        <li><a href="#"><i class="fas fa-home text-white" aria-hidden="true"></i></a></li>
+        <li><a href="#"><i class="fas fa-power-off headerMobileSelected" aria-hidden="true"></i></a></li>
+        <li><a href="#"><i class="fas fa-chart-bar text-white" aria-hidden="true"></i></a></li>
+        <li><a href="#"><i class="fas fa-clock text-white" aria-hidden="true"></i></a></li>
+        <li><a href="#"><i class="fas fa-exclamation-triangle text-white" aria-hidden="true"></i><span id="header-mobile-navigation-alertConunter">3</span></a></li>
+      </ul>
+  </div>
+
+  <div class="alert-wrapper">
+    <div class="alert-setting">
+      <div class="setting-select" id="settingSelect">
+        <h2 onclick="show_1()">Open (<span class="show_count">2</span>)</h2>
+        <h2 onclick="show_2()">Fixed (<span class="show_count">23</span>)</h2>
+        <h2 onclick="show_3()">Hold (<span class="show_count">43</span>)</h2>
+        <h2 onclick="show_4()">Wi-Fi (<span class="show_count">2</span>)</h2>
+        <h2 onclick="show_5()">Call me (<span class="show_count">24</span>)</h2>
+        <h2 onclick="show_6()">Send Alert</h2>
+      </div>
+      <div class="setting-subinfo">
+        <p>Total No. of alerts: <span>2</span></p>
+        <i id="save-1" class="fas fa-save text-white dashboardTableSave" aria-hidden="true" onclick="fnExcelReport('alert-1')"></i>
+      </div>
+    </div>
+    <div class="alert-table">
+      <h6 id="mobileTitle">01.01.2019</h6>
+      <div class="dashboard">
+        <div class="dashboard-table">
+          <table id="alert-1">
+            <tr>
+              <th class="dashboard-table-sort inline-sort">
+              <div class="inline">Date
+                <div class="sticks">
+                  <i onclick="dashboardSortSelect(this)" class="fas fa-caret-down dashboard-table-sort-active dashboard-table-sort-select" aria-hidden="true"></i>
+                  <i onclick="dashboardSortSelect(this)" class="fas fa-caret-up text-white dashboard-table-sort-select" aria-hidden="true"></i>
+                </div>
+              </div>
+             </th>
+              <th class="dashboard-table-sort">
+                <div>AC</div>
+              </th>
+              <th class="dashboard-table-sort">
+                <div>Error</div>
+              </th>
+              <th class="dashboard-table-sort">
+                <div>#</div>
+              </th>
+              <th class="dashboard-table-sort">
+                <div>Type</div>
+              </th>
+              <th class="dashboard-table-sort">
+                <div>Level 1</div>
+              </th>
+              <th class="dashboard-table-sort">
+                <div>Level 2</div>
+              </th>
+              <th class="dashboard-table-sort">
+                <div>Level 3</div>
+              </th>
+              <th class="dashboard-table-sort">
+                <div>Name</div>
+              </th>
+              <th class="dashboard-table-sort">
+                <div>Phone</div>
+              </th>
+              <th class="dashboard-table-sort">
+                <div>Address</div>
+              </th>
+              <th class="dashboard-table-sort">
+                <div>Note</div>
+              </th>
+              <th class="dashboard-table-sort">
+                <div>Fixed</div>
+              </th>
+            </tr>
+            <tr class="dashboard-table-data">
+              <!-- Database from server -->
+              <td class="dashboard-table-date">01.01.2019,<br>15:35</td>
+              <!-- LINK -->
+              <td><a href="#" class="dashboard-table-email">AC 1</a></td>
+              <td>Current is +7%</td>
+              <td>H1</td>
+              <td>AC-GR</td>
+              <td>City 1</td>
+              <td>Area 1</td>
+              <td>Shop 1</td>
+              <td>Mr. xyz</td>
+              <td>12345</td>
+              <td>Abc st.</td>
+              <td><div class="info-textarea"><textarea class="fa-frown" placeholder="&#x270f; Note"></textarea></div></td>
+              <td class="dashboardTableDelete"><div>
+                <i class="fas fa-smile text-white" aria-hidden="true"></i>
+                <i class="fas fa-frown text-white" aria-hidden="true"></i>
+                <i class="fas fa-times text-white" aria-hidden="true"></i>
+              </div></td>
+              <!-- End of Database -->
+            </tr>
+            <tr class="dashboard-table-data">
+              <!-- Database from server -->
+              <td class="dashboard-table-date">01.01.2019,<br>15:35</td>
+              <!-- LINK -->
+              <td><a href="#" class="dashboard-table-email">AC 4</a></td>
+              <td>Current is +7%</td>
+              <td>H1</td>
+              <td>AC-GR</td>
+              <td>City 1</td>
+              <td>Area 1</td>
+              <td>Shop 1</td>
+              <td>Mr. xyz</td>
+              <td>12345</td>
+              <td>Abc st.</td>
+              <td><div class="info-textarea"><textarea class="fa-frown" placeholder="&#x270f; Note"></textarea></div></td>
+              <td class="dashboardTableDelete"><div>
+                <i class="fas fa-smile text-white" aria-hidden="true"></i>
+                <i class="fas fa-frown text-white" aria-hidden="true"></i>
+                <i class="fas fa-times text-white" aria-hidden="true"></i>
+              </div></td>
+              <!-- End of Database -->
+            </tr>
+          </table>
+          <table id="alert-2">
+            <tr>
+              <th class="dashboard-table-sort inline-sort">
+              <div class="inline">Date
+                <div class="sticks">
+                  <i onclick="dashboardSortSelect_1(this)" class="fas fa-caret-down dashboard-table-sort-active dashboard-table-sort-select" aria-hidden="true"></i>
+                  <i onclick="dashboardSortSelect_1(this)" class="fas fa-caret-up text-white dashboard-table-sort-select" aria-hidden="true"></i>
+                </div>
+              </div>
+             </th>
+              <th class="dashboard-table-sort">
+                <div>AC</div>
+              </th>
+              <th class="dashboard-table-sort">
+                <div>Error</div>
+              </th>
+              <th class="dashboard-table-sort">
+                <div>#</div>
+              </th>
+              <th class="dashboard-table-sort">
+                <div>Type</div>
+              </th>
+              <th class="dashboard-table-sort">
+                <div>Level 1</div>
+              </th>
+              <th class="dashboard-table-sort">
+                <div>Level 2</div>
+              </th>
+              <th class="dashboard-table-sort">
+                <div>Level 3</div>
+              </th>
+              <th class="dashboard-table-sort">
+                <div>Name</div>
+              </th>
+              <th class="dashboard-table-sort">
+                <div>Phone</div>
+              </th>
+              <th class="dashboard-table-sort">
+                <div>Address</div>
+              </th>
+              <th class="dashboard-table-sort inline-sort">
+                <div>Fix date</div>
+              </th>
+              <th class="dashboard-table-sort">
+                <div>Note</div>
+              </th>
+              <th class="dashboard-table-sort center-block">
+                <div><i class="fas fa-eraser text-red" aria-hidden="true"></i></div>
+              </th>
+            </tr>
+            <tr class="dashboard-table-data">
+              <!-- Database from server -->
+              <td class="dashboard-table-date">01.01.2019,<br>15:35</td>
+              <!-- LINK -->
+              <td><a href="#" class="dashboard-table-email">AC 1</a></td>
+              <td>Current is +7%</td>
+              <td>H1</td>
+              <td>AC-GR</td>
+              <td>City 1</td>
+              <td>Area 1</td>
+              <td>Shop 1</td>
+              <td>Mr. xyz</td>
+              <td>12345</td>
+              <td>Abc st.</td>
+              <td class="dashboard-table-date">01.01.2019,<br>15:35</td>
+              <td><div class="info-textarea"><textarea class="fa-frown" placeholder="&#x270f; Note"></textarea></div></td>
+              <td class="dashboardTableDelete"><div>
+                <i class="fas fa-times text-white" aria-hidden="true"></i>
+              </div></td>
+              <!-- End of Database -->
+            </tr>
+            <tr class="dashboard-table-data">
+              <!-- Database from server -->
+              <td class="dashboard-table-date">01.01.2019,<br>15:35</td>
+              <!-- LINK -->
+              <td><a href="#" class="dashboard-table-email">AC 1</a></td>
+              <td>Current is +7%</td>
+              <td>H1</td>
+              <td>AC-GR</td>
+              <td>City 1</td>
+              <td>Area 1</td>
+              <td>Shop 1</td>
+              <td>Mr. xyz</td>
+              <td>12345</td>
+              <td>Abc st.</td>
+              <td class="dashboard-table-date">01.01.2019,<br>15:35</td>
+              <td><div class="info-textarea"><textarea class="fa-frown" placeholder="&#x270f; Note"></textarea></div></td>
+              <td class="dashboardTableDelete"><div>
+                <i class="fas fa-times text-white" aria-hidden="true"></i>
+              </div></td>
+              <!-- End of Database -->
+            </tr>
+            <tr class="dashboard-table-data">
+              <!-- Database from server -->
+              <td class="dashboard-table-date">01.01.2019,<br>15:35</td>
+              <!-- LINK -->
+              <td><a href="#" class="dashboard-table-email">AC 1</a></td>
+              <td>Current is +7%</td>
+              <td>H1</td>
+              <td>AC-GR</td>
+              <td>City 1</td>
+              <td>Area 1</td>
+              <td>Shop 1</td>
+              <td>Mr. xyz</td>
+              <td>12345</td>
+              <td>Abc st.</td>
+              <td class="dashboard-table-date">01.01.2019,<br>15:35</td>
+              <td><div class="info-textarea"><textarea class="fa-frown" placeholder="&#x270f; Note"></textarea></div></td>
+              <td class="dashboardTableDelete"><div>
+                <i class="fas fa-times text-white" aria-hidden="true"></i>
+              </div></td>
+              <!-- End of Database -->
+            </tr>
+          </table>
+          <table id="alert-3">
+            <tr>
+              <th class="dashboard-table-sort inline-sort">
+              <div class="inline">Date
+                <div class="sticks">
+                  <i onclick="dashboardSortSelect_2(this)" class="fas fa-caret-down dashboard-table-sort-active dashboard-table-sort-select" aria-hidden="true"></i>
+                  <i onclick="dashboardSortSelect_2(this)" class="fas fa-caret-up text-white dashboard-table-sort-select" aria-hidden="true"></i>
+                </div>
+              </div>
+             </th>
+              <th class="dashboard-table-sort">
+                <div>AC</div>
+              </th>
+              <th class="dashboard-table-sort">
+                <div>Error</div>
+              </th>
+              <th class="dashboard-table-sort">
+                <div>#</div>
+              </th>
+              <th class="dashboard-table-sort">
+                <div>Type</div>
+              </th>
+              <th class="dashboard-table-sort">
+                <div>Level 1</div>
+              </th>
+              <th class="dashboard-table-sort">
+                <div>Level 2</div>
+              </th>
+              <th class="dashboard-table-sort">
+                <div>Level 3</div>
+              </th>
+              <th class="dashboard-table-sort">
+                <div>Name</div>
+              </th>
+              <th class="dashboard-table-sort">
+                <div>Phone</div>
+              </th>
+              <th class="dashboard-table-sort">
+                <div>Address</div>
+              </th>
+              <th class="dashboard-table-sort">
+                <div>Hold date</div>
+              </th>
+              <th class="dashboard-table-sort">
+                <div>Note</div>
+              </th>
+              <th class="dashboard-table-sort center-block blockHidden">
+                <div>Fix</div>
+              </th>
+            </tr>
+            <tr class="dashboard-table-data">
+              <!-- Database from server -->
+              <td class="dashboard-table-date">01.01.2019,<br>15:35</td>
+              <!-- LINK -->
+              <td><a href="#" class="dashboard-table-email">AC 1</a></td>
+              <td>Current is +7%</td>
+              <td>H1</td>
+              <td>AC-GR</td>
+              <td>City 1</td>
+              <td>Area 1</td>
+              <td>Shop 1</td>
+              <td>Mr. xyz</td>
+              <td>12345</td>
+              <td>Abc st.</td>
+              <td class="dashboard-table-date">01.01.2019,<br>15:35</td>
+              <td><div class="info-textarea"><textarea class="fa-frown" placeholder="&#x270f; Note"></textarea></div></td>
+              <td class="dashboardTableDelete"><div>
+                <i class="fas fa-smile text-white" aria-hidden="true"></i>
+                <i class="fas fa-times text-white" aria-hidden="true"></i>
+              </div></td>
+              <!-- End of Database -->
+            </tr>
+            <tr class="dashboard-table-data">
+              <!-- Database from server -->
+              <td class="dashboard-table-date">01.01.2019,<br>15:35</td>
+              <!-- LINK -->
+              <td><a href="#" class="dashboard-table-email">AC 1</a></td>
+              <td>Current is +7%</td>
+              <td>H1</td>
+              <td>AC-GR</td>
+              <td>City 1</td>
+              <td>Area 1</td>
+              <td>Shop 1</td>
+              <td>Mr. xyz</td>
+              <td>12345</td>
+              <td>Abc st.</td>
+              <td class="dashboard-table-date">01.01.2019,<br>15:35</td>
+              <td><div class="info-textarea"><textarea class="fa-frown" placeholder="&#x270f; Note"></textarea></div></td>
+              <td class="dashboardTableDelete"><div>
+                <i class="fas fa-smile text-white" aria-hidden="true"></i>
+                <i class="fas fa-times text-white" aria-hidden="true"></i>
+              </div></td>
+              <!-- End of Database -->
+            </tr>
+          </table>
+          <table id="alert-4">
+            <tr>
+              <th class="dashboard-table-sort inline-sort">
+              <div class="inline">Date
+                <div class="sticks">
+                  <i onclick="dashboardSortSelect_3(this)" class="fas fa-caret-down dashboard-table-sort-active dashboard-table-sort-select" aria-hidden="true"></i>
+                  <i onclick="dashboardSortSelect_3(this)" class="fas fa-caret-up text-white dashboard-table-sort-select" aria-hidden="true"></i>
+                </div>
+              </div>
+             </th>
+              <th class="dashboard-table-sort">
+                <div>AC</div>
+              </th>
+              <th class="dashboard-table-sort">
+                <div>Error</div>
+              </th>
+              <th class="dashboard-table-sort">
+                <div>#</div>
+              </th>
+              <th class="dashboard-table-sort">
+                <div>Level 1</div>
+              </th>
+              <th class="dashboard-table-sort">
+                <div>Level 2</div>
+              </th>
+              <th class="dashboard-table-sort">
+                <div>Level 3</div>
+              </th>
+              <th class="dashboard-table-sort">
+                <div>Type</div>
+              </th>
+              <th class="dashboard-table-sort">
+                <div>Name</div>
+              </th>
+              <th class="dashboard-table-sort">
+                <div>Phone</div>
+              </th>
+              <th class="dashboard-table-sort">
+                <div>Address</div>
+              </th>
+              <th class="dashboard-table-sort">
+                <div>Note</div>
+              </th>
+              <th class="dashboard-table-sort">
+                <div>Test</div>
+              </th>
+              <th class="dashboard-table-sort center-block">
+                <div><i class="fas fa-eraser text-red" aria-hidden="true"></i></div>
+              </th>
+            </tr>
+            <tr class="dashboard-table-data">
+              <!-- Database from server -->
+              <td class="dashboard-table-date">01.01.2019,<br>15:35</td>
+              <!-- LINK -->
+              <td><a href="#" class="dashboard-table-email">AC 1</a></td>
+              <td>No communication</td>
+              <td>WiFi</td>
+              <td>City 1</td>
+              <td>Area 1</td>
+              <td>Shop 1</td>
+              <td>AC-GR</td>
+              <td>Mr. xyz</td>
+              <td>12345</td>
+              <td>Abc st.</td>
+              <td><div class="info-textarea"><textarea class="fa-frown" placeholder="&#x270f; Note"></textarea></div></td>
+              <td class="center-block">
+                <div><i class="fas fa-undo text-white" aria-hidden="true"></i></div>
+              </td>
+              <td class="dashboardTableDelete"><div>
+                <i class="fas fa-times text-white" aria-hidden="true"></i>
+              </div></td>
+              <!-- End of Database -->
+            </tr>
+            <tr class="dashboard-table-data">
+              <!-- Database from server -->
+              <td class="dashboard-table-date">01.01.2019,<br>15:35</td>
+              <!-- LINK -->
+              <td><a href="#" class="dashboard-table-email">AC 1</a></td>
+              <td>No communication</td>
+              <td>WiFi</td>
+              <td>City 1</td>
+              <td>Area 1</td>
+              <td>Shop 1</td>
+              <td>AC-GR</td>
+              <td>Mr. xyz</td>
+              <td>12345</td>
+              <td>Abc st.</td>
+              <td><div class="info-textarea"><textarea class="fa-frown" placeholder="&#x270f; Note"></textarea></div></td>
+              <td class="center-block">
+                <div><i class="fas fa-undo text-white" aria-hidden="true"></i></div>
+              </td>
+              <td class="dashboardTableDelete"><div>
+                <i class="fas fa-times text-white" aria-hidden="true"></i>
+              </div></td>
+              <!-- End of Database -->
+            </tr>
+          </table>
+          <table id="alert-5">
+            <tr>
+              <th class="dashboard-table-sort inline-sort">
+              <div class="inline">Date
+                <div class="sticks">
+                  <i onclick="dashboardSortSelect_4(this)" class="fas fa-caret-down dashboard-table-sort-active dashboard-table-sort-select" aria-hidden="true"></i>
+                  <i onclick="dashboardSortSelect_4(this)" class="fas fa-caret-up text-white dashboard-table-sort-select" aria-hidden="true"></i>
+                </div>
+              </div>
+             </th>
+              <th class="dashboard-table-sort">
+                <div>Level 3</div>
+              </th>
+              <th class="dashboard-table-sort">
+                <div>Messages</div>
+              </th>
+              <th class="dashboard-table-sort">
+                <div>Level 1</div>
+              </th>
+              <th class="dashboard-table-sort">
+                <div>Level 2</div>
+              </th>
+              <th class="dashboard-table-sort">
+                <div>Name</div>
+              </th>
+              <th class="dashboard-table-sort">
+                <div>Phone</div>
+              </th>
+              <th class="dashboard-table-sort">
+                <div>Address</div>
+              </th>
+              <th class="dashboard-table-sort">
+                <div>Answer</div>
+              </th>
+              <th class="dashboard-table-sort">
+                <div>Note</div>
+              </th>
+              <th class="dashboard-table-sort center-block">
+                <div><i class="fas fa-eraser text-red" aria-hidden="true"></i></div>
+              </th>
+            </tr>
+            <tr class="dashboard-table-data">
+              <!-- Database from server -->
+              <td class="dashboard-table-date">01.01.2019,<br>15:35</td>
+              <!-- LINK -->
+              <td><a href="#" class="dashboard-table-email">Shop 1</a></td>
+              <td><div class="message-wrapper">
+                Hello, my AC is not cooling, call me
+              </div></td>
+              <td>City 1</td>
+              <td>Area 1</td>
+              <td>Mr. xyz</td>
+              <td>12345</td>
+              <td>Abc st.</td>
+              <td class="center-block button-icon">
+                <div><i onclick="showDate(this)" class="fas fa-smile text-white" aria-hidden="true"></i></div>
+              </td>
+              <td><div class="info-textarea"><textarea class="fa-frown" placeholder="&#x270f; Note"></textarea></div></td>
+              <td class="dashboardTableDelete"><div>
+                <i class="fas fa-times text-white" aria-hidden="true"></i>
+              </div></td>
+              <!-- End of Database -->
+            </tr>
+            <tr class="dashboard-table-data">
+              <!-- Database from server -->
+              <td class="dashboard-table-date">01.01.2019,<br>15:35</td>
+              <!-- LINK -->
+              <td><a href="#" class="dashboard-table-email">Shop 1</a></td>
+              <td><div class="message-wrapper">
+                Hello, my AC is not cooling, call me
+              </div></td>
+              <td>City 1</td>
+              <td>Area 1</td>
+              <td>Mr. xyz</td>
+              <td>12345</td>
+              <td>Abc st.</td>
+              <td class="center-block button-icon">
+                <div><i onclick="showDate(this)" class="fas fa-smile text-white" aria-hidden="true"></i></div>
+              </td>
+              <td><div class="info-textarea"><textarea class="fa-frown" placeholder="&#x270f; Note"></textarea></div></td>
+              <td class="dashboardTableDelete"><div>
+                <i class="fas fa-times text-white" aria-hidden="true"></i>
+              </div></td>
+              <!-- End of Database -->
+            </tr>
+            <tr class="dashboard-table-data">
+              <!-- Database from server -->
+              <td class="dashboard-table-date">01.01.2019,<br>15:35</td>
+              <!-- LINK -->
+              <td><a href="#" class="dashboard-table-email">Shop 1</a></td>
+              <td><div class="message-wrapper">
+                Hello, my AC is not cooling, call me
+              </div></td>
+              <td>City 1</td>
+              <td>Area 1</td>
+              <td>Mr. xyz</td>
+              <td>12345</td>
+              <td>Abc st.</td>
+              <td class="center-block button-icon">
+                <div><i onclick="showDate(this)" class="fas fa-smile text-white" aria-hidden="true"></i></div>
+              </td>
+              <td><div class="info-textarea"><textarea class="fa-frown" placeholder="&#x270f; Note"></textarea></div></td>
+              <td class="dashboardTableDelete"><div>
+                <i class="fas fa-times text-white" aria-hidden="true"></i>
+              </div></td>
+              <!-- End of Database -->
+            </tr>
+            <tr class="dashboard-table-data">
+              <!-- Database from server -->
+              <td class="dashboard-table-date">01.01.2019,<br>15:35</td>
+              <!-- LINK -->
+              <td><a href="#" class="dashboard-table-email">Shop 1</a></td>
+              <td><div class="message-wrapper">
+                Hello, my AC is not cooling, call me
+              </div></td>
+              <td>City 1</td>
+              <td>Area 1</td>
+              <td>Mr. xyz</td>
+              <td>12345</td>
+              <td>Abc st.</td>
+              <td class="center-block button-icon">
+                <div><i onclick="showDate(this)" class="fas fa-smile text-white" aria-hidden="true"></i></div>
+              </td>
+              <td><div class="info-textarea"><textarea class="fa-frown" placeholder="&#x270f; Note"></textarea></div></td>
+              <td class="dashboardTableDelete"><div>
+                <i class="fas fa-times text-white" aria-hidden="true"></i>
+              </div></td>
+              <!-- End of Database -->
+            </tr>
+          </table>
+
+
+          <div class="control-wrapper" id="alert-last">
+            <div class="header-tabs">
+              <h5 class="tabActive" id="tab_0_value" onclick="showFirstLevel()"><i class="fas fa-home text-orange" aria-hidden="true"></i></h5>   <span id="tab_0_span"> > </span>  <h5 id="tab_1_value" onclick="showSecondLevel()">Level 1</h5>  <span id="tab_1_span"> > </span>  <h5 id="tab_2_value" onclick="showThirdLevel()">Level 2</h5> <span id="tab_2_span"> > </span> <h5 id="tab_3_value">Level 3</h5>
+            </div>
+            <div class="control">
+              <div class="control-before">
+                  <div class="control-levels">
+                    <div class="control-level">
+                      <div class="control-level-title">
+                        <div class="control-checkbox">
+                          <div class="level-checkbox-wrapper">
+                            <input class="level-checkbox" id="level_1_checkbox" type="checkbox" name="level_1_checkbox">
+                            <label class="level-label" id="level_1_label" for="level_1_checkbox"></label>
+                          </div>
+                        </div>
+                        <h2><script>document.write(en.level1)</script></h2>
+                        <!-- From server -->
+                        <h6>(50/240)</h6>
+                      </div>
+                      <div class="control-level-data">
+                        <div class="control-level-items">
+                          <div class="control-level-item control-level-item_1">
+                            <div class="level-content">
+                              <div class="control-checkbox">
+                                <div class="level-checkbox-wrapper">
+                                  <input onclick="checkPay(this)" class="level-checkbox level-checkbox-small level-checkbox_1" id="level_1_data_checkbox" type="checkbox" name="level_1_data_checkbox">
+                                  <label class="level-label level-label-small level-label_1" id="level_1_data_label" for="level_1_data_checkbox"></label>
+                                </div>
+                              </div>
+                              <h2 class="selectedLevel_1" onclick="setOrange_1(this)">Shanghai</h2>
+                              <!-- From server -->
+                              <h6>(15/35)</h6>
+                            </div>
+                            <div class="level-dollar">
+                              <i class="fas fa-dollar-sign text-red" aria-hidden="true"></i>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="control-level">
+                      <div class="control-level-title">
+                        <div class="control-checkbox">
+                          <div class="level-checkbox-wrapper">
+                            <input class="level-checkbox" id="level_2_checkbox" type="checkbox" name="level_2_checkbox">
+                            <label class="level-label" id="level_2_label" for="level_2_checkbox"></label>
+                          </div>
+                        </div>
+                        <h2><script>document.write(en.level2)</script></h2>
+                        <!-- From server -->
+                        <h6>(50/240)</h6>
+                      </div>
+                      <div class="control-level-data">
+                        <div class="control-level-items">
+                          <div class="control-level-item control-level-item_2">
+                            <div class="level-content">
+                              <div class="control-checkbox">
+                                <div class="level-checkbox-wrapper">
+                                  <input onclick="checkPay(this)" class="level-checkbox level-checkbox-small level-checkbox_2" id="level_2_data_checkbox" type="checkbox" name="level_2_data_checkbox">
+                                  <label class="level-label level-label-small level-label_2" id="level_2_data_label" for="level_2_data_checkbox"></label>
+                                </div>
+                              </div>
+                              <h2 class="selectedLevel_2" onclick="setOrange_2(this)">Pudong</h2>
+                              <!-- From server -->
+                              <h6>(15/35)</h6>
+                            </div>
+                            <div class="level-dollar level-dollar-1">
+                              <i class="fas fa-dollar-sign text-red" aria-hidden="true"></i>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="control-level">
+                      <div class="control-level-title">
+                        <div class="control-checkbox">
+                          <div class="level-checkbox-wrapper">
+                            <input class="level-checkbox" id="level_3_checkbox" type="checkbox" name="level_3_checkbox">
+                            <label class="level-label" id="level_3_label" for="level_3_checkbox"></label>
+                          </div>
+                        </div>
+                        <h2><script>document.write(en.level3)</script></h2>
+                        <!-- From server -->
+                        <h6>(50/240)</h6>
+                      </div>
+                      <div class="control-level-data">
+                        <div class="control-level-items">
+                          <div class="control-level-item control-level-item_3">
+                            <div class="level-content">
+                              <div class="control-checkbox">
+                                <div class="level-checkbox-wrapper">
+                                  <input onclick="checkPay(this)" class="level-checkbox level-checkbox-small level-checkbox_3" id="level_3_data_checkbox" type="checkbox" name="level_3_data_checkbox">
+                                  <label class="level-label level-label-small level-label_3" id="level_3_data_label" for="level_3_data_checkbox"></label>
+                                </div>
+                              </div>
+                              <h2 class="selectedLevel_3" onclick="setOrange_3(this)">Shop 1</h2>
+                              <!-- From server -->
+                              <h6>(6)</h6>
+                            </div>
+                            <div class="level-dollar level-dollar-2">
+                              <i class="fas fa-dollar-sign text-red" aria-hidden="true"></i>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+              <div class="control-after">
+                <div class="control-columns">
+                  <div class="control-column">
+                    <div class="control-level-title control-level-title-4">
+                      <h2 class="afterIco sign_5-last">Alert</h2>
+                    </div>
+                    <div class="control-large-levels">
+                      <div class="control-large-level">
+                          <div class="large-textarea">
+                            <textarea id="alertsMessage" placeholder="Please type your message here, select receivers and press ‘SEND’"></textarea>
+                          </div>
+                          <div class="large-button">
+                            <button id="sendAlertsMessage">Send</button>
+                          </div>
+                          <div class="large-table">
+                            <h2>History Alerts</h2>
+                            <div class="table-wrapper">
+                              <table id="alert-6">
+                                <tr>
+                                  <th class="dashboard-table-sort">
+                                    <div>Date sent</div>
+                                  </th>
+                                  <th class="dashboard-table-sort">
+                                    <div>Time</div>
+                                  </th>
+                                  <th class="dashboard-table-sort">
+                                    <div>Sent Alert</div>
+                                  </th>
+                                </tr>
+                                <tr class="dashboard-table-data alertsData">
+                                  <!-- Database from server -->
+                                  <td class="link-class" onclick="setBlue(this);">01.01.2019</td>
+                                  <td>15:35</td>
+                                  <td>Message 1 bla bla</td>
+                                  <!-- End of Database -->
+                                </tr>
+                                <tr class="dashboard-table-data alertsData">
+                                  <!-- Database from server -->
+                                  <td class="link-class" onclick="setBlue(this);">12.11.2019</td>
+                                  <td>14:35</td>
+                                  <td>Message 1 bla bla</td>
+                                  <!-- End of Database -->
+                                </tr>
+                                <tr class="dashboard-table-data alertsData">
+                                  <!-- Database from server -->
+                                  <td class="link-class" onclick="setBlue(this);">07.01.2019</td>
+                                  <td>15:34</td>
+                                  <td>Message 1 bla bla</td>
+                                  <!-- End of Database -->
+                                </tr>
+                                <tr class="dashboard-table-data alertsData">
+                                  <!-- Database from server -->
+                                  <td class="link-class" onclick="setBlue(this);">01.01.2020</td>
+                                  <td>15:35</td>
+                                  <td>Message 32 bla bla</td>
+                                  <!-- End of Database -->
+                                </tr>
+                                <tr class="dashboard-table-data alertsData">
+                                  <!-- Database from server -->
+                                  <td class="link-class" onclick="setBlue(this);">07.01.2019</td>
+                                  <td>15:35</td>
+                                  <td>Message 1 bla bla</td>
+                                  <!-- End of Database -->
+                                </tr>
+                              </table>
+                            </div>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="control-column">
+                    <div class="control-level-title control-level-title-5">
+                      <h2 class="afterIco sign_5">Alert</h2>
+                    </div>
+                    <div class="control-large-levels">
+                      <div class="control-large-level">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" src="alerts-selection.js"></script>
+  <script type="text/javascript" src="alerts.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.js" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+
+
+
+  <!-- <style>
+  .control-large-levels{
+    display: flex !important;
+  }
+</style> -->
+</body>
+</html>
