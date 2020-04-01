@@ -32,9 +32,10 @@ camera_pivot.rotation.x = -0.8;
 // Target
 
 var targets = [];
-
+var maxCountValue = 0;
 function createTarget(count){
   for (var i = 0; i < count; i++) {
+
     var target_geo = new THREE.SphereGeometry(0.3, 0.3, 0.3);
     var target_mat = new THREE.MeshBasicMaterial( { color: 0x00DD8F} );
     var target = new THREE.Mesh( target_geo, target_mat );
@@ -47,7 +48,9 @@ function createTarget(count){
     target.position.x = randomTargetX;
     target.position.z = randomTargetY;
 
-    target.name = "target_"+i;
+    target.name = "target_"+maxCountValue;
+    maxCountValue += 1;
+
 
     console.log(randomTargetX, randomTargetY);
     var temp_target = [randomTargetX, randomTargetY];
@@ -71,43 +74,51 @@ camera.position.z = 7;
 // Day system
 var moment = 0;
 var day = 0;
-const dayTime = 10000;
+const dayTime = 100;
 function passDay(){
+  // console.log(actorEnergy);
   day += 1;
   createTarget(0);
   console.log('Days passed: ', day)
 }
-createTarget(2);
+createTarget(10);
+
+
 
 const actorSpeed = 500;
-const actorEnergy = 1000;
+var actorEnergy = 10000;
 
 var minWayTarget = 5;
 var minWayTargetIndex = 0;
 
 
-for (var i = 0; i < targets.length; i++) {
-  var checkWayValue = Math.sqrt(Math.pow(targets[i][0], 2) + Math.pow(targets[i][1], 2));
-  if(checkWayValue < minWayTarget){
-    minWayTarget = checkWayValue;
-    minWayTargetIndex = i;
+function findNearTarget(){
+  minWayTarget = 5;
+  minWayTargetIndex = 0;
+  for (var i = 0; i < targets.length; i++) {
+    var checkWayValue = Math.sqrt(Math.pow(targets[i][0], 2) + Math.pow(targets[i][1], 2));
+    if(checkWayValue < minWayTarget){
+      minWayTarget = checkWayValue;
+      minWayTargetIndex = i;
+    }
+
   }
+  var selectedObject = scene.getObjectByName('target_'+minWayTargetIndex);
+  selectedObject.material.color.setHex( 0xFF7776 );
+  console.log('minWayTargetIndex: ', minWayTargetIndex);
+  var nearTargetX = targets[minWayTargetIndex][0];
+  var nearTargetY = targets[minWayTargetIndex][1];
 
 }
-console.log('minWayTargetIndex: ', minWayTargetIndex);
-var nearTargetX = targets[minWayTargetIndex][0];
-var nearTargetY = targets[minWayTargetIndex][1];
+findNearTarget();
 
 
 
-// Move actors
 
 
 
 // Animation cycle
 function animate() {
-
-
   if(actor.position.x < targets[minWayTargetIndex][0]){
     actor.position.x += 0.01;
   } else {
@@ -118,9 +129,8 @@ function animate() {
   } else {
     actor.position.z -= 0.01;
   }
-
-
-  if(moment > actorEnergy){
+  actorEnergy -= 1;
+  if(actorEnergy==0){
     var selectedObject = scene.getObjectByName('actor');
     scene.remove( selectedObject );
     actor.position.x -= 1000;
@@ -130,7 +140,16 @@ function animate() {
 
     // Removing targets
     var selectedObject = scene.getObjectByName('target_'+minWayTargetIndex);
-    scene.remove( selectedObject );
+    // scene.remove( selectedObject );
+
+    selectedObject.position.x = 100;
+    selectedObject.position.y = 100;
+
+    targets[minWayTargetIndex][0] = 100;
+    targets[minWayTargetIndex][1] = 100;
+
+    findNearTarget();
+
 
   }
 
