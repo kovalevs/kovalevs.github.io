@@ -62,6 +62,7 @@ var actor_mat = new THREE.MeshBasicMaterial( { color: 0xffffff} );
 var actor = new THREE.Mesh( actor_geo, actor_mat );
 
 actor.position.y += 0.5;
+actor.name = "actor";
 
 scene.add( actor );
 
@@ -79,7 +80,7 @@ function passDay(){
 createTarget(2);
 
 const actorSpeed = 500;
-const actorEnergy = 100;
+const actorEnergy = 1000;
 
 var minWayTarget = 5;
 var minWayTargetIndex = 0;
@@ -100,22 +101,32 @@ var nearTargetY = targets[minWayTargetIndex][1];
 
 
 // Move actors
-var actorWay = new THREE.Vector3( nearTargetX, 0.5, nearTargetY );
 
-var tween = new TWEEN.Tween( actor.position ).to( actorWay, actorSpeed );
-
-tween.start();
 
 
 // Animation cycle
-function animate(time) {
+function animate() {
 
-	TWEEN.update( time );
+
+  if(actor.position.x < targets[minWayTargetIndex][0]){
+    actor.position.x += 0.01;
+  } else {
+    actor.position.x -= 0.01;
+  }
+  if(actor.position.z < targets[minWayTargetIndex][1]){
+    actor.position.z += 0.01;
+  } else {
+    actor.position.z -= 0.01;
+  }
+
 
   if(moment > actorEnergy){
-    tween.stop();
+    var selectedObject = scene.getObjectByName('actor');
+    scene.remove( selectedObject );
+    actor.position.x -= 1000;
+    actor.position.z -= 1000;
   }
-  if(actor.position.x == targets[minWayTargetIndex][0] && actor.position.z == targets[minWayTargetIndex][1]){
+  if(Math.abs(Math.abs(actor.position.x) - Math.abs(targets[minWayTargetIndex][0])) < 0.01 && Math.abs(Math.abs(actor.position.z) - Math.abs(targets[minWayTargetIndex][1])) < 0.01){
 
     // Removing targets
     var selectedObject = scene.getObjectByName('target_'+minWayTargetIndex);
