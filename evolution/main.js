@@ -34,6 +34,7 @@ camera_pivot.rotation.x = -0.8;
 var targets = [];
 var maxCountValue = 0;
 function createTarget(count){
+  isAnyTarget = true;
   for (var i = 0; i < count; i++) {
 
     var target_geo = new THREE.SphereGeometry(0.1, 0.1, 0.1);
@@ -59,6 +60,8 @@ function createTarget(count){
   }
 }
 
+
+
 // Actor
 var actor_geo = new THREE.BoxGeometry(0.3, 0.3, 0.3);
 var actor_mat = new THREE.MeshBasicMaterial( { color: 0xF0CF5A} );
@@ -74,66 +77,81 @@ camera.position.z = 7;
 // Day system
 var moment = 0;
 var day = 0;
-const dayTime = 100;
+const dayTime = 500;
 function passDay(){
   day += 1;
-  createTarget(2);
+  createTarget(100);
   // console.log('Days passed: ', day)
 }
 createTarget(1);
 
 
 
-const actorSpeed = 500;
+const actorSpeed = 0.1;
 var actorEnergy = 10000;
 
 var minWayTarget = 5;
 var minWayTargetIndex = 0;
 
 
+var isAnyTarget = true;
 function findNearTarget(){
-  minWayTarget = 5;
-  minWayTargetIndex = 0;
-  for (var i = 0; i < targets.length; i++) {
-    var checkWayValue = Math.sqrt( Math.pow( targets[i][0] - actor.position.x , 2) + Math.pow( targets[i][1] - actor.position.z, 2) );
-    if(checkWayValue < minWayTarget){
-      minWayTarget = checkWayValue;
-      minWayTargetIndex = i;
+  if(isAnyTarget){
+    minWayTarget = 5;
+    minWayTargetIndex = 0;
+    for (var i = 0; i < targets.length; i++) {
+      var checkWayValue = Math.sqrt( Math.pow( targets[i][0] - actor.position.x , 2) + Math.pow( targets[i][1] - actor.position.z, 2) );
+      if(checkWayValue < minWayTarget){
+        minWayTarget = checkWayValue;
+        minWayTargetIndex = i;
+      }
+
     }
 
-  }
-
-  var selectedObject = scene.getObjectByName('target_'+minWayTargetIndex);
-  for (var i = 0; i < targets.length; i++) {
-    if(scene.getObjectByName('target_'+i)){
-      scene.getObjectByName('target_'+i).material.color.setHex( 0x206097 );
+    var selectedObject = scene.getObjectByName('target_'+minWayTargetIndex);
+    for (var i = 0; i < targets.length; i++) {
+      if(scene.getObjectByName('target_'+i)){
+        scene.getObjectByName('target_'+i).material.color.setHex( 0x206097 );
+      }
     }
+    selectedObject.material.color.setHex( 0x39A99F );
+    var nearTargetX = targets[minWayTargetIndex][0];
+    var nearTargetY = targets[minWayTargetIndex][1];
   }
-  selectedObject.material.color.setHex( 0x39A99F );
-  console.log('minWayTargetIndex: ', minWayTargetIndex);
-  var nearTargetX = targets[minWayTargetIndex][0];
-  var nearTargetY = targets[minWayTargetIndex][1];
-
 }
 findNearTarget();
 
 
 
 
-
+var deletedTargetCount = 0;
 
 // Animation cycle
 function animate() {
+  if(!isAnyTarget){
+    if(actor.position.x < 2){
+      actor.position.x += actorSpeed;
+    } else {
+      actor.position.x -= actorSpeed;
+    }
+    if(actor.position.z < 2){
+      actor.position.z += actorSpeed;
+    } else {
+      actor.position.z -= actorSpeed;
+    }
+  }
+
+
   findNearTarget();
   if(actor.position.x < targets[minWayTargetIndex][0]){
-    actor.position.x += 0.01;
+    actor.position.x += actorSpeed;
   } else {
-    actor.position.x -= 0.01;
+    actor.position.x -= actorSpeed;
   }
   if(actor.position.z < targets[minWayTargetIndex][1]){
-    actor.position.z += 0.01;
+    actor.position.z += actorSpeed;
   } else {
-    actor.position.z -= 0.01;
+    actor.position.z -= actorSpeed;
   }
   actorEnergy -= 1;
   if(actorEnergy==0){
@@ -142,9 +160,15 @@ function animate() {
     actor.position.x -= 1000;
     actor.position.z -= 1000;
   }
-  if(Math.abs(Math.abs(actor.position.x) - Math.abs(targets[minWayTargetIndex][0])) < 0.01 && Math.abs(Math.abs(actor.position.z) - Math.abs(targets[minWayTargetIndex][1])) < 0.01){
+
+
+  if( Math.abs(actor.position.x - targets[minWayTargetIndex][0]) < actorSpeed && Math.abs(actor.position.z - targets[minWayTargetIndex][1]) < actorSpeed){
+
 
     // Removing targets
+
+    deletedTargetCount += 1;
+
     var selectedObject = scene.getObjectByName('target_'+minWayTargetIndex);
 
     scene.remove( selectedObject );
@@ -155,6 +179,9 @@ function animate() {
     targets[minWayTargetIndex][0] = 100;
     targets[minWayTargetIndex][1] = 100;
 
+    if(targets.length == deletedTargetCount){
+      isAnyTarget = false;
+    }
     findNearTarget();
 
 
