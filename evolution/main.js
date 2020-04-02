@@ -7,7 +7,7 @@ document.body.appendChild( renderer.domElement );
 
 // Platform
 var platform_geo = new THREE.BoxGeometry(5, 0.5, 5);
-var platform_mat = new THREE.MeshBasicMaterial( { color: 0x0055F0} );
+var platform_mat = new THREE.MeshBasicMaterial( { color: 0x173D5D} );
 var platform = new THREE.Mesh( platform_geo, platform_mat );
 
 var wireframe_geo = new THREE.EdgesGeometry( platform.geometry );
@@ -36,8 +36,8 @@ var maxCountValue = 0;
 function createTarget(count){
   for (var i = 0; i < count; i++) {
 
-    var target_geo = new THREE.SphereGeometry(0.3, 0.3, 0.3);
-    var target_mat = new THREE.MeshBasicMaterial( { color: 0x00DD8F} );
+    var target_geo = new THREE.SphereGeometry(0.1, 0.1, 0.1);
+    var target_mat = new THREE.MeshBasicMaterial( { color: 0x206097} );
     var target = new THREE.Mesh( target_geo, target_mat );
 
     target.position.y += 0.5;
@@ -61,7 +61,7 @@ function createTarget(count){
 
 // Actor
 var actor_geo = new THREE.BoxGeometry(0.3, 0.3, 0.3);
-var actor_mat = new THREE.MeshBasicMaterial( { color: 0xffffff} );
+var actor_mat = new THREE.MeshBasicMaterial( { color: 0xF0CF5A} );
 var actor = new THREE.Mesh( actor_geo, actor_mat );
 
 actor.position.y += 0.5;
@@ -76,12 +76,11 @@ var moment = 0;
 var day = 0;
 const dayTime = 100;
 function passDay(){
-  // console.log(actorEnergy);
   day += 1;
-  createTarget(0);
-  console.log('Days passed: ', day)
+  createTarget(2);
+  // console.log('Days passed: ', day)
 }
-createTarget(10);
+createTarget(1);
 
 
 
@@ -96,15 +95,21 @@ function findNearTarget(){
   minWayTarget = 5;
   minWayTargetIndex = 0;
   for (var i = 0; i < targets.length; i++) {
-    var checkWayValue = Math.sqrt(Math.pow(targets[i][0], 2) + Math.pow(targets[i][1], 2));
+    var checkWayValue = Math.sqrt( Math.pow( targets[i][0] - actor.position.x , 2) + Math.pow( targets[i][1] - actor.position.z, 2) );
     if(checkWayValue < minWayTarget){
       minWayTarget = checkWayValue;
       minWayTargetIndex = i;
     }
 
   }
+
   var selectedObject = scene.getObjectByName('target_'+minWayTargetIndex);
-  selectedObject.material.color.setHex( 0xFF7776 );
+  for (var i = 0; i < targets.length; i++) {
+    if(scene.getObjectByName('target_'+i)){
+      scene.getObjectByName('target_'+i).material.color.setHex( 0x206097 );
+    }
+  }
+  selectedObject.material.color.setHex( 0x39A99F );
   console.log('minWayTargetIndex: ', minWayTargetIndex);
   var nearTargetX = targets[minWayTargetIndex][0];
   var nearTargetY = targets[minWayTargetIndex][1];
@@ -119,6 +124,7 @@ findNearTarget();
 
 // Animation cycle
 function animate() {
+  findNearTarget();
   if(actor.position.x < targets[minWayTargetIndex][0]){
     actor.position.x += 0.01;
   } else {
@@ -140,7 +146,8 @@ function animate() {
 
     // Removing targets
     var selectedObject = scene.getObjectByName('target_'+minWayTargetIndex);
-    // scene.remove( selectedObject );
+
+    scene.remove( selectedObject );
 
     selectedObject.position.x = 100;
     selectedObject.position.y = 100;
