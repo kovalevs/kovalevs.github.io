@@ -29,10 +29,11 @@ camera.lookAt( camera_pivot.position );
 camera_pivot.rotateOnAxis( Y_AXIS, 0.01 );
 camera_pivot.rotation.x = -0.8;
 
+camera.position.z = 7;
 // Target
 
 var targets = [];
-var maxCountValue = 0;
+var targetValue = 0;
 function createTarget(count){
   isAnyTarget = true;
   for (var i = 0; i < count; i++) {
@@ -45,15 +46,17 @@ function createTarget(count){
 
     var randomTargetX = getRandomInt(-2, 2);
     var randomTargetY = getRandomInt(-2, 2);
+    // var randomTargetX = -2;
+    // var randomTargetY = 2;
 
     target.position.x = randomTargetX;
     target.position.z = randomTargetY;
 
-    target.name = "target_"+maxCountValue;
-    maxCountValue += 1;
+    target.name = "target_"+targetValue;
+    targetValue += 1;
 
 
-    console.log(randomTargetX, randomTargetY);
+    // console.log(randomTargetX, randomTargetY);
     var temp_target = [randomTargetX, randomTargetY];
     targets.push(temp_target)
     scene.add( target );
@@ -63,16 +66,30 @@ function createTarget(count){
 
 
 // Actor
-var actor_geo = new THREE.BoxGeometry(0.3, 0.3, 0.3);
-var actor_mat = new THREE.MeshBasicMaterial( { color: 0xF0CF5A} );
-var actor = new THREE.Mesh( actor_geo, actor_mat );
+var actorValue = 0;
 
-actor.position.y += 0.5;
-actor.name = "actor";
+function createActor(count){
+  for (var i = 0; i < count; i++) {
+    var actor_geo = new THREE.BoxGeometry(0.3, 0.3, 0.3);
+    var actor_mat = new THREE.MeshBasicMaterial( { color: 0xF0CF5A} );
+    var actor = new THREE.Mesh( actor_geo, actor_mat );
 
-scene.add( actor );
+    actor.position.y += 0.5;
+    actor.name = "actor_"+actorValue;
 
-camera.position.z = 7;
+    actorValue += 1;
+    scene.add( actor );
+  }
+
+
+}
+createActor(2);
+
+scene.getObjectByName('actor_'+0).position.x = 2;
+scene.getObjectByName('actor_'+0).position.x = 2;
+
+scene.getObjectByName('actor_'+1).position.x = -2;
+scene.getObjectByName('actor_'+1).position.x = -2;
 
 // Day system
 var moment = 0;
@@ -80,45 +97,54 @@ var day = 0;
 const dayTime = 500;
 function passDay(){
   day += 1;
-  createTarget(100);
+  createTarget(10);
   // console.log('Days passed: ', day)
 }
-createTarget(1);
+createTarget(20);
 
 
 
-const actorSpeed = 0.1;
+const actorSpeed = 0.01;
 var actorEnergy = 10000;
 
 var minWayTarget = 5;
 var minWayTargetIndex = 0;
 
 
+var selectedActor = 0;
+
 var isAnyTarget = true;
+
+
 function findNearTarget(){
-  if(isAnyTarget){
-    minWayTarget = 5;
-    minWayTargetIndex = 0;
-    for (var i = 0; i < targets.length; i++) {
-      var checkWayValue = Math.sqrt( Math.pow( targets[i][0] - actor.position.x , 2) + Math.pow( targets[i][1] - actor.position.z, 2) );
-      if(checkWayValue < minWayTarget){
-        minWayTarget = checkWayValue;
-        minWayTargetIndex = i;
+  for (var i = 0; i < actorValue; i++) {
+    selectedActor = scene.getObjectByName('actor_'+i);
+    if(isAnyTarget){
+      minWayTarget = 5;
+      minWayTargetIndex = 0;
+      for (var i = 0; i < targets.length; i++) {
+        var checkWayValue = Math.sqrt( Math.pow( targets[i][0] - selectedActor.position.x , 2) + Math.pow( targets[i][1] - selectedActor.position.z, 2) );
+        if(checkWayValue < minWayTarget){
+          minWayTarget = checkWayValue;
+          minWayTargetIndex = i;
+        }
+
       }
 
-    }
-
-    var selectedObject = scene.getObjectByName('target_'+minWayTargetIndex);
-    for (var i = 0; i < targets.length; i++) {
-      if(scene.getObjectByName('target_'+i)){
-        scene.getObjectByName('target_'+i).material.color.setHex( 0x206097 );
+      var selectedObject = scene.getObjectByName('target_'+minWayTargetIndex);
+      for (var i = 0; i < targets.length; i++) {
+        if(scene.getObjectByName('target_'+i)){
+          scene.getObjectByName('target_'+i).material.color.setHex( 0x206097 );
+        }
       }
+      selectedObject.material.color.setHex( 0x39A99F );
+      var nearTargetX = targets[minWayTargetIndex][0];
+      var nearTargetY = targets[minWayTargetIndex][1];
     }
-    selectedObject.material.color.setHex( 0x39A99F );
-    var nearTargetX = targets[minWayTargetIndex][0];
-    var nearTargetY = targets[minWayTargetIndex][1];
   }
 }
+
+
 findNearTarget();
 
 
@@ -128,62 +154,77 @@ var deletedTargetCount = 0;
 
 // Animation cycle
 function animate() {
-  if(!isAnyTarget){
-    if(actor.position.x < 2){
-      actor.position.x += actorSpeed;
-    } else {
-      actor.position.x -= actorSpeed;
-    }
-    if(actor.position.z < 2){
-      actor.position.z += actorSpeed;
-    } else {
-      actor.position.z -= actorSpeed;
+  for (var i = 0; i < actorValue; i++) {
+    selectedActor = scene.getObjectByName('actor_'+i);
+    if(!isAnyTarget){
+      if(selectedActor.position.x < 2){
+        selectedActor.position.x += actorSpeed;
+      } else {
+        selectedActor.position.x -= actorSpeed;
+      }
+      if(selectedActor.position.z < 2){
+        selectedActor.position.z += actorSpeed;
+      } else {
+        selectedActor.position.z -= actorSpeed;
+      }
     }
   }
 
 
   findNearTarget();
-  if(actor.position.x < targets[minWayTargetIndex][0]){
-    actor.position.x += actorSpeed;
-  } else {
-    actor.position.x -= actorSpeed;
-  }
-  if(actor.position.z < targets[minWayTargetIndex][1]){
-    actor.position.z += actorSpeed;
-  } else {
-    actor.position.z -= actorSpeed;
-  }
-  actorEnergy -= 1;
-  if(actorEnergy==0){
-    var selectedObject = scene.getObjectByName('actor');
-    scene.remove( selectedObject );
-    actor.position.x -= 1000;
-    actor.position.z -= 1000;
-  }
 
-
-  if( Math.abs(actor.position.x - targets[minWayTargetIndex][0]) < actorSpeed && Math.abs(actor.position.z - targets[minWayTargetIndex][1]) < actorSpeed){
-
-
-    // Removing targets
-
-    deletedTargetCount += 1;
-
-    var selectedObject = scene.getObjectByName('target_'+minWayTargetIndex);
-
-    scene.remove( selectedObject );
-
-    selectedObject.position.x = 100;
-    selectedObject.position.y = 100;
-
-    targets[minWayTargetIndex][0] = 100;
-    targets[minWayTargetIndex][1] = 100;
-
-    if(targets.length == deletedTargetCount){
-      isAnyTarget = false;
+  for (var i = 0; i < actorValue; i++) {
+    selectedActor = scene.getObjectByName('actor_'+i);
+    if(selectedActor.position.x < targets[minWayTargetIndex][0]){
+      selectedActor.position.x += actorSpeed;
+    } else {
+      selectedActor.position.x -= actorSpeed;
     }
-    findNearTarget();
+    if(selectedActor.position.z < targets[minWayTargetIndex][1]){
+      selectedActor.position.z += actorSpeed;
+    } else {
+      selectedActor.position.z -= actorSpeed;
+    }
+  }
 
+  actorEnergy -= 1;
+
+  for (var i = 0; i < actorValue; i++) {
+    selectedActor = scene.getObjectByName('actor_'+i);
+    if(actorEnergy==0){
+      var selectedObject = scene.getObjectByName('actor');
+      scene.remove( selectedObject );
+      selectedActor.position.x -= 1000;
+      selectedActor.position.z -= 1000;
+    }
+  }
+
+
+  for (var i = 0; i < actorValue; i++) {
+    selectedActor = scene.getObjectByName('actor_'+i);
+    if( Math.abs(selectedActor.position.x - targets[minWayTargetIndex][0]) < actorSpeed && Math.abs(selectedActor.position.z - targets[minWayTargetIndex][1]) < actorSpeed){
+
+
+      // Removing targets
+
+      deletedTargetCount += 1;
+
+      var selectedObject = scene.getObjectByName('target_'+minWayTargetIndex);
+
+      scene.remove( selectedObject );
+
+      selectedObject.position.x = 100;
+      selectedObject.position.y = 100;
+
+      targets[minWayTargetIndex][0] = 100;
+      targets[minWayTargetIndex][1] = 100;
+
+      if(targets.length == deletedTargetCount){
+        isAnyTarget = false;
+      }
+      findNearTarget();
+
+    }
 
   }
 
