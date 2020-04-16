@@ -6,7 +6,7 @@ renderer.setSize( window.innerWidth, window.innerHeight );
 document.body.appendChild( renderer.domElement );
 
 // Platform
-var platform_geo = new THREE.BoxGeometry(5, 0.5, 5);
+var platform_geo = new THREE.BoxGeometry(5, 0.9, 5);
 var platform_mat = new THREE.MeshBasicMaterial( { color: 0x173D5D} );
 var platform = new THREE.Mesh( platform_geo, platform_mat );
 var wireframe_geo = new THREE.EdgesGeometry( platform.geometry );
@@ -75,11 +75,21 @@ for (var i = 0; i < 4; i++) {
 
 
 
-const speedMin = 0.1;
-const speedMax = 0.2;
+const speedMin = 0.05;
+const speedMax = 0.08;
 
-const energyMin = 70;
-const energyMax = 70;
+const energyMin = 150;
+const energyMax = 150;
+
+const targetCreateCoef = 1.3;
+const targetCreateMax = 100;
+
+const mutationProbability = 0.3;
+const mutationEfficiency = 5;
+
+const mutationSpeedComsumption = 1.4;
+
+const demutationProbability = 0.05;
 
 // Actor
 var actorValue = 0;
@@ -97,8 +107,13 @@ function createActor(count){
     actor.number = actorValue;
     actor.energy = getRandomArbitrary(energyMin, energyMax);
     actor.root_energy = actor.energy;
+    actor.death_time = 3;
+    actor.death_time_counter = 0;
     actor.is_standing = false;
     actor.eaten_count = 0;
+    actor.defaultColor = '0xF0CF5A';
+    actor.size = 1;
+
     actor.consumption = 1;
 
     actorValue += 1;
@@ -114,17 +129,40 @@ function createActor(count){
 }
 createActor(1);
 
+
 // Day system
 var moment = 0;
 var day = 0;
 const dayTime = 100;
 function passDay(){
+  // removeAllTargets();
   day += 1;
-  createTarget(day);
-
+  createTarget( targetCreateMax <= actorValue ? targetCreateMax : (targetCreateCoef * actorValue) );
   for (var i = 0; i < actorValue; i++) {
     selectedActor = scene.getObjectByName('actor_'+i);
     if(selectedActor){
+      // Mutation
+      selectedActor.children = 0;
+      if(getRandomInt(0, 1) <= mutationProbability){
+        switch(Math.floor(getRandomInt(0, 3))){
+          case 0:
+            // Speed increase
+            selectedActor.speed += getRandomArbitrary(speedMin, speedMax) / mutationEfficiency;
+            selectedActor.geometry = new THREE.ConeGeometry(0.1, 0.1, 0.1);
+            selectedActor.defaultColor = '0xB1E054';
+            selectedActor.consumption *= mutationSpeedComsumption;
+            break;
+          case 1:
+            // Size increase
+
+            selectedActor.scale.x = 2;
+            selectedActor.scale.y = 2;
+            selectedActor.scale.z = 2;
+            break;
+        }
+      }
+
+      selectedActor.death_time_counter += 1;
       if(selectedActor.eaten_count >= 1){
         selectedActor.energy = selectedActor.root_energy;
       }
@@ -132,12 +170,13 @@ function passDay(){
         createActor(1);
       }
       selectedActor.eaten_count = 0;
+      if( selectedActor.death_time_counter == selectedActor.death_time){
+        removeActor(selectedActor);
+      }
     }
   }
-
-    // console.log('Days passed: ', day)
 }
-createTarget(1);
+createTarget( targetCreateMax <= actorValue ? targetCreateMax : (targetCreateCoef * actorValue) );
 
 var minWayTarget = 5;
 var minWayTargetIndex = 0;
@@ -228,15 +267,13 @@ function animate() {
           selectedActor.energy -= selectedActor.consumption;
         }
         if(selectedActor.energy <= 0){
-          totalDeath += 1;
-          scene.remove( selectedActor );
-          console.log('Death: ', selectedActor.number)
+          removeActor(selectedActor);
         }
         else if(selectedActor.energy <= 40){
           selectedActor.material.color.setHex( 0xFF4949 );
         }
         else{
-          selectedActor.material.color.setHex( 0xF0CF5A );
+          selectedActor.material.color.setHex( selectedActor.defaultColor );
         }
       }
     }
@@ -244,7 +281,7 @@ function animate() {
     for (var i = 0; i < actorValue; i++) {
       selectedActor = scene.getObjectByName('actor_'+i);
       if(selectedActor){
-        if( Math.abs(selectedActor.position.x - targets[minWayTargetIndexAll[selectedActor.number]][0]) < selectedActor.speed && Math.abs(selectedActor.position.z - targets[minWayTargetIndexAll[selectedActor.number]][1]) < selectedActor.speed){
+        if( Math.abs(selectedActor.position.x - targets[minWayTargetIndexAll[selectedActor.number]][0]) < selectedActor.speed && Math.abs(selectedActor.position.z - targets[minWayTargetIndexAll[selectedActor.number]][1]) < selectedActor.speed ){
           // Removing targets
           deletedTargetCount += 1;
           var selectedObject = scene.getObjectByName('target_'+minWayTargetIndexAll[selectedActor.number]);
@@ -273,6 +310,20 @@ function animate() {
 }
 animate();
 
+function removeActor(selectedActor){
+  totalDeath += 1;
+  scene.remove( selectedActor );
+  console.log('Death: ', selectedActor.number);
+}
+
+function removeAllTargets(){
+  for (var i = 0; i < targetValue; i++) {
+    selectedTarget = scene.getObjectByName('target_'+i);
+    if(selectedTarget){
+      scene.remove( selectedTarget );
+    }
+  }
+}
 
 // Control scene
 var canvas = renderer.domElement;
