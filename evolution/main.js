@@ -2,6 +2,7 @@ var scene = new THREE.Scene();
 var camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 100 );
 var renderer = new THREE.WebGLRenderer();
 
+
 renderer.setSize( window.innerWidth, window.innerHeight );
 document.body.appendChild( renderer.domElement );
 
@@ -75,11 +76,11 @@ for (var i = 0; i < 4; i++) {
 
 
 
-const speedMin = 0.05;
-const speedMax = 0.05;
+const speedMin = 0.01;
+const speedMax = 0.01;
 
-const energyMin = 500;
-const energyMax = 500;
+const energyMin = 1000;
+const energyMax = 1000;
 
 const targetCreateCoef = 1.3;
 const targetCreateMax = 100;
@@ -136,7 +137,7 @@ createActor(3);
 // Day system
 var moment = 0;
 var day = 0;
-const dayTime = 100;
+const dayTime = 500;
 function passDay(){
   // removeAllTargets();
   day += 1;
@@ -241,6 +242,9 @@ var stopAnimation = false;
 // Animation cycle
 function animate() {
 	requestAnimationFrame( animate );
+  // for (var k= 0; k < 5; i++) {
+  //
+  // }
   if(!stopAnimation){
     for (var i = 0; i < actorValue; i++) {
       selectedActor = scene.getObjectByName('actor_'+i);
@@ -370,7 +374,11 @@ function animate() {
   	renderer.render( scene, camera );
   }
 }
-animate();
+
+var animateScale = 4;
+for (var i = 0; i < animateScale; i++) {
+  animate();
+}
 
 function removeActor(selectedActor){
   totalDeath += 1;
@@ -390,6 +398,7 @@ function removeAllTargets(){
 // Control scene
 var canvas = renderer.domElement;
 
+
 var switch_mode = false;
 document.addEventListener("keydown", event => {
   if (event.isComposing || event.keyCode === 32) {
@@ -407,6 +416,9 @@ document.addEventListener("keydown", event => {
       canvas.removeEventListener('mousemove', onMouseMove);
       switch_mode = false;
     }
+  }
+  if (event.isComposing || event.keyCode === 13) {
+    animate();
   }
 
 });
