@@ -76,10 +76,10 @@ for (var i = 0; i < 4; i++) {
 
 
 const speedMin = 0.05;
-const speedMax = 0.08;
+const speedMax = 0.05;
 
-const energyMin = 150;
-const energyMax = 150;
+const energyMin = 500;
+const energyMax = 500;
 
 const targetCreateCoef = 1.3;
 const targetCreateMax = 100;
@@ -92,8 +92,10 @@ const mutationSpeedComsumption = 1.4;
 const demutationProbability = 0.05;
 
 // Actor
+var actors = [];
 var actorValue = 0;
 function createActor(count){
+  isAnyTarget_predator = true;
   for (var i = 0; i < count; i++) {
     var actor_geo = new THREE.BoxGeometry(0.1, 0.1, 0.1);
     var actor_mat = new THREE.MeshBasicMaterial( { color: 0xF0CF5A} );
@@ -113,9 +115,8 @@ function createActor(count){
     actor.eaten_count = 0;
     actor.defaultColor = '0xF0CF5A';
     actor.size = 1;
-
+    actor.predator = false;
     actor.consumption = 1;
-
     actorValue += 1;
 
     var wireframe_geo = new THREE.EdgesGeometry( actor.geometry );
@@ -125,9 +126,11 @@ function createActor(count){
     wireframe.renderOrder = 1;
     actor.add( wireframe );
     scene.add( actor );
+
+    actors.push(actor)
   }
 }
-createActor(1);
+createActor(3);
 
 
 // Day system
@@ -154,10 +157,12 @@ function passDay(){
             break;
           case 1:
             // Size increase
+            selectedActor.predator = true;
 
-            selectedActor.scale.x = 2;
-            selectedActor.scale.y = 2;
-            selectedActor.scale.z = 2;
+            selectedActor.speed /= 1.5;
+            selectedActor.scale.x = 3;
+            selectedActor.scale.y = 3;
+            selectedActor.scale.z = 3;
             break;
         }
       }
@@ -181,33 +186,57 @@ createTarget( targetCreateMax <= actorValue ? targetCreateMax : (targetCreateCoe
 var minWayTarget = 5;
 var minWayTargetIndex = 0;
 var minWayTargetIndexAll = [];
+var minWayTargetIndexAll_predator = [];
 var selectedActor = 0;
 
 var isAnyTarget = true;
+var isAnyTarget_predator = true;
 function findNearTarget(actor){
   if(actor){
     selectedActor = actor;
-    if(isAnyTarget){
-      minWayTarget = 5;
-      minWayTargetIndex = 0;
-      for (var i = 0; i < targets.length; i++) {
-        var checkWayValue = Math.sqrt( Math.pow( targets[i][0] - selectedActor.position.x , 2) + Math.pow( targets[i][1] - selectedActor.position.z, 2) );
-        if(checkWayValue < minWayTarget){
-          minWayTarget = checkWayValue;
-          minWayTargetIndex = i;
+    if(!selectedActor.predator){
+      if(isAnyTarget){
+        minWayTarget = 5;
+        minWayTargetIndex = 0;
+        for (var i = 0; i < targets.length; i++) {
+          var checkWayValue = Math.sqrt( Math.pow( targets[i][0] - selectedActor.position.x , 2) + Math.pow( targets[i][1] - selectedActor.position.z, 2) );
+          if(checkWayValue < minWayTarget){
+            minWayTarget = checkWayValue;
+            minWayTargetIndex = i;
+          }
+        }
+        var selectedObject = scene.getObjectByName('target_'+minWayTargetIndex);
+        if(selectedObject){
+          selectedObject.material.color.setHex( 0x39A99F );
         }
       }
-      var selectedObject = scene.getObjectByName('target_'+minWayTargetIndex);
-      if(selectedObject){
-        selectedObject.material.color.setHex( 0x39A99F );
+      minWayTargetIndexAll[actor.number] = minWayTargetIndex;
+    } else {
+      if(isAnyTarget_predator){
+        minWayTarget = 5;
+        minWayTargetIndex = 0;
+        for (var i = 0; i < actors.length; i++) {
+          if(i != selectedActor.number){
+            var checkWayValue = Math.sqrt( Math.pow( actors[i].position.x - selectedActor.position.x , 2) + Math.pow( actors[i].position.z - selectedActor.position.z, 2) );
+            if(checkWayValue < minWayTarget){
+              minWayTarget = checkWayValue;
+              minWayTargetIndex = i;
+            }
+          }
+        }
+          // var selectedObject = scene.getObjectByName('actor_'+minWayTargetIndex);
+          // if(selectedObject){
+          //   selectedObject.defaultColor = '0x363636';
+          // }
+        minWayTargetIndexAll_predator[actor.number] = minWayTargetIndex;
       }
     }
-    minWayTargetIndexAll[actor.number] = minWayTargetIndex;
   }
 }
 
 var totalDeath = 0;
 var deletedTargetCount = 0;
+var deletedActorsCount = 0;
 var stopAnimation = false;
 // Animation cycle
 function animate() {
@@ -240,20 +269,35 @@ function animate() {
       findNearTarget(selectedActor);
     }
 
-    if(isAnyTarget){
+    if(isAnyTarget && isAnyTarget_predator){
       for (var i = 0; i < actorValue; i++) {
         selectedActor = scene.getObjectByName('actor_'+i);
         if(selectedActor){
-          selectedActor.is_standing = false;
-          if(selectedActor.position.x < targets[minWayTargetIndexAll[selectedActor.number]][0]){
-            selectedActor.position.x += selectedActor.speed;
-          } else {
-            selectedActor.position.x -= selectedActor.speed;
+          if(!selectedActor.predator){
+            selectedActor.is_standing = false;
+            if(selectedActor.position.x < targets[minWayTargetIndexAll[selectedActor.number]][0]){
+              selectedActor.position.x += selectedActor.speed;
+            } else {
+              selectedActor.position.x -= selectedActor.speed;
+            }
+            if(selectedActor.position.z < targets[minWayTargetIndexAll[selectedActor.number]][1]){
+              selectedActor.position.z += selectedActor.speed;
+            } else {
+              selectedActor.position.z -= selectedActor.speed;
+            }
           }
-          if(selectedActor.position.z < targets[minWayTargetIndexAll[selectedActor.number]][1]){
-            selectedActor.position.z += selectedActor.speed;
-          } else {
-            selectedActor.position.z -= selectedActor.speed;
+          else {
+            selectedActor.is_standing = false;
+            if(selectedActor.position.x < actors[minWayTargetIndexAll_predator[selectedActor.number]].position.x){
+              selectedActor.position.x += selectedActor.speed;
+            } else {
+              selectedActor.position.x -= selectedActor.speed;
+            }
+            if(selectedActor.position.z < actors[minWayTargetIndexAll_predator[selectedActor.number]].position.z){
+              selectedActor.position.z += selectedActor.speed;
+            } else {
+              selectedActor.position.z -= selectedActor.speed;
+            }
           }
         }
       }
@@ -281,21 +325,39 @@ function animate() {
     for (var i = 0; i < actorValue; i++) {
       selectedActor = scene.getObjectByName('actor_'+i);
       if(selectedActor){
-        if( Math.abs(selectedActor.position.x - targets[minWayTargetIndexAll[selectedActor.number]][0]) < selectedActor.speed && Math.abs(selectedActor.position.z - targets[minWayTargetIndexAll[selectedActor.number]][1]) < selectedActor.speed ){
-          // Removing targets
-          deletedTargetCount += 1;
-          var selectedObject = scene.getObjectByName('target_'+minWayTargetIndexAll[selectedActor.number]);
-          scene.remove( selectedObject );
-          targets[minWayTargetIndexAll[selectedActor.number]][0] = 100;
-          targets[minWayTargetIndexAll[selectedActor.number]][1] = 100;
+        if(!selectedActor.predator){
+          if( Math.abs(selectedActor.position.x - targets[minWayTargetIndexAll[selectedActor.number]][0]) < selectedActor.speed && Math.abs(selectedActor.position.z - targets[minWayTargetIndexAll[selectedActor.number]][1]) < selectedActor.speed ){
+            // Removing targets
+            deletedTargetCount += 1;
+            var selectedObject = scene.getObjectByName('target_'+minWayTargetIndexAll[selectedActor.number]);
+            scene.remove( selectedObject );
+            targets[minWayTargetIndexAll[selectedActor.number]][0] = 100;
+            targets[minWayTargetIndexAll[selectedActor.number]][1] = 100;
 
-          selectedActor.eaten_count += 1;
+            selectedActor.eaten_count += 1;
 
-          if(targets.length == deletedTargetCount){
-            isAnyTarget = false;
+            if(targets.length == deletedTargetCount){
+              isAnyTarget = false;
+            }
+            findNearTarget(selectedActor);
+
           }
-          findNearTarget(selectedActor);
+        } else {
+          if( Math.abs(selectedActor.position.x - actors[minWayTargetIndexAll_predator[selectedActor.number]].position.x) < selectedActor.speed && Math.abs(selectedActor.position.z - actors[minWayTargetIndexAll_predator[selectedActor.number]].position.z) < selectedActor.speed ){
+            // Removing actors
+            deletedActorsCount += 1;
+            var selectedObject = scene.getObjectByName('actor_'+minWayTargetIndexAll_predator[selectedActor.number]);
+            scene.remove( selectedObject );
+            actors[minWayTargetIndexAll_predator[selectedActor.number]].position.x = 100;
+            actors[minWayTargetIndexAll_predator[selectedActor.number]].position.z = 100;
+            console.log("EATEN")
 
+            if(actors.length-1 == deletedActorsCount){
+              isAnyTarget_predator = false;
+            }
+            findNearTarget(selectedActor);
+
+          }
         }
       }
 
