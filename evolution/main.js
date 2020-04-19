@@ -137,7 +137,7 @@ createActor(3);
 // Day system
 var moment = 0;
 var day = 0;
-const dayTime = 500;
+const dayTime = 800;
 function passDay(){
   // removeAllTargets();
   day += 1;
@@ -375,7 +375,7 @@ function animate() {
   }
 }
 
-var animateScale = 4;
+var animateScale = 5;
 for (var i = 0; i < animateScale; i++) {
   animate();
 }
