@@ -1,3 +1,6 @@
+function silentErrorHandler() {return true;}
+window.onerror=silentErrorHandler;
+
 var position = 0;
 var method = 'play';
 
