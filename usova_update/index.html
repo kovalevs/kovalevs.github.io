@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="styles/lightbox.min.css">
+  <link rel="stylesheet" href="styles/header.css">
+  <link rel="stylesheet" href="styles/style.css">
+  <link rel="shortcut icon" href="images/icons/favico.ico" type="image/x-icon">
+  <title>Наталья Усова</title>
+</head>
+<body>
+  <div class="modal-wrapper" id="modalImages">
+    <div class="modal">
+      <img src="images/info_4.png">
+      <img src="images/info_2.png">
+      <img src="images/info_3.png">
+      <img src="images/info_5.png">
+      <img src="images/info_6.png">
+      <img src="images/info_1.png">
+    </div>
+  </div>
+  <div class="modal-wrapper" id="modalMusic">
+    <div class="modal">
+      <div class="music-item">
+        <img class="musicPlay" onclick="playMusic(this)" src="images/icons/play-circle.png">
+        <img class="musicStop" onclick="stopMusic(this)" src="images/icons/pause-circle.png">
+        <p>Сон</p>
+        <audio class="musicHidden">
+          <source src="music/dream.mpeg" type="audio/mpeg">
+        </audio>
+      </div>
+      <div class="music-item">
+        <img class="musicPlay" onclick="playMusic(this)" src="images/icons/play-circle.png">
+        <img class="musicStop" onclick="stopMusic(this)" src="images/icons/pause-circle.png">
+        <p>Дождь</p>
+        <audio class="musicHidden">
+          <source src="music/rain.mpeg" type="audio/mpeg">
+        </audio>
+      </div>
+      <div class="music-item">
+        <img class="musicPlay" onclick="playMusic(this)" src="images/icons/play-circle.png">
+        <img class="musicStop" onclick="stopMusic(this)" src="images/icons/pause-circle.png">
+        <p>Осень</p>
+        <audio class="musicHidden">
+          <source src="music/fall.mpeg" type="audio/mpeg">
+        </audio>
+      </div>
+    </div>
+  </div>
+  <div class="modal-wrapper" id="modalVideo">
+    <div class="modal" id="modalVideoContent">
+      <iframe frameborder="0" allowfullscreen
+        src="https://www.youtube.com/embed/Rc7UQnsN1uA">
+      </iframe>
+    </div>
+  </div>
+  <div class="header">
+    <div class="header-bar" id="header-bar-desktop">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="header-bar" id="header-bar-mobile">
+      <div id="header-toggle">
+        <input type="checkbox" id="header-checkbox"/>
+        <span></span>
+        <span></span>
+        <span></span>
+        <ul id="header-menu">
+          <a onclick="closeMenu()" data-scroll href="#"><h2>Официальный сайт</h2></a>
+          <a onclick="closeMenu()" data-scroll href="#anchor-projects"><h2>Проекты</h2></a>
+          <a onclick="closeMenu()" data-scroll href="#anchor-songs"><h2>Песни</h2></a>
+          <a onclick="closeMenu()" data-scroll href="#anchor-poems"><h2>Стихи</h2></a>
+          <a onclick="closeMenu()" href="news.html"><h2>Новости</h2></a>
+          <a onclick="closeMenu()" data-scroll href="#anchor-press"><h2>Пресса</h2></a>
+          <a onclick="closeMenu()" data-scroll href="#anchor-meet"><h2>Встречи</h2></a>
+          <a onclick="closeMenu()" data-scroll href="#anchor-contact"><h2>Контакты</h2></a>
+        </ul>
+      </div>
+    </div>
+    <div class="header-content">
+      <a onclick="closeMenu()" data-scroll href="#"><h2>Официальный сайт</h2></a>
+      <a onclick="closeMenu()" data-scroll href="#anchor-projects"><h2>Проекты</h2></a>
+      <a onclick="closeMenu()" data-scroll href="#anchor-songs"><h2>Песни</h2></a>
+      <a onclick="closeMenu()" data-scroll href="#anchor-poems"><h2>Стихи</h2></a>
+      <a onclick="closeMenu()" href="news.html"><h2>Новости</h2></a>
+      <a onclick="closeMenu()" data-scroll href="#anchor-press"><h2>Пресса</h2></a>
+      <a onclick="closeMenu()" data-scroll href="#anchor-meet"><h2>Встречи</h2></a>
+      <a onclick="closeMenu()" data-scroll href="#anchor-contact"><h2>Контакты</h2></a>
+    </div>
+  </div>
+  <div class="content-wrapper">
+    <div class="content">
+      <h3>Наталья Усова
+            <p>Поэтесса</p>
+            <p>Композитор</p>
+      </h3>
+    </div>
+  </div>
+  <div class="info-wrapper" id="info">
+    <div class="info">
+      <div class="info-about">
+        <div class="about-img">
+          <img class="mobile-hidden" src="images/info_about_remake.png">
+          <img class="desktop-hidden" src="images/info_about_remake.png">
+        </div>
+        <div class="about-text">
+          <h2>Творчество, шаг за шагом…</h2>
+          <p id="info_subtext">
+              Наталья Усова - поэтесса, композитор, исполнитель собственных песен.Член Союза писателей РФ. Строки рождались в счастье и буквально с чистого листа. В музыкально-песенный мир вошла благодаря своему другу, известному композитору Виктора Чайки. Результат - первый музыкальный альбом: "Живу мечтой", позже и первый поэтический сборник. Совершенно неожиданно пришла идея написать песни о тех городах, в которых была - Ялте, Санкт-Петербурге, Уфе…. Звучали они уже на празднике ”Сабантуй” и на конкурсе «Красная гвоздика». Так родился авторский проект ”Песни наших городов”.
+          </p>
+        </div>
+      </div>
+      <div class="info-about row-reverse reverse">
+        <div id="anchor-projects" class="achor"></div>
+        <div class="about-img">
+          <img class="mobile-hidden" src="images/info_about_projects.png">
+          <img class="desktop-hidden" src="images/info_about_projects.png">
+        </div>
+        <div class="about-text reverse-text">
+          <h2>Проекты</h2>
+          <p id="info_subtext_projects">
+            В год 75 — летия Великой Победы хотела бы, чтобы песню «Ленинград- Петербург» услышали ветераны ВОВ — жители блокадного Ленинграда.
+            <br><br>
+            В планах продолжить цикл «Песни наших городов». Родной город, в котором ты родился, живешь — лучший, а если лучший, хочется петь ...а песня точно жить помогает....
+            <br><br>
+            Еще подготовить к изданию сборник стихов для детей с иллюстрациями Екатерины Куклачевой.
+            <br><br>
+            И сюрприз для читателей- гастрономические рецепты...в стихах! Будет вкусно!
+            <div class="about-text-more">
+              <a class="button-a" href="#">Подбробнее</a>
+            </div>
+          </p>
+        </div>
+      </div>
+      <div class="info-about row-reverse reverse default">
+        <div id="anchor-songs" class="achor"></div>
+        <div class="about-img">
+          <img class="mobile-hidden" src="images/info_about_songs.png">
+          <img class="desktop-hidden" src="images/info_about_songs.png">
+        </div>
+        <div class="about-text reverse-text">
+          <h2>Песни</h2>
+          <h3>Иосиф Кобзон—приглашение<br>
+              в мир большой эстрады</h3>
+          <p>
+              Напутствие - быть смелым в творчестве, получила от Иосифа Давидовича Кобзона. Ему представили мою песню «Ленинград –Петербург» и тут же узнала о его желании самому  исполнить  эту песню.<br>
+              Он объяснил это тем, что песня - она вне времени, особенная  , да еще в забытом   ныне стиле вальса . Так и оказалась песня о блокадном Ленинграде- несбывшейся мечтой Иосифа Кобзона.
+              Она прозвучала, но уже  после его кончины…на международном конкурсе  патриотической песни «Красная гвоздика». Исполнил ее молодой  певец  Иван Вершинин в Колонном зале Дома Союзов на гала-концерте лауреатов, в феврале 2019 года.<br>
+              А впервые песня «Ленинград -Петербург» прозвучала в исполнении российской певицы Кристины Аглинц.
+            <div class="about-text-more">
+              <div class="music-item">
+                <img class="musicPlay" onclick="playMusic(this)" src="images/icons/play-circle.png">
+                <img class="musicStop" onclick="stopMusic(this)" src="images/icons/pause-circle.png">
+                <p>Песня Ленинград-Петербург</p>
+                <audio class="musicHidden">
+                  <source src="#" type="audio/mpeg">
+                </audio>
+              </div>
+            </div>
+          </p>
+        </div>
+      </div>
+      <div class="posts-wrapper">
+        <div class="anchor" id="pre-anchor"></div>
+        <div class="posts">
+          <div class="about-text about-text-title">
+          </div>
+          <div class="post">
+            <div class="post-content">
+              <h2>Иван Вершинин-жду новых песен Натальи Усовой</h2>
+              <p>Исполняя новую песню Натальи Усовой «Ленинград -Петербург» я думал об огромной силе
+                музыки, которая возвращала блокадный Ленинград к жизни, побеждала страх, давала огромную силу выстоять.
+                Песня Натальи Усовой о тех военных годах, звучит вальс — а это жизнь, это движение, это любовь.....
+                Ленинград вошел в историю Великой Отечественной, как город непокоренных жителей, он святой !!!
+                Для автора святость-главный смысл песни !!!!
+                Эта победная песня звучит сейчас и прозвучала бы тогда в послевоенные годы...она на все времена....!!!..</p>
+            </div>
+            <div class="post-img">
+              <img src="images/info_about_pre.png">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="info-photos">
+        <div class="photos-grid">
+          <div class="item-1"><a href="images/info_1.png" data-lightbox="photo"></a></div>
+          <div class="item-2"><a href="images/info_2.png" data-lightbox="photo"></a></div>
+          <div class="item-3"><a href="images/info_3.png" data-lightbox="photo"></a></div>
+          <div class="item-4"><a href="images/info_4.png" data-lightbox="photo"></a></div>
+          <div class="item-5"><a href="images/info_5.png" data-lightbox="photo"></a></div>
+          <div class="item-6"><a href="images/info_6.png" data-lightbox="photo"></a></div>
+        </div>
+      </div>
+      <div class="images-more angle-button">
+        <button id="imagesMore">Еще</button>
+      </div>
+    </div>
+  </div>
+  <div class="pre-music">
+    <div class="pre-music-images">
+      <img src="images/music_1.png">
+      <img src="images/music_2.png">
+      <img src="images/music_3.png">
+    </div>
+    <div class="pre-music-text">
+      <h3>МОЕ НАСТРОЕНИЕ В МУЗЫКЕ - ЭТО ОСЕНЬ…<br>
+        И ЗДЕСЬ МОИ ЛЮБИМЫЕ КОМПОЗИЦИИ.</h3>
+        <p>Они вошли в мой первый альбом “Живу мечтой”.</p>
+    </div>
+  </div>
+  <div class="music-wrapper">
+    <div class="anchor" id="music-anchor"></div>
+    <div class="music">
+      <div class="music-content-wrapper">
+        <div class="music-content">
+          <div class="music-item">
+            <img class="musicPlay" onclick="playMusic(this)" src="images/icons/play-circle.png">
+            <img class="musicStop" onclick="stopMusic(this)" src="images/icons/pause-circle.png">
+            <p>Вещий сон</p>
+            <audio class="musicHidden">
+              <source src="music/dream.mpeg" type="audio/mpeg">
+            </audio>
+          </div>
+          <div class="music-item">
+            <img class="musicPlay" onclick="playMusic(this)" src="images/icons/play-circle.png">
+            <img class="musicStop" onclick="stopMusic(this)" src="images/icons/pause-circle.png">
+            <p>Осень</p>
+            <audio class="musicHidden">
+              <source src="music/fall.mpeg" type="audio/mpeg">
+            </audio>
+          </div>
+          <div class="music-item">
+            <img class="musicPlay" onclick="playMusic(this)" src="images/icons/play-circle.png">
+            <img class="musicStop" onclick="stopMusic(this)" src="images/icons/pause-circle.png">
+            <p>Дождь</p>
+            <audio class="musicHidden">
+              <source src="music/rain.mpeg" type="audio/mpeg">
+            </audio>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="music-more angle-button">
+        <button id="musicMore">Еще</button>
+      </div> -->
+    </div>
+  </div>
+  <div class="center-wrapper">
+    <div class="gap-wrapper">
+      <div class="info-about row-reverse reverse default">
+        <div class="about-img">
+          <img class="mobile-hidden" src="images/after.png">
+          <img class="desktop-hidden" src="images/after.png">
+        </div>
+        <div class="about-text reverse-text">
+          <p>
+            Праздник для всех без исключения-это все-таки ЛЕТО.
+            И любимое место отдыха для моей семьи- Ялта.
+            Именно этот город и стал первым
+            в музыкальном проекте «Песни наших городов».
+            Я замечаю там все-лица, дома,
+            растения в необыкновенном наряде,рассветы и закаты солнца, чувствую запах цветов и моря — время там останавливается,
+            на сердце долгожданный покой , но не тишина !!!
+            Буйство красок, звуки музыки, танцующие пары, хочется петь и наслаждаться жизнью....
+            <div class="about-text-more">
+              <div class="music-item">
+                <img class="musicPlay" onclick="playMusic(this)" src="images/icons/play-circle.png">
+                <img class="musicStop" onclick="stopMusic(this)" src="images/icons/pause-circle.png">
+                <p>Ялта-сердце Крыма</p>
+                <audio class="musicHidden">
+                  <source src="#" type="audio/mpeg">
+                </audio>
+              </div>
+            </div>
+          </p>
+        </div>
+      </div>
+      <div class="images">
+        <div class="images-top">
+          <img src="images/images_1.png">
+        </div>
+        <div class="images-bottom">
+          <img src="images/images_2.png">
+          <img src="images/images_3.png">
+          <img src="images/images_4.png">
+          <img src="images/images_5.png">
+        </div>
+      </div>
+      <div class="info-about row-reverse reverse default">
+        <div id="anchor-poems" class="achor"></div>
+        <div class="about-img">
+          <img class="mobile-hidden" src="images/poems.png">
+          <img class="desktop-hidden" src="images/poems.png">
+        </div>
+        <div class="about-text reverse-text">
+          <h2>Стихи</h2>
+          <h3>Виктор Чайка - стихи Натальи Усовой<br>«льются песнями»</h3>
+          <p>
+            Стихи Натальи Усовой — открытая душа поэта.<br>
+            В каждой строке — подлинные чувства и настроение автора:<br>
+            гордость и обида, восхищение и печаль , разлука и встреча....<br>
+            В них мельчайшие черты ее характера.<br>
+            И как хорошо, что в этом безжалостном цейтноте современного мира есть люди, обостренно чувствующие жизнь ,которые могут остановиться, задуматься о явлениях, которые часто остаются без внимания .<br>
+            Наталья Усова именно такой человек.  Дай Бог ей сохранить верность своей душевной ноте .....<br>
+            Безмерно рад нашей многолетней дружбе !!!
+          </p>
+        </div>
+      </div>
+      <div class="info-about default margin">
+        <div class="about-img">
+          <img class="mobile-hidden large-img" src="images/prose.png">
+          <img class="desktop-hidden large-img" src="images/prose.png">
+        </div>
+        <div class="about-text left more-lh">
+          <h3>Наталья Усова – «к прозе  пока не<br>готова»…</h3>
+          <p>
+          Как становятся поэтом? Одни говорят, что это Божий<br>
+          дар…другие, что это врожденная творческая способность,<br>
+          которая  просыпается в разном возрасте….А может<br>
+          это-подарок родителей? <br>
+          Моя мама-филолог, историк, поэтесса, а отец- музыкант…<br>
+            <span class="space"></span>В моих стихах темы  вечные : <br>
+            <span class="space"></span>надежда и обман  ,<br>
+            <span class="space"></span>разлука и родные  лица. <br>
+            <span class="space"></span>Есть  и февраль , метели,  осень   и весна . <br>
+            <span class="space"></span>Россия  ,Москва и казачья  станица…
+          <br><br><br>
+          У меня много идей, я много работаю, стала полуночницей…и не думаю, что скажут обо мне!!
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="center-wrapper">
+    <div class="samples">
+      <div class="sample-item">
+        <div class="sample-title">
+          <h3>Наталья Усова</h3>
+        </div>
+        <div class="sample-body">
+          <h2>Божие правый, помоги<br>(молитва)</h2>
+          <p>
+            Боже правый, помоги мне<br>
+            В жизни нашей разобраться.<br>
+            Что твориться на земле,<br>
+            Можно только догадаться.<br>
+            <span></span>
+            Миром правят ложь и злоба.<br>
+            Не поддержит брата брат.<br>
+            Не расслабься, смотри в оба.<br>
+            Грязь в любви. Сплошной разврат.<br>
+            <span></span>
+            Не боятся люди ада<br>
+            И не видят страха край.<br>
+            Думают, их ждет награда,<br>
+            За грехи отправят в рай.<br>
+            <span></span>
+            Помоги мне, боже правый.<br>
+            Чтоб людей любить могла.<br>
+            Если ты уже не можешь,<br>
+            Чтобы я им помогла.
+          </p>
+        </div>
+      </div>
+      <div class="sample-item">
+        <div class="sample-title">
+          <h3>Наталья Усова</h3>
+        </div>
+        <div class="sample-body">
+          <h2>Совет</h2>
+          <p>
+            Прожив в браке много лет,<br>
+            Говорю не без причины.<br>
+            Хочу девицам дать совет,<br>
+            Какого выбрать им мужчину.<br>
+            <span></span>
+            Судить по возрасту не надо,<br>
+            И по лицу — краса сойдет.<br>
+            А у кого в мозгах бравада,<br>
+            Тот тоже нам не подойдет.<br>
+            <span></span>
+            Большие деньги кто приносит,<br>
+            Так это тоже не пример.<br>
+            Кто при чинах, того заносит.<br>
+            Какой он, к черту, кавалер.<br>
+            <span></span>
+            Все время нужно ублажать,<br>
+            По шерстке гладить, не перечить,<br>
+            Все на подносе подавать.<br>
+            С такими жить — судьбу калечить.<br>
+            <span></span>
+            А важен нам мужчина тот,<br>
+            Кто видит в женщине подругу.<br>
+            Тот, кто ценит, бережет,<br>
+            А не содержит, как прислугу.
+          </p>
+        </div>
+      </div>
+      <div class="sample-item">
+        <div class="sample-title">
+          <h3>В короткой ночи...</h3>
+        </div>
+        <div class="sample-body">
+          <h2>Полуночница</h2>
+          <p>
+            Сижу сама с собою в тишине,<br>
+            И время как летит не замечаю.<br>
+            Множество идей и мыслей в голове.<br>
+            Мне хорошо, я вовсе не скучаю!<br>
+            <span></span>
+            Я стала просто полуночницей.<br>
+            Мне так комфортно в тишине.<br>
+            Наивная, как поэтесса-строчница.<br>
+            Не думаю, что скажут обо мне.<br>
+            <span></span>
+            И слышу, как соседка склочница<br>
+            Все точит мужа своего.<br>
+            Я стала просто полуночница.<br>
+            Не человек, ночное существо.<br>
+            <span></span>
+            То время не могу проспать,<br>
+            Когда вокруг тишь, благодать.<br>
+            Мне нужно мысли все собрать.<br>
+            Писать, мечтать, еще писать...
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="anchor-press" class="achor achor-top"></div>
+  <div class="center-wrapper">
+    <div class="press">
+      <div class="press-text">
+        <h2>Пресса</h2>
+        <h3>Наталья Усова—дебюты в зеркале прессы</h3>
+        <h2 class="thin">Ялта</h2>
+      </div>
+      <div class="press-images">
+        <img src="images/press_1.png">
+        <img src="images/press_2.png" class="img-gap-46">
+      </div>
+      <div class="press-text">
+      <p>
+        В поле зрения прессы впервые оказалась в Ялте в 2017 году. Приехала с мужем на отдых, а получились дни презентации моей песни. Антон Павлович Чехов в свое время говорил, что в Ялте невозможно работать, а мне пришлось. Песня «Ялта-сердце Крыма»– это ведь первая композиция моего музыкального проекта «Песни наших городов».<br>
+        Местные СМИ не оставили это без внимания. Конечно, помогли друзья. Новая песня о Ялте в бархатный сезон стала главной новостью культурной жизни города. Об этом написали местные информагентства, газеты «Ялтинские вести» и «Южная газета». <br>
+        Ну,а сама песня впервые прозвучала на радиостанции «Ялта FM», а потом на Ялтинском ТВ.  Там же было записано первое телевизионное интервью: «я-в кадре...должна быть четкая логика, уверенная речь, да еще эфир не выносит пауз...  Конечно я несколько растерялась, надо было быстро отвечать на вопросы, подбирать нужные слова, думать о работе на камеру. <br>
+        Я представляла это как-то иначе, думала будет легче, а получился банный день.....»
+      </p>
+      </div>
+      <div class="press-images">
+        <img src="images/press_3.png" class="img-gap-20">
+        <img src="images/press_4.png">
+        <img src="images/press_5.png" class="img-gap-25">
+      </div>
+      <div class="about-text-more">
+        <div class="music-item">
+          <img class="musicPlay" onclick="playMusic(this)" src="images/icons/play-circle.png">
+          <img class="musicStop" onclick="stopMusic(this)" src="images/icons/pause-circle.png">
+          <p>Фрагмент интервью  на радиостанции «Ялта FM»</p>
+          <audio class="musicHidden">
+            <source src="#" type="audio/mpeg">
+          </audio>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="center-wrapper">
+    <div class="press">
+      <div class="press-text">
+        <h2>Смоленск</h2>
+      </div>
+      <div class="press-images">
+        <div class="img-container">
+          <img src="images/smol_1.png" class="img-gap-26">
+          <p class="more-padding">Жюри</p>
+        </div>
+        <div class="img-container">
+          <img src="images/smol_2.png">
+          <p>Смоленск</p>
+        </div>
+        <div class="img-container">
+          <img src="images/smol_3.png">
+          <p>После выступления</p>
+        </div>
+        <div class="img-container">
+          <img src="images/smol_4.png" class="img-gap-21">
+          <p>Команда</p>
+        </div>
+      </div>
+      <div class="press-text">
+      <p>
+        2018 год - дебютное участие в международном музыкальном  конкурсе  национальной  патриотической песни «Красная гвоздика». К этому времени была уже готова песня «Ленинград- Петербург». <br>
+        Отборочный  тур проходил в Смоленске .<br>
+        Конкурс очень престижный. Президентом его на протяжении нескольких лет был Иосиф Давидович  Кобзон. Участники  конкурса   - люди разных возрастов , все легко   понимали друг друга ,   переживали за выступления конкурентов ,обменивались мнениями и тут же идеями о совместной работе. Никто не чувствовал себя одиноким . <br>
+        Песню мою приняли очень хорошо- она стала лауреатом конкурса. Об участниках  подробно  написала местная   «Смоленская газета» .  А Гала- концерт  лауреатов  конкурса был уже в  Москве, в Колонном Зале Дома Союзов . Вел концерт Владимир Березин . Вот как он представил  мою песню «Ленинград-Петербург».
+      </p>
+      </div>
+      <div class="press-images">
+        <div class="img-container">
+          <img src="images/smol_5.png" class="img-gap-22">
+          <p class="more-padding">В.Березин</p>
+        </div>
+        <div class="img-container">
+          <img src="images/smol_6.png">
+        </div>
+        <div class="img-container">
+          <img src="images/smol_7.png">
+          <p>И.Вершинин</p>
+        </div>
+        <div class="img-container">
+          <img src="images/smol_8.png" class="img-gap-23">
+        </div>
+      </div>
+      <div class="about-text-more">
+        <div class="video-flex">
+          <div class="video-item">
+            <iframe frameborder="0" allowfullscreen width="400" height="250"
+              src="https://www.youtube.com/embed/LXb3EKWsInQ">
+            </iframe>
+            <div class="video-content">
+              <p>В.Березин о песне Н.Усовой</p>
+            </div>
+          </div>
+        </div>
+        <div class="video-flex">
+          <div class="video-item">
+            <iframe frameborder="0" allowfullscreen width="400" height="250"
+              src="https://www.youtube.com/embed/LXb3EKWsInQ">
+            </iframe>
+            <div class="video-content">
+              <p>Репортаж из Колонный зала Дома Союзов</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="center-wrapper">
+    <div class="press">
+      <div class="press-text">
+        <h2>Москва</h2>
+      </div>
+      <div class="press-images">
+        <div class="img-container">
+          <img src="images/moscow_1.png">
+        </div>
+        <div class="img-container">
+          <img src="images/moscow_2.png">
+        </div>
+        <div class="img-container">
+          <img src="images/moscow_3.png">
+        </div>
+      </div>
+      <div class="press-text">
+      <p>
+        И еще один дебют 2018 года-это участие в национальном татаро-башкирском празднике «Сабантуй» в Коломенском. Год этот для «Сабантуя» был юбилейным - 30-м по счету. Поэтому решено было изменить формат праздника. И вот благодаря усилиям европейского режиссера Ханса-Йоахима Фрайя , семейный праздник «Сабантуй -2018», сохранив национальный контекст, приобрел атрибуты современного городского фестиваля дружбы народов. Приглашение принять участие в празднике я получила от Полномочного<br> Представительства Республики Башкортостан при Президенте РФ. Именно там была впервые представлена моя новая песня «Уфимский клен ».<br>
+        Праздник получился масштабным – об этом были репортажи московских журналистов ,телекомпании «Татарстан — Новый век», Башкирского спутникового телевидения.
+      </p>
+      </div>
+      <div class="press-images">
+        <div class="img-container">
+          <img src="images/moscow_4.png">
+        </div>
+        <div class="img-container">
+          <img src="images/moscow_5.png">
+        </div>
+        <div class="img-container">
+          <img src="images/moscow_6.png">
+        </div>
+      </div>
+      <div class="about-text-more">
+        <div class="video-flex">
+          <div class="video-item ex-margin">
+            <iframe frameborder="0" allowfullscreen width="400" height="250"
+              src="https://www.youtube.com/embed/LXb3EKWsInQ">
+            </iframe>
+            <div class="video-content">
+              <p>Уфимский клен</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="anchor-meet" class="achor achor-top"></div>
+  <div class="center-wrapper">
+    <div id="anchor-meet" class="achor"></div>
+    <div class="gap-wrapper-alt">
+      <div class="meet">
+        <div class="meet-text">
+          <h2>Встречи</h2>
+          <p>Наталья Усова- встречи с замечательными<br>
+            людьми:везет тому, кто сам везет…</p>
+        </div>
+        <div class="meet-flex">
+          <div class="meet-item">
+            <img src="images/meet_1.png">
+            <p>Ахмадуллина  Алена- модельер,<br> дизайнер</p>
+          </div>
+          <div class="meet-item">
+            <img src="images/meet_2.png">
+            <p class="meet-flex-alt">
+              Шахмухаметов Азат Галиевич-<br>
+              дирижер Образцово-показательного оркестра войск Национальной Гвардии РФ, Заслуженный артист<br>
+              республики Башкортостан
+            </p>
+          </div>
+          <div class="meet-item">
+            <img src="images/meet_3.png">
+            <p class="meet-flex-alt">Крутикова Ирина Владимировна–<br>модельер, дизайнер, Заслуженный художник России</p>
+          </div>
+          <div class="meet-item">
+            <img src="images/meet_4.png">
+            <p>Касеинов  Дюсен Курабаевич-<br>Генеральный секретарь  ТЮРКСОЙ, Посол по особым поручением МИД  Республики Казахстан ,скрипач</p>
+          </div>
+          <div class="meet-item">
+            <img src="images/meet_5.png">
+            <p>Арцибашев Сергей Николаевич –<br>театральный режиссер, Народный артист РФ</p>
+          </div>
+          <div class="meet-item">
+            <img src="images/meet_6.png">
+            <p class="meet-flex-alt"  >Юрий Куклачев –<br>дрессировщик , Народный артист РФ</p>
+          </div>
+        </div>
+        <div class="meet-flex meet-flex-left">
+          <div class="meet-item">
+            <img src="images/meet_7.png">
+            <p>Молодые артисты театра<br>«Русская песня» под руководством Надежды Бабкиной</p>
+          </div>
+        </div>
+        <div class="video-flex flex-start">
+          <div class="video-item ex-margin">
+            <iframe frameborder="0" allowfullscreen width="400" height="250"
+              src="https://www.youtube.com/embed/LXb3EKWsInQ">
+            </iframe>
+            <div class="video-content">
+              <p>Наталья Усова — творческий вечер.« Осень без пяти минут» </p>
+              <p class="under-text">Стихи и песни автора <span class="more-weight">6 сентября 2019</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="anchor-contact" class="achor achor-top"></div>
+  <div class="center-wrapper">
+    <div id="anchor-contact" class="achor"></div>
+    <div class="contact">
+      <div class="contact-text">
+        <h2>Контакты</h2>
+      </div>
+      <div class="contact-flex">
+        <div class="contact-item">
+          <h3>PR</h3>
+          <h3>Нелли Ишметова</h3>
+          <h3><img src="images/icons/contact_1.png"><a href="tel:+79036133902">+7(903)6133-902</a></h3>
+          <h3><img src="images/icons/contact_2.png"><a href="mailto:Nelly-70@mail.ru">Nelly-70@mail.ru</a></h3>
+        </div>
+        <div class="contact-item">
+          <h3><img src="images/icons/contact_3.png"><a href="http://google.com">Наталья Усова ВКонтакте</a></h3>
+          <h3><img src="images/icons/contact_4.png"><a href="http://google.com">Наталья Усова в Фейсбуке</a></h3>
+          <h3><img src="images/icons/contact_5.png"><a href="http://google.com">Наталья Усова в Одноклассниках</a></h3>
+        </div>
+        <div class="contact-item">
+          <h3><img src="images/icons/contact_6.png"><a href="http://google.com">Официальный Инстаграм</a></h3>
+          <h3><img src="images/icons/contact_7.png"><a href="http://google.com">Официальный канал YouTube</a></h3>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="footer-items">
+      <a data-scroll href="#" class="footer-item">
+        <div class="footer-item">
+          <p class="more-width">Официальный сайт</p>
+        </div>
+      </a>
+      <a data-scroll href="#anchor-projects" class="footer-item">
+        <div class="footer-item">
+          <p>Проекты</p>
+        </div>
+      </a>
+      <a data-scroll href="#anchor-songs" class="footer-item">
+        <div class="footer-item">
+          <p>Песни</p>
+        </div>
+      </a>
+      <a data-scroll href="#anchor-poems" class="footer-item">
+        <div class="footer-item">
+          <p>Стихи</p>
+        </div>
+      </a>
+      <a href="news.html" class="footer-item">
+        <div class="footer-item">
+          <p>Новости</p>
+        </div>
+      </a>
+      <a data-scroll href="#anchor-press" class="footer-item">
+        <div class="footer-item">
+          <p>Пресса</p>
+        </div>
+      </a>
+      <a data-scroll href="#anchor-meet" class="footer-item">
+        <div class="footer-item">
+          <p>Встречи</p>
+        </div>
+      </a>
+      <a data-scroll href="#anchor-contact" class="footer-item">
+        <div class="footer-item">
+          <p>Контакты</p>
+        </div>
+      </a>
+    </div>
+  </div>
+
+<script src="scripts/lightbox-plus-jquery.min.js"></script>
+<script src="scripts/smooth-scroll.polyfills.min.js"></script>
+<script src="scripts/music.js" type="text/javascript"></script>
+<script src="scripts/setting.js" type="text/javascript"></script>
+</body>
+</html>
