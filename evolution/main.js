@@ -2,6 +2,8 @@ var scene = new THREE.Scene();
 var camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 100 );
 var renderer = new THREE.WebGLRenderer();
 
+renderer.shadowMap.enabled = true;
+
 
 renderer.setSize( window.innerWidth, window.innerHeight );
 document.body.appendChild( renderer.domElement );
@@ -10,6 +12,8 @@ document.body.appendChild( renderer.domElement );
 var platform_geo = new THREE.BoxGeometry(5, 0.9, 5);
 var platform_mat = new THREE.MeshBasicMaterial( { color: 0x173D5D} );
 var platform = new THREE.Mesh( platform_geo, platform_mat );
+platform.receiveShadow = true;
+platform.castShadow = true
 var wireframe_geo = new THREE.EdgesGeometry( platform.geometry );
 var wireframe_mat = new THREE.LineBasicMaterial( { color: 0xffffff, linewidth: 4 } );
 var wireframe = new THREE.LineSegments( wireframe_geo, wireframe_mat );
@@ -29,6 +33,17 @@ camera_pivot.rotateOnAxis( Y_AXIS, 0.01 );
 camera_pivot.rotation.x = -0.8;
 camera.position.z = 5;
 
+
+// Light
+
+const color = 0xFFFFFF;
+const intensity = 1;
+const light = new THREE.AmbientLight(color, intensity);
+helper = new THREE.PointLightHelper(light, 0.1);
+scene.add(light);
+
+
+
 // Target
 var targets = [];
 var targetValue = 0;
@@ -43,6 +58,8 @@ function createTarget(count){
     var randomTargetY = getRandomInt(-2, 2);
     target.position.x = randomTargetX;
     target.position.z = randomTargetY;
+    target.receiveShadow = true;
+    target.castShadow = true
     target.name = "target_"+targetValue;
     targetValue += 1;
     var temp_target = [randomTargetX, randomTargetY];
@@ -104,6 +121,8 @@ function createActor(count){
     actor.position.x = getRandomArbitrary(-2,2);
     actor.position.z = getRandomArbitrary(-2,2);
     actor.position.y += 0.5;
+    actor.receiveShadow = true;
+    actor.castShadow = true
     actor.name = "actor_" + actorValue;
     actor.speed = getRandomArbitrary(speedMin, speedMax);
     actor.home = possibleHomePosition[Math.floor(getRandomArbitrary(0,400))]
