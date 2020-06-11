@@ -1,9 +1,5 @@
 button:focus {outline:0;}
 
-.modal ::-webkit-scrollbar {
-    display: none;
-}
-
 .content{
   background-image: url('../images/content_bg.png');
   background-position: center;
@@ -31,6 +27,18 @@ button:focus {outline:0;}
   width: 100%;
   margin: 0px;
 }
+.music .about-text p{
+  text-transform: uppercase;
+  font-size: 17px;
+}
+.video .about-text p{
+  text-transform: uppercase;
+  font-size: 17px;
+}
+.book .about-text p{
+  text-transform: uppercase;
+  font-size: 17px;
+}
 .modal-wrapper{
   width: 100%;
   height: 100%;
@@ -39,35 +47,48 @@ button:focus {outline:0;}
   display: -webkit-flex;
   display: -ms-flex;
   display: flex;
-  -ms-align-items: flex-end;
-  align-items: flex-end;
   justify-content: center;
+  display: none;
 }
 .modal{
-  display: -webkit-flex;
-  display: -ms-flex;
   display: flex;
-  -ms-align-items: flex-end;
-  align-items: flex-end;
+  flex-wrap: wrap;
+  justify-content: center;
+  -ms-align-items: flex-start;
+  align-items: flex-start;
   overflow: auto;
   margin: 0px 15px;
   background: rgba(0,0,0,0.5);
   padding-top: 15px;
-  padding-bottom: 10px;
-}
-.modal img{
   height: 100%;
-  margin-right: 10px;
-  margin-bottom: 5vw;
+  padding-bottom: 10px;
+  padding-right: 3%;
+  padding-left: 3%;
 }
-#modal{
-  display: none;
+.modal > div{
+  flex-grow: 1;
+  height: 100%;
+  width: 100%;
+  flex: 1 1 30%;
+}
+#modalMusic .modal{
+  -ms-align-items: flex-start;
+  align-items: flex-start;
+}
+#modalImages .modal img{
+  margin: 10px;
+}
+.modal img:last-child{
+  margin-bottom: 100px !important;
+}
+.modal .music-item:last-child{
+  margin-bottom: 120px !important;
 }
 .about-text{
   display: -webkit-flex;
   display: -ms-flex;
   display: flex;
-  -ms-align-items: center;
+  -ms-align-items: §center;
   align-items: center;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
@@ -75,7 +96,6 @@ button:focus {outline:0;}
   justify-content: center;
 }
 .content-wrapper{
-  margin: 0px 3px;
   margin-top: 55px;
 }
 .about-img{
@@ -104,13 +124,20 @@ button:focus {outline:0;}
   margin-bottom: 25px;
 }
 .about-text p{
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 700;
   letter-spacing: 4px;
   text-align: center;
   font-family: robotoRegular;
   color: black;
   line-height: 1.8;
+}
+#modalMusic .modal{
+  background: white;
+  margin-top: 10px;
+}
+#modalMusic .music-item{
+  min-width: 240px;
 }
 .header a{
   text-decoration: none;
@@ -122,6 +149,35 @@ button:focus {outline:0;}
   display: flex;
   justify-content: space-between;
   align-content: center;
+}
+.footer-links{
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  justify-content: center;
+  -ms-align-items: center;
+  align-items: center;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+.footer-links-items{
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  position: absolute;
+  right: 3vw;
+  justify-content: center;
+  -ms-align-items: center;
+  align-items: center;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+.footer-links img{
+  height: 25px;
+  cursor: pointer;
+  margin: 10px;
 }
 
 .info-about div:last-child{
@@ -154,6 +210,37 @@ button:focus {outline:0;}
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+.photos-grid div{
+  cursor: pointer;
+}
+.photos-grid div a{
+  width: 100%;
+  height: 100%;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  justify-content: center;
+
+
+  width: calc(100% + 40px);
+  margin-left: -20px;
+}
+.lb-dataContainer{
+  display: none !important;
+}
+.lightbox{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0 !important;
+  left: 0 !important;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  justify-content: center;
+  -ms-align-items: center;
+  align-items: center;
 }
 .item-1 {
   background-image: url('../images/info_1.png');
@@ -298,7 +385,7 @@ button:focus {outline:0;}
 }
 .post-content p,
 .video-content p{
-  font-size: 13px;
+  font-size: 17px;
   font-weight: 700;
   letter-spacing: 4px;
   text-align: center;
@@ -311,7 +398,7 @@ button:focus {outline:0;}
 }
 .post-content h6,
 .video-content h6{
-  font-size: 14px;
+  font-size: 17px;
   font-weight: 900;
   letter-spacing: 2px;
   text-align: center;
@@ -438,12 +525,19 @@ button:focus {outline:0;}
 }
 .video-content p{
   text-align: left;
+  font-size: 14px;
+}
+.video-content h6{
+  font-size: 14px;
 }
 .video-content p,
 .video-content h6
 {
   width: auto;
   max-width: unset;
+}
+.video-content h6{
+  text-transform: uppercase;
 }
 .read-more{
   justify-content: unset;
@@ -460,10 +554,67 @@ button:focus {outline:0;}
 .footer-item p{
   min-width: 130px;
 }
+.video-more{
+  margin-top: 30px;
+}
+#modalVideoContent img,
+#modalVideoContent video{
+  margin: 20px;
+}
+#modalMusic .music-item{
+  height: 50px;
+}
+.modal{
+  max-width: 1200px;
+}
 @media (min-width: 320px) and (max-width: 1000px){
+  .photos-grid{
+    max-width: 90%;
+  }
+  .footer-links-items{
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    position: static;
+    margin-left: 10px;
+    border-left: 1px solid #262626;
+    padding-left: 10px;
+  }
+  .footer-links-items img{
+    margin: 0px 5px;
+  }
+  #modalVideo img:first-child{
+    margin-top: 100px !important;
+  }
+  #modalVideo img:last-child{
+    margin-bottom: 50px !important;
+  }
+  #modalImages .modal img{
+    min-width: 280px;
+    max-width: 280px;
+  }
+  #modalImages .modal img:last-child{
+    margin-bottom: 50px !important;
+  }
+  #modalImages .modal img:first-child{
+    margin-top: 70px;
+  }
+  #modalMusic .music-item{
+    margin-right: 20px;
+    min-width: 195px;
+  }
+  #modalMusic .music-item:last-child{
+    margin-bottom: 130px;
+  }
+  #modalMusic .modal{
+    margin-top: 80px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
   .modal{
     margin: 0px;
-    padding-left: 20px;
+    padding-left: 100%;
+    padding-right: 100%;
   }
   .info-about{
     margin-right: 30px;
@@ -614,7 +765,6 @@ button:focus {outline:0;}
   }
   .content-wrapper{
     margin-top: 0;
-    margin: 0px 2px;
   }
   .info-about div:last-child{
     margin-right: 30px;
@@ -633,9 +783,10 @@ button:focus {outline:0;}
   .music-content{
     width: 100%;
   }
-  .music-item{
+  #modalMusic .music-item{
     margin-left: 0px;
     margin-right: 0px;
+    width: 270px;
   }
   .music-content-wrapper{
     margin-top: 15px;

@@ -343,6 +343,20 @@ infoCanvas_18.onclick = function(e) {
    }
 }
 
-for (var i = 0; i < document.getElementsByClassName('align_end').length; i++) {
-  document.getElementsByClassName('align_end')[0].scrollTo(pageYOffset, 200);
+function swapElements(obj1, obj2) {
+    var temp = document.createElement("div");
+    obj1.parentNode.insertBefore(temp, obj1);
+    obj2.parentNode.insertBefore(obj1, obj2);
+    temp.parentNode.insertBefore(obj2, temp);
+    temp.parentNode.removeChild(temp);
+}
+
+var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+if(width <= 600){
+
+  for (var j = 0; j < document.getElementsByClassName('align_end').length; j++) {
+    for (var i = 0; i < 6; i++) {
+      swapElements(document.getElementsByClassName('align_end')[j].children[i], document.getElementsByClassName('align_end')[j].children[12-i]);
+    }
+  }
 }

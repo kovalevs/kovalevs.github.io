@@ -33,23 +33,3 @@ function stopMusic(elem){
   document.getElementsByClassName('musicPlay')[position].style.display = "block";
   document.getElementsByClassName('musicHidden')[position][method]();
 }
-
-
-var scroll = new SmoothScroll('a[href*="#"]', {
-	speed: 1600,
-  speedAsDuration: true
-});
-
-
-function closeMenu(){
-  document.getElementById('header-checkbox').click();
-}
-
-var modal = document.getElementById('modal');
-
-document.getElementById('imagesMore').onclick = function(){
-  modal.style.display = "flex";
-}
-modal.onclick = function(){
-  modal.style.display = "none";
-}

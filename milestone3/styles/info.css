@@ -11,7 +11,6 @@ html{
 .tabs-section{
   background: #222A35;
   width: 20%;
-  margin-bottom: 5px;
 }
 .info-navigation{
   margin: 1% 0%;
@@ -90,7 +89,6 @@ circle.highcharts-pivot{
 }
 text{
   color: white !important;
-  padding: 100px !important;
 }
 #meter_1{
   width: 100%;
@@ -1606,6 +1604,12 @@ input:focus,button:focus{
 }
 
 @media (min-width: 320px) and (max-width: 1075px) {
+  #chart_line .canvas_wrapper-full{
+    height: 90% !important;
+    margin-top: 0px !important;
+    padding-top: 10px !important;
+    padding-bottom: 5px !important;
+  }
   .canvas_wrapper-large_12{
     height: 90% !important;
   }
@@ -1870,6 +1874,9 @@ input:focus,button:focus{
     margin-top: 10px;
     margin-bottom: 10px;
     padding-left: 0% !important;
+    -webkit-flex-direction: row-reverse;
+    -ms-flex-direction: row-reverse;
+    flex-direction: row-reverse;
   }
   .home-chart-body-title{
     display: flex !important;
@@ -1995,5 +2002,13 @@ input:focus,button:focus{
   }
   #chart_energy .canvas_wrapper{
     padding-top: 100px;
+  }
+  text{
+    font: 11px Trebuchet MS, Verdana, sans-serif !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  .highcharts-root{
+    height: 150%;
   }
 }

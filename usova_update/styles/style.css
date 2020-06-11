@@ -703,9 +703,12 @@ h3 {
   margin : 20px 40px;
 }
 
+<<<<<<< HEAD
 .audioHidden{
   display: none !important;
 }
+=======
+>>>>>>> 40c6c8961e18e4d43a2b6a0280fd6b8e4c572ea9
 .music-item p {
   margin         : 0;
   padding        : 0;
@@ -970,7 +973,11 @@ h3 {
 }
 
 .video-content p {
+<<<<<<< HEAD
   width         : 525px !important;
+=======
+  width         : 500px !important;
+>>>>>>> 40c6c8961e18e4d43a2b6a0280fd6b8e4c572ea9
   margin-bottom : 5px;
 }
 
@@ -1273,6 +1280,7 @@ h3 {
   letter-spacing : 3px !important;
 }
 
+<<<<<<< HEAD
 
 @media (min-width : 320px)
   and (max-width : 1295px) {
@@ -1281,6 +1289,8 @@ h3 {
     }
 
   }
+=======
+>>>>>>> 40c6c8961e18e4d43a2b6a0280fd6b8e4c572ea9
 @media (min-width : 320px)
   and (max-width : 775px) {
     .contact-item h3{
@@ -1422,9 +1432,12 @@ h3 {
 @media
   (min-width : 320px)
   and (max-width : 600px) {
+<<<<<<< HEAD
     .contact-item{
       padding: 0px 20px;
     }
+=======
+>>>>>>> 40c6c8961e18e4d43a2b6a0280fd6b8e4c572ea9
     .news-item{
       flex-wrap: wrap;
     }

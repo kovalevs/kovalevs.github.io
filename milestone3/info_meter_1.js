@@ -6,12 +6,6 @@ var info_meter_1_maxvalue = 100;
 var info_meter_1_arrowvalue = 37;
 
 
-var distance = 20;
-
-var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
-if(width <= 1075){
-  distance = 5;
-}
 
 $(function () {
 
@@ -56,7 +50,7 @@ $(function () {
           tickColor: 'rgba(0,0,0,0)',
           tickInterval: 10,
           labels: {
-          distance: distance,
+          distance: 15,
            style: {
               color: 'white',
               font: '20px Trebuchet MS, Verdana, sans-serif',
