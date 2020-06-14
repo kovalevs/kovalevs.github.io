@@ -1295,7 +1295,13 @@ h3 {
       padding: 0% 5%;
     }
 }
+@media (min-width : 320px)
+  and (max-width : 450px) {
+  .content h3{
+    padding-top: 20vh !important;
+  }
 
+}
 @media (min-width : 320px)
   and (max-width : 1320px) {
     .contact-flex{
